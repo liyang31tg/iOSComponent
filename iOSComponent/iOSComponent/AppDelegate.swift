@@ -10,13 +10,42 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var account  = 3000
+    
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.window?.backgroundColor = UIColor.whiteColor()
+        for i in 0...6{
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+                self.deleteMoney()
+                
+                print("thread\(i):\(self.account)")
+            }
+        }
+       
+
+        
+        
         return true
+    }
+    
+    func deleteMoney(){
+        let t = dispatch_semaphore_create(1)
+        dispatch_semaphore_wait(t, DISPATCH_TIME_FOREVER)
+        if account > 2000 {
+            
+            sleep(2)
+            account -= 2000
+        }else{
+            print("钞票不够")
+        }
+        dispatch_semaphore_signal(t)
+       
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -40,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    
 
 
 }
