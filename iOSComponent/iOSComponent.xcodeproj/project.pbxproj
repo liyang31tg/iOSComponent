@@ -13,6 +13,7 @@
 		B618729C1CC144B700878EDE /* subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B618729B1CC144B700878EDE /* subject.storyboard */; };
 		B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618729E1CC1463F00878EDE /* ResponderChainViewController.swift */; };
 		B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61872A01CC1470C00878EDE /* BaseNavigationController.swift */; };
+		B6860CA01CC489D9006DD50E /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6860C9F1CC489D9006DD50E /* LinkedImplementsViewController.swift */; };
 		B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */; };
 		B6BFF3401CC12F1500141A93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BFF33E1CC12F1500141A93 /* Main.storyboard */; };
 		B6BFF3421CC12F1500141A93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BFF3411CC12F1500141A93 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		B618729B1CC144B700878EDE /* subject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = subject.storyboard; sourceTree = "<group>"; };
 		B618729E1CC1463F00878EDE /* ResponderChainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderChainViewController.swift; sourceTree = "<group>"; };
 		B61872A01CC1470C00878EDE /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		B6860C9F1CC489D9006DD50E /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
 		B6BFF3371CC12F1500141A93 /* iOSComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6BFF33F1CC12F1500141A93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				B618729E1CC1463F00878EDE /* ResponderChainViewController.swift */,
+				B6860C9F1CC489D9006DD50E /* LinkedImplementsViewController.swift */,
 			);
 			path = responderChain;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6860CA01CC489D9006DD50E /* LinkedImplementsViewController.swift in Sources */,
 				B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
 				B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */,

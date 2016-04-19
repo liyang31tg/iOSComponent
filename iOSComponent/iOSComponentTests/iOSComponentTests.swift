@@ -22,8 +22,22 @@ class iOSComponentTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        var account = 3000
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            if account > 2000{
+                sleep(2)
+                account -= 2000
+            }
+            print("aaaa:\(account)")
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            if account > 2000{
+                sleep(2)
+                account -= 2000
+            }
+            print("aaaa:\(account)")
+        }
     }
     
     func testPerformanceExample() {
@@ -33,4 +47,42 @@ class iOSComponentTests: XCTestCase {
         }
     }
     
+    func tt(){
+        var account = 3000
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            if account > 2000{
+                sleep(2)
+                account -= 2000
+            }
+            print("aaaa:\(account)")
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            if account > 2000{
+                sleep(2)
+                account -= 2000
+            }
+            print("aaaa:\(account)")
+        }
+    }
+
+    
+    func test1(){
+        var account = 3000
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            if account > 2000{
+                sleep(2)
+                account -= 2000
+            }
+            print("aaaa:\(account)")
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            if account > 2000{
+                sleep(2)
+                account -= 2000
+            }
+            print("aaaa:\(account)")
+        }
+    }
 }
