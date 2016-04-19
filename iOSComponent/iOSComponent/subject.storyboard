@@ -13,10 +13,38 @@
                         <viewControllerLayoutGuide type="top" id="nd2-iw-SRJ"/>
                         <viewControllerLayoutGuide type="bottom" id="kTL-pb-ZfZ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="f22-vj-Zln">
+                    <view key="view" contentMode="scaleToFill" id="f22-vj-Zln" customClass="UIViewA" customModule="iOSComponent" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4df-c4-MNm" customClass="UIViewB" customModule="iOSComponent" customModuleProvider="target">
+                                <rect key="frame" x="33" y="54" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.41960784309999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Plu-OP-qPc"/>
+                                    <constraint firstAttribute="width" constant="240" id="Z2g-JP-tMj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPC-OI-Sil" customClass="UIViewC" customModule="iOSComponent" customModuleProvider="target">
+                                <rect key="frame" x="52" y="124" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.13009202780000001" blue="0.1795688896" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="2Xh-pj-3Ed"/>
+                                    <constraint firstAttribute="height" constant="128" id="62n-0Z-Eib"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yTw-kw-zii" customClass="UIViewD" customModule="iOSComponent" customModuleProvider="target">
+                                <rect key="frame" x="27" y="313" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4df-c4-MNm" firstAttribute="top" secondItem="nd2-iw-SRJ" secondAttribute="bottom" constant="34" id="2Ip-Zz-bcz"/>
+                            <constraint firstAttribute="trailing" secondItem="ZPC-OI-Sil" secondAttribute="trailing" constant="28" id="HHR-vk-4Hx"/>
+                            <constraint firstItem="ZPC-OI-Sil" firstAttribute="top" secondItem="nd2-iw-SRJ" secondAttribute="bottom" constant="104" id="ZWv-qu-zvq"/>
+                            <constraint firstItem="4df-c4-MNm" firstAttribute="leading" secondItem="f22-vj-Zln" secondAttribute="leading" constant="33" id="sci-Zm-dGN"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
