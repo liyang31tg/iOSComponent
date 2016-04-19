@@ -5,7 +5,7 @@
 //  Created by liyang on 16/4/18.
 //  Copyright © 2016年 liyang. All rights reserved.
 //
-// Swift - 链表结构的实现
+// Swift - 链表结构实现LRU(least recently used) 算法
 import Foundation
 import UIKit
 
