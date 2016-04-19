@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="344" y="1018"/>
         </scene>
-        <!--View Controller-->
+        <!--Dday Dream View Controller-->
         <scene sceneID="u5d-AX-tMQ">
             <objects>
-                <viewController id="kax-Zo-A8x" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GCDdayDreamViewControllerStoryboardid" id="kax-Zo-A8x" customClass="GCDdayDreamViewController" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7YH-sX-4AA"/>
                         <viewControllerLayoutGuide type="bottom" id="rye-sf-j5K"/>
@@ -156,7 +156,24 @@
                     <view key="view" contentMode="scaleToFill" id="H0G-jk-pbs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdc-9C-sfj">
+                                <rect key="frame" x="75" y="116" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="GcE-ax-2q5"/>
+                                    <constraint firstAttribute="height" constant="30" id="kf3-XX-j4Y"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="doAction:" destination="kax-Zo-A8x" eventType="touchUpInside" id="drT-G7-u35"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wdc-9C-sfj" firstAttribute="top" secondItem="7YH-sX-4AA" secondAttribute="bottom" constant="96" id="Kje-N2-1wJ"/>
+                            <constraint firstItem="wdc-9C-sfj" firstAttribute="leading" secondItem="H0G-jk-pbs" secondAttribute="leading" constant="75" id="jqh-rn-VTn"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>

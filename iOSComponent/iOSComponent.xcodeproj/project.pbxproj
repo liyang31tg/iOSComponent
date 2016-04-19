@@ -14,6 +14,7 @@
 		B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618729E1CC1463F00878EDE /* ResponderChainViewController.swift */; };
 		B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61872A01CC1470C00878EDE /* BaseNavigationController.swift */; };
 		B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */; };
+		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
 		B68709FB1CC5E7C70012345F /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = B68709F91CC5E7C70012345F /* sqlite3.c */; };
 		B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */; };
 		B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 		B618729E1CC1463F00878EDE /* ResponderChainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderChainViewController.swift; sourceTree = "<group>"; };
 		B61872A01CC1470C00878EDE /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
+		B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDdayDreamViewController.swift; sourceTree = "<group>"; };
 		B68709F81CC5E7C60012345F /* iOSComponent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSComponent-Bridging-Header.h"; sourceTree = "<group>"; };
 		B68709F91CC5E7C70012345F /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
 		B68709FA1CC5E7C70012345F /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		B618728E1CC1308D00878EDE /* subject */ = {
 			isa = PBXGroup;
 			children = (
+				B657CB621CC6560B00EE506F /* GCDdayDream */,
 				B657CB5F1CC6552C00EE506F /* LRU */,
 				B618729D1CC1462A00878EDE /* responderChain */,
 				B61872991CC13EFF00878EDE /* SubjectViewController.swift */,
@@ -178,6 +181,14 @@
 				B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */,
 			);
 			path = LRU;
+			sourceTree = "<group>";
+		};
+		B657CB621CC6560B00EE506F /* GCDdayDream */ = {
+			isa = PBXGroup;
+			children = (
+				B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */,
+			);
+			path = GCDdayDream;
 			sourceTree = "<group>";
 		};
 		B68709F71CC5E7A70012345F /* libs */ = {
@@ -390,6 +401,7 @@
 				B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */,
 				B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */,
 				B61872961CC1383400878EDE /* BaseViewController.swift in Sources */,
+				B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */,
 				B68709FB1CC5E7C70012345F /* sqlite3.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
