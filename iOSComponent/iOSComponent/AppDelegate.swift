@@ -13,17 +13,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     var window: UIWindow?
-
+    
+    var db1: COpaquePointer = nil
+    let lock = dispatch_semaphore_create(1)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         var account = 3000
+       
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            sleep(2)
             self.deleteMoney(&account)
             print("aaaa:\(account)")
         }
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
-            self.deleteMoney(&account)
+            self.deleteM(&account)
             print("aaaa:\(account)")
         }
 
@@ -31,13 +35,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func deleteMoney(inout account:Int){
-    let lock = dispatch_semaphore_create(1)
         dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER)
         if account > 2000{
             let tmp = account
             account = tmp - 2000
+        }else{
+            print("deleteMoney钱不够偶")
         }
-
+        dispatch_semaphore_signal(lock)
+    }
+    
+    func deleteM(inout account:Int){
+        dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER)
+        if account > 2000{
+            let tmp = account
+            account = tmp - 2000
+        }else{
+            print("deleteM钱不够偶")
+        }
         dispatch_semaphore_signal(lock)
     }
 
