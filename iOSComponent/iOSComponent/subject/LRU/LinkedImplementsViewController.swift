@@ -98,7 +98,7 @@ class LURCache {
             if currentSize >= cacheSize {
                 removeLast()
             }
-            currentSize++
+            currentSize += 1
             tmpNode = CacheNode()
         }
         tmpNode!.key = key
@@ -128,7 +128,7 @@ class LURCache {
                 firstNode = tmpNode?.next
             }
             nodes[key] = nil
-            currentSize--
+            currentSize -= 1
         }
         return tmpNode
     }
@@ -144,7 +144,7 @@ class LURCache {
     private func removeLast(){
         if let lastn = lastNode {
             nodes[lastn.key] = nil//从缓存中删除
-            currentSize--
+            currentSize -= 1
             if let lastPre = lastn.prev {
                     lastPre.next = nil
                 }else{

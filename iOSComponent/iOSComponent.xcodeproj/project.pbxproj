@@ -23,6 +23,11 @@
 		B6BFF3451CC12F1500141A93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BFF3431CC12F1500141A93 /* LaunchScreen.storyboard */; };
 		B6BFF3501CC12F1600141A93 /* iOSComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF34F1CC12F1600141A93 /* iOSComponentTests.swift */; };
 		B6BFF35B1CC12F1600141A93 /* iOSComponentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF35A1CC12F1600141A93 /* iOSComponentUITests.swift */; };
+		B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D21CCA3E4B0028CE37 /* ControlViewController.swift */; };
+		B6E336D51CCA3F390028CE37 /* control.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E336D41CCA3F390028CE37 /* control.storyboard */; };
+		B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D71CCA3FD60028CE37 /* SunLabel.swift */; };
+		B6E336DA1CCA42940028CE37 /* SunLableViewControlelr.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D91CCA42940028CE37 /* SunLableViewControlelr.swift */; };
+		B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,11 @@
 		B6BFF3561CC12F1600141A93 /* iOSComponentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSComponentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BFF35A1CC12F1600141A93 /* iOSComponentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSComponentUITests.swift; sourceTree = "<group>"; };
 		B6BFF35C1CC12F1600141A93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6E336D21CCA3E4B0028CE37 /* ControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
+		B6E336D41CCA3F390028CE37 /* control.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = control.storyboard; sourceTree = "<group>"; };
+		B6E336D71CCA3FD60028CE37 /* SunLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLabel.swift; sourceTree = "<group>"; };
+		B6E336D91CCA42940028CE37 /* SunLableViewControlelr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLableViewControlelr.swift; sourceTree = "<group>"; };
+		B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunFPSLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,8 @@
 		B618728D1CC1308D00878EDE /* control */ = {
 			isa = PBXGroup;
 			children = (
+				B6E336D61CCA3FBD0028CE37 /* sunLabel */,
+				B6E336D21CCA3E4B0028CE37 /* ControlViewController.swift */,
 			);
 			path = control;
 			sourceTree = "<group>";
@@ -225,6 +237,7 @@
 		B6BFF3391CC12F1500141A93 /* iOSComponent */ = {
 			isa = PBXGroup;
 			children = (
+				B6E336DB1CCB1D790028CE37 /* SUNKit */,
 				B68709F71CC5E7A70012345F /* libs */,
 				B61872901CC1382200878EDE /* base */,
 				B61872911CC1382200878EDE /* public */,
@@ -235,6 +248,7 @@
 				B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */,
 				B6BFF33E1CC12F1500141A93 /* Main.storyboard */,
 				B618729B1CC144B700878EDE /* subject.storyboard */,
+				B6E336D41CCA3F390028CE37 /* control.storyboard */,
 				B6BFF3411CC12F1500141A93 /* Assets.xcassets */,
 				B6BFF3431CC12F1500141A93 /* LaunchScreen.storyboard */,
 				B6BFF3461CC12F1500141A93 /* Info.plist */,
@@ -258,6 +272,31 @@
 				B6BFF35C1CC12F1600141A93 /* Info.plist */,
 			);
 			path = iOSComponentUITests;
+			sourceTree = "<group>";
+		};
+		B6E336D61CCA3FBD0028CE37 /* sunLabel */ = {
+			isa = PBXGroup;
+			children = (
+				B6E336D71CCA3FD60028CE37 /* SunLabel.swift */,
+				B6E336D91CCA42940028CE37 /* SunLableViewControlelr.swift */,
+			);
+			path = sunLabel;
+			sourceTree = "<group>";
+		};
+		B6E336DB1CCB1D790028CE37 /* SUNKit */ = {
+			isa = PBXGroup;
+			children = (
+				B6E336DE1CCB1F2F0028CE37 /* SunLabel */,
+			);
+			path = SUNKit;
+			sourceTree = "<group>";
+		};
+		B6E336DE1CCB1F2F0028CE37 /* SunLabel */ = {
+			isa = PBXGroup;
+			children = (
+				B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */,
+			);
+			path = SunLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E336D51CCA3F390028CE37 /* control.storyboard in Resources */,
 				B6BFF3451CC12F1500141A93 /* LaunchScreen.storyboard in Resources */,
 				B618729C1CC144B700878EDE /* subject.storyboard in Resources */,
 				B6BFF3421CC12F1500141A93 /* Assets.xcassets in Resources */,
@@ -394,7 +434,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */,
+				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
+				B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */,
+				B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */,
 				B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */,
 				B618729A1CC13EFF00878EDE /* SubjectViewController.swift in Sources */,
 				B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */,
@@ -402,6 +445,7 @@
 				B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */,
 				B61872961CC1383400878EDE /* BaseViewController.swift in Sources */,
 				B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */,
+				B6E336DA1CCA42940028CE37 /* SunLableViewControlelr.swift in Sources */,
 				B68709FB1CC5E7C70012345F /* sqlite3.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
