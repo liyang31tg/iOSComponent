@@ -10,8 +10,22 @@ import Foundation
 import UIKit
 
 class ControlViewController: BaseGroupTableViewController {
+    
+    @IBOutlet weak var contentTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataArray = [[CTDomain(sectionTitle: "UILabel"),CTDomain(title: "SunLabel", storyBoard: "control", storyBoardId: "uiLabelExtenssionIdentifer")]]
+        dataArray = [[CTDomain(sectionTitle: "UILabel"),CTDomain(title: "SUNKit", storyBoard: "control", storyBoardId: "uiLabelExtenssionIdentifer")]]
+        
+        print(self.contentTableView.contentInset)
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("asfs:\(self.contentTableView.contentInset)")
+        
     }
 }

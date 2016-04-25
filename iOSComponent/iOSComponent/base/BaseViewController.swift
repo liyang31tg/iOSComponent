@@ -15,7 +15,7 @@ class BaseViewController: UIViewController {
         if self.navigationController?.viewControllers.first == self {
             self.navigationItem.leftBarButtonItem = nil
         } else {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "fts_search_backicon_ios7"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("backAction"))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "fts_search_backicon_ios7"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BaseViewController.backAction))
         }
         
     }

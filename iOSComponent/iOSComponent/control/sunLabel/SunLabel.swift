@@ -11,45 +11,60 @@ import UIKit
 
 class SunLabel: UIView {
     
+    var text: String?
+    var attributedText: NSAttributedString? {
+    
+        didSet{
+            self.layer.setNeedsDisplay()
+        }
+    }
+    
     override class func layerClass() -> AnyClass{
     
-        return SunAsynsLayer.classForCoder()
+        return SunAsynsLayer.self
     }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
-      
-
-       
-    }
+//    override func drawRect(rect: CGRect) {
+//        super.drawRect(rect)
+//        
+//    }
+    
+   
     
 }
+
+
 
 
 class SunAsynsLayer: CALayer {
     
     deinit{
-        print("sunLayer is die")
+    
+        print("sunLayer is die\(self.delegate)")
+    }
+    
+    override func display() {
+         ("Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫" as NSString).drawInRect(CGRect(x: 0, y: 0, width: 375, height: 60), withAttributes: nil)
     }
     
     
     override func drawInContext(ctx: CGContext) {
         super.drawInContext(ctx)
         
-        let path = (NSHomeDirectory() as NSString).stringByAppendingPathComponent("test.pdf")
-        let context = ctx
-        CGContextTranslateCTM(context, 0.0, self.bounds.size.height)
-        CGContextScaleCTM(context, 1.0, -1.0)
-        let url = NSURL(fileURLWithPath: path) as CFURLRef
-        let pdf = CGPDFDocumentCreateWithURL(url)
-        let page = CGPDFDocumentGetPage(pdf, 1)
-        CGContextSaveGState(context)
         
-        //        let pdfTransform = CGPDFPageGetDrawingTransform(page, CGPDFBox.CropBox, self.bounds, 0, true)
-        //        CGContextConcatCTM(context, pdfTransform)
+    
+//        dispatch_async(dispatch_get_main_queue()) {
+//            UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, self.contentsScale)
         
-        CGContextDrawPDFPage(context, page);
-        CGContextRestoreGState(context);
+            
+        
+//            let image =  UIGraphicsGetImageFromCurrentImageContext()
+//            UIGraphicsEndImageContext()
+//            dispatch_async(dispatch_get_main_queue(), {
+//                self.contents = image.CGImage
+//            })
+//        }
+       
         
         
         

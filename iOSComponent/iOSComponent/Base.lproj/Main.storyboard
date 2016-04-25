@@ -111,7 +111,7 @@
         <!--控件-->
         <scene sceneID="Iby-4f-snY">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QJI-Yg-KTy" customClass="ControlViewController" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QJI-Yg-KTy" customClass="ControlViewController" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Je5-q0-cqn"/>
                         <viewControllerLayoutGuide type="bottom" id="ZVE-gQ-jMZ"/>
@@ -121,11 +121,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="eLL-fE-Lh4">
-                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cttableviewCellidentifier" id="CXC-xJ-cU0">
-                                        <rect key="frame" x="0.0" y="50" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="114" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CXC-xJ-cU0" id="eqa-FP-MFD">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -142,13 +142,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eLL-fE-Lh4" secondAttribute="trailing" id="1Gk-Bk-t3e"/>
-                            <constraint firstItem="eLL-fE-Lh4" firstAttribute="top" secondItem="Je5-q0-cqn" secondAttribute="bottom" id="1f4-t7-fq6"/>
                             <constraint firstItem="ZVE-gQ-jMZ" firstAttribute="top" secondItem="eLL-fE-Lh4" secondAttribute="bottom" id="3br-qd-bDN"/>
                             <constraint firstItem="eLL-fE-Lh4" firstAttribute="leading" secondItem="ERg-Ip-ho0" secondAttribute="leading" id="sgP-Zd-LLR"/>
+                            <constraint firstItem="eLL-fE-Lh4" firstAttribute="top" secondItem="ERg-Ip-ho0" secondAttribute="top" id="x6L-zy-OSB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="控件" id="lFQ-3t-dOm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="contentTableView" destination="eLL-fE-Lh4" id="7f8-rB-84p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldZ-fR-Owi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

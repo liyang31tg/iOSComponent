@@ -13,6 +13,7 @@
 		B618729C1CC144B700878EDE /* subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B618729B1CC144B700878EDE /* subject.storyboard */; };
 		B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618729E1CC1463F00878EDE /* ResponderChainViewController.swift */; };
 		B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61872A01CC1470C00878EDE /* BaseNavigationController.swift */; };
+		B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634BE131CCE5159008C26CB /* CoreTextViewController.swift */; };
 		B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */; };
 		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
 		B68709FB1CC5E7C70012345F /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = B68709F91CC5E7C70012345F /* sqlite3.c */; };
@@ -28,6 +29,8 @@
 		B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D71CCA3FD60028CE37 /* SunLabel.swift */; };
 		B6E336DA1CCA42940028CE37 /* SunLableViewControlelr.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D91CCA42940028CE37 /* SunLableViewControlelr.swift */; };
 		B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */; };
+		B6E336E21CCB92910028CE37 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336E11CCB92910028CE37 /* Constant.swift */; };
+		B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,7 @@
 		B618729B1CC144B700878EDE /* subject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = subject.storyboard; sourceTree = "<group>"; };
 		B618729E1CC1463F00878EDE /* ResponderChainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderChainViewController.swift; sourceTree = "<group>"; };
 		B61872A01CC1470C00878EDE /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		B634BE131CCE5159008C26CB /* CoreTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
 		B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
 		B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDdayDreamViewController.swift; sourceTree = "<group>"; };
 		B68709F81CC5E7C60012345F /* iOSComponent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSComponent-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 		B6E336D71CCA3FD60028CE37 /* SunLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLabel.swift; sourceTree = "<group>"; };
 		B6E336D91CCA42940028CE37 /* SunLableViewControlelr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLableViewControlelr.swift; sourceTree = "<group>"; };
 		B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunFPSLabel.swift; sourceTree = "<group>"; };
+		B6E336E11CCB92910028CE37 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,8 @@
 		B618728E1CC1308D00878EDE /* subject */ = {
 			isa = PBXGroup;
 			children = (
+				B634BE121CCE5147008C26CB /* CoreText */,
+				B6E819C11CCC896C005090F0 /* CornerRadius */,
 				B657CB621CC6560B00EE506F /* GCDdayDream */,
 				B657CB5F1CC6552C00EE506F /* LRU */,
 				B618729D1CC1462A00878EDE /* responderChain */,
@@ -185,6 +193,14 @@
 				B618729E1CC1463F00878EDE /* ResponderChainViewController.swift */,
 			);
 			path = responderChain;
+			sourceTree = "<group>";
+		};
+		B634BE121CCE5147008C26CB /* CoreText */ = {
+			isa = PBXGroup;
+			children = (
+				B634BE131CCE5159008C26CB /* CoreTextViewController.swift */,
+			);
+			path = CoreText;
 			sourceTree = "<group>";
 		};
 		B657CB5F1CC6552C00EE506F /* LRU */ = {
@@ -287,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E336DE1CCB1F2F0028CE37 /* SunLabel */,
+				B6E336E11CCB92910028CE37 /* Constant.swift */,
 			);
 			path = SUNKit;
 			sourceTree = "<group>";
@@ -297,6 +314,14 @@
 				B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */,
 			);
 			path = SunLabel;
+			sourceTree = "<group>";
+		};
+		B6E819C11CCC896C005090F0 /* CornerRadius */ = {
+			isa = PBXGroup;
+			children = (
+				B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */,
+			);
+			path = CornerRadius;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,11 +460,14 @@
 			files = (
 				B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */,
 				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,
+				B6E336E21CCB92910028CE37 /* Constant.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
 				B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */,
 				B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */,
+				B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */,
 				B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */,
 				B618729A1CC13EFF00878EDE /* SubjectViewController.swift in Sources */,
+				B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */,
 				B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */,
 				B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */,
 				B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */,

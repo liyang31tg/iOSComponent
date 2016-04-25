@@ -12,9 +12,10 @@ import UIKit
 class SunFPSLabel: UILabel {
     
     var ca: CADisplayLink!
-    var offsetTime:CFTimeInterval       = 0
     var count                           = 0
     let rM                              = NSRunLoop.mainRunLoop()
+    
+    var lastTime:CFTimeInterval         = 0
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
@@ -42,13 +43,18 @@ class SunFPSLabel: UILabel {
     }
     
     func heart(calink: CADisplayLink){
+        guard (lastTime != 0) else {
+            lastTime = calink.timestamp
+            return
+        }
+
         count      += 1
-        offsetTime += calink.duration
+        let  offsetTime = calink.timestamp - lastTime;
         guard offsetTime > 1 else{
             return
         }
         let fps     = Double(count) / offsetTime
-        offsetTime  = 0
+        lastTime    = calink.timestamp
         count       = 0
 
         let attr                =  NSMutableAttributedString(string: "\(Int(round(fps))) FPS")

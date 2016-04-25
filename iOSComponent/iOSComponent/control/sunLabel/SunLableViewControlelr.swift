@@ -8,91 +8,119 @@
 
 import Foundation
 import UIKit
-
+let cellIdentifier = "aysnTextIdentifier"
 class SunlableViewController: BaseViewController {
-     let sunLabel = SunLabel(frame: CGRect(x: 0, y: 100, width: 375, height: 300))
+    
+    let fps = SunFPSLabel(frame: CGRect(x: 0, y: 64, width: 60, height: 44))
+    
+    lazy var contentTableView: UITableView = { ()-> UITableView in
+        var tmpTableView        = UITableView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight), style: UITableViewStyle.Plain)
+        tmpTableView.delegate   = self
+        tmpTableView.dataSource = self
+        tmpTableView.tableFooterView = UIView()
+        tmpTableView.rowHeight       = 60
+        tmpTableView.registerClass(AsynTextCell.self, forCellReuseIdentifier: cellIdentifier)
+        return tmpTableView
+    
+    }()
+    
+    lazy var dataArray:[NSMutableAttributedString] = {() -> [NSMutableAttributedString] in
+        var tempArray: [NSMutableAttributedString] = []
+        for i in 0...300 {
+            let s: NSString = "\(i)Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫"
+            
+            var as1 = NSMutableAttributedString(string: s as String)
+            as1.beginEditing()
+           let style = NSMutableParagraphStyle()
+            style.lineSpacing = 10
+            style.lineHeightMultiple = 1
+            style.maximumLineHeight = 12
+            style.minimumLineHeight = 12
+            
+            
+            as1.addAttributes([NSFontAttributeName: UIFont.systemFontOfSize(10),NSStrokeWidthAttributeName : 1,NSStrokeColorAttributeName: UIColor.redColor(),NSParagraphStyleAttributeName: style], range: NSRange(location: 0, length: s.length))
+            
+            as1.endEditing()
+            
+          
+            
+            
+          
+          
+            tempArray.append(as1)
+        }
+        return tempArray
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
-//        
-//        //沙盒路径（也就是我们应用程序文件运行的路径）
-//        let paths = NSHomeDirectory()
-//        
-//        let path = (paths as NSString).stringByAppendingPathComponent("test.pdf")
-//        NSFileManager.defaultManager().createFileAtPath(path, contents: nil, attributes: nil)
-//        
-//        //启用pdf图形上下文
-//        /**
-//         path:保存路径
-//         bounds:pdf文档大小，如果设置为CGRectZero则使用默认值：612*792
-//         pageInfo:页面设置,为nil则不设置任何信息
-//         */
-//        UIGraphicsBeginPDFContextToFile(path, CGRectZero, nil)
-//        //        [kCGPDFContextAuthor:"ZUBER"]
-//        //由于pdf文档是分页的，所以首先要创建一页画布供我们绘制
-//        UIGraphicsBeginPDFPage()
-//        
-//        let title = "开心的学习 CoreGraphics 开心的学习Swift"
-//        let style = NSMutableParagraphStyle()
-//        style.alignment = NSTextAlignment.Center
-//        (title as NSString).drawInRect(CGRectMake(26, 20, 300, 50) , withAttributes: [NSFontAttributeName:UIFont.boldSystemFontOfSize(18),NSParagraphStyleAttributeName:style])
-//        
-//        let content = "Learn about Apple products, view online manuals, get the latest downloads, and more. Connect with other Apple users, or get service, support, and professional advice from Apple."
-//        let style2 = NSMutableParagraphStyle()
-//        style2.alignment = NSTextAlignment.Left
-//        (content as NSString).drawInRect(CGRectMake(26, 56, 300, 255) , withAttributes: [NSFontAttributeName:UIFont.systemFontOfSize(15),NSParagraphStyleAttributeName:style2,NSForegroundColorAttributeName:UIColor.grayColor()])
-//        
-//        let img = UIImage(named: "page1.jpg")
-//        img?.drawInRect(CGRectMake(316, 20, 290, 305))
-//        
-//        let img2 = UIImage(named: "page2.jpg")
-//        img2?.drawInRect(CGRectMake(6, 320, 600, 281))
-//        
-//        //创建新的一页继续绘制
-//        UIGraphicsBeginPDFPage()
-//        let img3 = UIImage(named: "page3.jpg")
-//        img3?.drawInRect(CGRectMake(6, 20, 600, 629))
-//        
-//        //结束pdf上下文
-//        UIGraphicsEndPDFContext()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        
-//        sunLabel.translatesAutoresizingMaskIntoConstraints = false
-//        sunLabel.backgroundColor = UIColor.redColor()
-//        self.view.addSubview(sunLabel)
-//        
-//        
-//        
-//        
-//        let top = NSLayoutConstraint(item: sunLabel, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 64)
-//        
-//        let leading = NSLayoutConstraint(item: sunLabel, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0)
-//        
-//        let training = NSLayoutConstraint(item: sunLabel, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0)
-//        
-//        let height = NSLayoutConstraint(item: sunLabel, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 400)
-//        
-//        self.view.addConstraints([top,leading,training,height])
+        self.view.addSubview(self.contentTableView)
+        self.view.addSubview(fps)
     }
     
-    @IBAction func tapAction(sender: AnyObject) {
-        sunLabel.layer.setNeedsDisplay()
+   
+}
+
+extension SunlableViewController:UITableViewDelegate,UITableViewDataSource{
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AsynTextCell
+        cell.isAsyn = true
+        cell.contentS = self.dataArray[indexPath.row]
+        return cell
+    }
+}
+
+
+class AsynTextCell: UITableViewCell {
+    
+    
+    let normalLabel = {()-> UILabel in
+        let tmpLabel = UILabel(frame:CGRect(x: 0, y: 0, width: ScreenWidth, height: 60) )
+        tmpLabel.numberOfLines = 0
+        tmpLabel.font = UIFont.systemFontOfSize(10)
+        
+        return tmpLabel
+    }()
+    let asynLabel = {()-> SunLabel in
+    
+        let tmplabel = SunLabel(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 60))
+        tmplabel.backgroundColor = UIColor.whiteColor()
+        return tmplabel
+    }()
+    
+    var isAsyn          =   false {
+        didSet{
+            normalLabel.hidden  = isAsyn
+            asynLabel.hidden    = !isAsyn
+        }
+    
+    }
+    var contentS = NSMutableAttributedString(string: "") {
+        didSet{
+            if self.isAsyn {
+                asynLabel.attributedText    = contentS
+            }else{
+                normalLabel.attributedText  = contentS
+            }
+        
+        }
+    
+    }
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    
+        self.contentView.addSubview(normalLabel)
+        self.contentView.addSubview(asynLabel)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
     }
 }
