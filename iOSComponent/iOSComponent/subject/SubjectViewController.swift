@@ -16,7 +16,8 @@ class SubjectViewController: BaseGroupTableViewController {
         [CTDomain(sectionTitle: "多线程"),CTDomain(title: "GCD的遐想", storyBoard: "subject", storyBoardId: "GCDdayDreamViewControllerStoryboardid")],
         
         [CTDomain(sectionTitle: "性能优化"),CTDomain(title: "cornerRadius正确的姿势", storyBoard: "subject", storyBoardId: "cornerRadiusViewControllerStoryboardid")],
-        [CTDomain(sectionTitle: "Core Text"),CTDomain(title: "Core Text初探", storyBoard: "subject", storyBoardId: "coreTextForeViewControllerStoryboardid")]]
+        [CTDomain(sectionTitle: "Core Text"),CTDomain(title: "Core Text初探", storyBoard: "subject", storyBoardId: "coreTextForeViewControllerStoryboardid")],
+        [CTDomain(sectionTitle: "Core Graphics"),CTDomain(title: "Core Graphics初探", storyBoard: "subject", storyBoardId: "coreGraphicsViewControllerStoryboardid")]]
         
         
         

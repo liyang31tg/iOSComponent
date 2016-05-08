@@ -91,7 +91,7 @@ class CoreTextLayer: CALayer {
         super.contents = super.contents
         let size = self.bounds.size
         let opaque = self.opaque
-        let scale = self.contentsScale
+        let scale = UIScreen.mainScreen().scale
         
         dispatch_async(queue11) {
             UIGraphicsBeginImageContextWithOptions(size, opaque, scale)

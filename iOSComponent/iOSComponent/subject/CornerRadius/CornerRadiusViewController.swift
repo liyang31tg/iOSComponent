@@ -10,10 +10,27 @@ import Foundation
 import UIKit
 
 class CornerRadiusViewController: BaseViewController {
+    var isNormal    = false{
+        didSet{
+            self.contentTableView.reloadData()
+        }
     
+    }
+    
+    @IBOutlet weak var swichBtn: UISwitch!
     @IBOutlet weak var contentTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.swichBtn.on = false
+        
+        self.title = "cornerRadius 正确的姿势"
+    }
+    
+    
+    @IBAction func swichtAcrion(sender: AnyObject) {
+        
+        self.isNormal = (sender as! UISwitch).on
+        
     }
     
 }
@@ -25,7 +42,8 @@ extension CornerRadiusViewController:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CornerCellidentifier", forIndexPath: indexPath) as! CornerCell
+        let cellIdentifier = isNormal ? "CornerCellNormolIdentifier" : "CornerCellidentifier"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
         return cell
     }
@@ -53,78 +71,64 @@ class CornerCell: UITableViewCell {
     @IBOutlet weak var testView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-//        testView.layer.cornerRadius = 8
-//        
-//        testView.layer.borderColor = UIColor.redColor().CGColor
-//        testView.layer.borderWidth = 0.5
-//        
-//        testView.layer.shadowColor = UIColor.blackColor().CGColor
-//        testView.layer.shadowOffset = CGSize(width: 10, height: 10)
-//        testView.clipsToBounds = true
-//        
-//        testView.layer.masksToBounds = true
-        
-//        C1.layer.cornerRadius = 8
-//        C1.layer.masksToBounds = true
-        
-//        C2.layer.cornerRadius = 8
-//        C2.layer.masksToBounds = true
-//        
-//        C3.layer.cornerRadius = 8
-//        C3.clipsToBounds = true
-        
-        
         testView.layer.cornerRadius = 8
-
-        testView.layer.masksToBounds = true
+        let CL1 = (C1.layer as! CornerRadiusLayer)
+        let CL2 = (C2.layer as! CornerRadiusLayer)
+        let CL3 = (C3.layer as! CornerRadiusLayer)
+        let CL4 = (C4.layer as! CornerRadiusLayer)
+        let CL5 = (C5.layer as! CornerRadiusLayer)
         
-       
+        for m in [CL1,CL2,CL3,CL4,CL5] {
+            m.sborderWidth  = 0.5
+            
+            m.scornerRadius = 8
+            
+            m.sborderColor  = UIColor.redColor()
+            
+            
         
-
+        }
     }
-    
 }
 
 class testlabel: UILabel {
+    
     override class func layerClass()-> AnyClass{
         
-        return testLayer.self
+        return CornerRadiusLayer.self
     }
 }
+
+
 
 
 class testView: UIView {
-    override class func layerClass()-> AnyClass{
     
-    return testLayer.self
-    }
 }
 
-class testLayer: CALayer {
+
+class CornerCellNormol: UITableViewCell {
     
-//    override func display() {
-//        super.display()
-//        print("test display")
-//        
-//        
-//        
-//    }
-//    
-//    override func drawInContext(ctx: CGContext) {
-//        super.drawInContext(ctx)
-////        let ctx = UIGraphicsGetCurrentContext()
-//        
-//        CGContextMoveToPoint(ctx, 0, 0)
-//        
-//        CGContextAddLineToPoint(ctx, 100, 100)
-//        
-//        CGContextSetStrokeColorWithColor(ctx, UIColor.blueColor().CGColor)
-//        
-//        CGContextStrokePath(ctx)
-//        
-//        print("test drawinContext")
-//    }
+    @IBOutlet weak var N1: UILabel!
+    @IBOutlet weak var N2: UILabel!
+    @IBOutlet weak var N3: UILabel!
+    @IBOutlet weak var N4: UILabel!
+    @IBOutlet weak var N5: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        for m in [N1,N2,N3,N4,N5] {
+            m.layer.borderWidth  = 0.5
+            
+            m.layer.cornerRadius = 8
+            
+            m.layer.borderColor  = UIColor.redColor().CGColor
+            
+            m.layer.masksToBounds   = true
+            
+        }
+    }
+    
     
 }
 

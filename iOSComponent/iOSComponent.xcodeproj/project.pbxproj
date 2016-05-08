@@ -18,6 +18,8 @@
 		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
 		B68709FB1CC5E7C70012345F /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = B68709F91CC5E7C70012345F /* sqlite3.c */; };
 		B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */; };
+		B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */; };
+		B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347D1CDF3892009D6188 /* SunLayer.swift */; };
 		B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */; };
 		B6BFF3401CC12F1500141A93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BFF33E1CC12F1500141A93 /* Main.storyboard */; };
 		B6BFF3421CC12F1500141A93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BFF3411CC12F1500141A93 /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		B68709F91CC5E7C70012345F /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
 		B68709FA1CC5E7C70012345F /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
 		B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDBUtil.swift; sourceTree = "<group>"; };
+		B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsViewController.swift; sourceTree = "<group>"; };
+		B696347D1CDF3892009D6188 /* SunLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLayer.swift; sourceTree = "<group>"; };
 		B6BFF3371CC12F1500141A93 /* iOSComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6BFF33F1CC12F1500141A93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 		B618728E1CC1308D00878EDE /* subject */ = {
 			isa = PBXGroup;
 			children = (
+				B69634791CDEEEB0009D6188 /* CoreGraphics */,
 				B634BE121CCE5147008C26CB /* CoreText */,
 				B6E819C11CCC896C005090F0 /* CornerRadius */,
 				B657CB621CC6560B00EE506F /* GCDdayDream */,
@@ -230,6 +235,22 @@
 			path = libs;
 			sourceTree = "<group>";
 		};
+		B69634791CDEEEB0009D6188 /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */,
+			);
+			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		B696347C1CDF3877009D6188 /* SUNLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B696347D1CDF3892009D6188 /* SunLayer.swift */,
+			);
+			path = SUNLayer;
+			sourceTree = "<group>";
+		};
 		B6BFF32E1CC12F1500141A93 = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +323,7 @@
 		B6E336DB1CCB1D790028CE37 /* SUNKit */ = {
 			isa = PBXGroup;
 			children = (
+				B696347C1CDF3877009D6188 /* SUNLayer */,
 				B6E336DE1CCB1F2F0028CE37 /* SunLabel */,
 				B6E336E11CCB92910028CE37 /* Constant.swift */,
 			);
@@ -460,8 +482,10 @@
 			files = (
 				B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */,
 				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,
+				B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */,
 				B6E336E21CCB92910028CE37 /* Constant.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
+				B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */,
 				B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */,
 				B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */,
 				B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */,
@@ -616,11 +640,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iOSComponent/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boqiao919.iOSComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iOSComponent/libs/iOSComponent-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -632,11 +658,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iOSComponent/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boqiao919.iOSComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iOSComponent/libs/iOSComponent-Bridging-Header.h";
 			};
 			name = Release;
