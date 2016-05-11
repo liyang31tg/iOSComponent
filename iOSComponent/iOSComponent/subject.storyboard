@@ -403,6 +403,55 @@
             </objects>
             <point key="canvasLocation" x="761" y="469"/>
         </scene>
+        <!--Core Text PlainVC-->
+        <scene sceneID="ZK2-dC-jsi">
+            <objects>
+                <viewController storyboardIdentifier="CoreTextPlainVCStoryboardId" id="kkK-pt-6kW" customClass="CoreTextPlainVC" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nKk-bW-OZ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="6yq-61-zfv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gcB-II-x7r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UDs-WO-MXh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cttableviewCellidentifier" id="O5p-EW-v4a">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O5p-EW-v4a" id="lY2-uD-Kop">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kkK-pt-6kW" id="JWV-Dr-Npq"/>
+                                    <outlet property="delegate" destination="kkK-pt-6kW" id="6PC-I1-sBM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6yq-61-zfv" firstAttribute="top" secondItem="UDs-WO-MXh" secondAttribute="bottom" id="EQR-1R-T99"/>
+                            <constraint firstItem="UDs-WO-MXh" firstAttribute="leading" secondItem="gcB-II-x7r" secondAttribute="leading" id="F77-hU-cFL"/>
+                            <constraint firstAttribute="trailing" secondItem="UDs-WO-MXh" secondAttribute="trailing" id="Per-3Z-OyM"/>
+                            <constraint firstItem="UDs-WO-MXh" firstAttribute="top" secondItem="gcB-II-x7r" secondAttribute="top" id="jnR-i1-cAv"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <segue destination="map-lk-5dS" kind="show" identifier="coreTextForeViewController" id="GNm-A8-7yY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQ0-Hi-8Wo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1123" y="417"/>
+        </scene>
         <!--Core Text View Controller-->
         <scene sceneID="qSW-1D-gJo">
             <objects>
@@ -420,7 +469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mxy-YW-9XE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1230" y="529"/>
+            <point key="canvasLocation" x="1541" y="417"/>
         </scene>
         <!--Dday Dream View Controller-->
         <scene sceneID="u5d-AX-tMQ">

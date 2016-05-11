@@ -24,10 +24,7 @@ class SunLabel: UIView {
         return SunAsynsLayer.self
     }
     
-//    override func drawRect(rect: CGRect) {
-//        super.drawRect(rect)
-//        
-//    }
+
     
    
     
@@ -43,20 +40,86 @@ class SunAsynsLayer: CALayer {
         print("sunLayer is die\(self.delegate)")
     }
     
+    override init() {
+        super.init()
+        self.drawsAsynchronously = true
+        print(self.contentsScale)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func display() {
-         ("Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫" as NSString).drawInRect(CGRect(x: 0, y: 0, width: 375, height: 60), withAttributes: nil)
+        let scale = UIScreen.mainScreen().scale
+        self.contentsScale = scale
+        super.display()
     }
     
     
     override func drawInContext(ctx: CGContext) {
+        
         super.drawInContext(ctx)
+        
+//        CGContextScaleCTM(ctx, scale, scale)
+        CGContextSetTextMatrix(ctx, CGAffineTransformIdentity);
+        
+        // 这两种转换坐标的方式效果一样
+        // 2.1
+        // CGContextTranslateCTM(contextRef, 0, self.bounds.size.height);
+        // CGContextScaleCTM(contextRef, 1.0, -1.0);
+        
+        // 2.2
+        CGContextConcatCTM(ctx, CGAffineTransformMake(1, 0, 0, -1, 0, self.bounds.size.height));
+        
+        
+
+        
+        
+        
+    
+    
+        // 3.创建绘制区域，可以对path进行个性化裁剪以改变显示区域
+        let path = CGPathCreateMutable();
+        CGPathAddRect(path, nil, self.bounds);
+        // CGPathAddEllipseInRect(path, NULL, self.bounds);
+        
+        // 4.创建需要绘制的文字
+      let attributed =  NSMutableAttributedString(string: "估后共和国开不开vbdkaph估后共和国开不开vbdkaph😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️这是我的第一个coreText demo，我是要给兵来自老白干I型那个饿哦个呢给个I类回滚igkhpwfh 评估后共和国开不开vbdkaphphohghg 的分工额好几个辽宁省更怕hi维护你不看hi好人佛【井柏然把饿哦个😢😊😊😢⬇️");
+      
+        attributed.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(20), range: NSMakeRange(0, 5));
+        
+        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(3, 10));
+
+        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.orangeColor(), range: NSMakeRange(0, 2));
+
+       
+        
+        
+        
+        
+        // 5.根据NSAttributedString生成CTFramesetterRef
+        let framesetter = CTFramesetterCreateWithAttributedString(attributed)
+        
+        let ctFrame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, attributed.length), path, nil);
+        
+        // 6.绘制除图片以外的部分
+        CTFrameDraw(ctFrame, ctx);
+        
+        
+      
+        
+
+        
+        
         
         
     
 //        dispatch_async(dispatch_get_main_queue()) {
-//            UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, self.contentsScale)
+//            UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, UIScreen.mainScreen().scale)
+//        
         
-            
+//             ("Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫" as NSString).drawInRect(CGRect(x: 0, y: 0, width: 375, height: 60), withAttributes: nil)
         
 //            let image =  UIGraphicsGetImageFromCurrentImageContext()
 //            UIGraphicsEndImageContext()
@@ -64,7 +127,7 @@ class SunAsynsLayer: CALayer {
 //                self.contents = image.CGImage
 //            })
 //        }
-       
+    
         
         
         

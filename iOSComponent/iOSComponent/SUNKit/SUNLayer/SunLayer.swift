@@ -8,7 +8,10 @@
 
 import Foundation
 import UIKit
+import CoreGraphics
 class CornerRadiusLayer:CALayer  {
+    
+    
     
     var sborderWidth: CGFloat?
     
@@ -36,8 +39,6 @@ class CornerRadiusLayer:CALayer  {
         CGContextBeginPath(ctx)
         CGContextAddPath(ctx, pp.CGPath)
         CGContextClip(ctx)
-        
-        
         
         //绘制内容
         super.drawInContext(ctx)

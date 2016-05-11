@@ -16,30 +16,8 @@ class SubjectViewController: BaseGroupTableViewController {
         [CTDomain(sectionTitle: "多线程"),CTDomain(title: "GCD的遐想", storyBoard: "subject", storyBoardId: "GCDdayDreamViewControllerStoryboardid")],
         
         [CTDomain(sectionTitle: "性能优化"),CTDomain(title: "cornerRadius正确的姿势", storyBoard: "subject", storyBoardId: "cornerRadiusViewControllerStoryboardid")],
-        [CTDomain(sectionTitle: "Core Text"),CTDomain(title: "Core Text初探", storyBoard: "subject", storyBoardId: "coreTextForeViewControllerStoryboardid")],
+        [CTDomain(sectionTitle: "Core Text"),CTDomain(title: "Core Text初探", storyBoard: "subject", storyBoardId: "CoreTextPlainVCStoryboardId")],
         [CTDomain(sectionTitle: "Core Graphics"),CTDomain(title: "Core Graphics初探", storyBoard: "subject", storyBoardId: "coreGraphicsViewControllerStoryboardid")]]
-        
-        
-        
-        
-        
-//        let timer = NSTimer(timeInterval: 3, target: self, selector: Selector("doAction"), userInfo: nil, repeats: true)
-//        
-//        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
-//        
-//        let timer1 = NSTimer(timeInterval: 2, target: self, selector: Selector("doAction1"), userInfo: nil, repeats: true)
-//        
-//        NSRunLoop.currentRunLoop().addTimer(timer1, forMode: UITrackingRunLoopMode)
-        
-        
-        
     }
     
-    func doAction(){
-        print("doAction-=============A")
-    }
-    
-    func doAction1(){
-        print("doAction1=============B")
-    }
 }

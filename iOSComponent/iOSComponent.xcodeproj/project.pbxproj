@@ -13,6 +13,8 @@
 		B618729C1CC144B700878EDE /* subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B618729B1CC144B700878EDE /* subject.storyboard */; };
 		B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618729E1CC1463F00878EDE /* ResponderChainViewController.swift */; };
 		B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61872A01CC1470C00878EDE /* BaseNavigationController.swift */; };
+		B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6296D671CE32E6A00492C1B /* CoreTextPlainVC.swift */; };
+		B6296D6A1CE32F5400492C1B /* BasePlainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6296D691CE32F5400492C1B /* BasePlainTableViewController.swift */; };
 		B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634BE131CCE5159008C26CB /* CoreTextViewController.swift */; };
 		B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */; };
 		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
@@ -20,6 +22,7 @@
 		B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */; };
 		B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */; };
 		B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347D1CDF3892009D6188 /* SunLayer.swift */; };
+		B69634801CE024B2009D6188 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B696347F1CE024B2009D6188 /* CoreGraphics.framework */; };
 		B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */; };
 		B6BFF3401CC12F1500141A93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BFF33E1CC12F1500141A93 /* Main.storyboard */; };
 		B6BFF3421CC12F1500141A93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BFF3411CC12F1500141A93 /* Assets.xcassets */; };
@@ -59,6 +62,8 @@
 		B618729B1CC144B700878EDE /* subject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = subject.storyboard; sourceTree = "<group>"; };
 		B618729E1CC1463F00878EDE /* ResponderChainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderChainViewController.swift; sourceTree = "<group>"; };
 		B61872A01CC1470C00878EDE /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		B6296D671CE32E6A00492C1B /* CoreTextPlainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextPlainVC.swift; sourceTree = "<group>"; };
+		B6296D691CE32F5400492C1B /* BasePlainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePlainTableViewController.swift; sourceTree = "<group>"; };
 		B634BE131CCE5159008C26CB /* CoreTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
 		B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
 		B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDdayDreamViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 		B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDBUtil.swift; sourceTree = "<group>"; };
 		B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsViewController.swift; sourceTree = "<group>"; };
 		B696347D1CDF3892009D6188 /* SunLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLayer.swift; sourceTree = "<group>"; };
+		B696347F1CE024B2009D6188 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B6BFF3371CC12F1500141A93 /* iOSComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6BFF33F1CC12F1500141A93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B69634801CE024B2009D6188 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +164,7 @@
 				B61872951CC1383400878EDE /* BaseViewController.swift */,
 				B61872A01CC1470C00878EDE /* BaseNavigationController.swift */,
 				B61872971CC13BD200878EDE /* BaseGroupTableViewController.swift */,
+				B6296D691CE32F5400492C1B /* BasePlainTableViewController.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				B634BE131CCE5159008C26CB /* CoreTextViewController.swift */,
+				B6296D671CE32E6A00492C1B /* CoreTextPlainVC.swift */,
 			);
 			path = CoreText;
 			sourceTree = "<group>";
@@ -254,6 +263,7 @@
 		B6BFF32E1CC12F1500141A93 = {
 			isa = PBXGroup;
 			children = (
+				B696347F1CE024B2009D6188 /* CoreGraphics.framework */,
 				B6BFF3391CC12F1500141A93 /* iOSComponent */,
 				B6BFF34E1CC12F1600141A93 /* iOSComponentTests */,
 				B6BFF3591CC12F1600141A93 /* iOSComponentUITests */,
@@ -483,6 +493,7 @@
 				B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */,
 				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,
 				B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */,
+				B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */,
 				B6E336E21CCB92910028CE37 /* Constant.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
 				B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */,
@@ -493,6 +504,7 @@
 				B618729A1CC13EFF00878EDE /* SubjectViewController.swift in Sources */,
 				B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */,
 				B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */,
+				B6296D6A1CE32F5400492C1B /* BasePlainTableViewController.swift in Sources */,
 				B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */,
 				B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */,
 				B61872961CC1383400878EDE /* BaseViewController.swift in Sources */,
@@ -642,7 +654,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iOSComponent/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boqiao919.iOSComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -660,7 +672,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iOSComponent/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boqiao919.iOSComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";

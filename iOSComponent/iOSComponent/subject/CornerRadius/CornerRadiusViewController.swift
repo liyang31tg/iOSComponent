@@ -41,12 +41,25 @@ extension CornerRadiusViewController:UITableViewDelegate,UITableViewDataSource {
         return 300
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        print("heightForRowAtIndexPath:\(indexPath.row)")
+        return 44
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = isNormal ? "CornerCellNormolIdentifier" : "CornerCellidentifier"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
-        
+//        print("cellForRowAtIndexPath---------cell:\(cell)-------indexpath:\(indexPath)")
         return cell
     }
+    
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        print("willDisplayCell---------cell:\(cell)-------indexpath:\(indexPath)")
+//    }
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
