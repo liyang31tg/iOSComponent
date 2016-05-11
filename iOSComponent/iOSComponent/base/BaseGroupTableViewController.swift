@@ -70,11 +70,19 @@ extension UITableViewCell{
 }
     
 struct CTDomain {
+    
+    enum DomainType {
+        case UsePerformIdentifier //线跳转
+        case UseStoryBoardId      //通过storyboard
+        case UseViewClass          //通过class
+    }
     var sectionTitle        = ""
     var title               = ""
     var performIdentifier   = ""
     var storyBoard          = ""
     var storyBoardId        = ""
+    var viewClass           = ""
+    var domainType          = DomainType.UsePerformIdentifier
     init(){}
     init(sectionTitle: String){
         self.sectionTitle       = sectionTitle
@@ -82,12 +90,21 @@ struct CTDomain {
     init(title: String,performIdentifier: String){
         self.title              = title
         self.performIdentifier  = performIdentifier
+        self.domainType         = DomainType.UsePerformIdentifier
     }
     
     init(title: String,storyBoard: String,storyBoardId: String){
         self.title              = title
         self.storyBoard         = storyBoard
         self.storyBoardId       = storyBoardId
+        self.domainType         = DomainType.UseStoryBoardId
     }
+    
+    init(title: String,viewClass:String){
+        self.title      = title
+        self.viewClass  = viewClass
+        self.domainType  = DomainType.UseViewClass
+    }
+    
 }
 

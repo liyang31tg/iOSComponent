@@ -15,6 +15,7 @@
 		B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61872A01CC1470C00878EDE /* BaseNavigationController.swift */; };
 		B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6296D671CE32E6A00492C1B /* CoreTextPlainVC.swift */; };
 		B6296D6A1CE32F5400492C1B /* BasePlainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6296D691CE32F5400492C1B /* BasePlainTableViewController.swift */; };
+		B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6296D6B1CE37ACC00492C1B /* CoreTextPictureVC.swift */; };
 		B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634BE131CCE5159008C26CB /* CoreTextViewController.swift */; };
 		B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */; };
 		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
@@ -64,6 +65,7 @@
 		B61872A01CC1470C00878EDE /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		B6296D671CE32E6A00492C1B /* CoreTextPlainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextPlainVC.swift; sourceTree = "<group>"; };
 		B6296D691CE32F5400492C1B /* BasePlainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePlainTableViewController.swift; sourceTree = "<group>"; };
+		B6296D6B1CE37ACC00492C1B /* CoreTextPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextPictureVC.swift; sourceTree = "<group>"; };
 		B634BE131CCE5159008C26CB /* CoreTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
 		B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
 		B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDdayDreamViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				B634BE131CCE5159008C26CB /* CoreTextViewController.swift */,
 				B6296D671CE32E6A00492C1B /* CoreTextPlainVC.swift */,
+				B6296D6B1CE37ACC00492C1B /* CoreTextPictureVC.swift */,
 			);
 			path = CoreText;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */,
 				B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */,
 				B6E336E21CCB92910028CE37 /* Constant.swift in Sources */,
+				B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
 				B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */,
 				B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */,

@@ -54,19 +54,15 @@ class CoreTextLayer: CALayer {
     }
     override func drawInContext(ctx: CGContext) {
         super.drawInContext(ctx)
-        CGContextSetTextMatrix(ctx, CGAffineTransformIdentity);
-        CGContextConcatCTM(ctx, CGAffineTransformMake(1, 0, 0, -1, 0, self.bounds.size.height));
+       
+        //坐标系转换
+        CGContextSetTextMatrix(ctx, CGAffineTransformIdentity)
+        CGContextTranslateCTM(ctx, 0, self.bounds.size.height)
+        CGContextScaleCTM(ctx, 1.0, -1.0)
         
-        
-        
-        
-        
-        
-        
-        
-        // 3.创建绘制区域，可以对path进行个性化裁剪以改变显示区域
-        let path = CGPathCreateMutable();
-        CGPathAddRect(path, nil, self.bounds);
+        //创建绘制的区域
+        let path = CGPathCreateMutable()
+        CGPathAddRect(path, nil, self.bounds)
         
         // 4.创建需要绘制的文字
         let attributed =  NSMutableAttributedString(string: "估后共和国开不开vbdkaph估后共和国开不开vbdkaph😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️这是我的第一个coreText demo，我是要给兵来自老白干I型那个饿哦个呢给个I类回滚igkhpwfh 评估后共和国开不开vbdkaphphohghg 的分工额好几个辽宁省更怕hi维护你不看hi好人佛【井柏然把饿哦个😢😊😊😢⬇️");
@@ -77,8 +73,21 @@ class CoreTextLayer: CALayer {
         
         attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.orangeColor(), range: NSMakeRange(0, 2));
         
+        //创建段落属性
+       let paraStyle = NSMutableParagraphStyle()
         
-        var imageName = "page1.jpg"
+        attributed.addAttribute(NSParagraphStyleAttributeName, value: paraStyle, range: NSMakeRange(0, attributed.length))
+        
+        //创建CTFramesetter
+       let ctFrameSetter = CTFramesetterCreateWithAttributedString(attributed)
+        
+        //创建CTFrame
+       let ctFrame = CTFramesetterCreateFrame(ctFrameSetter, CFRangeMake(0, attributed.length),path , nil)
+        
+        //根据CTFrame绘制
+        CTFrameDraw(ctFrame, ctx)
+        /*
+        let imageName = "page1.jpg"
         
         var imageDelegateCallBack = CTRunDelegateCallbacks(version: kCTRunDelegateVersion1, dealloc: { (r) in
             print("run delegate is die");
@@ -156,6 +165,6 @@ class CoreTextLayer: CALayer {
                     CGContextDrawImage(ctx, imageDrawRect, image!.CGImage)
                 }
             }
-        }
+        }*/
     }
 }

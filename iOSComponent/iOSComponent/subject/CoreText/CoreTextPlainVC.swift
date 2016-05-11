@@ -13,7 +13,8 @@ class CoreTextPlainVC: BasePlainTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Core Text Detail"
-        dataArray = [CTDomain(title: "Core Text 初试", performIdentifier: "coreTextForeViewController")]
+        dataArray = [CTDomain(title: "Core Text 初试", performIdentifier: "coreTextForeViewController"),
+                    CTDomain(title: "Core Text 图片", performIdentifier: "CoreTextPicturePerformSequence")]
     }
     
 }

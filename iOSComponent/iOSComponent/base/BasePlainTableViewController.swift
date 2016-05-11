@@ -43,12 +43,24 @@ extension BasePlainTableViewController :UITableViewDataSource,UITableViewDelegat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let ctDomain = dataArray[indexPath.row]
-        if ctDomain.performIdentifier.isEmpty {
+        switch ctDomain.domainType {
+        case CTDomain.DomainType.UsePerformIdentifier:
+            self.performSegueWithIdentifier(ctDomain.performIdentifier, sender: self)
+
+        case CTDomain.DomainType.UseStoryBoardId:
             let st = UIStoryboard(name: ctDomain.storyBoard, bundle: NSBundle.mainBundle())
             let vc = st.instantiateViewControllerWithIdentifier(ctDomain.storyBoardId)
             self.navigationController?.pushViewController(vc, animated: true)
+            
+        case CTDomain.DomainType.UseViewClass:
+            let viewclass = ctDomain.viewClass
+            let vc = (NSClassFromString(viewclass) as! UIViewController.Type).init()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        if ctDomain.performIdentifier.isEmpty {
+            
         } else {
-            self.performSegueWithIdentifier(ctDomain.performIdentifier, sender: self)
         }
     }
 }
