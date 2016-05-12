@@ -44,9 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        // 2.添加监听
 //        CFRunLoopAddObserver(CFRunLoopGetMain(), observe, kCFRunLoopDefaultMode);
         
-        
-        
-        
         return true
     }
 

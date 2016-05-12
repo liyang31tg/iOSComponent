@@ -447,6 +447,7 @@
                     <connections>
                         <segue destination="map-lk-5dS" kind="show" identifier="coreTextForeViewController" id="GNm-A8-7yY"/>
                         <segue destination="6uc-cN-jJ6" kind="show" identifier="CoreTextPicturePerformSequence" id="i0g-Da-6cw"/>
+                        <segue destination="Eer-yB-SKZ" kind="show" identifier="CoreTextCTLinePerformSequence" id="fd1-gT-he9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQ0-Hi-8Wo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -472,6 +473,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcf-1o-ls5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1484" y="1018"/>
+        </scene>
+        <!--Core TextCT Line Draw-->
+        <scene sceneID="gQn-fq-7dq">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="Eer-yB-SKZ" customClass="CoreTextCTLineDraw" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vHp-x6-TaQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="P8b-qe-6tS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gcb-do-Fj2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wZ8-nc-4x9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1818" y="1018"/>
         </scene>
         <!--Core Text View Controller-->
         <scene sceneID="qSW-1D-gJo">

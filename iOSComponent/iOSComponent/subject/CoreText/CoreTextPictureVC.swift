@@ -85,6 +85,8 @@ class CoreTextPicLayer: CALayer {
         //创建段落属性
         let paraStyle = NSMutableParagraphStyle()
         
+        paraStyle.minimumLineHeight = 30
+        
         attributed.addAttribute(NSParagraphStyleAttributeName, value: paraStyle, range: NSMakeRange(0, attributed.length))
         
         
@@ -158,8 +160,6 @@ class CoreTextPicLayer: CALayer {
                         image = p
                     }else{
                         image = UIImage(named: imageN as! String)
-
-                    
                     }
                     let imagebouns = CGRect(x: runRect.origin.x, y: runRect.origin.y, width: runRect.size.width, height: runRect.size.height)
                     CGContextDrawImage(ctx, imagebouns, image?.CGImage)

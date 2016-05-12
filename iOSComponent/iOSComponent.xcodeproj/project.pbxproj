@@ -30,6 +30,7 @@
 		B6BFF3451CC12F1500141A93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BFF3431CC12F1500141A93 /* LaunchScreen.storyboard */; };
 		B6BFF3501CC12F1600141A93 /* iOSComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF34F1CC12F1600141A93 /* iOSComponentTests.swift */; };
 		B6BFF35B1CC12F1600141A93 /* iOSComponentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF35A1CC12F1600141A93 /* iOSComponentUITests.swift */; };
+		B6CA66171CE4B19C00306E25 /* CoreTextCTLineDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA66161CE4B19C00306E25 /* CoreTextCTLineDraw.swift */; };
 		B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D21CCA3E4B0028CE37 /* ControlViewController.swift */; };
 		B6E336D51CCA3F390028CE37 /* control.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E336D41CCA3F390028CE37 /* control.storyboard */; };
 		B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D71CCA3FD60028CE37 /* SunLabel.swift */; };
@@ -37,6 +38,7 @@
 		B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */; };
 		B6E336E21CCB92910028CE37 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336E11CCB92910028CE37 /* Constant.swift */; };
 		B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */; };
+		B6FA0D481CE47F44005745B0 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = B6FA0D471CE47F44005745B0 /* config.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,7 @@
 		B6BFF3561CC12F1600141A93 /* iOSComponentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSComponentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BFF35A1CC12F1600141A93 /* iOSComponentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSComponentUITests.swift; sourceTree = "<group>"; };
 		B6BFF35C1CC12F1600141A93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6CA66161CE4B19C00306E25 /* CoreTextCTLineDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextCTLineDraw.swift; sourceTree = "<group>"; };
 		B6E336D21CCA3E4B0028CE37 /* ControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		B6E336D41CCA3F390028CE37 /* control.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = control.storyboard; sourceTree = "<group>"; };
 		B6E336D71CCA3FD60028CE37 /* SunLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLabel.swift; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 		B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunFPSLabel.swift; sourceTree = "<group>"; };
 		B6E336E11CCB92910028CE37 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusViewController.swift; sourceTree = "<group>"; };
+		B6FA0D471CE47F44005745B0 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +220,7 @@
 				B634BE131CCE5159008C26CB /* CoreTextViewController.swift */,
 				B6296D671CE32E6A00492C1B /* CoreTextPlainVC.swift */,
 				B6296D6B1CE37ACC00492C1B /* CoreTextPictureVC.swift */,
+				B6CA66161CE4B19C00306E25 /* CoreTextCTLineDraw.swift */,
 			);
 			path = CoreText;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				B6BFF3411CC12F1500141A93 /* Assets.xcassets */,
 				B6BFF3431CC12F1500141A93 /* LaunchScreen.storyboard */,
 				B6BFF3461CC12F1500141A93 /* Info.plist */,
+				B6FA0D471CE47F44005745B0 /* config.xml */,
 			);
 			path = iOSComponent;
 			sourceTree = "<group>";
@@ -467,6 +473,7 @@
 				B6E336D51CCA3F390028CE37 /* control.storyboard in Resources */,
 				B6BFF3451CC12F1500141A93 /* LaunchScreen.storyboard in Resources */,
 				B618729C1CC144B700878EDE /* subject.storyboard in Resources */,
+				B6FA0D481CE47F44005745B0 /* config.xml in Resources */,
 				B6BFF3421CC12F1500141A93 /* Assets.xcassets in Resources */,
 				B6BFF3401CC12F1500141A93 /* Main.storyboard in Resources */,
 			);
@@ -501,6 +508,7 @@
 				B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
 				B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */,
+				B6CA66171CE4B19C00306E25 /* CoreTextCTLineDraw.swift in Sources */,
 				B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */,
 				B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */,
 				B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */,
