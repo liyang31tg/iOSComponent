@@ -17,7 +17,8 @@ class SubjectViewController: BaseGroupTableViewController {
         
         [CTDomain(sectionTitle: "性能优化"),CTDomain(title: "cornerRadius正确的姿势", storyBoard: "subject", storyBoardId: "cornerRadiusViewControllerStoryboardid")],
         [CTDomain(sectionTitle: "Core Text"),CTDomain(title: "Core Text初探", storyBoard: "subject", storyBoardId: "CoreTextPlainVCStoryboardId")],
-        [CTDomain(sectionTitle: "Core Graphics"),CTDomain(title: "Core Graphics初探", storyBoard: "subject", storyBoardId: "coreGraphicsViewControllerStoryboardid")]]
+        [CTDomain(sectionTitle: "Core Graphics"),CTDomain(title: "Core Graphics初探", storyBoard: "subject", storyBoardId: "coreGraphicsViewControllerStoryboardid")],
+         [CTDomain(sectionTitle: "地图"),CTDomain(title: "百度地图初探", storyBoard: "subject", storyBoardId: "MapListViewControllerIdentifier")]]
     }
-    
+
 }

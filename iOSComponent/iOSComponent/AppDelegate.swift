@@ -20,7 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.whiteColor()
         
         
+        let a:Float     = 0.01
+        let b:Int       = 99999999
+        var c:Double    = 0.0
         
+        c = Double(a)*Double(b);
+        print(Float(a))
+        print(Float(b))
+        print(String(format: "%f,,,,,%.2f", c,c))
         
 //        let observe = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, CFRunLoopActivity.AllActivities.rawValue, true, 0) { (o: CFRunLoopObserver!, a:CFRunLoopActivity) -> Void in
 //            switch a {
