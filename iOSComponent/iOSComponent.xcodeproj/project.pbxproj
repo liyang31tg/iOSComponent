@@ -19,11 +19,40 @@
 		B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634BE131CCE5159008C26CB /* CoreTextViewController.swift */; };
 		B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */; };
 		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
-		B68709FB1CC5E7C70012345F /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = B68709F91CC5E7C70012345F /* sqlite3.c */; };
 		B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */; };
 		B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */; };
 		B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347D1CDF3892009D6188 /* SunLayer.swift */; };
 		B69634801CE024B2009D6188 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B696347F1CE024B2009D6188 /* CoreGraphics.framework */; };
+		B69EFC461CEAB02D00A20F20 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC3F1CEAB02D00A20F20 /* BaiduMapAPI_Base.framework */; };
+		B69EFC471CEAB02D00A20F20 /* BaiduMapAPI_Cloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC401CEAB02D00A20F20 /* BaiduMapAPI_Cloud.framework */; };
+		B69EFC481CEAB02D00A20F20 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC411CEAB02D00A20F20 /* BaiduMapAPI_Location.framework */; };
+		B69EFC491CEAB02D00A20F20 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC421CEAB02D00A20F20 /* BaiduMapAPI_Map.framework */; };
+		B69EFC4A1CEAB02D00A20F20 /* BaiduMapAPI_Radar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC431CEAB02D00A20F20 /* BaiduMapAPI_Radar.framework */; };
+		B69EFC4B1CEAB02D00A20F20 /* BaiduMapAPI_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC441CEAB02D00A20F20 /* BaiduMapAPI_Search.framework */; };
+		B69EFC4C1CEAB02D00A20F20 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC451CEAB02D00A20F20 /* BaiduMapAPI_Utils.framework */; };
+		B69EFC4E1CEAB06300A20F20 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC4D1CEAB06300A20F20 /* QuartzCore.framework */; };
+		B69EFC501CEAB07200A20F20 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC4F1CEAB07200A20F20 /* OpenGLES.framework */; };
+		B69EFC521CEAB07D00A20F20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC511CEAB07D00A20F20 /* SystemConfiguration.framework */; };
+		B69EFC541CEAB08F00A20F20 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC531CEAB08F00A20F20 /* CoreLocation.framework */; };
+		B69EFC561CEAB0A000A20F20 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC551CEAB0A000A20F20 /* Security.framework */; };
+		B69EFC581CEAB0B300A20F20 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC571CEAB0B300A20F20 /* libsqlite3.0.tbd */; };
+		B69EFC5A1CEAB0C100A20F20 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC591CEAB0C100A20F20 /* CoreTelephony.framework */; };
+		B69EFC5C1CEAB0D500A20F20 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B69EFC5B1CEAB0D500A20F20 /* libstdc++.6.0.9.tbd */; };
+		B69EFC5F1CEAB57900A20F20 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B69EFC5E1CEAB57900A20F20 /* mapapi.bundle */; };
+		B69EFC611CEABDCF00A20F20 /* MapViewBaseDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EFC601CEABDCF00A20F20 /* MapViewBaseDemoVC.swift */; };
+		B69EFC631CEAF28900A20F20 /* MultiMapViewDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EFC621CEAF28900A20F20 /* MultiMapViewDemoVC.swift */; };
+		B69EFC651CEB021500A20F20 /* AnnotationDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EFC641CEB021500A20F20 /* AnnotationDemoVC.swift */; };
+		B69EFC6A1CEB057F00A20F20 /* SWXMLHash+TypeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EFC671CEB057F00A20F20 /* SWXMLHash+TypeConversion.swift */; };
+		B69EFC6B1CEB057F00A20F20 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EFC691CEB057F00A20F20 /* SWXMLHash.swift */; };
+		B69EFC6F1CEB067800A20F20 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EFC6E1CEB067800A20F20 /* ColorUtil.swift */; };
+		B69EFC711CEB069500A20F20 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EFC701CEB069500A20F20 /* Config.swift */; };
+		B69EFC731CEB071200A20F20 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EFC721CEB071200A20F20 /* Application.swift */; };
+		B69EFC751CEB1C3E00A20F20 /* texture_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B69EFC741CEB1C3E00A20F20 /* texture_arrow.png */; };
+		B69EFC781CEB28D800A20F20 /* AnimatedAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69EFC771CEB28D800A20F20 /* AnimatedAnnotationView.swift */; };
+		B69EFC7C1CEB293100A20F20 /* poi_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B69EFC791CEB293100A20F20 /* poi_1.png */; };
+		B69EFC7D1CEB293100A20F20 /* poi_2.png in Resources */ = {isa = PBXBuildFile; fileRef = B69EFC7A1CEB293100A20F20 /* poi_2.png */; };
+		B69EFC7E1CEB293100A20F20 /* poi_3.png in Resources */ = {isa = PBXBuildFile; fileRef = B69EFC7B1CEB293100A20F20 /* poi_3.png */; };
+		B69EFC801CEB2B8500A20F20 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = B69EFC7F1CEB2B8500A20F20 /* test.png */; };
 		B6B9BC171CE9BF7400F4BEB1 /* MapListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9BC161CE9BF7400F4BEB1 /* MapListViewController.swift */; };
 		B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */; };
 		B6BFF3401CC12F1500141A93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BFF33E1CC12F1500141A93 /* Main.storyboard */; };
@@ -73,12 +102,41 @@
 		B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
 		B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDdayDreamViewController.swift; sourceTree = "<group>"; };
 		B68709F81CC5E7C60012345F /* iOSComponent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSComponent-Bridging-Header.h"; sourceTree = "<group>"; };
-		B68709F91CC5E7C70012345F /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
-		B68709FA1CC5E7C70012345F /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
 		B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDBUtil.swift; sourceTree = "<group>"; };
 		B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsViewController.swift; sourceTree = "<group>"; };
 		B696347D1CDF3892009D6188 /* SunLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLayer.swift; sourceTree = "<group>"; };
 		B696347F1CE024B2009D6188 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B69EFC3F1CEAB02D00A20F20 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
+		B69EFC401CEAB02D00A20F20 /* BaiduMapAPI_Cloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Cloud.framework; sourceTree = "<group>"; };
+		B69EFC411CEAB02D00A20F20 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
+		B69EFC421CEAB02D00A20F20 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
+		B69EFC431CEAB02D00A20F20 /* BaiduMapAPI_Radar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Radar.framework; sourceTree = "<group>"; };
+		B69EFC441CEAB02D00A20F20 /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
+		B69EFC451CEAB02D00A20F20 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
+		B69EFC4D1CEAB06300A20F20 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B69EFC4F1CEAB07200A20F20 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		B69EFC511CEAB07D00A20F20 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B69EFC531CEAB08F00A20F20 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B69EFC551CEAB0A000A20F20 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B69EFC571CEAB0B300A20F20 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		B69EFC591CEAB0C100A20F20 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		B69EFC5B1CEAB0D500A20F20 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		B69EFC5E1CEAB57900A20F20 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
+		B69EFC601CEABDCF00A20F20 /* MapViewBaseDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewBaseDemoVC.swift; sourceTree = "<group>"; };
+		B69EFC621CEAF28900A20F20 /* MultiMapViewDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiMapViewDemoVC.swift; sourceTree = "<group>"; };
+		B69EFC641CEB021500A20F20 /* AnnotationDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationDemoVC.swift; sourceTree = "<group>"; };
+		B69EFC671CEB057F00A20F20 /* SWXMLHash+TypeConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SWXMLHash+TypeConversion.swift"; sourceTree = "<group>"; };
+		B69EFC681CEB057F00A20F20 /* SWXMLHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWXMLHash.h; sourceTree = "<group>"; };
+		B69EFC691CEB057F00A20F20 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
+		B69EFC6E1CEB067800A20F20 /* ColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
+		B69EFC701CEB069500A20F20 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		B69EFC721CEB071200A20F20 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		B69EFC741CEB1C3E00A20F20 /* texture_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture_arrow.png; sourceTree = "<group>"; };
+		B69EFC771CEB28D800A20F20 /* AnimatedAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedAnnotationView.swift; sourceTree = "<group>"; };
+		B69EFC791CEB293100A20F20 /* poi_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_1.png; sourceTree = "<group>"; };
+		B69EFC7A1CEB293100A20F20 /* poi_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_2.png; sourceTree = "<group>"; };
+		B69EFC7B1CEB293100A20F20 /* poi_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_3.png; sourceTree = "<group>"; };
+		B69EFC7F1CEB2B8500A20F20 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		B6B9BC161CE9BF7400F4BEB1 /* MapListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapListViewController.swift; sourceTree = "<group>"; };
 		B6BFF3371CC12F1500141A93 /* iOSComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,7 +166,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B69EFC5C1CEAB0D500A20F20 /* libstdc++.6.0.9.tbd in Frameworks */,
+				B69EFC5A1CEAB0C100A20F20 /* CoreTelephony.framework in Frameworks */,
+				B69EFC581CEAB0B300A20F20 /* libsqlite3.0.tbd in Frameworks */,
+				B69EFC561CEAB0A000A20F20 /* Security.framework in Frameworks */,
+				B69EFC541CEAB08F00A20F20 /* CoreLocation.framework in Frameworks */,
+				B69EFC521CEAB07D00A20F20 /* SystemConfiguration.framework in Frameworks */,
+				B69EFC501CEAB07200A20F20 /* OpenGLES.framework in Frameworks */,
+				B69EFC4E1CEAB06300A20F20 /* QuartzCore.framework in Frameworks */,
 				B69634801CE024B2009D6188 /* CoreGraphics.framework in Frameworks */,
+				B69EFC4A1CEAB02D00A20F20 /* BaiduMapAPI_Radar.framework in Frameworks */,
+				B69EFC461CEAB02D00A20F20 /* BaiduMapAPI_Base.framework in Frameworks */,
+				B69EFC471CEAB02D00A20F20 /* BaiduMapAPI_Cloud.framework in Frameworks */,
+				B69EFC4C1CEAB02D00A20F20 /* BaiduMapAPI_Utils.framework in Frameworks */,
+				B69EFC491CEAB02D00A20F20 /* BaiduMapAPI_Map.framework in Frameworks */,
+				B69EFC481CEAB02D00A20F20 /* BaiduMapAPI_Location.framework in Frameworks */,
+				B69EFC4B1CEAB02D00A20F20 /* BaiduMapAPI_Search.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,37 +251,6 @@
 			path = base;
 			sourceTree = "<group>";
 		};
-		B61872911CC1382200878EDE /* public */ = {
-			isa = PBXGroup;
-			children = (
-				B61872921CC1382200878EDE /* extension */,
-				B61872931CC1382200878EDE /* subClass */,
-				B61872941CC1382200878EDE /* Util */,
-			);
-			path = public;
-			sourceTree = "<group>";
-		};
-		B61872921CC1382200878EDE /* extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = extension;
-			sourceTree = "<group>";
-		};
-		B61872931CC1382200878EDE /* subClass */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = subClass;
-			sourceTree = "<group>";
-		};
-		B61872941CC1382200878EDE /* Util */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
 		B618729D1CC1462A00878EDE /* responderChain */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,8 +289,8 @@
 		B68709F71CC5E7A70012345F /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				B68709F91CC5E7C70012345F /* sqlite3.c */,
-				B68709FA1CC5E7C70012345F /* sqlite3.h */,
+				B69EFC661CEB057F00A20F20 /* SWXMLHash */,
+				B69EFC3E1CEAB02D00A20F20 /* BaiduMap */,
 				B68709F81CC5E7C60012345F /* iOSComponent-Bridging-Header.h */,
 				B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */,
 			);
@@ -271,10 +313,78 @@
 			path = SUNLayer;
 			sourceTree = "<group>";
 		};
+		B69EFC3E1CEAB02D00A20F20 /* BaiduMap */ = {
+			isa = PBXGroup;
+			children = (
+				B69EFC5D1CEAB57900A20F20 /* Resources */,
+				B69EFC3F1CEAB02D00A20F20 /* BaiduMapAPI_Base.framework */,
+				B69EFC401CEAB02D00A20F20 /* BaiduMapAPI_Cloud.framework */,
+				B69EFC411CEAB02D00A20F20 /* BaiduMapAPI_Location.framework */,
+				B69EFC421CEAB02D00A20F20 /* BaiduMapAPI_Map.framework */,
+				B69EFC431CEAB02D00A20F20 /* BaiduMapAPI_Radar.framework */,
+				B69EFC441CEAB02D00A20F20 /* BaiduMapAPI_Search.framework */,
+				B69EFC451CEAB02D00A20F20 /* BaiduMapAPI_Utils.framework */,
+			);
+			path = BaiduMap;
+			sourceTree = "<group>";
+		};
+		B69EFC5D1CEAB57900A20F20 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B69EFC5E1CEAB57900A20F20 /* mapapi.bundle */,
+			);
+			name = Resources;
+			path = BaiduMapAPI_Map.framework/Resources;
+			sourceTree = "<group>";
+		};
+		B69EFC661CEB057F00A20F20 /* SWXMLHash */ = {
+			isa = PBXGroup;
+			children = (
+				B69EFC671CEB057F00A20F20 /* SWXMLHash+TypeConversion.swift */,
+				B69EFC681CEB057F00A20F20 /* SWXMLHash.h */,
+				B69EFC691CEB057F00A20F20 /* SWXMLHash.swift */,
+			);
+			path = SWXMLHash;
+			sourceTree = "<group>";
+		};
+		B69EFC6C1CEB063D00A20F20 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				B69EFC6D1CEB063D00A20F20 /* util */,
+				B69EFC701CEB069500A20F20 /* Config.swift */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
+		B69EFC6D1CEB063D00A20F20 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				B69EFC6E1CEB067800A20F20 /* ColorUtil.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		B69EFC761CEB28CA00A20F20 /* custom */ = {
+			isa = PBXGroup;
+			children = (
+				B69EFC791CEB293100A20F20 /* poi_1.png */,
+				B69EFC7A1CEB293100A20F20 /* poi_2.png */,
+				B69EFC7B1CEB293100A20F20 /* poi_3.png */,
+				B69EFC771CEB28D800A20F20 /* AnimatedAnnotationView.swift */,
+			);
+			path = custom;
+			sourceTree = "<group>";
+		};
 		B6B9BC151CE9BF4A00F4BEB1 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				B69EFC7F1CEB2B8500A20F20 /* test.png */,
+				B69EFC761CEB28CA00A20F20 /* custom */,
+				B69EFC741CEB1C3E00A20F20 /* texture_arrow.png */,
 				B6B9BC161CE9BF7400F4BEB1 /* MapListViewController.swift */,
+				B69EFC601CEABDCF00A20F20 /* MapViewBaseDemoVC.swift */,
+				B69EFC621CEAF28900A20F20 /* MultiMapViewDemoVC.swift */,
+				B69EFC641CEB021500A20F20 /* AnnotationDemoVC.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -282,6 +392,14 @@
 		B6BFF32E1CC12F1500141A93 = {
 			isa = PBXGroup;
 			children = (
+				B69EFC5B1CEAB0D500A20F20 /* libstdc++.6.0.9.tbd */,
+				B69EFC591CEAB0C100A20F20 /* CoreTelephony.framework */,
+				B69EFC571CEAB0B300A20F20 /* libsqlite3.0.tbd */,
+				B69EFC551CEAB0A000A20F20 /* Security.framework */,
+				B69EFC531CEAB08F00A20F20 /* CoreLocation.framework */,
+				B69EFC511CEAB07D00A20F20 /* SystemConfiguration.framework */,
+				B69EFC4F1CEAB07200A20F20 /* OpenGLES.framework */,
+				B69EFC4D1CEAB06300A20F20 /* QuartzCore.framework */,
 				B696347F1CE024B2009D6188 /* CoreGraphics.framework */,
 				B6BFF3391CC12F1500141A93 /* iOSComponent */,
 				B6BFF34E1CC12F1600141A93 /* iOSComponentTests */,
@@ -303,15 +421,16 @@
 		B6BFF3391CC12F1500141A93 /* iOSComponent */ = {
 			isa = PBXGroup;
 			children = (
+				B69EFC6C1CEB063D00A20F20 /* public */,
 				B6E336DB1CCB1D790028CE37 /* SUNKit */,
 				B68709F71CC5E7A70012345F /* libs */,
 				B61872901CC1382200878EDE /* base */,
-				B61872911CC1382200878EDE /* public */,
 				B618728C1CC1308D00878EDE /* chat */,
 				B618728D1CC1308D00878EDE /* control */,
 				B618728E1CC1308D00878EDE /* subject */,
 				B618728F1CC1308D00878EDE /* tips */,
 				B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */,
+				B69EFC721CEB071200A20F20 /* Application.swift */,
 				B6BFF33E1CC12F1500141A93 /* Main.storyboard */,
 				B618729B1CC144B700878EDE /* subject.storyboard */,
 				B6E336D41CCA3F390028CE37 /* control.storyboard */,
@@ -486,7 +605,13 @@
 				B618729C1CC144B700878EDE /* subject.storyboard in Resources */,
 				B6FA0D481CE47F44005745B0 /* config.xml in Resources */,
 				B6BFF3421CC12F1500141A93 /* Assets.xcassets in Resources */,
+				B69EFC7C1CEB293100A20F20 /* poi_1.png in Resources */,
 				B6BFF3401CC12F1500141A93 /* Main.storyboard in Resources */,
+				B69EFC5F1CEAB57900A20F20 /* mapapi.bundle in Resources */,
+				B69EFC751CEB1C3E00A20F20 /* texture_arrow.png in Resources */,
+				B69EFC7E1CEB293100A20F20 /* poi_3.png in Resources */,
+				B69EFC7D1CEB293100A20F20 /* poi_2.png in Resources */,
+				B69EFC801CEB2B8500A20F20 /* test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */,
+				B69EFC631CEAF28900A20F20 /* MultiMapViewDemoVC.swift in Sources */,
 				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,
 				B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */,
 				B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */,
@@ -519,22 +645,29 @@
 				B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
 				B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */,
+				B69EFC6B1CEB057F00A20F20 /* SWXMLHash.swift in Sources */,
 				B6CA66171CE4B19C00306E25 /* CoreTextCTLineDraw.swift in Sources */,
+				B69EFC651CEB021500A20F20 /* AnnotationDemoVC.swift in Sources */,
 				B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */,
 				B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */,
+				B69EFC6A1CEB057F00A20F20 /* SWXMLHash+TypeConversion.swift in Sources */,
 				B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */,
+				B69EFC781CEB28D800A20F20 /* AnimatedAnnotationView.swift in Sources */,
+				B69EFC611CEABDCF00A20F20 /* MapViewBaseDemoVC.swift in Sources */,
+				B69EFC731CEB071200A20F20 /* Application.swift in Sources */,
+				B69EFC711CEB069500A20F20 /* Config.swift in Sources */,
 				B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */,
 				B618729A1CC13EFF00878EDE /* SubjectViewController.swift in Sources */,
 				B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */,
 				B6B9BC171CE9BF7400F4BEB1 /* MapListViewController.swift in Sources */,
 				B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */,
+				B69EFC6F1CEB067800A20F20 /* ColorUtil.swift in Sources */,
 				B6296D6A1CE32F5400492C1B /* BasePlainTableViewController.swift in Sources */,
 				B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */,
 				B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */,
 				B61872961CC1383400878EDE /* BaseViewController.swift in Sources */,
 				B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */,
 				B6E336DA1CCA42940028CE37 /* SunLableViewControlelr.swift in Sources */,
-				B68709FB1CC5E7C70012345F /* sqlite3.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,9 +810,15 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSComponent/libs/BaiduMap",
+				);
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				INFOPLIST_FILE = iOSComponent/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boqiao919.iOSComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -695,9 +834,15 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSComponent/libs/BaiduMap",
+				);
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				INFOPLIST_FILE = iOSComponent/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boqiao919.iOSComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

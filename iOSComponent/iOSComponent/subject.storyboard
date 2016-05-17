@@ -406,7 +406,7 @@
         <!--Map List View Controller-->
         <scene sceneID="fPk-n0-PCI">
             <objects>
-                <viewController storyboardIdentifier="MapListViewControllerIdentifier" id="C54-Sc-QTQ" customClass="MapListViewController" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapListViewControllerIdentifier" hidesBottomBarWhenPushed="YES" id="C54-Sc-QTQ" customClass="MapListViewController" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6tz-mX-uQ2"/>
                         <viewControllerLayoutGuide type="bottom" id="ydh-ZA-JpD"/>
@@ -437,8 +437,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="coO-Dg-mHC" firstAttribute="leading" secondItem="MnS-Vu-jrd" secondAttribute="leading" id="82V-qI-TlJ"/>
+                            <constraint firstAttribute="bottom" secondItem="coO-Dg-mHC" secondAttribute="bottom" id="XBE-OO-kOf"/>
                             <constraint firstAttribute="trailing" secondItem="coO-Dg-mHC" secondAttribute="trailing" id="hV0-He-GW0"/>
-                            <constraint firstItem="ydh-ZA-JpD" firstAttribute="top" secondItem="coO-Dg-mHC" secondAttribute="bottom" id="sUb-7A-91X"/>
                             <constraint firstItem="coO-Dg-mHC" firstAttribute="top" secondItem="MnS-Vu-jrd" secondAttribute="top" id="wUU-iT-jqy"/>
                         </constraints>
                     </view>
@@ -448,6 +448,174 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKD-oF-JlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="695" y="-529"/>
+        </scene>
+        <!--Multi Map View DemoVC-->
+        <scene sceneID="BvH-Vy-KLW">
+            <objects>
+                <viewController storyboardIdentifier="MultiMapViewDemoVCStoryboardId" hidesBottomBarWhenPushed="YES" id="zeb-mS-Du3" customClass="MultiMapViewDemoVC" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2yR-NH-61D"/>
+                        <viewControllerLayoutGuide type="bottom" id="pWf-JX-hmE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6ei-An-vdV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aI3-3c-CXi" customClass="BMKMapView">
+                                <rect key="frame" x="10" y="74" width="300" height="193"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWC-o7-bKQ" customClass="BMKMapView">
+                                <rect key="frame" x="10" y="277" width="300" height="193"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aI3-3c-CXi" firstAttribute="top" secondItem="2yR-NH-61D" secondAttribute="bottom" constant="10" id="G1y-zF-95a"/>
+                            <constraint firstAttribute="trailing" secondItem="CWC-o7-bKQ" secondAttribute="trailing" constant="10" id="KZb-V8-cOX"/>
+                            <constraint firstAttribute="bottom" secondItem="CWC-o7-bKQ" secondAttribute="bottom" constant="10" id="RXm-Ev-Mih"/>
+                            <constraint firstItem="CWC-o7-bKQ" firstAttribute="leading" secondItem="6ei-An-vdV" secondAttribute="leading" constant="10" id="UMI-du-vvq"/>
+                            <constraint firstItem="aI3-3c-CXi" firstAttribute="leading" secondItem="6ei-An-vdV" secondAttribute="leading" constant="10" id="taI-WP-h3i"/>
+                            <constraint firstAttribute="trailing" secondItem="aI3-3c-CXi" secondAttribute="trailing" constant="10" id="wMI-JB-SrW"/>
+                            <constraint firstItem="CWC-o7-bKQ" firstAttribute="height" secondItem="aI3-3c-CXi" secondAttribute="height" id="y6I-yF-rH0"/>
+                            <constraint firstItem="CWC-o7-bKQ" firstAttribute="top" secondItem="aI3-3c-CXi" secondAttribute="bottom" constant="10" id="ytd-2c-fu6"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="mapViewA" destination="aI3-3c-CXi" id="qWT-gj-rFD"/>
+                        <outlet property="mapViewB" destination="CWC-o7-bKQ" id="iX3-s4-4Ae"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WkB-ic-iar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695" y="-5"/>
+        </scene>
+        <!--Map View Base DemoVC-->
+        <scene sceneID="ms6-x3-U1t">
+            <objects>
+                <viewController storyboardIdentifier="MapViewBaseDemoViewControllerStoryboardId" hidesBottomBarWhenPushed="YES" id="oBo-tw-BGI" customClass="MapViewBaseDemoVC" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9rC-Mp-sQt"/>
+                        <viewControllerLayoutGuide type="bottom" id="b66-hK-FrH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tb1-uN-d4E">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oaX-k4-QMh" customClass="BMKMapView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="w4f-Am-IQd">
+                                <rect key="frame" x="0.0" y="64" width="320" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="YNC-i9-V93"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="普通地图"/>
+                                    <segment title="卫星地图"/>
+                                    <segment title="开启交通图"/>
+                                    <segment title="关闭交通图"/>
+                                </segments>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segementAction:" destination="oBo-tw-BGI" eventType="valueChanged" id="Yu2-ty-bCd"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oRc-hF-ShT">
+                                <rect key="frame" x="0.0" y="92" width="320" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="qHB-Up-tJ3"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="开启热力图"/>
+                                    <segment title="关闭热力图"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segementAction:" destination="oBo-tw-BGI" eventType="valueChanged" id="cYU-HX-dr6"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="w4f-Am-IQd" secondAttribute="trailing" id="7hC-Ei-1Rk"/>
+                            <constraint firstItem="w4f-Am-IQd" firstAttribute="top" secondItem="9rC-Mp-sQt" secondAttribute="bottom" id="EzF-2M-MLz"/>
+                            <constraint firstAttribute="trailing" secondItem="oRc-hF-ShT" secondAttribute="trailing" id="MAw-af-dRR"/>
+                            <constraint firstAttribute="trailing" secondItem="oaX-k4-QMh" secondAttribute="trailing" id="UyQ-k7-dr1"/>
+                            <constraint firstItem="oaX-k4-QMh" firstAttribute="top" secondItem="9rC-Mp-sQt" secondAttribute="bottom" id="XCN-r1-AFe"/>
+                            <constraint firstItem="oRc-hF-ShT" firstAttribute="leading" secondItem="tb1-uN-d4E" secondAttribute="leading" id="YYT-WT-Gcx"/>
+                            <constraint firstItem="oaX-k4-QMh" firstAttribute="leading" secondItem="tb1-uN-d4E" secondAttribute="leading" id="bSI-dp-umy"/>
+                            <constraint firstAttribute="bottom" secondItem="oaX-k4-QMh" secondAttribute="bottom" id="hJl-cB-N3j"/>
+                            <constraint firstItem="w4f-Am-IQd" firstAttribute="leading" secondItem="tb1-uN-d4E" secondAttribute="leading" id="icF-8d-MlI"/>
+                            <constraint firstItem="oRc-hF-ShT" firstAttribute="top" secondItem="w4f-Am-IQd" secondAttribute="bottom" id="qEp-ny-Rhj"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="changeSegeMent" destination="w4f-Am-IQd" id="Ckl-NQ-EAB"/>
+                        <outlet property="mapView" destination="oaX-k4-QMh" id="HNh-9k-6GD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2wy-dg-5S1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="-517"/>
+        </scene>
+        <!--Annotation DemoVC-->
+        <scene sceneID="tV5-Vw-pqh">
+            <objects>
+                <viewController storyboardIdentifier="AnnotationDemoVCStoryboardId" id="3Z7-C9-nM0" customClass="AnnotationDemoVC" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nFA-b9-an6"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Ql-7h-aHP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E5f-rM-uFT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ViR-wQ-t9S" customClass="BMKMapView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cJJ-Im-17o">
+                                <rect key="frame" x="0.0" y="64" width="320" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="zg1-jc-0D9"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="内置覆盖物"/>
+                                    <segment title="添加标注"/>
+                                    <segment title="图片图层"/>
+                                </segments>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segementAction:" destination="3Z7-C9-nM0" eventType="valueChanged" id="Ndd-kL-Xz0"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cJJ-Im-17o" firstAttribute="leading" secondItem="E5f-rM-uFT" secondAttribute="leading" id="KRW-OK-mdm"/>
+                            <constraint firstItem="ViR-wQ-t9S" firstAttribute="top" secondItem="nFA-b9-an6" secondAttribute="bottom" id="NrT-nK-7d2"/>
+                            <constraint firstAttribute="trailing" secondItem="cJJ-Im-17o" secondAttribute="trailing" id="aE4-ba-t8L"/>
+                            <constraint firstItem="ViR-wQ-t9S" firstAttribute="leading" secondItem="E5f-rM-uFT" secondAttribute="leading" id="heq-5C-LvM"/>
+                            <constraint firstItem="cJJ-Im-17o" firstAttribute="top" secondItem="nFA-b9-an6" secondAttribute="bottom" id="lku-Gb-8wx"/>
+                            <constraint firstAttribute="trailing" secondItem="ViR-wQ-t9S" secondAttribute="trailing" id="wNb-a5-zbr"/>
+                            <constraint firstAttribute="bottom" secondItem="ViR-wQ-t9S" secondAttribute="bottom" id="yNv-SR-pjJ"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="contentMapView" destination="ViR-wQ-t9S" id="yMK-64-STc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zbd-JV-Cys" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="4"/>
         </scene>
         <!--Core Text PlainVC-->
         <scene sceneID="ZK2-dC-jsi">

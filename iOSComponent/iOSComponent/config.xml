@@ -1,1 +1,16 @@
-af
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 打包的时候只需要修改 runtime 值指定使用哪个服务器， debug的时候注意修改为自己电脑的ip -->
+<App runtime="release">
+    <runtime name="debug">
+        <server>http://192.168.1.5/hmservices/</server>
+        <imageUrl>http://192.168.1.5/HMIMAGE/</imageUrl>
+        <latitude>30.631647469017327</latitude>
+        <longitude>104.10522245431861</longitude>
+    </runtime>
+    <runtime name="release">
+        <server>http://h7z4.com:9005/</server>
+        <imageUrl>http://h7z4.com:9005/HMImg/</imageUrl>
+        <latitude>30.631647469017327</latitude>
+        <longitude>104.10522245431861</longitude>
+    </runtime>
+</App>

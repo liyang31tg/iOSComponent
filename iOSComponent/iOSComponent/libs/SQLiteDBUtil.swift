@@ -33,11 +33,11 @@ class SQLiteDBUtil {
     
     private func openDB(dbPath: String){
         
-      let openStatus =  sqlite3_open(dbPath.cStringUsingEncoding(NSUTF8StringEncoding)!, &currentDb)
-        if openStatus != SQLITE_OK {
-            print("open  fail")
-            sqlite3_close(currentDb)
-        }
+//      let openStatus =  sqlite3_open(dbPath.cStringUsingEncoding(NSUTF8StringEncoding)!, &currentDb)
+//        if openStatus != SQLITE_OK {
+//            print("open  fail")
+//            sqlite3_close(currentDb)
+//        }
     }
     
     

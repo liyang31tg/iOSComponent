@@ -9,5 +9,10 @@
 import Foundation
 import UIKit
 
-let ScreenWidth     = UIScreen.mainScreen().bounds.width
-let ScreenHeight    = UIScreen.mainScreen().bounds.height
+let ScreenFrame     = UIScreen.mainScreen().applicationFrame
+let ScreenBounds    = UIScreen.mainScreen().bounds
+let ScreenSize      = ScreenBounds.size
+let ScreenWidth     = ScreenBounds.width
+let ScreenHeight    = ScreenBounds.height
+
+let cornerCenter    = CLLocationCoordinate2D(latitude: Application.shareInstance.config.latitude, longitude: Application.shareInstance.config.longitude)
