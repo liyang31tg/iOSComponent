@@ -13,6 +13,7 @@ class Config: NSObject {
     var imageURL            = ""
     var latitude:Double     = 0
     var longitude:Double    = 0
+    var baiduMapKey         = ""
     
     override init() {
         super.init()
@@ -28,10 +29,12 @@ class Config: NSObject {
             if let r = runTime {
                 for elementsR in root.children{
                     if r == elementsR.element?.attributes["name"]!{
-                        self.serverURL  = elementsR["server"].element?.text ?? ""
-                        self.imageURL   = elementsR["imageUrl"].element?.text ?? ""
-                        self.latitude   = Double(elementsR["latitude"].element?.text ?? "0") ?? 0
-                        self.longitude  = Double(elementsR["longitude"].element?.text ?? "0") ?? 0
+                        self.serverURL      = elementsR["server"].element?.text ?? ""
+                        self.imageURL       = elementsR["imageUrl"].element?.text ?? ""//baiduMapKey
+                        self.latitude       = Double(elementsR["latitude"].element?.text ?? "0") ?? 0
+                        self.longitude      = Double(elementsR["longitude"].element?.text ?? "0") ?? 0
+                        self.baiduMapKey    = elementsR["baiduMapKey"].element?.text ?? ""
+
                     }
                 }
             }

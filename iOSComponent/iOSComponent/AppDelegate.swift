@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
         // 要使用百度地图，请先启动BaiduMapManager
         mapManager = BMKMapManager()
         // 如果要关注网络及授权验证事件，请设定generalDelegate参数
-        let ret = mapManager?.start("j1QbAZLqYOtnK3ZFhPAPW8ExpX38FXsI", generalDelegate: self)
+        let ret = mapManager?.start(Application.shareInstance.config.baiduMapKey, generalDelegate: self)
         if ret == false {
             NSLog("manager start failed!")
         }

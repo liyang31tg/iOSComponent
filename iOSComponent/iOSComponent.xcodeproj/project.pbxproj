@@ -19,6 +19,7 @@
 		B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634BE131CCE5159008C26CB /* CoreTextViewController.swift */; };
 		B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */; };
 		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
+		B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */; };
 		B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */; };
 		B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */; };
 		B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347D1CDF3892009D6188 /* SunLayer.swift */; };
@@ -101,6 +102,7 @@
 		B634BE131CCE5159008C26CB /* CoreTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
 		B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
 		B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDdayDreamViewController.swift; sourceTree = "<group>"; };
+		B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiSearchDemoVC.swift; sourceTree = "<group>"; };
 		B68709F81CC5E7C60012345F /* iOSComponent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSComponent-Bridging-Header.h"; sourceTree = "<group>"; };
 		B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDBUtil.swift; sourceTree = "<group>"; };
 		B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsViewController.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				B69EFC601CEABDCF00A20F20 /* MapViewBaseDemoVC.swift */,
 				B69EFC621CEAF28900A20F20 /* MultiMapViewDemoVC.swift */,
 				B69EFC641CEB021500A20F20 /* AnnotationDemoVC.swift */,
+				B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				B69EFC711CEB069500A20F20 /* Config.swift in Sources */,
 				B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */,
 				B618729A1CC13EFF00878EDE /* SubjectViewController.swift in Sources */,
+				B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */,
 				B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */,
 				B6B9BC171CE9BF7400F4BEB1 /* MapListViewController.swift in Sources */,
 				B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */,

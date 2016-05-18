@@ -403,6 +403,59 @@
             </objects>
             <point key="canvasLocation" x="761" y="469"/>
         </scene>
+        <!--Poi Search DemoVC-->
+        <scene sceneID="YRA-PH-iav">
+            <objects>
+                <viewController storyboardIdentifier="PoiSearchDemoVCStoryboardId" hidesBottomBarWhenPushed="YES" id="mi5-cT-mjH" customClass="PoiSearchDemoVC" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NKP-B4-aTV"/>
+                        <viewControllerLayoutGuide type="bottom" id="2tG-qo-aAe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eHJ-7O-5XY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXx-18-7kU" customClass="BMKMapView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="X4l-hQ-DM4">
+                                <rect key="frame" x="0.0" y="64" width="320" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="tRA-Fe-P4y"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="城市内检索"/>
+                                    <segment title="区域搜索"/>
+                                    <segment title="周边搜索"/>
+                                    <segment title="详情搜索"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segementAction:" destination="mi5-cT-mjH" eventType="valueChanged" id="KZ1-0n-Gfz"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="RXx-18-7kU" secondAttribute="bottom" id="3v4-hj-o6f"/>
+                            <constraint firstItem="RXx-18-7kU" firstAttribute="top" secondItem="NKP-B4-aTV" secondAttribute="bottom" id="6wD-sn-ZFR"/>
+                            <constraint firstAttribute="trailing" secondItem="X4l-hQ-DM4" secondAttribute="trailing" id="TNC-en-vVI"/>
+                            <constraint firstAttribute="trailing" secondItem="RXx-18-7kU" secondAttribute="trailing" id="ehz-WU-bXB"/>
+                            <constraint firstItem="X4l-hQ-DM4" firstAttribute="leading" secondItem="eHJ-7O-5XY" secondAttribute="leading" id="vQs-6I-NgC"/>
+                            <constraint firstItem="RXx-18-7kU" firstAttribute="leading" secondItem="eHJ-7O-5XY" secondAttribute="leading" id="vdT-My-C5n"/>
+                            <constraint firstItem="X4l-hQ-DM4" firstAttribute="top" secondItem="NKP-B4-aTV" secondAttribute="bottom" id="xU3-kS-MsV"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="contentMapView" destination="RXx-18-7kU" id="wZU-ZH-XHi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zrh-XM-Iet" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="680" y="-1065"/>
+        </scene>
         <!--Map List View Controller-->
         <scene sceneID="fPk-n0-PCI">
             <objects>

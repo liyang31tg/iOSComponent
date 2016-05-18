@@ -6,11 +6,13 @@
         <imageUrl>http://192.168.1.5/HMIMAGE/</imageUrl>
         <latitude>30.631647469017327</latitude>
         <longitude>104.10522245431861</longitude>
+        <baiduMapKey>j1QbAZLqYOtnK3ZFhPAPW8ExpX38FXsI</baiduMapKey>
     </runtime>
     <runtime name="release">
         <server>http://h7z4.com:9005/</server>
         <imageUrl>http://h7z4.com:9005/HMImg/</imageUrl>
         <latitude>30.631647469017327</latitude>
         <longitude>104.10522245431861</longitude>
+        <baiduMapKey>j1QbAZLqYOtnK3ZFhPAPW8ExpX38FXsI</baiduMapKey>
     </runtime>
 </App>
