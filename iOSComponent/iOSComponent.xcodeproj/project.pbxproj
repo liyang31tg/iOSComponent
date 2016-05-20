@@ -20,6 +20,7 @@
 		B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */; };
 		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
 		B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */; };
+		B65B7DC31CEC4C9400F1E072 /* GeocodeDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B7DC21CEC4C9400F1E072 /* GeocodeDemoVC.swift */; };
 		B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */; };
 		B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */; };
 		B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347D1CDF3892009D6188 /* SunLayer.swift */; };
@@ -62,12 +63,17 @@
 		B6BFF3501CC12F1600141A93 /* iOSComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF34F1CC12F1600141A93 /* iOSComponentTests.swift */; };
 		B6BFF35B1CC12F1600141A93 /* iOSComponentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF35A1CC12F1600141A93 /* iOSComponentUITests.swift */; };
 		B6CA66171CE4B19C00306E25 /* CoreTextCTLineDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA66161CE4B19C00306E25 /* CoreTextCTLineDraw.swift */; };
+		B6DD9B1B1CED5E0A004B16EE /* RouteAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DD9B1A1CED5E0A004B16EE /* RouteAnnotation.swift */; };
+		B6DD9B1D1CED9CF0004B16EE /* BusLineSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DD9B1C1CED9CF0004B16EE /* BusLineSearchVC.swift */; };
+		B6DD9B1F1CEDB9EB004B16EE /* DistrictSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DD9B1E1CEDB9EB004B16EE /* DistrictSearchDemoVC.swift */; };
+		B6DD9B211CEDC6E9004B16EE /* SuggestionSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DD9B201CEDC6E9004B16EE /* SuggestionSearchDemoVC.swift */; };
 		B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D21CCA3E4B0028CE37 /* ControlViewController.swift */; };
 		B6E336D51CCA3F390028CE37 /* control.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E336D41CCA3F390028CE37 /* control.storyboard */; };
 		B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D71CCA3FD60028CE37 /* SunLabel.swift */; };
 		B6E336DA1CCA42940028CE37 /* SunLableViewControlelr.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D91CCA42940028CE37 /* SunLableViewControlelr.swift */; };
 		B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */; };
 		B6E336E21CCB92910028CE37 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336E11CCB92910028CE37 /* Constant.swift */; };
+		B6E761F41CEC697300AB81AD /* RouteSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E761F31CEC697300AB81AD /* RouteSearchDemoVC.swift */; };
 		B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */; };
 		B6FA0D481CE47F44005745B0 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = B6FA0D471CE47F44005745B0 /* config.xml */; };
 /* End PBXBuildFile section */
@@ -103,6 +109,7 @@
 		B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
 		B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDdayDreamViewController.swift; sourceTree = "<group>"; };
 		B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiSearchDemoVC.swift; sourceTree = "<group>"; };
+		B65B7DC21CEC4C9400F1E072 /* GeocodeDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodeDemoVC.swift; sourceTree = "<group>"; };
 		B68709F81CC5E7C60012345F /* iOSComponent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSComponent-Bridging-Header.h"; sourceTree = "<group>"; };
 		B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDBUtil.swift; sourceTree = "<group>"; };
 		B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsViewController.swift; sourceTree = "<group>"; };
@@ -153,12 +160,17 @@
 		B6BFF35A1CC12F1600141A93 /* iOSComponentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSComponentUITests.swift; sourceTree = "<group>"; };
 		B6BFF35C1CC12F1600141A93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6CA66161CE4B19C00306E25 /* CoreTextCTLineDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextCTLineDraw.swift; sourceTree = "<group>"; };
+		B6DD9B1A1CED5E0A004B16EE /* RouteAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteAnnotation.swift; sourceTree = "<group>"; };
+		B6DD9B1C1CED9CF0004B16EE /* BusLineSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineSearchVC.swift; sourceTree = "<group>"; };
+		B6DD9B1E1CEDB9EB004B16EE /* DistrictSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistrictSearchDemoVC.swift; sourceTree = "<group>"; };
+		B6DD9B201CEDC6E9004B16EE /* SuggestionSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionSearchDemoVC.swift; sourceTree = "<group>"; };
 		B6E336D21CCA3E4B0028CE37 /* ControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		B6E336D41CCA3F390028CE37 /* control.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = control.storyboard; sourceTree = "<group>"; };
 		B6E336D71CCA3FD60028CE37 /* SunLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLabel.swift; sourceTree = "<group>"; };
 		B6E336D91CCA42940028CE37 /* SunLableViewControlelr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLableViewControlelr.swift; sourceTree = "<group>"; };
 		B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunFPSLabel.swift; sourceTree = "<group>"; };
 		B6E336E11CCB92910028CE37 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B6E761F31CEC697300AB81AD /* RouteSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteSearchDemoVC.swift; sourceTree = "<group>"; };
 		B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusViewController.swift; sourceTree = "<group>"; };
 		B6FA0D471CE47F44005745B0 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,6 +385,7 @@
 				B69EFC7A1CEB293100A20F20 /* poi_2.png */,
 				B69EFC7B1CEB293100A20F20 /* poi_3.png */,
 				B69EFC771CEB28D800A20F20 /* AnimatedAnnotationView.swift */,
+				B6DD9B1A1CED5E0A004B16EE /* RouteAnnotation.swift */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -388,6 +401,11 @@
 				B69EFC621CEAF28900A20F20 /* MultiMapViewDemoVC.swift */,
 				B69EFC641CEB021500A20F20 /* AnnotationDemoVC.swift */,
 				B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */,
+				B65B7DC21CEC4C9400F1E072 /* GeocodeDemoVC.swift */,
+				B6E761F31CEC697300AB81AD /* RouteSearchDemoVC.swift */,
+				B6DD9B1C1CED9CF0004B16EE /* BusLineSearchVC.swift */,
+				B6DD9B1E1CEDB9EB004B16EE /* DistrictSearchDemoVC.swift */,
+				B6DD9B201CEDC6E9004B16EE /* SuggestionSearchDemoVC.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -643,6 +661,7 @@
 				B69EFC631CEAF28900A20F20 /* MultiMapViewDemoVC.swift in Sources */,
 				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,
 				B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */,
+				B65B7DC31CEC4C9400F1E072 /* GeocodeDemoVC.swift in Sources */,
 				B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */,
 				B6E336E21CCB92910028CE37 /* Constant.swift in Sources */,
 				B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */,
@@ -651,6 +670,7 @@
 				B69EFC6B1CEB057F00A20F20 /* SWXMLHash.swift in Sources */,
 				B6CA66171CE4B19C00306E25 /* CoreTextCTLineDraw.swift in Sources */,
 				B69EFC651CEB021500A20F20 /* AnnotationDemoVC.swift in Sources */,
+				B6DD9B1F1CEDB9EB004B16EE /* DistrictSearchDemoVC.swift in Sources */,
 				B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */,
 				B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */,
 				B69EFC6A1CEB057F00A20F20 /* SWXMLHash+TypeConversion.swift in Sources */,
@@ -660,18 +680,22 @@
 				B69EFC731CEB071200A20F20 /* Application.swift in Sources */,
 				B69EFC711CEB069500A20F20 /* Config.swift in Sources */,
 				B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */,
+				B6DD9B1D1CED9CF0004B16EE /* BusLineSearchVC.swift in Sources */,
 				B618729A1CC13EFF00878EDE /* SubjectViewController.swift in Sources */,
 				B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */,
 				B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */,
 				B6B9BC171CE9BF7400F4BEB1 /* MapListViewController.swift in Sources */,
 				B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */,
 				B69EFC6F1CEB067800A20F20 /* ColorUtil.swift in Sources */,
+				B6DD9B211CEDC6E9004B16EE /* SuggestionSearchDemoVC.swift in Sources */,
 				B6296D6A1CE32F5400492C1B /* BasePlainTableViewController.swift in Sources */,
 				B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */,
 				B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */,
 				B61872961CC1383400878EDE /* BaseViewController.swift in Sources */,
 				B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */,
 				B6E336DA1CCA42940028CE37 /* SunLableViewControlelr.swift in Sources */,
+				B6DD9B1B1CED5E0A004B16EE /* RouteAnnotation.swift in Sources */,
+				B6E761F41CEC697300AB81AD /* RouteSearchDemoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,7 +844,7 @@
 				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				INFOPLIST_FILE = iOSComponent/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boqiao919.iOSComponent;
@@ -844,7 +868,7 @@
 				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				INFOPLIST_FILE = iOSComponent/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boqiao919.iOSComponent;
