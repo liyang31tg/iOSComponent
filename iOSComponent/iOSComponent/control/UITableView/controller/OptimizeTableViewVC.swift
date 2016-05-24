@@ -159,7 +159,6 @@ class OptimizeTableViewCellDomain : OptimizeTableViewCellDomainDelegate{
     func caculateCellHeight() -> CGFloat {
         dispatch_semaphore_wait(a, DISPATCH_TIME_FOREVER)
         if self.cellHeight == nil {
-            print("thread:\(NSThread.currentThread()),caculate:\(self.index)")
             let attributeStr = NSAttributedString(string: self.title)
             self.cellHeight = CommonUtil.caculateDisplayHeight(attributeStr, width: ScreenWidth)
         }
@@ -192,18 +191,15 @@ class OptimizeTableViewCell: UITableViewCell,OptimizeTableViewCellDelegate {
         }
         set {
             let domain = newValue as! OptimizeTableViewCellDomain
-            
             if isAsynShow {
                 self.coreTextView.contentAttribute = NSAttributedString(string: (domain.index + " : " + domain.title))
                 self.coreTextView.layer.setNeedsDisplay()
             }else{
                 self.contentLabel.text = domain.title
             }
-            
             self.coreTextView.hidden = !self.isAsynShow
             self.contentLabel.hidden = self.isAsynShow
             
-        
         }
     }
     

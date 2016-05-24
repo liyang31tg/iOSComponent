@@ -216,7 +216,7 @@
         <!--贴士-->
         <scene sceneID="MAe-99-WX6">
             <objects>
-                <viewController id="nqn-wV-6rg" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="nqn-wV-6rg" customClass="TipsVCList" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vzr-U5-xzG"/>
                         <viewControllerLayoutGuide type="bottom" id="O2B-bY-NEi"/>
@@ -224,7 +224,33 @@
                     <view key="view" contentMode="scaleToFill" id="ivI-ZC-3SH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mhG-zG-75r">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cttableviewCellidentifier" id="5ZP-V7-ktt">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5ZP-V7-ktt" id="xqH-n7-brW">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nqn-wV-6rg" id="870-BK-Nvj"/>
+                                    <outlet property="delegate" destination="nqn-wV-6rg" id="36Z-ur-sk5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mhG-zG-75r" secondAttribute="trailing" id="CN3-gG-opX"/>
+                            <constraint firstItem="mhG-zG-75r" firstAttribute="top" secondItem="vzr-U5-xzG" secondAttribute="bottom" id="Ngt-nG-bA9"/>
+                            <constraint firstItem="O2B-bY-NEi" firstAttribute="top" secondItem="mhG-zG-75r" secondAttribute="bottom" id="VvP-JX-YgV"/>
+                            <constraint firstItem="mhG-zG-75r" firstAttribute="leading" secondItem="ivI-ZC-3SH" secondAttribute="leading" id="kCa-me-xul"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="贴士" id="dyX-AF-DOC"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>

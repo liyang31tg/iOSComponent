@@ -50,6 +50,7 @@ extension BasePlainTableViewController :UITableViewDataSource,UITableViewDelegat
         case CTDomain.DomainType.UseStoryBoardId:
             let st = UIStoryboard(name: ctDomain.storyBoard, bundle: NSBundle.mainBundle())
             let vc = st.instantiateViewControllerWithIdentifier(ctDomain.storyBoardId)
+            vc.title = ctDomain.title
             self.navigationController?.pushViewController(vc, animated: true)
             
         case CTDomain.DomainType.UseViewClass:
