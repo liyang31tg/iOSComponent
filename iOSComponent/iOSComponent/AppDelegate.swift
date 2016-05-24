@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
         self.window!.addSubview(FPSLabel)
         self.window?.backgroundColor = UIColor.whiteColor()
 
+        
         // 要使用百度地图，请先启动BaiduMapManager
         mapManager = BMKMapManager()
         // 如果要关注网络及授权验证事件，请设定generalDelegate参数
@@ -48,9 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
 //                break;
 //            }
 //        }
+//        
 //        // 2.添加监听
 //        CFRunLoopAddObserver(CFRunLoopGetMain(), observe, kCFRunLoopDefaultMode);
-        
+
         return true
     }
     

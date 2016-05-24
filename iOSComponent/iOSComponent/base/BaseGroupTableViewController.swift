@@ -47,6 +47,7 @@ extension BaseGroupTableViewController :UITableViewDataSource,UITableViewDelegat
         if ctDomain.performIdentifier.isEmpty {
             let st = UIStoryboard(name: ctDomain.storyBoard, bundle: NSBundle.mainBundle())
             let vc = st.instantiateViewControllerWithIdentifier(ctDomain.storyBoardId)
+            vc.title = ctDomain.title
             self.navigationController?.pushViewController(vc, animated: true)
 
         } else {

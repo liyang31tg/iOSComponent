@@ -6,7 +6,7 @@
 //  Copyright © 2016年 liyang. All rights reserved.
 //
 
-import Foundation 
+import Foundation
 class SuggestionSearchDemoVC: BaseViewController {
     var dataArray:[[String]]            = []
     var sectionHeadString:[String]      = []

@@ -15,9 +15,14 @@ class ControlViewController: BaseGroupTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataArray = [[CTDomain(sectionTitle: "UILabel"),CTDomain(title: "SUNKit", storyBoard: "control", storyBoardId: "uiLabelExtenssionIdentifer")]]
+        dataArray = [[  CTDomain(sectionTitle: "UILabel"),
+                        CTDomain(title: "SUNKit", storyBoard: "control", storyBoardId: "uiLabelExtenssionIdentifer")],
+                     [  CTDomain(sectionTitle: "UIScrollView"),
+                        CTDomain(title: "上啦下啦－UIScrollView", storyBoard: "control", storyBoardId: "LYRefreshIdentifier")],
+                     [  CTDomain(sectionTitle: "UITableView"),
+                        CTDomain(title: "优化－ UITableView", storyBoard: "control", storyBoardId: "optimizeTableViewVCStoryBoardId")]]
         
-        print(self.contentTableView.contentInset)
+//
         
         
     }
