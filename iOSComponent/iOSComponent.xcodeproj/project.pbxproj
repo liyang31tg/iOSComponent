@@ -64,6 +64,8 @@
 		B6BFF3501CC12F1600141A93 /* iOSComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF34F1CC12F1600141A93 /* iOSComponentTests.swift */; };
 		B6BFF35B1CC12F1600141A93 /* iOSComponentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFF35A1CC12F1600141A93 /* iOSComponentUITests.swift */; };
 		B6CA66171CE4B19C00306E25 /* CoreTextCTLineDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA66161CE4B19C00306E25 /* CoreTextCTLineDraw.swift */; };
+		B6CFA63E1CF5590D0074412B /* SunRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFA63D1CF5590D0074412B /* SunRefresh.swift */; };
+		B6CFA6401CF58B210074412B /* EventBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CFA63F1CF58B210074412B /* EventBox.swift */; };
 		B6DD9B1B1CED5E0A004B16EE /* RouteAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DD9B1A1CED5E0A004B16EE /* RouteAnnotation.swift */; };
 		B6DD9B1D1CED9CF0004B16EE /* BusLineSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DD9B1C1CED9CF0004B16EE /* BusLineSearchVC.swift */; };
 		B6DD9B1F1CEDB9EB004B16EE /* DistrictSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DD9B1E1CEDB9EB004B16EE /* DistrictSearchDemoVC.swift */; };
@@ -169,6 +171,8 @@
 		B6BFF35A1CC12F1600141A93 /* iOSComponentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSComponentUITests.swift; sourceTree = "<group>"; };
 		B6BFF35C1CC12F1600141A93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6CA66161CE4B19C00306E25 /* CoreTextCTLineDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextCTLineDraw.swift; sourceTree = "<group>"; };
+		B6CFA63D1CF5590D0074412B /* SunRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunRefresh.swift; sourceTree = "<group>"; };
+		B6CFA63F1CF58B210074412B /* EventBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBox.swift; sourceTree = "<group>"; };
 		B6DD9B1A1CED5E0A004B16EE /* RouteAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteAnnotation.swift; sourceTree = "<group>"; };
 		B6DD9B1C1CED9CF0004B16EE /* BusLineSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineSearchVC.swift; sourceTree = "<group>"; };
 		B6DD9B1E1CEDB9EB004B16EE /* DistrictSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistrictSearchDemoVC.swift; sourceTree = "<group>"; };
@@ -288,6 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				B6F6710D1CF45D3B0023C78B /* CommentDegreeShowView.swift */,
+				B6CFA63D1CF5590D0074412B /* SunRefresh.swift */,
+				B6CFA63F1CF58B210074412B /* EventBox.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -734,6 +740,7 @@
 				B69EFC631CEAF28900A20F20 /* MultiMapViewDemoVC.swift in Sources */,
 				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,
 				B6F6710C1CF45B7F0023C78B /* CommentDegreeShowVC.swift in Sources */,
+				B6CFA6401CF58B210074412B /* EventBox.swift in Sources */,
 				B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */,
 				B65B7DC31CEC4C9400F1E072 /* GeocodeDemoVC.swift in Sources */,
 				B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */,
@@ -762,6 +769,7 @@
 				B6F671011CF3F7C20023C78B /* OptimizeTableViewVC.swift in Sources */,
 				B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */,
 				B6B9BC171CE9BF7400F4BEB1 /* MapListViewController.swift in Sources */,
+				B6CFA63E1CF5590D0074412B /* SunRefresh.swift in Sources */,
 				B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */,
 				B69EFC6F1CEB067800A20F20 /* ColorUtil.swift in Sources */,
 				B6DD9B211CEDC6E9004B16EE /* SuggestionSearchDemoVC.swift in Sources */,
