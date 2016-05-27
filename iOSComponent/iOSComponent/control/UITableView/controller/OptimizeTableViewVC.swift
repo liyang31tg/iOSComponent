@@ -7,19 +7,25 @@
 //  优化cellHeight的思路，reload的时候异步计算cell（错误的思路绝对不要去监听主线程的Runloop，可以异步的绝对一步）
 
 import Foundation
-class OptimizeTableViewVC: BaseViewController {
+class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
     
     @IBOutlet weak var contentTableView: OptimizeTableView!
-    
     var dataArray: [[OptimizeTableViewCellDomainDelegate]]    = []//不管是一维、二维统一有二维处理
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.contentTableView.refreshType = RefreshType.PullBoth.rawValue
+        
+        self.contentTableView.refreshDelegate = self
+        
+        self.contentTableView.currentRefreshDataState = RefreshDataType.PullDownRefreshing.rawValue
+        
+
         var part1: [OptimizeTableViewCellDomainDelegate]        = []
-        for i in 0...1000 {
+        for i in 0...1 {
             let oneline = "pre😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢阿克苏江东父老客机失联飞机了"
             var title = ""
             let to = arc4random() % 5 + 1
-            print(to);
             for _ in 0..<to{
                 title += oneline
             }
@@ -29,9 +35,61 @@ class OptimizeTableViewVC: BaseViewController {
         contentTableView.reloadData(self.dataArray)
     }
     
+    func loadMoreData() {
+        print("loadMoreData")
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            sleep(3)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.contentTableView.currentRefreshDataState = RefreshDataType.PullUpRefreshed.rawValue
+            })
+        }
+    }
+    
+    func refreshData() {
+        print("refreshData")
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            sleep(3)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.contentTableView.currentRefreshDataState = RefreshDataType.PullDownRefreshed.rawValue
+            })
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print(self.contentTableView.contentSize.height)
+//        self.contentTableView.addRefreshFooterView()
+//        
+//        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+//        footerView.translatesAutoresizingMaskIntoConstraints    = false
+//        footerView.backgroundColor = UIColor .brownColor()
+//        
+//        self.contentTableView.addSubview(footerView)
+//        
+//        
+//        //addConstraint
+//        let centerX =   NSLayoutConstraint(item: footerView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: contentTableView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+//        let width = NSLayoutConstraint(item: footerView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: contentTableView, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+//        let top =   NSLayoutConstraint(item: footerView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: contentTableView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
+//        let heightC =   NSLayoutConstraint(item: footerView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 60)
+//        contentTableView.addConstraints([centerX,width,top,heightC])
+//        
+//        top.constant =  self.contentTableView.contentSize.height + 64
+      
+        
+        
+        
+
+
+    }
+    
+//    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+//        print("observeValueForKeyPath")
+//    }
+    
     @IBAction func rightBtnAction(sender: AnyObject) {
         let a = self.dataArray[0].count
-        for i in 0...1000 {
+        for i in 0...10 {
             
             let oneline = "pre😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢阿克苏江东父老客机失联飞机了"
             var title = ""
@@ -135,6 +193,7 @@ class OptimizeTableView: UITableView {
     deinit{
         caculateQueue.cancelAllOperations()
     }
+ 
 }
 
 protocol OptimizeTableViewCellDomainDelegate {

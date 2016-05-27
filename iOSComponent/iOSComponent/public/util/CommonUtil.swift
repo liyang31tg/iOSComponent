@@ -57,4 +57,25 @@ class CommonUtil: NSObject {
         //高度就这么计算好了
         return lineTotalHeight
     }
+    
+    /*
+     *交换方法实现
+     */
+    class func exchangeSelectorImplement(obser:AnyClass,originalSelector:Selector, swizzledSelector:Selector){
+        let originalMethod = class_getInstanceMethod(obser, originalSelector)
+        let swizzledMethod = class_getInstanceMethod(obser, swizzledSelector)
+        
+        let didAddMethod = class_addMethod(obser, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+        
+        if didAddMethod {
+            class_replaceMethod(obser, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+        } else {
+            method_exchangeImplementations(originalMethod, swizzledMethod);
+        }
+
+    
+    }
+    
+    
+    
 }

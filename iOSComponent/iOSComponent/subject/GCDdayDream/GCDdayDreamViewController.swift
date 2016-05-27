@@ -17,7 +17,7 @@ class GCDdayDreamViewController: BaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         //死锁
-      let t =  dispatch_time(DISPATCH_TIME_NOW, Int64(10 * NSEC_PER_SEC))
+      _ =  dispatch_time(DISPATCH_TIME_NOW, Int64(10 * NSEC_PER_SEC))
 //        dispatch_async(cqueue) { () -> Void in
 //            
 //           print("current thread:\(NSThread.currentThread())")
@@ -57,13 +57,13 @@ class GCDdayDreamViewController: BaseViewController{
     @IBAction func doAction(sender: AnyObject) {
         
         
-          mythread(target: self, selector: Selector("doAction"), object: nil).start()
+          mythread(target: self, selector: #selector(GCDdayDreamViewController.doAction as (GCDdayDreamViewController) -> () -> ()), object: nil).start()
         
     }
     
     func doAction(){
         print("doAction")
-        let t =   NSTimer(timeInterval: 5, target: self, selector: Selector("timeAction"), userInfo: nil, repeats: false)
+        let t =   NSTimer(timeInterval: 5, target: self, selector: #selector(GCDdayDreamViewController.timeAction), userInfo: nil, repeats: false)
         NSRunLoop.currentRunLoop().addTimer(t, forMode: NSDefaultRunLoopMode)
         NSRunLoop.currentRunLoop().run()
     }
