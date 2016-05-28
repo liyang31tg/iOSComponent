@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
             NSLog("manager start failed!")
         }
         
-//        let observe = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, CFRunLoopActivity.AllActivities.rawValue, true, 0) { (o: CFRunLoopObserver!, a:CFRunLoopActivity) -> Void in
+//        let observe = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, CFRunLoopActivity.BeforeWaiting.rawValue | CFRunLoopActivity.Exit.rawValue , true, 0) { (o: CFRunLoopObserver!, a:CFRunLoopActivity) -> Void in
 //            switch a {
 //            case CFRunLoopActivity.Entry:
 //                print("RunLoop Entry")
@@ -53,9 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
 //        
 //        // 2.添加监听
 //        CFRunLoopAddObserver(CFRunLoopGetMain(), observe, kCFRunLoopDefaultMode);
+        
 
         return true
     }
+    
+    
+
     
     
     //MARK: - BMKGeneralDelegate

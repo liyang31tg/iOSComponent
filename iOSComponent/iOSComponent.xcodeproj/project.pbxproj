@@ -17,6 +17,8 @@
 		B6296D6A1CE32F5400492C1B /* BasePlainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6296D691CE32F5400492C1B /* BasePlainTableViewController.swift */; };
 		B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6296D6B1CE37ACC00492C1B /* CoreTextPictureVC.swift */; };
 		B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634BE131CCE5159008C26CB /* CoreTextViewController.swift */; };
+		B64BEE241CF92ED300482407 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE231CF92ED300482407 /* Transaction.swift */; };
+		B64BEE271CF93A9E00482407 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE261CF93A9E00482407 /* ChatVC.swift */; };
 		B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */; };
 		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
 		B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */; };
@@ -117,6 +119,8 @@
 		B6296D691CE32F5400492C1B /* BasePlainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePlainTableViewController.swift; sourceTree = "<group>"; };
 		B6296D6B1CE37ACC00492C1B /* CoreTextPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextPictureVC.swift; sourceTree = "<group>"; };
 		B634BE131CCE5159008C26CB /* CoreTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
+		B64BEE231CF92ED300482407 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		B64BEE261CF93A9E00482407 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
 		B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDdayDreamViewController.swift; sourceTree = "<group>"; };
 		B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiSearchDemoVC.swift; sourceTree = "<group>"; };
@@ -238,13 +242,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B618728C1CC1308D00878EDE /* chat */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = chat;
-			sourceTree = "<group>";
-		};
 		B618728D1CC1308D00878EDE /* control */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +294,7 @@
 				B6CFA63D1CF5590D0074412B /* SunRefresh.swift */,
 				B6CFA63F1CF58B210074412B /* EventBox.swift */,
 				B6CFA6411CF5DFD50074412B /* AutoBoxingAndUnboxingUtil.swift */,
+				B64BEE231CF92ED300482407 /* Transaction.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -310,6 +308,14 @@
 				B6CA66161CE4B19C00306E25 /* CoreTextCTLineDraw.swift */,
 			);
 			path = CoreText;
+			sourceTree = "<group>";
+		};
+		B64BEE251CF93A8D00482407 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				B64BEE261CF93A9E00482407 /* ChatVC.swift */,
+			);
+			path = chat;
 			sourceTree = "<group>";
 		};
 		B657CB5F1CC6552C00EE506F /* LRU */ = {
@@ -482,12 +488,12 @@
 		B6BFF3391CC12F1500141A93 /* iOSComponent */ = {
 			isa = PBXGroup;
 			children = (
+				B64BEE251CF93A8D00482407 /* chat */,
 				B6F671061CF459CF0023C78B /* tips */,
 				B69EFC6C1CEB063D00A20F20 /* public */,
 				B6E336DB1CCB1D790028CE37 /* SUNKit */,
 				B68709F71CC5E7A70012345F /* libs */,
 				B61872901CC1382200878EDE /* base */,
-				B618728C1CC1308D00878EDE /* chat */,
 				B618728D1CC1308D00878EDE /* control */,
 				B618728E1CC1308D00878EDE /* subject */,
 				B6BFF33A1CC12F1500141A93 /* AppDelegate.swift */,
@@ -761,6 +767,7 @@
 				B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */,
 				B69EFC6B1CEB057F00A20F20 /* SWXMLHash.swift in Sources */,
 				B664FD221CEF459800E88088 /* LYPullRefreshScrollView.swift in Sources */,
+				B64BEE241CF92ED300482407 /* Transaction.swift in Sources */,
 				B6CA66171CE4B19C00306E25 /* CoreTextCTLineDraw.swift in Sources */,
 				B69EFC651CEB021500A20F20 /* AnnotationDemoVC.swift in Sources */,
 				B6DD9B1F1CEDB9EB004B16EE /* DistrictSearchDemoVC.swift in Sources */,
@@ -770,6 +777,7 @@
 				B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */,
 				B69EFC781CEB28D800A20F20 /* AnimatedAnnotationView.swift in Sources */,
 				B6F671041CF448BF0023C78B /* CommonUtil.swift in Sources */,
+				B64BEE271CF93A9E00482407 /* ChatVC.swift in Sources */,
 				B69EFC611CEABDCF00A20F20 /* MapViewBaseDemoVC.swift in Sources */,
 				B69EFC731CEB071200A20F20 /* Application.swift in Sources */,
 				B69EFC711CEB069500A20F20 /* Config.swift in Sources */,

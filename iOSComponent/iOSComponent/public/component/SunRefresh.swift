@@ -372,12 +372,7 @@ class ObserObject: NSObject {
                         if table.headerViewOverHeightZero <= tmpPullDownOffset {
                             //上啦超过零界点(启动刷新)
                             if table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue {
-                                
-                                
                                 table.currentRefreshDataState = RefreshDataType.PullDownRefreshing.rawValue
-
-                            
-                                
                             }
 
 //                            print("启动下拉刷新")
@@ -427,7 +422,6 @@ class ObserObject: NSObject {
                 }
                 
                 if tmpOffset >= table.footerViewOverHeightZero{
-                
                     if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue {
                         table.currentRefreshDataState = RefreshDataType.PullUpOverZero.rawValue
 //                        print("上拉超过临界点:\(tmpOffset),footerViewOverHeightZero:\(table.footerViewOverHeightZero)")

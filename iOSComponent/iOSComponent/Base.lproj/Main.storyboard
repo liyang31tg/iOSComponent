@@ -178,7 +178,7 @@
         <!--消息-->
         <scene sceneID="Ouk-Di-1fh">
             <objects>
-                <viewController id="57f-tQ-Vro" sceneMemberID="viewController">
+                <viewController id="57f-tQ-Vro" customClass="ChatVC" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ORb-UJ-8XI"/>
                         <viewControllerLayoutGuide type="bottom" id="gM5-GW-gho"/>
