@@ -19,6 +19,8 @@
 		B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634BE131CCE5159008C26CB /* CoreTextViewController.swift */; };
 		B64BEE241CF92ED300482407 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE231CF92ED300482407 /* Transaction.swift */; };
 		B64BEE271CF93A9E00482407 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE261CF93A9E00482407 /* ChatVC.swift */; };
+		B64BEE291CF9431B00482407 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE281CF9431B00482407 /* ColorExtension.swift */; };
+		B64BEE2B1CF9439D00482407 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE2A1CF9439D00482407 /* BannerView.swift */; };
 		B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */; };
 		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
 		B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */; };
@@ -121,6 +123,8 @@
 		B634BE131CCE5159008C26CB /* CoreTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
 		B64BEE231CF92ED300482407 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		B64BEE261CF93A9E00482407 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		B64BEE281CF9431B00482407 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		B64BEE2A1CF9439D00482407 /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
 		B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDdayDreamViewController.swift; sourceTree = "<group>"; };
 		B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiSearchDemoVC.swift; sourceTree = "<group>"; };
@@ -290,6 +294,7 @@
 		B61E6A601CF3E931008C99D4 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				B64BEE2A1CF9439D00482407 /* BannerView.swift */,
 				B6F6710D1CF45D3B0023C78B /* CommentDegreeShowView.swift */,
 				B6CFA63D1CF5590D0074412B /* SunRefresh.swift */,
 				B6CFA63F1CF58B210074412B /* EventBox.swift */,
@@ -531,6 +536,7 @@
 		B6CFA6431CF690FF0074412B /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				B64BEE281CF9431B00482407 /* ColorExtension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -755,6 +761,7 @@
 			files = (
 				B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */,
 				B69EFC631CEAF28900A20F20 /* MultiMapViewDemoVC.swift in Sources */,
+				B64BEE2B1CF9439D00482407 /* BannerView.swift in Sources */,
 				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,
 				B6F6710C1CF45B7F0023C78B /* CommentDegreeShowVC.swift in Sources */,
 				B6CFA6401CF58B210074412B /* EventBox.swift in Sources */,
@@ -804,6 +811,7 @@
 				B6F6710E1CF45D3B0023C78B /* CommentDegreeShowView.swift in Sources */,
 				B6DD9B1B1CED5E0A004B16EE /* RouteAnnotation.swift in Sources */,
 				B6E761F41CEC697300AB81AD /* RouteSearchDemoVC.swift in Sources */,
+				B64BEE291CF9431B00482407 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

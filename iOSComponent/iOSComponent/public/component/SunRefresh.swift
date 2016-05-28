@@ -64,6 +64,31 @@ extension UITableView{
         }
     }
  }
+//MARK:UICollectionView extension
+extension UICollectionView{
+    public override func willMoveToSuperview(newSuperview: UIView?) {
+        let obserKeys = ["contentOffset","contentSize"]
+        for key in obserKeys {
+            self.addObserver(RefreshStaticParametter.publicObserve, forKeyPath: key, options: NSKeyValueObservingOptions.New, context: nil)
+            
+        }
+    }
+    public override func removeFromSuperview() {
+        let obserKeys = ["contentOffset","contentSize"]
+        for key in obserKeys {
+            self.removeObserver(RefreshStaticParametter.publicObserve, forKeyPath: key)
+            
+        }
+    }
+    public override func didChangeValueForKey(key: String) {
+        super.didChangeValueForKey(key)
+        
+        if key == "contentSize"{
+            self.addRefreshFooterAndHeaderView(CareType.onlyFooter)
+        }
+    }
+}
+
 //MARK:UIScrollView extension
 extension UIScrollView{
     struct AssociateKeys {
