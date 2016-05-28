@@ -41,3 +41,28 @@ enum RefreshDataType:Int {//状态控制
     case PullUpRefreshed    = 8 //上拉结束
 }
 ```
+
+###BannerView的延展，我绝对不仅仅是bannerView哦
+```
+   self.bottomBannerView.delegate = self
+   self.bottomBannerView.bannerViewCell = UICollectionView.self //类似UITableView的注册
+   
+   说明：
+   protocol BannerViewDelegate{
+    func bannerView(bannerView:BannerView,cell:UIView,index:Int)
+    func numberOfBannerView(bannerView:BannerView) -> Int
+    optional func bannerView(bannerView:BannerView,didIndex:Int)
+    //MARK:注册的时候回调
+    optional func initBannerCellView(bannerView:BannerView,cellView:UIView)
+    //MARK:是否响应轻击事件
+    optional func isResponderTapAction(bannerView:BannerView) -> Bool
+    //MARK:是否启动定时器
+    optional func isResponderTimeAction(bannerView:BannerView) -> Bool
+    //MARK:show which index
+    optional func bannerView(bannerView:BannerView,showWhichIndex:Int)
+    //MARK:是否循环滚动（主要针对新闻列表，手动滑动到最后一个，是否可循环）
+    optional func bannerViewIsCycle(bannerView:BannerView) -> Bool
+    //MARK:对于不循环的缓存初始化几个cell,默认初始化一个
+    optional func bannerViewCacheCellCount(bannerView:BannerView) -> Int
+}
+```
