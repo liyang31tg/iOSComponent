@@ -10,3 +10,6 @@
 #import <BaiduMapAPI_Radar/BMKRadarComponent.h>
 #import <BaiduMapAPI_Search/BMKSearchComponent.h>
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
+
+#import <sqlite3.h>
+#import "SQLite.h"

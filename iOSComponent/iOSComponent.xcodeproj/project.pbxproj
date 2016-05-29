@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B61673C01CFAB1BB0039637E /* SqliteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61673BF1CFAB1BB0039637E /* SqliteDB.swift */; };
+		B61673C21CFAB3DD0039637E /* URLUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61673C11CFAB3DD0039637E /* URLUtil.swift */; };
+		B61673C41CFABD860039637E /* DBUpdateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61673C31CFABD860039637E /* DBUpdateHandler.swift */; };
+		B61673C61CFABDEB0039637E /* DBCreateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61673C51CFABDEB0039637E /* DBCreateHandler.swift */; };
 		B61872961CC1383400878EDE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61872951CC1383400878EDE /* BaseViewController.swift */; };
 		B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61872971CC13BD200878EDE /* BaseGroupTableViewController.swift */; };
 		B618729A1CC13EFF00878EDE /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61872991CC13EFF00878EDE /* SubjectViewController.swift */; };
@@ -21,12 +25,29 @@
 		B64BEE271CF93A9E00482407 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE261CF93A9E00482407 /* ChatVC.swift */; };
 		B64BEE291CF9431B00482407 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE281CF9431B00482407 /* ColorExtension.swift */; };
 		B64BEE2B1CF9439D00482407 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE2A1CF9439D00482407 /* BannerView.swift */; };
+		B64BEE9F1CFA8ED600482407 /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE871CFA8ED600482407 /* Blob.swift */; };
+		B64BEEA01CFA8ED600482407 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE881CFA8ED600482407 /* Connection.swift */; };
+		B64BEEA11CFA8ED600482407 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE8B1CFA8ED600482407 /* SQLite-Bridging.m */; };
+		B64BEEA21CFA8ED600482407 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE8C1CFA8ED600482407 /* Statement.swift */; };
+		B64BEEA31CFA8ED600482407 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE8D1CFA8ED600482407 /* Value.swift */; };
+		B64BEEA41CFA8ED600482407 /* FTS4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE8F1CFA8ED600482407 /* FTS4.swift */; };
+		B64BEEA51CFA8ED600482407 /* R*Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE901CFA8ED600482407 /* R*Tree.swift */; };
+		B64BEEA61CFA8ED600482407 /* Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE911CFA8ED600482407 /* Foundation.swift */; };
+		B64BEEA71CFA8ED600482407 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE921CFA8ED600482407 /* Helpers.swift */; };
+		B64BEEA91CFA8ED600482407 /* AggregateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE961CFA8ED600482407 /* AggregateFunctions.swift */; };
+		B64BEEAA1CFA8ED600482407 /* Collation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE971CFA8ED600482407 /* Collation.swift */; };
+		B64BEEAB1CFA8ED600482407 /* CoreFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE981CFA8ED600482407 /* CoreFunctions.swift */; };
+		B64BEEAC1CFA8ED600482407 /* CustomFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE991CFA8ED600482407 /* CustomFunctions.swift */; };
+		B64BEEAD1CFA8ED600482407 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE9A1CFA8ED600482407 /* Expression.swift */; };
+		B64BEEAE1CFA8ED600482407 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE9B1CFA8ED600482407 /* Operators.swift */; };
+		B64BEEAF1CFA8ED600482407 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE9C1CFA8ED600482407 /* Query.swift */; };
+		B64BEEB01CFA8ED600482407 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE9D1CFA8ED600482407 /* Schema.swift */; };
+		B64BEEB11CFA8ED600482407 /* Setter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE9E1CFA8ED600482407 /* Setter.swift */; };
 		B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */; };
 		B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */; };
 		B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */; };
 		B65B7DC31CEC4C9400F1E072 /* GeocodeDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B7DC21CEC4C9400F1E072 /* GeocodeDemoVC.swift */; };
 		B664FD221CEF459800E88088 /* LYPullRefreshScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664FD211CEF459800E88088 /* LYPullRefreshScrollView.swift */; };
-		B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */; };
 		B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */; };
 		B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347D1CDF3892009D6188 /* SunLayer.swift */; };
 		B69634801CE024B2009D6188 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B696347F1CE024B2009D6188 /* CoreGraphics.framework */; };
@@ -111,6 +132,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B61673BF1CFAB1BB0039637E /* SqliteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteDB.swift; sourceTree = "<group>"; };
+		B61673C11CFAB3DD0039637E /* URLUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLUtil.swift; sourceTree = "<group>"; };
+		B61673C31CFABD860039637E /* DBUpdateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBUpdateHandler.swift; sourceTree = "<group>"; };
+		B61673C51CFABDEB0039637E /* DBCreateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBCreateHandler.swift; sourceTree = "<group>"; };
 		B61872951CC1383400878EDE /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B61872971CC13BD200878EDE /* BaseGroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGroupTableViewController.swift; sourceTree = "<group>"; };
 		B61872991CC13EFF00878EDE /* SubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
@@ -125,13 +150,34 @@
 		B64BEE261CF93A9E00482407 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		B64BEE281CF9431B00482407 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B64BEE2A1CF9439D00482407 /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		B64BEE591CFA8BD100482407 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		B64BEE871CFA8ED600482407 /* Blob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blob.swift; sourceTree = "<group>"; };
+		B64BEE881CFA8ED600482407 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		B64BEE891CFA8ED600482407 /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
+		B64BEE8A1CFA8ED600482407 /* SQLite-Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SQLite-Bridging.h"; sourceTree = "<group>"; };
+		B64BEE8B1CFA8ED600482407 /* SQLite-Bridging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SQLite-Bridging.m"; sourceTree = "<group>"; };
+		B64BEE8C1CFA8ED600482407 /* Statement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
+		B64BEE8D1CFA8ED600482407 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		B64BEE8F1CFA8ED600482407 /* FTS4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTS4.swift; sourceTree = "<group>"; };
+		B64BEE901CFA8ED600482407 /* R*Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "R*Tree.swift"; sourceTree = "<group>"; };
+		B64BEE911CFA8ED600482407 /* Foundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foundation.swift; sourceTree = "<group>"; };
+		B64BEE921CFA8ED600482407 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		B64BEE941CFA8ED600482407 /* SQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLite.h; sourceTree = "<group>"; };
+		B64BEE961CFA8ED600482407 /* AggregateFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AggregateFunctions.swift; sourceTree = "<group>"; };
+		B64BEE971CFA8ED600482407 /* Collation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collation.swift; sourceTree = "<group>"; };
+		B64BEE981CFA8ED600482407 /* CoreFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreFunctions.swift; sourceTree = "<group>"; };
+		B64BEE991CFA8ED600482407 /* CustomFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFunctions.swift; sourceTree = "<group>"; };
+		B64BEE9A1CFA8ED600482407 /* Expression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		B64BEE9B1CFA8ED600482407 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		B64BEE9C1CFA8ED600482407 /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		B64BEE9D1CFA8ED600482407 /* Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+		B64BEE9E1CFA8ED600482407 /* Setter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setter.swift; sourceTree = "<group>"; };
 		B657CB601CC6552C00EE506F /* LinkedImplementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImplementsViewController.swift; sourceTree = "<group>"; };
 		B657CB631CC656B300EE506F /* GCDdayDreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDdayDreamViewController.swift; sourceTree = "<group>"; };
 		B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiSearchDemoVC.swift; sourceTree = "<group>"; };
 		B65B7DC21CEC4C9400F1E072 /* GeocodeDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodeDemoVC.swift; sourceTree = "<group>"; };
 		B664FD211CEF459800E88088 /* LYPullRefreshScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYPullRefreshScrollView.swift; sourceTree = "<group>"; };
 		B68709F81CC5E7C60012345F /* iOSComponent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSComponent-Bridging-Header.h"; sourceTree = "<group>"; };
-		B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDBUtil.swift; sourceTree = "<group>"; };
 		B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsViewController.swift; sourceTree = "<group>"; };
 		B696347D1CDF3892009D6188 /* SunLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLayer.swift; sourceTree = "<group>"; };
 		B696347F1CE024B2009D6188 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -246,6 +292,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B61673BC1CFA9B090039637E /* sqliteDB */ = {
+			isa = PBXGroup;
+			children = (
+				B61673BF1CFAB1BB0039637E /* SqliteDB.swift */,
+				B61673C31CFABD860039637E /* DBUpdateHandler.swift */,
+				B61673C51CFABDEB0039637E /* DBCreateHandler.swift */,
+			);
+			path = sqliteDB;
+			sourceTree = "<group>";
+		};
 		B618728D1CC1308D00878EDE /* control */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +350,7 @@
 		B61E6A601CF3E931008C99D4 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				B61673BC1CFA9B090039637E /* sqliteDB */,
 				B64BEE2A1CF9439D00482407 /* BannerView.swift */,
 				B6F6710D1CF45D3B0023C78B /* CommentDegreeShowView.swift */,
 				B6CFA63D1CF5590D0074412B /* SunRefresh.swift */,
@@ -323,6 +380,58 @@
 			path = chat;
 			sourceTree = "<group>";
 		};
+		B64BEE851CFA8ED600482407 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				B64BEE861CFA8ED600482407 /* Core */,
+				B64BEE8E1CFA8ED600482407 /* Extensions */,
+				B64BEE911CFA8ED600482407 /* Foundation.swift */,
+				B64BEE921CFA8ED600482407 /* Helpers.swift */,
+				B64BEE941CFA8ED600482407 /* SQLite.h */,
+				B64BEE951CFA8ED600482407 /* Typed */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
+		B64BEE861CFA8ED600482407 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B64BEE871CFA8ED600482407 /* Blob.swift */,
+				B64BEE881CFA8ED600482407 /* Connection.swift */,
+				B64BEE891CFA8ED600482407 /* fts3_tokenizer.h */,
+				B64BEE8A1CFA8ED600482407 /* SQLite-Bridging.h */,
+				B64BEE8B1CFA8ED600482407 /* SQLite-Bridging.m */,
+				B64BEE8C1CFA8ED600482407 /* Statement.swift */,
+				B64BEE8D1CFA8ED600482407 /* Value.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B64BEE8E1CFA8ED600482407 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B64BEE8F1CFA8ED600482407 /* FTS4.swift */,
+				B64BEE901CFA8ED600482407 /* R*Tree.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B64BEE951CFA8ED600482407 /* Typed */ = {
+			isa = PBXGroup;
+			children = (
+				B64BEE961CFA8ED600482407 /* AggregateFunctions.swift */,
+				B64BEE971CFA8ED600482407 /* Collation.swift */,
+				B64BEE981CFA8ED600482407 /* CoreFunctions.swift */,
+				B64BEE991CFA8ED600482407 /* CustomFunctions.swift */,
+				B64BEE9A1CFA8ED600482407 /* Expression.swift */,
+				B64BEE9B1CFA8ED600482407 /* Operators.swift */,
+				B64BEE9C1CFA8ED600482407 /* Query.swift */,
+				B64BEE9D1CFA8ED600482407 /* Schema.swift */,
+				B64BEE9E1CFA8ED600482407 /* Setter.swift */,
+			);
+			path = Typed;
+			sourceTree = "<group>";
+		};
 		B657CB5F1CC6552C00EE506F /* LRU */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,10 +459,10 @@
 		B68709F71CC5E7A70012345F /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				B64BEE851CFA8ED600482407 /* SQLite */,
 				B69EFC661CEB057F00A20F20 /* SWXMLHash */,
 				B69EFC3E1CEAB02D00A20F20 /* BaiduMap */,
 				B68709F81CC5E7C60012345F /* iOSComponent-Bridging-Header.h */,
-				B68709FC1CC60D490012345F /* SQLiteDBUtil.swift */,
 			);
 			path = libs;
 			sourceTree = "<group>";
@@ -425,6 +534,7 @@
 				B6F671021CF448BF0023C78B /* CommonUtil.swift */,
 				B6F671031CF448BF0023C78B /* ConvertUtil.swift */,
 				B69EFC6E1CEB067800A20F20 /* ColorUtil.swift */,
+				B61673C11CFAB3DD0039637E /* URLUtil.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -464,6 +574,7 @@
 		B6BFF32E1CC12F1500141A93 = {
 			isa = PBXGroup;
 			children = (
+				B64BEE591CFA8BD100482407 /* libsqlite3.tbd */,
 				B69EFC5B1CEAB0D500A20F20 /* libstdc++.6.0.9.tbd */,
 				B69EFC591CEAB0C100A20F20 /* CoreTelephony.framework */,
 				B69EFC571CEAB0B300A20F20 /* libsqlite3.0.tbd */,
@@ -761,19 +872,29 @@
 			files = (
 				B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */,
 				B69EFC631CEAF28900A20F20 /* MultiMapViewDemoVC.swift in Sources */,
+				B61673C41CFABD860039637E /* DBUpdateHandler.swift in Sources */,
 				B64BEE2B1CF9439D00482407 /* BannerView.swift in Sources */,
 				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,
 				B6F6710C1CF45B7F0023C78B /* CommentDegreeShowVC.swift in Sources */,
 				B6CFA6401CF58B210074412B /* EventBox.swift in Sources */,
+				B64BEE9F1CFA8ED600482407 /* Blob.swift in Sources */,
+				B64BEEA51CFA8ED600482407 /* R*Tree.swift in Sources */,
 				B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */,
 				B65B7DC31CEC4C9400F1E072 /* GeocodeDemoVC.swift in Sources */,
 				B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */,
 				B6E336E21CCB92910028CE37 /* Constant.swift in Sources */,
 				B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */,
+				B64BEEA01CFA8ED600482407 /* Connection.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
+				B64BEEAA1CFA8ED600482407 /* Collation.swift in Sources */,
+				B64BEEAF1CFA8ED600482407 /* Query.swift in Sources */,
 				B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */,
+				B64BEEA61CFA8ED600482407 /* Foundation.swift in Sources */,
+				B64BEEAD1CFA8ED600482407 /* Expression.swift in Sources */,
+				B64BEEB11CFA8ED600482407 /* Setter.swift in Sources */,
 				B69EFC6B1CEB057F00A20F20 /* SWXMLHash.swift in Sources */,
 				B664FD221CEF459800E88088 /* LYPullRefreshScrollView.swift in Sources */,
+				B61673C61CFABDEB0039637E /* DBCreateHandler.swift in Sources */,
 				B64BEE241CF92ED300482407 /* Transaction.swift in Sources */,
 				B6CA66171CE4B19C00306E25 /* CoreTextCTLineDraw.swift in Sources */,
 				B69EFC651CEB021500A20F20 /* AnnotationDemoVC.swift in Sources */,
@@ -782,6 +903,7 @@
 				B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */,
 				B69EFC6A1CEB057F00A20F20 /* SWXMLHash+TypeConversion.swift in Sources */,
 				B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */,
+				B64BEEAE1CFA8ED600482407 /* Operators.swift in Sources */,
 				B69EFC781CEB28D800A20F20 /* AnimatedAnnotationView.swift in Sources */,
 				B6F671041CF448BF0023C78B /* CommonUtil.swift in Sources */,
 				B64BEE271CF93A9E00482407 /* ChatVC.swift in Sources */,
@@ -791,6 +913,7 @@
 				B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */,
 				B6DD9B1D1CED9CF0004B16EE /* BusLineSearchVC.swift in Sources */,
 				B618729A1CC13EFF00878EDE /* SubjectViewController.swift in Sources */,
+				B64BEEA41CFA8ED600482407 /* FTS4.swift in Sources */,
 				B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */,
 				B6CFA6421CF5DFD50074412B /* AutoBoxingAndUnboxingUtil.swift in Sources */,
 				B6F671011CF3F7C20023C78B /* OptimizeTableViewVC.swift in Sources */,
@@ -798,18 +921,27 @@
 				B6B9BC171CE9BF7400F4BEB1 /* MapListViewController.swift in Sources */,
 				B6CFA63E1CF5590D0074412B /* SunRefresh.swift in Sources */,
 				B6BFF33B1CC12F1500141A93 /* AppDelegate.swift in Sources */,
+				B61673C21CFAB3DD0039637E /* URLUtil.swift in Sources */,
 				B69EFC6F1CEB067800A20F20 /* ColorUtil.swift in Sources */,
+				B64BEEAB1CFA8ED600482407 /* CoreFunctions.swift in Sources */,
 				B6DD9B211CEDC6E9004B16EE /* SuggestionSearchDemoVC.swift in Sources */,
 				B6296D6A1CE32F5400492C1B /* BasePlainTableViewController.swift in Sources */,
-				B68709FD1CC60D490012345F /* SQLiteDBUtil.swift in Sources */,
 				B6F671081CF459E40023C78B /* TipsVCList.swift in Sources */,
+				B64BEEB01CFA8ED600482407 /* Schema.swift in Sources */,
 				B657CB611CC6552C00EE506F /* LinkedImplementsViewController.swift in Sources */,
+				B64BEEAC1CFA8ED600482407 /* CustomFunctions.swift in Sources */,
 				B61872961CC1383400878EDE /* BaseViewController.swift in Sources */,
+				B61673C01CFAB1BB0039637E /* SqliteDB.swift in Sources */,
 				B6F671051CF448BF0023C78B /* ConvertUtil.swift in Sources */,
+				B64BEEA11CFA8ED600482407 /* SQLite-Bridging.m in Sources */,
 				B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */,
+				B64BEEA21CFA8ED600482407 /* Statement.swift in Sources */,
+				B64BEEA91CFA8ED600482407 /* AggregateFunctions.swift in Sources */,
 				B6E336DA1CCA42940028CE37 /* SunLableViewControlelr.swift in Sources */,
 				B6F6710E1CF45D3B0023C78B /* CommentDegreeShowView.swift in Sources */,
+				B64BEEA71CFA8ED600482407 /* Helpers.swift in Sources */,
 				B6DD9B1B1CED5E0A004B16EE /* RouteAnnotation.swift in Sources */,
+				B64BEEA31CFA8ED600482407 /* Value.swift in Sources */,
 				B6E761F41CEC697300AB81AD /* RouteSearchDemoVC.swift in Sources */,
 				B64BEE291CF9431B00482407 /* ColorExtension.swift in Sources */,
 			);
