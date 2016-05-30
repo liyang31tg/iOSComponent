@@ -34,14 +34,14 @@ enum PopViewPosition:String {
 
 class PopView: UIView {
     
-    //module 的作用
-    private struct PopViewProperty{
-      static  let imageName                 = "pop_background"
-      static  let view2ViewOffset:CGFloat   =  10 //子视图和弹出视图之前的距离
-      static  let triangleHeight:CGFloat    =  7 //根据图片来的，三角高度
+    //module 的作用,通用性设置
+     struct PopViewProperty{
+        var imageName                 = "pop_background"
+        var view2ViewOffset:CGFloat   =  10 //子视图和弹出视图之前的距离
     }
     
     private static var popViewWindow:BaseWindow?
+    private static var popViewProperty = PopViewProperty()
     
     
     private var contentImageView = UIImageView()
@@ -75,10 +75,15 @@ class PopView: UIView {
      *subBoundsDelegate 获得可视View的宽高
      *
      *contentView 内容显示的View，内部约束自己控制didMoveToSuperview这里面设置约束
+     *
+     *autoPosition 待扩展
      */
-    class func popViewShowInWindow(subframe:CGRect,subBoundsDelegate:PopViewDelegate,contentView:UIView,autoPosition:PopViewPosition? = nil){
+    class func showInWindowWithSubFrame(subframe:CGRect,subBoundsDelegate:PopViewDelegate,contentView:UIView,autoPosition:PopViewPosition? = nil,popProperty:PopViewProperty = PopViewProperty()){
+        
+        self.popViewProperty    = popProperty//私有定制，覆盖通用设置
+        
         let popViewWH           = subBoundsDelegate.popViewWH()
-        let originalImage       = UIImage(named: PopViewProperty.imageName)!
+        let originalImage       = UIImage(named: popProperty.imageName)!
         //估算视图是该放在左上还是左下，除非固定死
         let result                      = getFrameByPosition(subframe, popViewWH: popViewWH, originalImage: originalImage, autoPosition: PopViewPosition.BottomLeft)
         let popView                     = PopView(frame: CGRectZero)
@@ -151,7 +156,7 @@ class PopView: UIView {
             case .BottomLeft:
                 let originX = (subFrame.origin.x + subFrameW_2) - (popViewWH.width - imageOriginSizeW_2)
                 let newImage = originalImage.resizableImageWithCapInsets(UIEdgeInsetsMake(imageOriginSize.height - 2, 1, 1, imageOriginSize.width - 2), resizingMode: UIImageResizingMode.Stretch)
-                return (CGRect(x: originX, y: subFrame.origin.y + subFrame.size.height + PopViewProperty.view2ViewOffset, width: popViewWH.width, height: popViewWH.height) ,newImage)
+                return (CGRect(x: originX, y: subFrame.origin.y + subFrame.size.height + self.popViewProperty.view2ViewOffset, width: popViewWH.width, height: popViewWH.height) ,newImage)
             case .BottomRight:
                 break
             case .RightTop:
