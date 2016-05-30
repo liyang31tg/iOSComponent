@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
         self.window!.addSubview(FPSLabel)
         self.window?.backgroundColor = UIColor.whiteColor()
 
-        SqliteDB(dbName: "boqiao", dbType: SqliteDB.DBProperty.type_public)
+//        SqliteDB(dbName: "boqiao", dbType: SqliteDB.DBProperty.type_public)
         
         // 要使用百度地图，请先启动BaiduMapManager
         mapManager = BMKMapManager()

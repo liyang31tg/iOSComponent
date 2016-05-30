@@ -52,5 +52,45 @@
             </objects>
             <point key="canvasLocation" x="458" y="132"/>
         </scene>
+        <!--Pop View Controller-->
+        <scene sceneID="jx8-th-WB4">
+            <objects>
+                <viewController storyboardIdentifier="popViewControllerStoryBoardId" id="paW-pO-N6F" customClass="PopViewController" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wTL-Ae-hm6"/>
+                        <viewControllerLayoutGuide type="bottom" id="jJ4-ym-sgs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mk0-59-2el">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqP-bg-rQf">
+                                <rect key="frame" x="136.5" y="70" width="47" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" id="32D-cy-0Wv"/>
+                                    <constraint firstAttribute="height" constant="30" id="wjl-hI-enZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="popBtn">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="popAction:" destination="paW-pO-N6F" eventType="touchUpInside" id="Lcy-hw-jyi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AqP-bg-rQf" firstAttribute="centerX" secondItem="Mk0-59-2el" secondAttribute="centerX" id="Hgs-In-SgB"/>
+                            <constraint firstItem="AqP-bg-rQf" firstAttribute="top" secondItem="wTL-Ae-hm6" secondAttribute="bottom" constant="50" id="Kdr-4b-UhQ"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P7Q-3y-88t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="833" y="132"/>
+        </scene>
     </scenes>
 </document>

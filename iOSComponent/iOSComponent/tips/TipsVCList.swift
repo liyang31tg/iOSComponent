@@ -14,6 +14,7 @@ class TipsVCList: BasePlainTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataArray = [
-            CTDomain(title: "评价五角星-当然可以随便换", storyBoard: "tips", storyBoardId: "CommentDegreeShowVCStoryBoardId")]
+            CTDomain(title: "评价五角星-当然可以随便换", storyBoard: "tips", storyBoardId: "CommentDegreeShowVCStoryBoardId"),
+            CTDomain(title: "popView-仿微信左上角的", storyBoard: "tips", storyBoardId: "popViewControllerStoryBoardId")]
     }
 }

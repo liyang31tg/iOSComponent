@@ -48,6 +48,10 @@
 		B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */; };
 		B65B7DC31CEC4C9400F1E072 /* GeocodeDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B7DC21CEC4C9400F1E072 /* GeocodeDemoVC.swift */; };
 		B664FD221CEF459800E88088 /* LYPullRefreshScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664FD211CEF459800E88088 /* LYPullRefreshScrollView.swift */; };
+		B6750F931CFBE43C00BA28F9 /* BaseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750F921CFBE43C00BA28F9 /* BaseWindow.swift */; };
+		B6750F951CFBE53600BA28F9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750F941CFBE53600BA28F9 /* Constant.swift */; };
+		B6750F971CFBEA8E00BA28F9 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750F961CFBEA8E00BA28F9 /* PopViewController.swift */; };
+		B6750F991CFBECE300BA28F9 /* PopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750F981CFBECE300BA28F9 /* PopView.swift */; };
 		B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */; };
 		B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347D1CDF3892009D6188 /* SunLayer.swift */; };
 		B69634801CE024B2009D6188 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B696347F1CE024B2009D6188 /* CoreGraphics.framework */; };
@@ -101,7 +105,6 @@
 		B6E336D81CCA3FD60028CE37 /* SunLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D71CCA3FD60028CE37 /* SunLabel.swift */; };
 		B6E336DA1CCA42940028CE37 /* SunLableViewControlelr.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336D91CCA42940028CE37 /* SunLableViewControlelr.swift */; };
 		B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */; };
-		B6E336E21CCB92910028CE37 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336E11CCB92910028CE37 /* Constant.swift */; };
 		B6E761F41CEC697300AB81AD /* RouteSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E761F31CEC697300AB81AD /* RouteSearchDemoVC.swift */; };
 		B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */; };
 		B6F671011CF3F7C20023C78B /* OptimizeTableViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F671001CF3F7C20023C78B /* OptimizeTableViewVC.swift */; };
@@ -177,6 +180,10 @@
 		B65B7DC01CEC0D3100F1E072 /* PoiSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiSearchDemoVC.swift; sourceTree = "<group>"; };
 		B65B7DC21CEC4C9400F1E072 /* GeocodeDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodeDemoVC.swift; sourceTree = "<group>"; };
 		B664FD211CEF459800E88088 /* LYPullRefreshScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYPullRefreshScrollView.swift; sourceTree = "<group>"; };
+		B6750F921CFBE43C00BA28F9 /* BaseWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWindow.swift; sourceTree = "<group>"; };
+		B6750F941CFBE53600BA28F9 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B6750F961CFBEA8E00BA28F9 /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
+		B6750F981CFBECE300BA28F9 /* PopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopView.swift; sourceTree = "<group>"; };
 		B68709F81CC5E7C60012345F /* iOSComponent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSComponent-Bridging-Header.h"; sourceTree = "<group>"; };
 		B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsViewController.swift; sourceTree = "<group>"; };
 		B696347D1CDF3892009D6188 /* SunLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLayer.swift; sourceTree = "<group>"; };
@@ -238,7 +245,6 @@
 		B6E336D71CCA3FD60028CE37 /* SunLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLabel.swift; sourceTree = "<group>"; };
 		B6E336D91CCA42940028CE37 /* SunLableViewControlelr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLableViewControlelr.swift; sourceTree = "<group>"; };
 		B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunFPSLabel.swift; sourceTree = "<group>"; };
-		B6E336E11CCB92910028CE37 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B6E761F31CEC697300AB81AD /* RouteSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteSearchDemoVC.swift; sourceTree = "<group>"; };
 		B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusViewController.swift; sourceTree = "<group>"; };
 		B6F671001CF3F7C20023C78B /* OptimizeTableViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptimizeTableViewVC.swift; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 				B61872A01CC1470C00878EDE /* BaseNavigationController.swift */,
 				B61872971CC13BD200878EDE /* BaseGroupTableViewController.swift */,
 				B6296D691CE32F5400492C1B /* BasePlainTableViewController.swift */,
+				B6750F921CFBE43C00BA28F9 /* BaseWindow.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -357,6 +364,7 @@
 				B6CFA63F1CF58B210074412B /* EventBox.swift */,
 				B6CFA6411CF5DFD50074412B /* AutoBoxingAndUnboxingUtil.swift */,
 				B64BEE231CF92ED300482407 /* Transaction.swift */,
+				B6750F981CFBECE300BA28F9 /* PopView.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -524,6 +532,7 @@
 				B61E6A601CF3E931008C99D4 /* component */,
 				B69EFC6D1CEB063D00A20F20 /* util */,
 				B69EFC701CEB069500A20F20 /* Config.swift */,
+				B6750F941CFBE53600BA28F9 /* Constant.swift */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -666,7 +675,6 @@
 			children = (
 				B696347C1CDF3877009D6188 /* SUNLayer */,
 				B6E336DE1CCB1F2F0028CE37 /* SunLabel */,
-				B6E336E11CCB92910028CE37 /* Constant.swift */,
 			);
 			path = SUNKit;
 			sourceTree = "<group>";
@@ -724,6 +732,7 @@
 			children = (
 				B6F671071CF459E40023C78B /* TipsVCList.swift */,
 				B6F6710B1CF45B7F0023C78B /* CommentDegreeShowVC.swift */,
+				B6750F961CFBEA8E00BA28F9 /* PopViewController.swift */,
 			);
 			path = tips;
 			sourceTree = "<group>";
@@ -882,12 +891,12 @@
 				B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */,
 				B65B7DC31CEC4C9400F1E072 /* GeocodeDemoVC.swift in Sources */,
 				B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */,
-				B6E336E21CCB92910028CE37 /* Constant.swift in Sources */,
 				B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */,
 				B64BEEA01CFA8ED600482407 /* Connection.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
 				B64BEEAA1CFA8ED600482407 /* Collation.swift in Sources */,
 				B64BEEAF1CFA8ED600482407 /* Query.swift in Sources */,
+				B6750F951CFBE53600BA28F9 /* Constant.swift in Sources */,
 				B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */,
 				B64BEEA61CFA8ED600482407 /* Foundation.swift in Sources */,
 				B64BEEAD1CFA8ED600482407 /* Expression.swift in Sources */,
@@ -910,11 +919,13 @@
 				B69EFC611CEABDCF00A20F20 /* MapViewBaseDemoVC.swift in Sources */,
 				B69EFC731CEB071200A20F20 /* Application.swift in Sources */,
 				B69EFC711CEB069500A20F20 /* Config.swift in Sources */,
+				B6750F971CFBEA8E00BA28F9 /* PopViewController.swift in Sources */,
 				B61872A11CC1470C00878EDE /* BaseNavigationController.swift in Sources */,
 				B6DD9B1D1CED9CF0004B16EE /* BusLineSearchVC.swift in Sources */,
 				B618729A1CC13EFF00878EDE /* SubjectViewController.swift in Sources */,
 				B64BEEA41CFA8ED600482407 /* FTS4.swift in Sources */,
 				B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */,
+				B6750F991CFBECE300BA28F9 /* PopView.swift in Sources */,
 				B6CFA6421CF5DFD50074412B /* AutoBoxingAndUnboxingUtil.swift in Sources */,
 				B6F671011CF3F7C20023C78B /* OptimizeTableViewVC.swift in Sources */,
 				B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */,
@@ -940,6 +951,7 @@
 				B6E336DA1CCA42940028CE37 /* SunLableViewControlelr.swift in Sources */,
 				B6F6710E1CF45D3B0023C78B /* CommentDegreeShowView.swift in Sources */,
 				B64BEEA71CFA8ED600482407 /* Helpers.swift in Sources */,
+				B6750F931CFBE43C00BA28F9 /* BaseWindow.swift in Sources */,
 				B6DD9B1B1CED5E0A004B16EE /* RouteAnnotation.swift in Sources */,
 				B64BEEA31CFA8ED600482407 /* Value.swift in Sources */,
 				B6E761F41CEC697300AB81AD /* RouteSearchDemoVC.swift in Sources */,
