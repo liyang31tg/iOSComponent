@@ -66,3 +66,8 @@ enum RefreshDataType:Int {//状态控制
     optional func bannerViewCacheCellCount(bannerView:BannerView) -> Int
 }
 ```
+
+###一句话设置仿照微信的右上角弹出视图(popView)
+```
+PopView.showInWindowWithSubFrame(frame, subBoundsDelegate: self, contentView: pop)
+```
