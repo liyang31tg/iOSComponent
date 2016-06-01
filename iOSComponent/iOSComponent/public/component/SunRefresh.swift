@@ -223,7 +223,7 @@ extension UIScrollView{
     }
     
    private var defaultHeaderRefreshView:UIView{
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
         headerView.backgroundColor = UIColor.redColor()
         return headerView
     }
@@ -486,6 +486,36 @@ class ObserObject: NSObject {
         }
         
     }
+}
+
+
+
+
+//不包含其中
+class HeaderView:UIView,RefreshViewProtocol{
+    
+    var stateLabel          = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+    var pullDownOffsetLabel = UILabel(frame: CGRect(x: 0, y: 20, width: 100, height: 20))
+    var pullUpOffsetLabel   = UILabel(frame: CGRect(x: 100, y: 20, width: 100, height: 20))
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.addSubview(stateLabel)
+        self.addSubview(pullUpOffsetLabel)
+        self.addSubview(pullDownOffsetLabel)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    
+    func refreshViewWithState(refreshDataType: Int, pullDownOffset: CGFloat, pullUpOffset: CGFloat) {
+        stateLabel.text = "\(refreshDataType)"
+        pullDownOffsetLabel.text = "\(pullDownOffset)"
+        pullUpOffsetLabel.text = "\(pullUpOffset)"
+        
+    }
+
 }
 
 
