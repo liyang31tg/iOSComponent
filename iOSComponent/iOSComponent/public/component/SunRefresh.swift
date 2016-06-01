@@ -36,6 +36,7 @@ protocol RefreshProtocol { //暴露给外部接口实现
     func refreshData()
 }
 
+//MARK:PullDownRefreshing and PullUpRefreshing的动画样式不能用形变亮控制
 protocol RefreshViewProtocol {
     func refreshViewWithState(refreshDataType: Int,pullDownOffset:CGFloat,pullUpOffset:CGFloat)
 }
@@ -148,6 +149,7 @@ extension UIScrollView{
         }
         
         set{
+            print("------------")
 //            RefreshStaticParametter.isDraging = self.dragging
             if newValue != self.currentRefreshDataState {
                 objc_setAssociatedObject(self, &AssociateKeys.currentRefreshDataState, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
