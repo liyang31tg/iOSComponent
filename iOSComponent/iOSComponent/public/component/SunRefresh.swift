@@ -36,6 +36,10 @@ protocol RefreshProtocol { //暴露给外部接口实现
     func refreshData()
 }
 
+protocol RefreshViewProtocol {
+    func refreshViewWithState(refreshDataType: Int,pullDownOffset:CGFloat,pullUpOffset:CGFloat)
+}
+
 
 /*
  *因为iOS7后的UITableViewwrapView的存在，所以要分开在UIScrollView的子类实现其方法
@@ -144,6 +148,7 @@ extension UIScrollView{
         }
         
         set{
+//            RefreshStaticParametter.isDraging = self.dragging
             if newValue != self.currentRefreshDataState {
                 objc_setAssociatedObject(self, &AssociateKeys.currentRefreshDataState, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
                 //这里来设置状态,根据不同的状态惊醒切换
@@ -233,9 +238,10 @@ extension UIScrollView{
     
     //MARK:方法
     private func changeRefreshDataType(refreshDataType:Int){
+        
         switch refreshDataType {
         case RefreshDataType.RefreshNone.rawValue:
-            print("默认状态:\(self.footerRefreshView)")
+            print("默认状态")
             if self.refreshType == RefreshType.PullUp.rawValue || self.refreshType == RefreshType.PullBoth.rawValue {
                 self.footerRefreshView.hidden = self.contentSize.height < self.frame.size.height
             }
@@ -373,7 +379,7 @@ extension UIScrollView{
  *完全是出于moudle的保护
  */
 private struct RefreshStaticParametter {
-    static var  isDraging       = false//是否在拖动，默认为否
+//    static var  isDraging       = false//是否在拖动，默认为否
     static var  publicObserve   = ObserObject()
 }
 
@@ -392,9 +398,15 @@ class ObserObject: NSObject {
                 let contentInset        = table.contentInset
                 let tmpPullDownOffset   = -contentInset.top - contentOffset.y
                 let tmpOffset           = contentOffset.y + contentInset.top + table.frame.size.height  - max(contentSize.height + contentInset.top, table.frame.size.height)
-                if RefreshStaticParametter.isDraging != table.dragging {
-                    if RefreshStaticParametter.isDraging {//拖动到不拖动
-                        if table.headerViewOverHeightZero <= tmpPullDownOffset {
+                
+                //这里是协议实现refreshVew，这里是操作刷新View的动画
+                (table.headerRefreshView as? RefreshViewProtocol)?.refreshViewWithState(table.currentRefreshDataState, pullDownOffset: tmpPullDownOffset, pullUpOffset: tmpOffset)
+                (table.footerRefreshView as? RefreshViewProtocol)?.refreshViewWithState(table.currentRefreshDataState, pullDownOffset: tmpPullDownOffset, pullUpOffset: tmpOffset)
+                
+//                print("tmpPullDownOffset:\(tmpPullDownOffset),tmpOffset:\(tmpOffset)")
+//                if RefreshStaticParametter.isDraging != table.dragging {
+//                    if RefreshStaticParametter.isDraging {//拖动到不拖动
+                        if table.headerViewOverHeightZero <= tmpPullDownOffset && !table.dragging{
                             //上啦超过零界点(启动刷新)
                             if table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue {
                                 table.currentRefreshDataState = RefreshDataType.PullDownRefreshing.rawValue
@@ -403,7 +415,7 @@ class ObserObject: NSObject {
 //                            print("启动下拉刷新")
                         }
                         
-                        if tmpOffset >= table.footerViewOverHeightZero{
+                        if tmpOffset >= table.footerViewOverHeightZero && !table.dragging{
                             //下拉刷新的时候，上啦无效
                             if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue{
                                 if table.contentSize.height > table.frame.size.height{
@@ -415,7 +427,7 @@ class ObserObject: NSObject {
 //                            print("启动上拉刷新")
                         }
                         
-                    }else{//不拖动到拖动
+//                    }else{//不拖动到拖动
                         if tmpPullDownOffset < table.headerViewOverHeightZero && 0 < tmpPullDownOffset {
                             //下拉中
                             if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue{
@@ -425,7 +437,7 @@ class ObserObject: NSObject {
 //                             print("下拉中")
                         }
                         
-                        if tmpOffset >= 0 && tmpOffset < table.footerViewOverHeightZero{
+                        if tmpOffset > 0 && tmpOffset < table.footerViewOverHeightZero{
                             if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue{
                                  table.currentRefreshDataState = RefreshDataType.PullUpIng.rawValue
                             }
@@ -433,10 +445,7 @@ class ObserObject: NSObject {
 //                            print("上拉中")
                         
                         }
-                    }
-                    RefreshStaticParametter.isDraging = table.dragging
-                }
-                
+
                 if table.headerViewOverHeightZero <= tmpPullDownOffset {
                     //下拉超过零界点
                     if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue {
@@ -457,6 +466,7 @@ class ObserObject: NSObject {
                     //恢复初始状态
                     if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue{
                         table.currentRefreshDataState = RefreshDataType.RefreshNone.rawValue
+//                        print("---------进入默认状态：\(RefreshStaticParametter.isDraging)")
                     }
 //                    print("恢复初始状态")
                 

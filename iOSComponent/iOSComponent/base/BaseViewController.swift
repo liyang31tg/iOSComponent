@@ -32,4 +32,20 @@ class BaseViewController: UIViewController {
             self.navigationController?.interactivePopGestureRecognizer?.enabled = true
         }
     }
+    //MARK:StoryBoardz之间的跳转
+    func getUIStoryboard(storyboardName: String) -> UIStoryboard {
+        return UIStoryboard(name: storyboardName, bundle: NSBundle.mainBundle())
+    }
+    func getUIViewController(storyboard: UIStoryboard, controllerIdentifier: String) -> UIViewController {
+        return storyboard.instantiateViewControllerWithIdentifier(controllerIdentifier)
+    }
+    
+    func storyboardNavPushToController(storyboardName: String, controllerIdentifier: String,settingBlockPushVC:((UIViewController?)->())?) -> UIViewController {
+        let storyboard = self.getUIStoryboard(storyboardName)
+        let pushController = self.getUIViewController(storyboard, controllerIdentifier: controllerIdentifier)
+        settingBlockPushVC?(pushController)
+        self.navigationController?.pushViewController(pushController, animated: true)
+        return pushController
+    }
+
 }

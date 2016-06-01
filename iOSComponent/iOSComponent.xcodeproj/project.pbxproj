@@ -20,6 +20,8 @@
 		B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6296D671CE32E6A00492C1B /* CoreTextPlainVC.swift */; };
 		B6296D6A1CE32F5400492C1B /* BasePlainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6296D691CE32F5400492C1B /* BasePlainTableViewController.swift */; };
 		B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6296D6B1CE37ACC00492C1B /* CoreTextPictureVC.swift */; };
+		B62EF39E1CFD6F5F00C78192 /* PancakePicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62EF39D1CFD6F5F00C78192 /* PancakePicVC.swift */; };
+		B62EF3A01CFD70C800C78192 /* PanCakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62EF39F1CFD70C800C78192 /* PanCakeView.swift */; };
 		B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634BE131CCE5159008C26CB /* CoreTextViewController.swift */; };
 		B64BEE241CF92ED300482407 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE231CF92ED300482407 /* Transaction.swift */; };
 		B64BEE271CF93A9E00482407 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE261CF93A9E00482407 /* ChatVC.swift */; };
@@ -52,6 +54,8 @@
 		B6750F951CFBE53600BA28F9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750F941CFBE53600BA28F9 /* Constant.swift */; };
 		B6750F971CFBEA8E00BA28F9 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750F961CFBEA8E00BA28F9 /* PopViewController.swift */; };
 		B6750F991CFBECE300BA28F9 /* PopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750F981CFBECE300BA28F9 /* PopView.swift */; };
+		B6750FA21CFC6B7E00BA28F9 /* PhotoKitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750FA11CFC6B7E00BA28F9 /* PhotoKitVC.swift */; };
+		B6750FA41CFC6F3700BA28F9 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750FA31CFC6F3700BA28F9 /* ImagePickerController.swift */; };
 		B696347B1CDEEEC6009D6188 /* CoreGraphicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */; };
 		B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696347D1CDF3892009D6188 /* SunLayer.swift */; };
 		B69634801CE024B2009D6188 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B696347F1CE024B2009D6188 /* CoreGraphics.framework */; };
@@ -148,6 +152,8 @@
 		B6296D671CE32E6A00492C1B /* CoreTextPlainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextPlainVC.swift; sourceTree = "<group>"; };
 		B6296D691CE32F5400492C1B /* BasePlainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePlainTableViewController.swift; sourceTree = "<group>"; };
 		B6296D6B1CE37ACC00492C1B /* CoreTextPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextPictureVC.swift; sourceTree = "<group>"; };
+		B62EF39D1CFD6F5F00C78192 /* PancakePicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PancakePicVC.swift; sourceTree = "<group>"; };
+		B62EF39F1CFD70C800C78192 /* PanCakeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanCakeView.swift; sourceTree = "<group>"; };
 		B634BE131CCE5159008C26CB /* CoreTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
 		B64BEE231CF92ED300482407 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		B64BEE261CF93A9E00482407 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
@@ -184,6 +190,8 @@
 		B6750F941CFBE53600BA28F9 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B6750F961CFBEA8E00BA28F9 /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		B6750F981CFBECE300BA28F9 /* PopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopView.swift; sourceTree = "<group>"; };
+		B6750FA11CFC6B7E00BA28F9 /* PhotoKitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoKitVC.swift; sourceTree = "<group>"; };
+		B6750FA31CFC6F3700BA28F9 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		B68709F81CC5E7C60012345F /* iOSComponent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSComponent-Bridging-Header.h"; sourceTree = "<group>"; };
 		B696347A1CDEEEC6009D6188 /* CoreGraphicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsViewController.swift; sourceTree = "<group>"; };
 		B696347D1CDF3892009D6188 /* SunLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunLayer.swift; sourceTree = "<group>"; };
@@ -322,6 +330,7 @@
 		B618728E1CC1308D00878EDE /* subject */ = {
 			isa = PBXGroup;
 			children = (
+				B6750FA01CFC6B7000BA28F9 /* photoKit */,
 				B6B9BC151CE9BF4A00F4BEB1 /* Map */,
 				B69634791CDEEEB0009D6188 /* CoreGraphics */,
 				B634BE121CCE5147008C26CB /* CoreText */,
@@ -365,6 +374,8 @@
 				B6CFA6411CF5DFD50074412B /* AutoBoxingAndUnboxingUtil.swift */,
 				B64BEE231CF92ED300482407 /* Transaction.swift */,
 				B6750F981CFBECE300BA28F9 /* PopView.swift */,
+				B6750FA31CFC6F3700BA28F9 /* ImagePickerController.swift */,
+				B62EF39F1CFD70C800C78192 /* PanCakeView.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -462,6 +473,14 @@
 				B664FD211CEF459800E88088 /* LYPullRefreshScrollView.swift */,
 			);
 			path = UIScrollView;
+			sourceTree = "<group>";
+		};
+		B6750FA01CFC6B7000BA28F9 /* photoKit */ = {
+			isa = PBXGroup;
+			children = (
+				B6750FA11CFC6B7E00BA28F9 /* PhotoKitVC.swift */,
+			);
+			path = photoKit;
 			sourceTree = "<group>";
 		};
 		B68709F71CC5E7A70012345F /* libs */ = {
@@ -731,6 +750,7 @@
 			isa = PBXGroup;
 			children = (
 				B6F671071CF459E40023C78B /* TipsVCList.swift */,
+				B62EF39D1CFD6F5F00C78192 /* PancakePicVC.swift */,
 				B6F6710B1CF45B7F0023C78B /* CommentDegreeShowVC.swift */,
 				B6750F961CFBEA8E00BA28F9 /* PopViewController.swift */,
 			);
@@ -882,9 +902,11 @@
 				B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */,
 				B69EFC631CEAF28900A20F20 /* MultiMapViewDemoVC.swift in Sources */,
 				B61673C41CFABD860039637E /* DBUpdateHandler.swift in Sources */,
+				B62EF3A01CFD70C800C78192 /* PanCakeView.swift in Sources */,
 				B64BEE2B1CF9439D00482407 /* BannerView.swift in Sources */,
 				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,
 				B6F6710C1CF45B7F0023C78B /* CommentDegreeShowVC.swift in Sources */,
+				B6750FA21CFC6B7E00BA28F9 /* PhotoKitVC.swift in Sources */,
 				B6CFA6401CF58B210074412B /* EventBox.swift in Sources */,
 				B64BEE9F1CFA8ED600482407 /* Blob.swift in Sources */,
 				B64BEEA51CFA8ED600482407 /* R*Tree.swift in Sources */,
@@ -913,6 +935,7 @@
 				B69EFC6A1CEB057F00A20F20 /* SWXMLHash+TypeConversion.swift in Sources */,
 				B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */,
 				B64BEEAE1CFA8ED600482407 /* Operators.swift in Sources */,
+				B6750FA41CFC6F3700BA28F9 /* ImagePickerController.swift in Sources */,
 				B69EFC781CEB28D800A20F20 /* AnimatedAnnotationView.swift in Sources */,
 				B6F671041CF448BF0023C78B /* CommonUtil.swift in Sources */,
 				B64BEE271CF93A9E00482407 /* ChatVC.swift in Sources */,
@@ -946,6 +969,7 @@
 				B6F671051CF448BF0023C78B /* ConvertUtil.swift in Sources */,
 				B64BEEA11CFA8ED600482407 /* SQLite-Bridging.m in Sources */,
 				B657CB641CC656B300EE506F /* GCDdayDreamViewController.swift in Sources */,
+				B62EF39E1CFD6F5F00C78192 /* PancakePicVC.swift in Sources */,
 				B64BEEA21CFA8ED600482407 /* Statement.swift in Sources */,
 				B64BEEA91CFA8ED600482407 /* AggregateFunctions.swift in Sources */,
 				B6E336DA1CCA42940028CE37 /* SunLableViewControlelr.swift in Sources */,

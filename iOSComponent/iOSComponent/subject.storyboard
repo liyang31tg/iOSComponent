@@ -948,6 +948,45 @@
             </objects>
             <point key="canvasLocation" x="680" y="-1065"/>
         </scene>
+        <!--Photo KitVC-->
+        <scene sceneID="Kzn-Nr-8Ql">
+            <objects>
+                <viewController storyboardIdentifier="PhotoKitVCStoryboardId" hidesBottomBarWhenPushed="YES" id="OTF-Yn-jZY" customClass="PhotoKitVC" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yZY-pW-Xse"/>
+                        <viewControllerLayoutGuide type="bottom" id="ziv-a9-zRB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SVr-pE-BdV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGv-ha-aJT">
+                                <rect key="frame" x="134" y="142" width="52" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KpP-0B-Esg"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" id="XoC-AI-Fos"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="系统相册">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openPhotoAction:" destination="OTF-Yn-jZY" eventType="touchUpInside" id="2hr-oD-a0T"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HGv-ha-aJT" firstAttribute="centerX" secondItem="SVr-pE-BdV" secondAttribute="centerX" id="6gn-HQ-Ket"/>
+                            <constraint firstItem="HGv-ha-aJT" firstAttribute="top" secondItem="yZY-pW-Xse" secondAttribute="bottom" constant="122" id="Y64-1z-Xwd"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jK1-hg-Tt3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="344" y="-749"/>
+        </scene>
         <!--Map List View Controller-->
         <scene sceneID="fPk-n0-PCI">
             <objects>
