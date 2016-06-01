@@ -66,3 +66,27 @@ enum RefreshDataType:Int {//状态控制
     optional func bannerViewCacheCellCount(bannerView:BannerView) -> Int
 }
 ```
+
+###一句话设置仿照微信的右上角弹出视图(popView)
+```
+PopView.showInWindowWithSubFrame(frame, subBoundsDelegate: self, contentView: pop)
+
+enum PopViewPosition:String {
+    case Top            = "正上"
+    case Left           = "正左"
+    case Rigth          = "正右"
+    case Bottom         = "正下"
+    
+    case TopLeft        = "上左"
+    case TopRight       = "上右"
+    
+    case LeftTop        = "左上"
+    case LeftBottom     = "左下"
+    
+    case BottomLeft     = "下左" //only support
+    case BottomRight    = "下右"
+    
+    case RightTop       = "右上"
+    case RightBottom    = "右下"
+}
+```
