@@ -90,3 +90,11 @@ enum PopViewPosition:String {
     case RightBottom    = "右下"
 }
 ```
+###类似网易新闻的文字导航，结合上面的bannerView插头结合起来就是一个网易新闻了（内容就不扯了哈）
+```
+singleSelectbtnView.dataArray = [SingleSelectBtnViewDomain(showText: "我"),
+                                         SingleSelectBtnViewDomain(showText: "爱"),
+                                         SingleSelectBtnViewDomain(showText: "中"),
+                                         SingleSelectBtnViewDomain(showText: "华"),
+                                         SingleSelectBtnViewDomain(showText: "啊")]
+```
