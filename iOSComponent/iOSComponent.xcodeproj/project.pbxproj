@@ -111,6 +111,7 @@
 		B6E336E01CCB1F400028CE37 /* SunFPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */; };
 		B6E761F41CEC697300AB81AD /* RouteSearchDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E761F31CEC697300AB81AD /* RouteSearchDemoVC.swift */; };
 		B6E819C31CCC8981005090F0 /* CornerRadiusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */; };
+		B6F47F521D0156F4007236F1 /* SingleSelectBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F47F511D0156F4007236F1 /* SingleSelectBtnView.swift */; };
 		B6F671011CF3F7C20023C78B /* OptimizeTableViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F671001CF3F7C20023C78B /* OptimizeTableViewVC.swift */; };
 		B6F671041CF448BF0023C78B /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F671021CF448BF0023C78B /* CommonUtil.swift */; };
 		B6F671051CF448BF0023C78B /* ConvertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F671031CF448BF0023C78B /* ConvertUtil.swift */; };
@@ -255,6 +256,7 @@
 		B6E336DF1CCB1F400028CE37 /* SunFPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunFPSLabel.swift; sourceTree = "<group>"; };
 		B6E761F31CEC697300AB81AD /* RouteSearchDemoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteSearchDemoVC.swift; sourceTree = "<group>"; };
 		B6E819C21CCC8981005090F0 /* CornerRadiusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusViewController.swift; sourceTree = "<group>"; };
+		B6F47F511D0156F4007236F1 /* SingleSelectBtnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSelectBtnView.swift; sourceTree = "<group>"; };
 		B6F671001CF3F7C20023C78B /* OptimizeTableViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptimizeTableViewVC.swift; sourceTree = "<group>"; };
 		B6F671021CF448BF0023C78B /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		B6F671031CF448BF0023C78B /* ConvertUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertUtil.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				B6750F981CFBECE300BA28F9 /* PopView.swift */,
 				B6750FA31CFC6F3700BA28F9 /* ImagePickerController.swift */,
 				B62EF39F1CFD70C800C78192 /* PanCakeView.swift */,
+				B6F47F511D0156F4007236F1 /* SingleSelectBtnView.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -902,6 +905,7 @@
 				B61872981CC13BD200878EDE /* BaseGroupTableViewController.swift in Sources */,
 				B69EFC631CEAF28900A20F20 /* MultiMapViewDemoVC.swift in Sources */,
 				B61673C41CFABD860039637E /* DBUpdateHandler.swift in Sources */,
+				B6F47F521D0156F4007236F1 /* SingleSelectBtnView.swift in Sources */,
 				B62EF3A01CFD70C800C78192 /* PanCakeView.swift in Sources */,
 				B64BEE2B1CF9439D00482407 /* BannerView.swift in Sources */,
 				B6E336D31CCA3E4B0028CE37 /* ControlViewController.swift in Sources */,

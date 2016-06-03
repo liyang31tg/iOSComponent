@@ -50,7 +50,7 @@ class PanCakeView: UIView {
             tmpValue += d.value
             let endAngle = (tmpValue / totalValue) * 2 * M_PI - 0.5 * M_PI
             self.endAngleDataArray.append(endAngle)
-            self.percentDataArray.append(tmpValue / totalValue)
+            self.percentDataArray.append(d.value / totalValue)
         }
     
     }
@@ -115,7 +115,6 @@ class PanCakeView: UIView {
         lable.sizeToFit()
         lable.center = CGPointMake(CGFloat(centerX), CGFloat(centerY))
         return lable
-    
     }
     
 }
