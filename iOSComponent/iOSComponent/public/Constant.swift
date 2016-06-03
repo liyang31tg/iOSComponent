@@ -15,4 +15,5 @@ let ScreenSize      = ScreenBounds.size
 let ScreenWidth     = ScreenBounds.width
 let ScreenHeight    = ScreenBounds.height
 
+
 let cornerCenter    = CLLocationCoordinate2D(latitude: Application.shareInstance.config.latitude, longitude: Application.shareInstance.config.longitude)
