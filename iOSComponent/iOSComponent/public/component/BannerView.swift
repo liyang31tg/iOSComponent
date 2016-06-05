@@ -40,7 +40,7 @@ class BannerView: UIView,UIScrollViewDelegate {
             }
         }
     }
-    var delegate:BannerViewDelegate?{
+   weak var delegate:BannerViewDelegate?{
         didSet{
             if let _ =  self.bannerViewCell {
                 self.fillContent()
