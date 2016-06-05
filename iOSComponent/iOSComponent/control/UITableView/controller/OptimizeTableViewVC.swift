@@ -14,11 +14,11 @@ class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.contentTableView.refreshType = RefreshType.PullBoth.rawValue
+        self.contentTableView.refreshType = RefreshType.PullBoth
         
         self.contentTableView.refreshDelegate = self
         
-        self.contentTableView.currentRefreshDataState = RefreshDataType.PullDownRefreshing.rawValue
+        self.contentTableView.currentRefreshDataState = RefreshDataType.PullDownRefreshing
         
 
         var part1: [OptimizeTableViewCellDomainDelegate]        = []
@@ -40,7 +40,7 @@ class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             sleep(3)
             dispatch_async(dispatch_get_main_queue(), {
-                self.contentTableView.currentRefreshDataState = RefreshDataType.PullUpRefreshed.rawValue
+                self.contentTableView.currentRefreshDataState = RefreshDataType.PullUpRefreshed
             })
         }
     }
@@ -50,7 +50,7 @@ class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             sleep(3)
             dispatch_async(dispatch_get_main_queue(), {
-                self.contentTableView.currentRefreshDataState = RefreshDataType.PullDownRefreshed.rawValue
+                self.contentTableView.currentRefreshDataState = RefreshDataType.PullDownRefreshed
             })
         }
     }

@@ -38,60 +38,7 @@ protocol RefreshProtocol { //暴露给外部接口实现
 
 //MARK:PullDownRefreshing and PullUpRefreshing的动画样式不能用形变亮控制
 protocol RefreshViewProtocol {
-    func refreshViewWithState(refreshDataType: Int,pullDownOffset:CGFloat,pullUpOffset:CGFloat)
-}
-
-
-/*
- *因为iOS7后的UITableViewwrapView的存在，所以要分开在UIScrollView的子类实现其方法
- */
-//MARK:UITableView extension
-extension UITableView{
-    public override func willMoveToSuperview(newSuperview: UIView?) {
-        let obserKeys = ["contentOffset","contentSize"]
-        for key in obserKeys {
-            self.addObserver(RefreshStaticParametter.publicObserve, forKeyPath: key, options: NSKeyValueObservingOptions.New, context: nil)
-
-        }
-    }
-    public override func removeFromSuperview() {
-        let obserKeys = ["contentOffset","contentSize"]
-        for key in obserKeys {
-            self.removeObserver(RefreshStaticParametter.publicObserve, forKeyPath: key)
-
-        }
-    }
-    public override func didChangeValueForKey(key: String) {
-        super.didChangeValueForKey(key)
-        
-        if key == "contentSize"{
-            self.addRefreshFooterAndHeaderView(CareType.onlyFooter)
-        }
-    }
- }
-//MARK:UICollectionView extension
-extension UICollectionView{
-    public override func willMoveToSuperview(newSuperview: UIView?) {
-        let obserKeys = ["contentOffset","contentSize"]
-        for key in obserKeys {
-            self.addObserver(RefreshStaticParametter.publicObserve, forKeyPath: key, options: NSKeyValueObservingOptions.New, context: nil)
-            
-        }
-    }
-    public override func removeFromSuperview() {
-        let obserKeys = ["contentOffset","contentSize"]
-        for key in obserKeys {
-            self.removeObserver(RefreshStaticParametter.publicObserve, forKeyPath: key)
-            
-        }
-    }
-    public override func didChangeValueForKey(key: String) {
-        super.didChangeValueForKey(key)
-        
-        if key == "contentSize"{
-            self.addRefreshFooterAndHeaderView(CareType.onlyFooter)
-        }
-    }
+    func refreshViewWithState(refreshDataType: RefreshDataType,pullDownOffset:CGFloat,pullUpOffset:CGFloat)
 }
 
 //MARK:UIScrollView extension
@@ -104,6 +51,7 @@ extension UIScrollView{
         static var footerOverZero           = "footerOverZero"
         static var currentRefreshDataState  = "currentRefreshDataState"
         static var refreshDelegate          = "refreshDelegate"
+        static var isHaveDrag               = "isHaveDrag"
         
     }
     
@@ -115,16 +63,52 @@ extension UIScrollView{
      *RefreshType,这个是参数
      */
     //MARK:属性
-    var refreshType: Int{
+    var refreshType: RefreshType{
         get{
             let b = objc_getAssociatedObject(self, &AssociateKeys.refreshType)
-            return b as? Int ?? 0
+            let c = b as? Int ?? 0
+            return RefreshType(rawValue: c)!
         }
         set{
-            objc_setAssociatedObject(self, &AssociateKeys.refreshType, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &AssociateKeys.refreshType, newValue.rawValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            
+            if newValue != RefreshType.PullNone{
+                //添加监听
+                self.addRefreshObserve()
+            }
             self.addRefreshFooterAndHeaderView()
         }
     }
+    
+    private func addRefreshObserve(){
+        let obserKeys = ["contentOffset","contentSize"]
+        for key in obserKeys {
+            self.addObserver(RefreshStaticParametter.publicObserve, forKeyPath: key, options: NSKeyValueObservingOptions.New, context: nil)
+        }
+    }
+    
+    
+    public override func removeFromSuperview() {
+        if self.refreshType != RefreshType.PullNone {
+            let obserKeys = ["contentOffset","contentSize"]
+            for key in obserKeys {
+                self.removeObserver(RefreshStaticParametter.publicObserve, forKeyPath: key)
+            }
+        }
+        super.removeFromSuperview()
+    }
+    /*
+     *作用于,Scrollview的ContentSize小于Frame的话就不启动上拉刷新
+     */
+    public  override func didChangeValueForKey(key: String) {
+        super.didChangeValueForKey(key)
+        if self.refreshType != RefreshType.PullNone {
+            if key == "contentSize"{
+                self.addRefreshFooterAndHeaderView(CareType.onlyFooter)
+            }
+        }
+    }
+    
     /*
      *RefreshProtocol需要实现这个接口
      */
@@ -135,32 +119,45 @@ extension UIScrollView{
         }
         set{
             objc_setAssociatedObject(self, &AssociateKeys.refreshDelegate, newValue , objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
-         
+            
         }
-    
+        
     }
     /*
      *设置当前状态
      */
     
-    var currentRefreshDataState:Int{
+    var currentRefreshDataState:RefreshDataType{
         get{
-            return objc_getAssociatedObject(self, &AssociateKeys.currentRefreshDataState) as? Int ?? 0
+             let b = objc_getAssociatedObject(self, &AssociateKeys.currentRefreshDataState) as? Int ?? 0
+            
+            return RefreshDataType(rawValue: b)!
         }
         
         set{
-            print("------------")
-//            RefreshStaticParametter.isDraging = self.dragging
             if newValue != self.currentRefreshDataState {
-                objc_setAssociatedObject(self, &AssociateKeys.currentRefreshDataState, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+                objc_setAssociatedObject(self, &AssociateKeys.currentRefreshDataState, newValue.rawValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
                 //这里来设置状态,根据不同的状态惊醒切换
                 self.changeRefreshDataType(newValue)
             }
         }
-    
+        
     }
     
-    
+    ////所有状态监听，都是在已经有拖动效果的情况下，这个状态维护，只要是是用于适配ControllerVC,自动为ScrollView添加上contentInset而维护的
+    //是否渲染后是否被拖动过，是1，否 0
+    var isHaveDrag:Int{
+        get{
+            return objc_getAssociatedObject(self, &AssociateKeys.isHaveDrag) as? Int ?? 0
+        }
+        
+        set{
+            objc_setAssociatedObject(self, &AssociateKeys.isHaveDrag, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            
+            
+        }
+        
+    }
     
     
     private var headerViewOverHeightZero:CGFloat{
@@ -171,7 +168,7 @@ extension UIScrollView{
         set{
             objc_setAssociatedObject(self, &AssociateKeys.headerOverZero, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
         }
-    
+        
     }
     
     private var footerViewOverHeightZero:CGFloat{
@@ -188,7 +185,7 @@ extension UIScrollView{
     
     
     
-   private var headerRefreshView:UIView {
+    private var headerRefreshView:UIView {
         get{
             var headerView  = objc_getAssociatedObject(self, &AssociateKeys.headerRefreshView) as? UIView
             if headerView == nil {
@@ -207,7 +204,7 @@ extension UIScrollView{
     }
     
     
-   private var footerRefreshView:UIView {
+    private var footerRefreshView:UIView {
         get{
             var footerView  = objc_getAssociatedObject(self, &AssociateKeys.footerRefreshView) as? UIView
             
@@ -224,12 +221,12 @@ extension UIScrollView{
         }
     }
     
-   private var defaultHeaderRefreshView:UIView{
+    private var defaultHeaderRefreshView:UIView{
         let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
         headerView.backgroundColor = UIColor.redColor()
         return headerView
     }
-   private var defaultFooterRefreshView:UIView{
+    private var defaultFooterRefreshView:UIView{
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 40))
         footerView.backgroundColor = UIColor.brownColor()
         return footerView
@@ -239,19 +236,19 @@ extension UIScrollView{
     
     
     //MARK:方法
-    private func changeRefreshDataType(refreshDataType:Int){
+    private func changeRefreshDataType(refreshDataType:RefreshDataType){
         
         switch refreshDataType {
-        case RefreshDataType.RefreshNone.rawValue:
+        case RefreshDataType.RefreshNone:
             print("默认状态")
-            if self.refreshType == RefreshType.PullUp.rawValue || self.refreshType == RefreshType.PullBoth.rawValue {
+            if self.refreshType == RefreshType.PullUp || self.refreshType == RefreshType.PullBoth {
                 self.footerRefreshView.hidden = self.contentSize.height < self.frame.size.height
             }
-        case RefreshDataType.PullDownIng.rawValue:
+        case RefreshDataType.PullDownIng:
             print("下拉中")
-        case RefreshDataType.PullDownOverZero.rawValue:
+        case RefreshDataType.PullDownOverZero:
             print("下拉临界点")
-        case RefreshDataType.PullDownRefreshing.rawValue:
+        case RefreshDataType.PullDownRefreshing:
             print("下拉松开手势，刷新中")
             var tmpContentInset = self.contentInset
             tmpContentInset.top += self.headerViewOverHeightZero
@@ -261,7 +258,7 @@ extension UIScrollView{
                 self.contentInset = tmpContentInset
             })
             
-        case RefreshDataType.PullDownRefreshed.rawValue:
+        case RefreshDataType.PullDownRefreshed:
             var tmpContentInset = self.contentInset
             tmpContentInset.top -= self.headerViewOverHeightZero
             
@@ -269,24 +266,24 @@ extension UIScrollView{
                 self.contentInset = tmpContentInset
             })
             print("下拉结束")
-        case RefreshDataType.PullUpIng.rawValue:
+        case RefreshDataType.PullUpIng:
             print("上拉中")
-        case RefreshDataType.PullUpOverZero.rawValue:
+        case RefreshDataType.PullUpOverZero:
             print("上拉临界点")
-        case RefreshDataType.PullUpRefreshing.rawValue:
+        case RefreshDataType.PullUpRefreshing:
             print("上拉松开手势，刷新中")
             
             if self.frame.size.height <= self.contentSize.height{
                 var tmpContentInset = self.contentInset
                 tmpContentInset.bottom += self.footerViewOverHeightZero
-                 (self.refreshDelegate as? RefreshProtocol)?.loadMoreData()
+                (self.refreshDelegate as? RefreshProtocol)?.loadMoreData()
                 UIView.animateWithDuration(0.3, animations: {
                     self.contentInset = tmpContentInset
                 })
             }//这种状况下就只能操作frame,但是操作失败，暂时不支持这种情况下的下拉刷新
-
             
-        case RefreshDataType.PullUpRefreshed.rawValue:
+            
+        case RefreshDataType.PullUpRefreshed:
             if self.frame.size.height <= self.contentSize.height{
                 var tmpContentInset = self.contentInset
                 tmpContentInset.bottom -= self.footerViewOverHeightZero
@@ -295,14 +292,12 @@ extension UIScrollView{
                     self.contentInset = tmpContentInset
                 })
             }
-        default:
-            break;
         }
-    
+        
     }
     
     
-
+    
     
     private enum CareType:Int {
         case onlyHeader = 0
@@ -312,18 +307,18 @@ extension UIScrollView{
     
     private func addRefreshFooterAndHeaderView(careType:CareType = CareType.onlyHeader){
         switch self.refreshType {
-        case RefreshType.PullNone.rawValue:
+        case RefreshType.PullNone:
             self.removeHeaderFooterView()
-        case RefreshType.PullDown.rawValue:
+        case RefreshType.PullDown:
             if careType == CareType.onlyHeader || careType == CareType.both{
                 self.addRefreshHeaderView()
             }
             
-        case RefreshType.PullUp.rawValue:
+        case RefreshType.PullUp:
             if careType == CareType.onlyFooter || careType == CareType.both{
                 self.addRefreshFooterView()
             }
-        case RefreshType.PullBoth.rawValue:
+        case RefreshType.PullBoth:
             if careType == CareType.onlyHeader || careType == CareType.both{
                 self.addRefreshHeaderView()
             }
@@ -331,8 +326,6 @@ extension UIScrollView{
                 self.addRefreshFooterView()
             }
             
-        default:
-            break;
         }
     }
     private func removeHeaderFooterView(){
@@ -354,7 +347,7 @@ extension UIScrollView{
         self.addConstraints([width,centerX,trainingC,heightC])
     }
     
-   private func addRefreshFooterView(){
+    private func addRefreshFooterView(){
         let footerView = self.footerRefreshView
         self.viewWithTag(AssociateTag.footerRefreshViewTag)?.removeFromSuperview()
         footerView.translatesAutoresizingMaskIntoConstraints   = false
@@ -371,18 +364,17 @@ extension UIScrollView{
         self.addConstraints([width,centerX,trainingC,heightC])
         
     }
-
     
     
-
+    
+    
 }
 
 /*
  *完全是出于moudle的保护
  */
 private struct RefreshStaticParametter {
-//    static var  isDraging       = false//是否在拖动，默认为否
-    static var  publicObserve   = ObserObject()
+    static var  publicObserve       = ObserObject()
 }
 
 
@@ -391,87 +383,93 @@ var  isDraging       = false//是否在拖动，默认为否
 class ObserObject: NSObject {
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "contentOffset"{
-            if let table = object as? UITableView{
-                if table.refreshType == RefreshType.PullNone.rawValue {
+            
+            
+            if let table = object as? UIScrollView{
+                if table.dragging {
+                    table.isHaveDrag = 1
+                }
+                guard table.isHaveDrag == 1 else{return}
+                if table.refreshType == RefreshType.PullNone {
                     return
                 }
                 let contentOffset       = table.contentOffset
                 let contentSize         = table.contentSize
                 let contentInset        = table.contentInset
                 let tmpPullDownOffset   = -contentInset.top - contentOffset.y
-                let tmpOffset           = contentOffset.y + contentInset.top + table.frame.size.height  - max(contentSize.height + contentInset.top, table.frame.size.height)
+                let tmpOffset           = contentOffset.y + contentInset.top + table.frame.size.height  - max(contentSize.height + contentInset.bottom + contentInset.top, table.frame.size.height)
                 
                 //这里是协议实现refreshVew，这里是操作刷新View的动画
                 (table.headerRefreshView as? RefreshViewProtocol)?.refreshViewWithState(table.currentRefreshDataState, pullDownOffset: tmpPullDownOffset, pullUpOffset: tmpOffset)
                 (table.footerRefreshView as? RefreshViewProtocol)?.refreshViewWithState(table.currentRefreshDataState, pullDownOffset: tmpPullDownOffset, pullUpOffset: tmpOffset)
                 
-//                print("tmpPullDownOffset:\(tmpPullDownOffset),tmpOffset:\(tmpOffset)")
-//                if RefreshStaticParametter.isDraging != table.dragging {
-//                    if RefreshStaticParametter.isDraging {//拖动到不拖动
-                        if table.headerViewOverHeightZero <= tmpPullDownOffset && !table.dragging{
-                            //上啦超过零界点(启动刷新)
-                            if table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue {
-                                table.currentRefreshDataState = RefreshDataType.PullDownRefreshing.rawValue
-                            }
-
-//                            print("启动下拉刷新")
+                //                print("tmpPullDownOffset:\(tmpPullDownOffset),tmpOffset:\(tmpOffset)")
+                //                if RefreshStaticParametter.isDraging != table.dragging {
+                //                    if RefreshStaticParametter.isDraging {//拖动到不拖动
+                if table.headerViewOverHeightZero <= tmpPullDownOffset && !table.dragging{
+                    //上啦超过零界点(启动刷新)
+                    if table.currentRefreshDataState != RefreshDataType.PullUpRefreshing {
+                        table.currentRefreshDataState = RefreshDataType.PullDownRefreshing
+                    }
+                    
+                    //                            print("启动下拉刷新")
+                }
+                
+                if tmpOffset >= table.footerViewOverHeightZero && !table.dragging{
+                    //下拉刷新的时候，上啦无效
+                    if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing{
+                        if table.contentSize.height > table.frame.size.height{
+                            table.currentRefreshDataState = RefreshDataType.PullUpRefreshing
                         }
-                        
-                        if tmpOffset >= table.footerViewOverHeightZero && !table.dragging{
-                            //下拉刷新的时候，上啦无效
-                            if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue{
-                                if table.contentSize.height > table.frame.size.height{
-                                    table.currentRefreshDataState = RefreshDataType.PullUpRefreshing.rawValue
-                                }
-                            }
-
-                            
-//                            print("启动上拉刷新")
-                        }
-                        
-//                    }else{//不拖动到拖动
-                        if tmpPullDownOffset < table.headerViewOverHeightZero && 0 < tmpPullDownOffset {
-                            //下拉中
-                            if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue{
-                                 table.currentRefreshDataState = RefreshDataType.PullDownIng.rawValue
-                            }
-                           
-//                             print("下拉中")
-                        }
-                        
-                        if tmpOffset > 0 && tmpOffset < table.footerViewOverHeightZero{
-                            if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue{
-                                 table.currentRefreshDataState = RefreshDataType.PullUpIng.rawValue
-                            }
-                           
-//                            print("上拉中")
-                        
-                        }
-
+                    }
+                    
+                    
+                    //                            print("启动上拉刷新")
+                }
+                
+                //                    }else{//不拖动到拖动
+                if tmpPullDownOffset < table.headerViewOverHeightZero && 0 < tmpPullDownOffset {
+                    //下拉中
+                    if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing{
+                        table.currentRefreshDataState = RefreshDataType.PullDownIng
+                    }
+                    
+                    //                             print("下拉中")
+                }
+                
+                if tmpOffset > 0 && tmpOffset < table.footerViewOverHeightZero{
+                    if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing{
+                        table.currentRefreshDataState = RefreshDataType.PullUpIng
+                    }
+                    
+                    //                            print("上拉中")
+                    
+                }
+                
                 if table.headerViewOverHeightZero <= tmpPullDownOffset {
                     //下拉超过零界点
-                    if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue {
-                        table.currentRefreshDataState = RefreshDataType.PullDownOverZero.rawValue
-//                        print("下拉超过临界点")
+                    if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing {
+                        table.currentRefreshDataState = RefreshDataType.PullDownOverZero
+                        //                        print("下拉超过临界点")
                     }
                     
                 }
                 
                 if tmpOffset >= table.footerViewOverHeightZero{
-                    if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue {
-                        table.currentRefreshDataState = RefreshDataType.PullUpOverZero.rawValue
-//                        print("上拉超过临界点:\(tmpOffset),footerViewOverHeightZero:\(table.footerViewOverHeightZero)")
+                    if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing {
+                        table.currentRefreshDataState = RefreshDataType.PullUpOverZero
+                        //                        print("上拉超过临界点:\(tmpOffset),footerViewOverHeightZero:\(table.footerViewOverHeightZero)")
                     }
                 }
                 
                 if 0 == tmpPullDownOffset || abs(tmpOffset) < 0.1 {//0.1是模糊的数据
                     //恢复初始状态
-                    if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing.rawValue && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing.rawValue{
-                        table.currentRefreshDataState = RefreshDataType.RefreshNone.rawValue
-//                        print("---------进入默认状态：\(RefreshStaticParametter.isDraging)")
+                    if table.currentRefreshDataState != RefreshDataType.PullDownRefreshing && table.currentRefreshDataState != RefreshDataType.PullUpRefreshing{
+                        table.currentRefreshDataState = RefreshDataType.RefreshNone
+                        //                        print("---------进入默认状态：\(RefreshStaticParametter.isDraging)")
                     }
-//                    print("恢复初始状态")
-                
+                    //                    print("恢复初始状态")
+                    
                 }
                 
                 
@@ -480,10 +478,10 @@ class ObserObject: NSObject {
         
         if keyPath == "contentSize"{
             if let table = object as? UITableView{
-                if table.refreshType == RefreshType.PullUp.rawValue || table.refreshType == RefreshType.PullBoth.rawValue {
+                if table.refreshType == RefreshType.PullUp || table.refreshType == RefreshType.PullBoth {
                     table.footerRefreshView.hidden = table.contentSize.height < table.frame.size.height
                 }
-            
+                
             }
         }
         
@@ -509,16 +507,14 @@ class HeaderView:UIView,RefreshViewProtocol{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     
-    func refreshViewWithState(refreshDataType: Int, pullDownOffset: CGFloat, pullUpOffset: CGFloat) {
+    
+    func refreshViewWithState(refreshDataType: RefreshDataType, pullDownOffset: CGFloat, pullUpOffset: CGFloat) {
         stateLabel.text = "\(refreshDataType)"
         pullDownOffsetLabel.text = "\(pullDownOffset)"
         pullUpOffsetLabel.text = "\(pullUpOffset)"
         
     }
-
+    
 }
-
-
 

@@ -15,7 +15,7 @@ class ControlViewController: BaseGroupTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.contentTableView.refreshType = RefreshType.PullBoth.rawValue
+        self.contentTableView.refreshType = RefreshType.PullBoth
         dataArray = [[  CTDomain(sectionTitle: "UILabel"),
                         CTDomain(title: "SUNKit", storyBoard: "control", storyBoardId: "uiLabelExtenssionIdentifer")],
                      [  CTDomain(sectionTitle: "UIScrollView"),
