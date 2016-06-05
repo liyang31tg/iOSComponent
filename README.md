@@ -8,11 +8,11 @@ Transaction(target: self, selector: #selector(ChatVC.todo)).commit()
 
 ###上拉下拉刷新的集成（刷新View完全是插拔式，绝对的自由，koa组件的精髓）
 ```
-self.contentTableView.refreshType = RefreshType.PullBoth.rawValue
+self.contentTableView.refreshType = RefreshType.PullBoth
         
 self.contentTableView.refreshDelegate = self
         
-self.contentTableView.currentRefreshDataState = RefreshDataType.PullDownRefreshing.rawValue //这样就可以触发自动刷新
+self.contentTableView.currentRefreshDataState = RefreshDataType.PullDownRefreshing //这样就可以触发自动刷新
 
 说明：
 enum RefreshType:Int {
