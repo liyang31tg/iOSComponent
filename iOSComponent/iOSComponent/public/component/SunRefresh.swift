@@ -144,7 +144,7 @@ extension UIScrollView{
         
     }
     
-    ////所有状态监听，都是在已经有拖动效果的情况下，这个状态维护，只要是是用于适配ControllerVC,自动为ScrollView添加上contentInset而维护的
+    ////所有状态监听，都是在已经有拖动效果的情况下，这个状态维护，只要是是用于适配ControllerVC,自动为ScrollView添加上contentInset（就是那个controllerVC自动适配改变contentInset）而维护的
     //是否渲染后是否被拖动过，是1，否 0
     var isHaveDrag:Int{
         get{
