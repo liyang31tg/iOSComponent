@@ -15,12 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
 
     var window: UIWindow?
     var mapManager: BMKMapManager?
+    
 
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let FPSLabel = SunFPSLabel(frame: CGRect(x: 0, y: 64, width: 100, height: 44))
         self.window!.addSubview(FPSLabel)
         self.window?.backgroundColor = UIColor.whiteColor()
+
+        
+        
+        
 
 //        SqliteDB(dbName: "boqiao", dbType: SqliteDB.DBProperty.type_public)
         

@@ -23,6 +23,9 @@
 		B62EF39E1CFD6F5F00C78192 /* PancakePicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62EF39D1CFD6F5F00C78192 /* PancakePicVC.swift */; };
 		B62EF3A01CFD70C800C78192 /* PanCakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62EF39F1CFD70C800C78192 /* PanCakeView.swift */; };
 		B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B634BE131CCE5159008C26CB /* CoreTextViewController.swift */; };
+		B641A1681D03DB810097B649 /* NSData+GZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641A1671D03DB810097B649 /* NSData+GZIP.swift */; };
+		B641A16A1D03DB9F0097B649 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B641A1691D03DB9F0097B649 /* libz.tbd */; };
+		B641A1771D04678D0097B649 /* TextCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641A1761D04678D0097B649 /* TextCompress.swift */; };
 		B64BEE241CF92ED300482407 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE231CF92ED300482407 /* Transaction.swift */; };
 		B64BEE271CF93A9E00482407 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE261CF93A9E00482407 /* ChatVC.swift */; };
 		B64BEE291CF9431B00482407 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE281CF9431B00482407 /* ColorExtension.swift */; };
@@ -156,6 +159,9 @@
 		B62EF39D1CFD6F5F00C78192 /* PancakePicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PancakePicVC.swift; sourceTree = "<group>"; };
 		B62EF39F1CFD70C800C78192 /* PanCakeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanCakeView.swift; sourceTree = "<group>"; };
 		B634BE131CCE5159008C26CB /* CoreTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
+		B641A1671D03DB810097B649 /* NSData+GZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+GZIP.swift"; sourceTree = "<group>"; };
+		B641A1691D03DB9F0097B649 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B641A1761D04678D0097B649 /* TextCompress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCompress.swift; sourceTree = "<group>"; };
 		B64BEE231CF92ED300482407 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		B64BEE261CF93A9E00482407 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		B64BEE281CF9431B00482407 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -272,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B641A16A1D03DB9F0097B649 /* libz.tbd in Frameworks */,
 				B69EFC5C1CEAB0D500A20F20 /* libstdc++.6.0.9.tbd in Frameworks */,
 				B69EFC5A1CEAB0C100A20F20 /* CoreTelephony.framework in Frameworks */,
 				B69EFC581CEAB0B300A20F20 /* libsqlite3.0.tbd in Frameworks */,
@@ -394,6 +401,14 @@
 			path = CoreText;
 			sourceTree = "<group>";
 		};
+		B641A1661D03DB810097B649 /* NSData+GZip */ = {
+			isa = PBXGroup;
+			children = (
+				B641A1671D03DB810097B649 /* NSData+GZIP.swift */,
+			);
+			path = "NSData+GZip";
+			sourceTree = "<group>";
+		};
 		B64BEE251CF93A8D00482407 /* chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +504,7 @@
 		B68709F71CC5E7A70012345F /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				B641A1661D03DB810097B649 /* NSData+GZip */,
 				B64BEE851CFA8ED600482407 /* SQLite */,
 				B69EFC661CEB057F00A20F20 /* SWXMLHash */,
 				B69EFC3E1CEAB02D00A20F20 /* BaiduMap */,
@@ -605,6 +621,7 @@
 		B6BFF32E1CC12F1500141A93 = {
 			isa = PBXGroup;
 			children = (
+				B641A1691D03DB9F0097B649 /* libz.tbd */,
 				B64BEE591CFA8BD100482407 /* libsqlite3.tbd */,
 				B69EFC5B1CEAB0D500A20F20 /* libstdc++.6.0.9.tbd */,
 				B69EFC591CEAB0C100A20F20 /* CoreTelephony.framework */,
@@ -756,6 +773,7 @@
 				B62EF39D1CFD6F5F00C78192 /* PancakePicVC.swift */,
 				B6F6710B1CF45B7F0023C78B /* CommentDegreeShowVC.swift */,
 				B6750F961CFBEA8E00BA28F9 /* PopViewController.swift */,
+				B641A1761D04678D0097B649 /* TextCompress.swift */,
 			);
 			path = tips;
 			sourceTree = "<group>";
@@ -916,6 +934,7 @@
 				B64BEEA51CFA8ED600482407 /* R*Tree.swift in Sources */,
 				B696347E1CDF3892009D6188 /* SunLayer.swift in Sources */,
 				B65B7DC31CEC4C9400F1E072 /* GeocodeDemoVC.swift in Sources */,
+				B641A1771D04678D0097B649 /* TextCompress.swift in Sources */,
 				B6296D681CE32E6A00492C1B /* CoreTextPlainVC.swift in Sources */,
 				B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */,
 				B64BEEA01CFA8ED600482407 /* Connection.swift in Sources */,
@@ -952,6 +971,7 @@
 				B618729A1CC13EFF00878EDE /* SubjectViewController.swift in Sources */,
 				B64BEEA41CFA8ED600482407 /* FTS4.swift in Sources */,
 				B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */,
+				B641A1681D03DB810097B649 /* NSData+GZIP.swift in Sources */,
 				B6750F991CFBECE300BA28F9 /* PopView.swift in Sources */,
 				B6CFA6421CF5DFD50074412B /* AutoBoxingAndUnboxingUtil.swift in Sources */,
 				B6F671011CF3F7C20023C78B /* OptimizeTableViewVC.swift in Sources */,

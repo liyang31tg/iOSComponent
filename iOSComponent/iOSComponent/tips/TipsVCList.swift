@@ -18,6 +18,8 @@ class TipsVCList: BasePlainTableViewController {
         dataArray = [
             CTDomain(title: "评价五角星-当然可以随便换", storyBoard: "tips", storyBoardId: "CommentDegreeShowVCStoryBoardId"),
             CTDomain(title: "popView-仿微信左上角的", storyBoard: "tips", storyBoardId: "popViewControllerStoryBoardId"),
-            CTDomain(title: "CAShapeLayer-实现饼状图", storyBoard: "tips", storyBoardId: "CAShapeLayerForPanakeStorboardID")]
+            CTDomain(title: "CAShapeLayer-实现饼状图", storyBoard: "tips", storyBoardId: "CAShapeLayerForPanakeStorboardID"),
+            CTDomain(title: "Gzip-文本数据压缩", storyBoard: "tips", storyBoardId: "textCompressVCStoryboardId")]
     }
+    
 }
