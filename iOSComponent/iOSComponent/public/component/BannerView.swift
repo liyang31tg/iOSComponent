@@ -96,22 +96,33 @@ class BannerView: UIView,UIScrollViewDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //初始化定时器
-        if let _ = self.delegate,let _ = self.bannerViewCell {
-            if let isCanTime = self.delegate?.isResponderTimeAction?(self) where isCanTime == false {
-            } else {
-                self.timer = NSTimer.scheduledTimerWithTimeInterval(repeatTime, target: self, selector: #selector(BannerView.repeatAction(_:)), userInfo: nil, repeats: true)
-            }
-        }
-        if let isCanTap = self.delegate?.isResponderTapAction?(self) where isCanTap == false {
-            self.tap.enabled = false
-        }
         self.bannerViewSize = self.frame.size
         if self.isFirst {
+            //初始化定时器
+            if let _ = self.delegate,let _ = self.bannerViewCell {
+                if let isCanTime = self.delegate?.isResponderTimeAction?(self) where isCanTime == false {
+                } else {
+                    self.timer = NSTimer.scheduledTimerWithTimeInterval(repeatTime, target: self, selector: #selector(BannerView.repeatAction(_:)), userInfo: nil, repeats: true)
+                }
+            }
+            if let isCanTap = self.delegate?.isResponderTapAction?(self) where isCanTap == false {
+                self.tap.enabled = false
+            }
             self.showPage(0, isCycle: self.isCycle)//因为在外面，如果这个控件的尺寸变了会重新渲染这个view，重新调用这个方法会造成数据混乱
             self.isFirst = false
         }
         
+    }
+    //必须显示清理现场
+    func cleanTimer(){
+        self.timer?.invalidate()
+        self.timer = nil
+    }
+    
+    deinit{
+        print("\(self) is die")
+        self.timer?.invalidate()
+        self.timer = nil
     }
     
     
@@ -123,7 +134,7 @@ class BannerView: UIView,UIScrollViewDelegate {
             self.currentPage = pageIndex < 0 ? allCount : pageIndex > allCount ? 0 : pageIndex
             for (index,v) in self.cellViews.enumerate() {
                 let tmpIndex = self.currentPage + Int(index) - 1
-                self.delegate!.bannerView(self, cell: v, index: tmpIndex < 0 ? allCount : tmpIndex > allCount ? 0 : tmpIndex)
+                self.delegate?.bannerView(self, cell: v, index: tmpIndex < 0 ? allCount : tmpIndex > allCount ? 0 : tmpIndex)
             }
             if isCycle {
                 contentScrollView.setContentOffset(CGPointMake(bannerViewSize.width, 0), animated: false)

@@ -38,7 +38,7 @@ class CornerRadiusViewController: BaseViewController {
 extension CornerRadiusViewController:UITableViewDelegate,UITableViewDataSource {
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 300
+        return 600
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

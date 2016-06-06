@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
 
         
         
-        
 
 //        SqliteDB(dbName: "boqiao", dbType: SqliteDB.DBProperty.type_public)
         
