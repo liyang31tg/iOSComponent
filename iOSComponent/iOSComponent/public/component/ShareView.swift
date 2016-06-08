@@ -33,9 +33,18 @@ class ShareView: UIView {
         self.translatesAutoresizingMaskIntoConstraints  = false
         self.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.2)
         
-//        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ShareView.dismiss)))
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ShareView.dismiss))
+        tap.delegate = self
+        self.addGestureRecognizer(tap)
         
     }
+    
+    
+    
+    
+    
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -184,6 +193,13 @@ extension ShareView:UICollectionViewDelegateFlowLayout,UICollectionViewDataSourc
     
 
     
+}
+
+extension ShareView:UIGestureRecognizerDelegate{
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        return touch.view == gestureRecognizer.delegate as? UIView
+    }
+
 }
 
 
