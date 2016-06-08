@@ -154,12 +154,22 @@
                                     <constraint firstAttribute="height" constant="40" id="yiQ-c1-6mq"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3WL-Zn-KMe" customClass="ProgressView" customModule="iOSComponent" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="328" width="320" height="70"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="XRY-Ba-VlO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HA2-yR-cPe" firstAttribute="leading" secondItem="PKx-tV-jX8" secondAttribute="leading" id="AZ3-ld-p7H"/>
                             <constraint firstItem="HA2-yR-cPe" firstAttribute="top" secondItem="5Gg-Cf-lBj" secondAttribute="bottom" constant="33" id="DAN-DM-j76"/>
+                            <constraint firstAttribute="trailing" secondItem="3WL-Zn-KMe" secondAttribute="trailing" id="Kcm-dn-4vA"/>
+                            <constraint firstItem="3WL-Zn-KMe" firstAttribute="leading" secondItem="PKx-tV-jX8" secondAttribute="leading" id="MXF-Tc-zYf"/>
                             <constraint firstItem="5Gg-Cf-lBj" firstAttribute="top" secondItem="kmh-VQ-6yk" secondAttribute="bottom" constant="87" id="Nu8-39-ll0"/>
+                            <constraint firstItem="3WL-Zn-KMe" firstAttribute="top" secondItem="HA2-yR-cPe" secondAttribute="bottom" constant="20" id="SBj-f1-8u0"/>
                             <constraint firstAttribute="trailing" secondItem="HA2-yR-cPe" secondAttribute="trailing" id="qmd-zJ-TVI"/>
                             <constraint firstItem="5Gg-Cf-lBj" firstAttribute="centerX" secondItem="PKx-tV-jX8" secondAttribute="centerX" id="tD2-Lf-kdt"/>
                         </constraints>
@@ -167,6 +177,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="pannacakeView" destination="5Gg-Cf-lBj" id="IP6-5K-8WW"/>
+                        <outlet property="progressView" destination="3WL-Zn-KMe" id="gx0-jo-zQ4"/>
                         <outlet property="singleSelectbtnView" destination="HA2-yR-cPe" id="0BL-pc-thC"/>
                     </connections>
                 </viewController>
