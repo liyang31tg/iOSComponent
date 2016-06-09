@@ -92,6 +92,7 @@
 		B69EFC7D1CEB293100A20F20 /* poi_2.png in Resources */ = {isa = PBXBuildFile; fileRef = B69EFC7A1CEB293100A20F20 /* poi_2.png */; };
 		B69EFC7E1CEB293100A20F20 /* poi_3.png in Resources */ = {isa = PBXBuildFile; fileRef = B69EFC7B1CEB293100A20F20 /* poi_3.png */; };
 		B69EFC801CEB2B8500A20F20 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = B69EFC7F1CEB2B8500A20F20 /* test.png */; };
+		B6B2C09E1D097C6A0012E7B6 /* UseUISearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B2C09D1D097C6A0012E7B6 /* UseUISearchController.swift */; };
 		B6B44EF01D07C325001C650C /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B44EEF1D07C325001C650C /* ProgressView.swift */; };
 		B6B44EF21D0806C1001C650C /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B44EF11D0806C1001C650C /* ShareViewController.swift */; };
 		B6B44EF41D08079B001C650C /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B44EF31D08079B001C650C /* ShareView.swift */; };
@@ -237,6 +238,7 @@
 		B69EFC7A1CEB293100A20F20 /* poi_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_2.png; sourceTree = "<group>"; };
 		B69EFC7B1CEB293100A20F20 /* poi_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi_3.png; sourceTree = "<group>"; };
 		B69EFC7F1CEB2B8500A20F20 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		B6B2C09D1D097C6A0012E7B6 /* UseUISearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseUISearchController.swift; sourceTree = "<group>"; };
 		B6B44EEF1D07C325001C650C /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		B6B44EF11D0806C1001C650C /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		B6B44EF31D08079B001C650C /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		B618728D1CC1308D00878EDE /* control */ = {
 			isa = PBXGroup;
 			children = (
+				B6B2C09C1D097C230012E7B6 /* UISearchController */,
 				B6F670FC1CF3F5D50023C78B /* UITableView */,
 				B664FD201CEF457900E88088 /* UIScrollView */,
 				B6E336D61CCA3FBD0028CE37 /* sunLabel */,
@@ -604,6 +607,14 @@
 				B6DD9B1A1CED5E0A004B16EE /* RouteAnnotation.swift */,
 			);
 			path = custom;
+			sourceTree = "<group>";
+		};
+		B6B2C09C1D097C230012E7B6 /* UISearchController */ = {
+			isa = PBXGroup;
+			children = (
+				B6B2C09D1D097C6A0012E7B6 /* UseUISearchController.swift */,
+			);
+			path = UISearchController;
 			sourceTree = "<group>";
 		};
 		B6B9BC151CE9BF4A00F4BEB1 /* Map */ = {
@@ -948,6 +959,7 @@
 				B6296D6C1CE37ACC00492C1B /* CoreTextPictureVC.swift in Sources */,
 				B64BEEA01CFA8ED600482407 /* Connection.swift in Sources */,
 				B618729F1CC1463F00878EDE /* ResponderChainViewController.swift in Sources */,
+				B6B2C09E1D097C6A0012E7B6 /* UseUISearchController.swift in Sources */,
 				B64BEEAA1CFA8ED600482407 /* Collation.swift in Sources */,
 				B64BEEAF1CFA8ED600482407 /* Query.swift in Sources */,
 				B6750F951CFBE53600BA28F9 /* Constant.swift in Sources */,

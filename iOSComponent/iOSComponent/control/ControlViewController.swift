@@ -21,10 +21,12 @@ class ControlViewController: BaseGroupTableViewController {
                      [  CTDomain(sectionTitle: "UIScrollView"),
                         CTDomain(title: "上啦下啦－UIScrollView", storyBoard: "control", storyBoardId: "LYRefreshIdentifier")],
                      [  CTDomain(sectionTitle: "UITableView"),
-                        CTDomain(title: "优化－ UITableView", storyBoard: "control", storyBoardId: "optimizeTableViewVCStoryBoardId")]]
+                        CTDomain(title: "优化－ UITableView", storyBoard: "control", storyBoardId: "optimizeTableViewVCStoryBoardId")],
+                     [  CTDomain(sectionTitle: "UISearchController"),
+                        CTDomain(title: "iOS8以后－ UISearchController", storyBoard: "control", storyBoardId: "UseUISearchControllerStoryboardId")]]
         
 
-        
+        //UseUISearchControllerStoryboardId
         
     }
     
