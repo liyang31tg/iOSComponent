@@ -256,6 +256,23 @@
                                                         <constraint firstAttribute="height" constant="32" id="JGM-BN-Sww"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="12" translatesAutoresizingMaskIntoConstraints="NO" id="sf1-bh-kPi" customClass="CornerImageView" customModule="iOSComponent" customModuleProvider="target">
+                                                    <rect key="frame" x="145" y="7" width="30" height="30"/>
+                                                    <color key="backgroundColor" red="0.28138343407746413" green="0.19136636099215143" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="IK2-D5-3QI"/>
+                                                        <constraint firstAttribute="width" constant="30" id="L4y-E8-7Tu"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDA-UX-aik" customClass="CornerButton" customModule="iOSComponent" customModuleProvider="target">
+                                                    <rect key="frame" x="210" y="6" width="46" height="30"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="MHj-3A-GcX"/>
+                                                        <constraint firstAttribute="width" constant="46" id="iBU-O7-nos"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="5YS-6g-7MU" firstAttribute="centerY" secondItem="cEJ-h0-4QP" secondAttribute="centerY" id="1Im-dH-d9R"/>
@@ -263,9 +280,12 @@
                                                 <constraint firstItem="5YS-6g-7MU" firstAttribute="height" secondItem="L61-I9-Zcl" secondAttribute="height" id="5J8-PE-8xw"/>
                                                 <constraint firstItem="Aid-Jd-Jps" firstAttribute="centerY" secondItem="cEJ-h0-4QP" secondAttribute="centerY" id="7pg-hN-bnT"/>
                                                 <constraint firstItem="L61-I9-Zcl" firstAttribute="leading" secondItem="cEJ-h0-4QP" secondAttribute="leading" constant="22" id="9lb-yV-Kti"/>
+                                                <constraint firstItem="WDA-UX-aik" firstAttribute="centerY" secondItem="cEJ-h0-4QP" secondAttribute="centerY" id="D3w-Z3-D2R"/>
+                                                <constraint firstItem="WDA-UX-aik" firstAttribute="leading" secondItem="5YS-6g-7MU" secondAttribute="trailing" constant="29" id="HfD-5E-FOb"/>
                                                 <constraint firstItem="3eM-kv-Nai" firstAttribute="height" secondItem="L61-I9-Zcl" secondAttribute="height" id="JVN-wZ-4yQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="aL6-gz-Q03" secondAttribute="trailing" id="Jce-bW-iB3"/>
                                                 <constraint firstItem="O8g-qq-pY4" firstAttribute="width" secondItem="L61-I9-Zcl" secondAttribute="width" id="LmL-9b-5y8"/>
+                                                <constraint firstItem="sf1-bh-kPi" firstAttribute="centerY" secondItem="cEJ-h0-4QP" secondAttribute="centerY" id="NNk-o3-XPE"/>
                                                 <constraint firstItem="5YS-6g-7MU" firstAttribute="leading" secondItem="Aid-Jd-Jps" secondAttribute="trailing" constant="16" id="OJr-2K-hQa"/>
                                                 <constraint firstItem="3eM-kv-Nai" firstAttribute="centerY" secondItem="cEJ-h0-4QP" secondAttribute="centerY" id="SRg-jM-aQP"/>
                                                 <constraint firstItem="aL6-gz-Q03" firstAttribute="centerY" secondItem="cEJ-h0-4QP" secondAttribute="centerY" id="VZX-5j-LYs"/>
@@ -277,6 +297,7 @@
                                                 <constraint firstItem="Aid-Jd-Jps" firstAttribute="width" secondItem="L61-I9-Zcl" secondAttribute="width" id="qpb-rl-gUY"/>
                                                 <constraint firstItem="Aid-Jd-Jps" firstAttribute="height" secondItem="L61-I9-Zcl" secondAttribute="height" id="tQf-G0-2ZH"/>
                                                 <constraint firstItem="O8g-qq-pY4" firstAttribute="centerY" secondItem="cEJ-h0-4QP" secondAttribute="centerY" id="umX-lz-FZw"/>
+                                                <constraint firstItem="sf1-bh-kPi" firstAttribute="centerX" secondItem="cEJ-h0-4QP" secondAttribute="centerX" id="wNR-sm-DhY"/>
                                                 <constraint firstItem="O8g-qq-pY4" firstAttribute="leading" secondItem="3eM-kv-Nai" secondAttribute="trailing" constant="18" id="x9Q-wt-nP5"/>
                                                 <constraint firstItem="Aid-Jd-Jps" firstAttribute="leading" secondItem="L61-I9-Zcl" secondAttribute="trailing" constant="17" id="y9P-Ss-1Lk"/>
                                                 <constraint firstItem="5YS-6g-7MU" firstAttribute="width" secondItem="L61-I9-Zcl" secondAttribute="width" id="ycu-97-PxT"/>
@@ -288,6 +309,8 @@
                                             <outlet property="C3" destination="5YS-6g-7MU" id="YL5-dV-IwP"/>
                                             <outlet property="C4" destination="3eM-kv-Nai" id="IMq-z6-iBJ"/>
                                             <outlet property="C5" destination="O8g-qq-pY4" id="fk8-jb-Tvi"/>
+                                            <outlet property="cornerButton" destination="WDA-UX-aik" id="oJl-qF-cck"/>
+                                            <outlet property="cornerImageView" destination="sf1-bh-kPi" id="7qJ-ib-4Kb"/>
                                             <outlet property="testView" destination="aL6-gz-Q03" id="6gW-rc-DhD"/>
                                         </connections>
                                     </tableViewCell>
@@ -1366,4 +1389,7 @@
             <point key="canvasLocation" x="1225" y="1047"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="12" width="1920" height="670"/>
+    </resources>
 </document>

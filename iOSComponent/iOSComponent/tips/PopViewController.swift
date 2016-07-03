@@ -14,7 +14,7 @@ class PopViewController: BaseViewController,PopViewDelegate {
     
     @IBAction func popAction(sender: UIButton) {
         
-       let frame =  self.view.convertRect(sender.frame, fromView: self.view)
+        let frame =  self.view.convertRect(sender.frame, fromView: self.view)
         let pop = PopContentView()
         pop.backgroundColor = UIColor.blueColor()
         PopView.showInWindowWithSubFrame(frame, subBoundsDelegate: self, contentView: pop)

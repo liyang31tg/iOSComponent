@@ -20,8 +20,9 @@ class SingleSelectBtnView: UIView {
     }()
     var normalColor                                         = UIColor.whiteColor()
     var selectColor                                         = UIColor.blueColor()
+    var normalFont                                          = UIFont.systemFontOfSize(12)
     var selectViewHeight:CGFloat                            = 2
-    var itemSize                                            = CGSizeMake(46, 21)
+    var itemSize                                            = CGSizeMake(70, 21)
     var delegate:SingleSelectBtnDelegate?                   = nil
     
     private var selectViewLeading:NSLayoutConstraint!
@@ -40,7 +41,7 @@ class SingleSelectBtnView: UIView {
         if let _ = self.dataArray{
             self.reloadData()
         }
-    
+        
     }
     
     func reloadData(){
@@ -52,15 +53,16 @@ class SingleSelectBtnView: UIView {
         var tmpBtn:SinglSelectBtn?
         for (index,d) in self.dataArray.enumerate() {
             let btn = SinglSelectBtn()
-            
+            btn.setTitleColor(self.normalColor, forState: UIControlState.Normal)
+            btn.titleLabel?.font                = self.normalFont
             self.singleBtns.append(btn)
             btn.identifierTag   = index
-            btn.backgroundColor = UIColor .redColor()
             btn.setTitle(d.showText, forState: UIControlState.Normal)
             btn.addTarget(self, action: #selector(SingleSelectBtnView.selectBtnAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             self.addSubview(btn)
             var leading:NSLayoutConstraint!
             if  let t = tmpBtn {//说明是其他的
+                
                 leading = NSLayoutConstraint(item: btn, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: t, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: self.offsetX)
             }else{//说明是第一个
                 btn.setTitleColor(self.selectColor, forState: UIControlState.Normal)
@@ -72,7 +74,7 @@ class SingleSelectBtnView: UIView {
             let centerY = NSLayoutConstraint(item: btn, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
             
             let width = NSLayoutConstraint(item: btn, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: self.itemSize.width)
-        
+            
             let height = NSLayoutConstraint(item: btn, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: self.itemSize.height)
             
             self.addConstraints([leading,centerY,width,height])
@@ -92,8 +94,8 @@ class SingleSelectBtnView: UIView {
         
         self.addConstraints([selectViewLeading,selectViewBottom,selectViewWidth,selectViewHeight])
         
-    
-    
+        
+        
     }
     func selectBtnAction(selectbtn:SinglSelectBtn){
         let identifierTag = selectbtn.identifierTag
@@ -115,20 +117,20 @@ class SingleSelectBtnView: UIView {
         }
         
         
-    
-    
+        
+        
     }
     
     private func resetBtn(){
         for b in self.singleBtns{
             b.setTitleColor(self.normalColor, forState: UIControlState.Normal)
         }
-    
+        
     }
     
     func setDataArray(datas:[SingleSelectBtnViewDomain]){
-            self.dataArray = datas
-            self.reloadData()
+        self.dataArray = datas
+        self.reloadData()
     }
     
     
@@ -153,5 +155,5 @@ class SinglSelectBtn:UIButton{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }

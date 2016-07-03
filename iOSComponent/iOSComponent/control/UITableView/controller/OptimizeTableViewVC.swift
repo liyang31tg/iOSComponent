@@ -13,6 +13,12 @@ class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
     var dataArray: [[OptimizeTableViewCellDomainDelegate]]    = []//不管是一维、二维统一有二维处理
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let headerView =  UIView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 80))
+        
+        headerView.backgroundColor = UIColor.brownColor()
+        
+        contentTableView.tableHeaderView = headerView
 
         self.contentTableView.refreshType = RefreshType.PullBoth
         
@@ -37,6 +43,9 @@ class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
     
     func loadMoreData() {
         print("loadMoreData")
+        
+        
+        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             sleep(3)
             dispatch_async(dispatch_get_main_queue(), {

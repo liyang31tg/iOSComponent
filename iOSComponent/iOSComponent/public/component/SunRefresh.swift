@@ -70,7 +70,7 @@ extension UIScrollView{
             return RefreshType(rawValue: c)!
         }
         set{
-            objc_setAssociatedObject(self, &AssociateKeys.refreshType, newValue.rawValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &AssociateKeys.refreshType, newValue.rawValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             if newValue != RefreshType.PullNone{
                 //添加监听
@@ -118,7 +118,7 @@ extension UIScrollView{
             return b
         }
         set{
-            objc_setAssociatedObject(self, &AssociateKeys.refreshDelegate, newValue , objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &AssociateKeys.refreshDelegate, newValue , objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
         }
         
@@ -136,7 +136,7 @@ extension UIScrollView{
         
         set{
             if newValue != self.currentRefreshDataState {
-                objc_setAssociatedObject(self, &AssociateKeys.currentRefreshDataState, newValue.rawValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+                objc_setAssociatedObject(self, &AssociateKeys.currentRefreshDataState, newValue.rawValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 //这里来设置状态,根据不同的状态惊醒切换
                 self.changeRefreshDataType(newValue)
             }
@@ -152,7 +152,7 @@ extension UIScrollView{
         }
         
         set{
-            objc_setAssociatedObject(self, &AssociateKeys.isHaveDrag, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &AssociateKeys.isHaveDrag, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             
         }
@@ -166,7 +166,7 @@ extension UIScrollView{
             return b as? CGFloat ?? 0.0
         }
         set{
-            objc_setAssociatedObject(self, &AssociateKeys.headerOverZero, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &AssociateKeys.headerOverZero, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         
     }
@@ -177,7 +177,7 @@ extension UIScrollView{
             return b as? CGFloat ?? 0.0
         }
         set{
-            objc_setAssociatedObject(self, &AssociateKeys.footerOverZero, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &AssociateKeys.footerOverZero, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         
     }

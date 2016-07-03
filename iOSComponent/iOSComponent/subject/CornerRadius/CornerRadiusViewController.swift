@@ -52,9 +52,26 @@ extension CornerRadiusViewController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = isNormal ? "CornerCellNormolIdentifier" : "CornerCellidentifier"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
-//        print("cellForRowAtIndexPath---------cell:\(cell)-------indexpath:\(indexPath)")
-        return cell
+        if isNormal {
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CornerCellNormol
+            cell.N1.text = "A1"
+            cell.N2.text = "A2"
+            cell.N3.text = "A3"
+            cell.N4.text = "A4"
+            cell.N5.text = "A5"
+        
+
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CornerCell
+            cell.C1.text = "A1"
+            cell.C2.text = "A2"
+            cell.C3.text = "A3"
+            cell.C4.text = "A4"
+            cell.C5.text = "A5"
+            return cell
+        }
+        
     }
     
 //    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -81,7 +98,12 @@ class CornerCell: UITableViewCell {
     
     @IBOutlet weak var C5: UILabel!
     
+    @IBOutlet weak var cornerImageView: CornerImageView!
+    
+    @IBOutlet weak var cornerButton: CornerButton!
+    
     @IBOutlet weak var testView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         testView.layer.cornerRadius = 8
@@ -90,6 +112,10 @@ class CornerCell: UITableViewCell {
         let CL3 = (C3.layer as! CornerRadiusLayer)
         let CL4 = (C4.layer as! CornerRadiusLayer)
         let CL5 = (C5.layer as! CornerRadiusLayer)
+        
+        let b6  = (cornerButton.layer as! CornerRadiusLayer)
+        
+        let b7 = (cornerImageView.layer as! CornerRadiusLayer)
         
         for m in [CL1,CL2,CL3,CL4,CL5] {
             m.sborderWidth  = 0.5
@@ -101,6 +127,27 @@ class CornerCell: UITableViewCell {
             
         
         }
+        
+        b6.sborderWidth  = 0.5
+        
+        b6.scornerRadius = 13
+        
+        b6.sborderColor  = UIColor.redColor()
+        
+        b6.setNeedsDisplay()
+        
+        
+        b7.sborderWidth  = 0.5
+        
+        b7.scornerRadius = 8
+        
+//        b7.sborderColor  = UIColor.redColor()
+        
+        b7.setNeedsDisplay()
+        
+        
+        
+       
     }
 }
 
@@ -143,6 +190,25 @@ class CornerCellNormol: UITableViewCell {
     }
     
     
+    
+    
+}
+
+class CornerImageView: UIImageView {
+    
+    override class func layerClass()-> AnyClass{
+        
+        return CornerRadiusLayer.self
+    }
+
+}
+
+class CornerButton: UIButton {
+    override class func layerClass()-> AnyClass{
+        
+        return CornerRadiusLayer.self
+    }
+
 }
 
 

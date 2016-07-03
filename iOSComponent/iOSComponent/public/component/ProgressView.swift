@@ -165,8 +165,17 @@ class ProgressViewLayer: CALayer {
             
             CGPathAddRect(path, nil, titleRect)
             
+            CGContextSaveGState(ctx)
+            
+            CGContextSetFillColorWithColor(ctx, UIColor.whiteColor().CGColor)
+            CGContextAddPath(ctx, path)
+            
+            CGContextFillPath(ctx)
             
             
+            CGContextRestoreGState(ctx)
+            
+           
             
             //创建CTFramesetter
             let ctFrameSetter = CTFramesetterCreateWithAttributedString(ntitle)

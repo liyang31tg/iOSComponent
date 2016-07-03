@@ -29,8 +29,8 @@ class PancakePicVC: BaseViewController {
         singleSelectbtnView.delegate = self
         
         
-        let node1 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "提交订单", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
-        let node2 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "确认订单", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
+        let node1 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "yyyy", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
+        let node2 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "ttttt", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
         let node3 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "上门维修", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
         let node4 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "付款", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
         let node5 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "评价", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())

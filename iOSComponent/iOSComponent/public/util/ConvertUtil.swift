@@ -115,11 +115,12 @@ class ConvertUtil: NSObject {
         
         for (_,line) in lines.enumerate() {
             CTLineGetTypographicBounds(line as! CTLine, &lineAscent, &lineDescent, &lineLeading)
-            let oneLineHeight = lineAscent+lineDescent + lineLeading//这里可以接上细节微调，来返回高度
+            let oneLineHeight = lineAscent+lineDescent + lineLeading + lineLeading//这里可以接上细节微调，来返回高度
             lineTotalHeight += oneLineHeight
         }
         //高度就这么计算好了
-        return CGSizeMake(suggestSize.width, lineTotalHeight + 0.5)
+        print("suggestSize:\(suggestSize),CGSizeMake(suggestSize.width, lineTotalHeight):\(CGSizeMake(suggestSize.width, lineTotalHeight))")
+        return CGSizeMake(suggestSize.width, lineTotalHeight + 3)
         
     }
     
