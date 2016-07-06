@@ -7,7 +7,7 @@
 //  有个bug限制，因为用约束做的事先不知道其frame，所以统一宽度为UIScreenWidth
 
 import Foundation
-protocol SingleSelectBtnDelegate {
+protocol SingleSelectBtnDelegate:NSObjectProtocol {
     func singleSelectBtnView(btnView:SingleSelectBtnView,clickIndex:Int)
 }
 class SingleSelectBtnView: UIView {
@@ -23,7 +23,7 @@ class SingleSelectBtnView: UIView {
     var normalFont                                          = UIFont.systemFontOfSize(12)
     var selectViewHeight:CGFloat                            = 2
     var itemSize                                            = CGSizeMake(70, 21)
-    var delegate:SingleSelectBtnDelegate?                   = nil
+    weak var delegate:SingleSelectBtnDelegate?                   = nil
     
     private var selectViewLeading:NSLayoutConstraint!
     private var offsetX:CGFloat!
