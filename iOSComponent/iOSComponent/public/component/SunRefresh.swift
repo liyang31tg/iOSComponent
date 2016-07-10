@@ -118,7 +118,7 @@ extension UIScrollView{
             return b
         }
         set{
-            objc_setAssociatedObject(self, &AssociateKeys.refreshDelegate, newValue , objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociateKeys.refreshDelegate, newValue , objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
             
         }
         

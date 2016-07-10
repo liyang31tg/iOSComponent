@@ -163,6 +163,18 @@ class CoreTextPicLayer: CALayer {
                     }
                     let imagebouns = CGRect(x: runRect.origin.x, y: runRect.origin.y, width: runRect.size.width, height: runRect.size.height)
                     CGContextDrawImage(ctx, imagebouns, image?.CGImage)
+                    
+                    let p = CGPathCreateMutable()
+                    CGPathAddRect(p, nil, imagebouns)
+                    
+                  let pp =  NSMutableAttributedString(string: "wolail")
+                    
+                   let tp = CTFramesetterCreateWithAttributedString(pp)
+                    
+                   let ctframe =  CTFramesetterCreateFrame(tp, CFRangeMake(0, pp.length), p, nil)
+                    
+                    CTFrameDraw(ctframe, ctx)
+                    
                 }
                 
                 

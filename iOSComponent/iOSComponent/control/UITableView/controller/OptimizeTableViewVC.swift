@@ -114,9 +114,9 @@ class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
     
     
     
-    deinit{
-        print("\(self) is die")
-    }
+//    deinit{
+//        print("\(self) is die")
+//    }
 }
 
 
@@ -164,40 +164,51 @@ class OptimizeTableView: UITableView {
      ＊asynIndexPaths 对哪些indexPath进行异步计算（默认为空，就全部计算(只有没有才计算)）这个参数到底能是否能提高多少性能，暂时不清楚（没有时间测算）
      */
     func reloadData(datas:[[OptimizeTableViewCellDomainDelegate]],foreCaculate:Int = 0,asynIndexPaths:[NSIndexPath]? = nil) {
-        var allCount            = 0 // 总的需要计算cell的height的个数
-        for dataRow in datas{
-            allCount += dataRow.count
-        }
-        var currentCalculate    = 0 //当前发送计算请求到队列里的个数
+      
         caculateQueue.cancelAllOperations()
-        if let aIndexPaths = asynIndexPaths {
-            dispatch_async(dispatch_get_main_queue(), {
-                self.reloadData()
-            })
-            for indexPth in aIndexPaths {
-                let operation =  NSBlockOperation(block: {
-                    datas[indexPth.section][indexPth.row].caculateCellHeight()
+        weak var weakSelf = self
+        
+        let operation =   NSBlockOperation {
+            var allCount            = 0 // 总的需要计算cell的height的个数
+            for dataRow in datas{
+                allCount += dataRow.count
+            }
+            var currentCalculate    = 0 //当前发送计算请求到队列里的个数
+            
+            if let aIndexPaths = asynIndexPaths {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.reloadData()
                 })
-                caculateQueue.addOperation(operation)
-            }
-        
-        }else{
-            for (i,dataRow) in datas.enumerate() {
-                for (j,_) in dataRow.enumerate() {
-                    if currentCalculate == foreCaculate{
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.reloadData()
-                        })
-                    }
+                for indexPth in aIndexPaths {
                     let operation =  NSBlockOperation(block: {
-                        datas[i][j].caculateCellHeight()
+                        datas[indexPth.section][indexPth.row].caculateCellHeight()
                     })
-                    caculateQueue.addOperation(operation)
-                    currentCalculate += 1
+                    weakSelf?.caculateQueue.addOperation(operation)
                 }
+                
+            }else{
+                for (i,dataRow) in datas.enumerate() {
+                    for (j,_) in dataRow.enumerate() {
+                        if currentCalculate == foreCaculate{
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.reloadData()
+                            })
+                        }
+                        let operation =  NSBlockOperation(block: {
+                            datas[i][j].caculateCellHeight()
+                        })
+                        weakSelf?.caculateQueue.addOperation(operation)
+                        currentCalculate += 1
+                    }
+                }
+                
             }
-        
+            
         }
+        
+        self.caculateQueue.addOperation(operation)
+        
+        
     }
     deinit{
         caculateQueue.cancelAllOperations()

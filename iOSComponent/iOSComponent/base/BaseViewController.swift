@@ -47,5 +47,9 @@ class BaseViewController: UIViewController {
         self.navigationController?.pushViewController(pushController, animated: true)
         return pushController
     }
+    
+    deinit{
+        print("\(self) is die")
+    }
 
 }
