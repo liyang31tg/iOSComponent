@@ -70,12 +70,15 @@ extension UIScrollView{
             return RefreshType(rawValue: c)!
         }
         set{
+            let b = self.refreshType == RefreshType.PullNone//因为运行时是在底层切割，所以这个需要放在前面
             objc_setAssociatedObject(self, &AssociateKeys.refreshType, newValue.rawValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
-            if newValue != RefreshType.PullNone{
+            
+            if newValue != RefreshType.PullNone && b{ //防止重复添加监听
                 //添加监听
                 self.addRefreshObserve()
             }
+            self.removeHeaderFooterView()
             self.addRefreshFooterAndHeaderView()
         }
     }
@@ -88,14 +91,18 @@ extension UIScrollView{
     }
     
     
+    
+    
+    
+    
     public override func removeFromSuperview() {
+        super.removeFromSuperview()
         if self.refreshType != RefreshType.PullNone {
             let obserKeys = ["contentOffset","contentSize"]
             for key in obserKeys {
                 self.removeObserver(RefreshStaticParametter.publicObserve, forKeyPath: key)
             }
         }
-        super.removeFromSuperview()
     }
     /*
      *作用于,Scrollview的ContentSize小于Frame的话就不启动上拉刷新
@@ -129,7 +136,7 @@ extension UIScrollView{
     
     var currentRefreshDataState:RefreshDataType{
         get{
-             let b = objc_getAssociatedObject(self, &AssociateKeys.currentRefreshDataState) as? Int ?? 0
+            let b = objc_getAssociatedObject(self, &AssociateKeys.currentRefreshDataState) as? Int ?? 0
             
             return RefreshDataType(rawValue: b)!
         }
@@ -144,7 +151,7 @@ extension UIScrollView{
         
     }
     
-    ////所有状态监听，都是在已经有拖动效果的情况下，这个状态维护，只要是是用于适配ControllerVC,自动为ScrollView添加上contentInset（就是那个controllerVC自动适配改变contentInset）而维护的
+    ////所有状态监听，都是在已经有拖动效果的情况下，这个状态维护，只要是是用于适配ControllerVC,自动为ScrollView添加上contentInset（）而维护的
     //是否渲染后是否被拖动过，是1，否 0
     var isHaveDrag:Int{
         get{
@@ -163,6 +170,7 @@ extension UIScrollView{
     private var headerViewOverHeightZero:CGFloat{
         get{
             let b = objc_getAssociatedObject(self, &AssociateKeys.headerOverZero)
+            
             return b as? CGFloat ?? 0.0
         }
         set{
@@ -223,12 +231,12 @@ extension UIScrollView{
     
     private var defaultHeaderRefreshView:UIView{
         let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
-        headerView.backgroundColor = UIColor.redColor()
+        //        headerView.backgroundColor = UIColor.redColor()
         return headerView
     }
     private var defaultFooterRefreshView:UIView{
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 40))
-        footerView.backgroundColor = UIColor.brownColor()
+        let footerView = HeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        //        footerView.backgroundColor = UIColor.brownColor()
         return footerView
     }
     
@@ -272,6 +280,9 @@ extension UIScrollView{
             print("上拉临界点")
         case RefreshDataType.PullUpRefreshing:
             print("上拉松开手势，刷新中")
+            guard self.refreshType == .PullBoth || self.refreshType == .PullUp else{
+                return
+            }
             
             if self.frame.size.height <= self.contentSize.height{
                 var tmpContentInset = self.contentInset
@@ -373,7 +384,7 @@ extension UIScrollView{
 /*
  *完全是出于moudle的保护
  */
-private struct RefreshStaticParametter {
+struct RefreshStaticParametter {
     static var  publicObserve       = ObserObject()
 }
 
@@ -386,10 +397,12 @@ class ObserObject: NSObject {
             
             
             if let table = object as? UIScrollView{
-                if table.dragging {
-                    table.isHaveDrag = 1
-                }
-                guard table.isHaveDrag == 1 else{return}
+                /*这里为什么要屏蔽掉，暂时不知道2016年8月10日
+                 if table.dragging {
+                 table.isHaveDrag = 1
+                 }
+                 guard table.isHaveDrag == 1 else{return}
+                 */
                 if table.refreshType == RefreshType.PullNone {
                     return
                 }
@@ -494,14 +507,13 @@ class ObserObject: NSObject {
 //不包含其中
 class HeaderView:UIView,RefreshViewProtocol{
     
-    var stateLabel          = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-    var pullDownOffsetLabel = UILabel(frame: CGRect(x: 0, y: 20, width: 100, height: 20))
-    var pullUpOffsetLabel   = UILabel(frame: CGRect(x: 100, y: 20, width: 100, height: 20))
+    var stateLabel          = UILabel(frame: CGRect(x: 0, y: 0, width:ScreenWidth, height: 50))
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(stateLabel)
-        self.addSubview(pullUpOffsetLabel)
-        self.addSubview(pullDownOffsetLabel)
+        self.backgroundColor = UIColor.colorWithHexColorString("f0f0f0")
+        
+        stateLabel.textAlignment = NSTextAlignment.Center
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -510,11 +522,35 @@ class HeaderView:UIView,RefreshViewProtocol{
     
     
     func refreshViewWithState(refreshDataType: RefreshDataType, pullDownOffset: CGFloat, pullUpOffset: CGFloat) {
-        stateLabel.text = "\(refreshDataType)"
-        pullDownOffsetLabel.text = "\(pullDownOffset)"
-        pullUpOffsetLabel.text = "\(pullUpOffset)"
         
+        var notice = "刷新中"
+        switch refreshDataType.rawValue {
+        case 0:
+            notice = "默认状态";
+        case 1:
+            notice = "下拉中";
+        case 2:
+            notice = "松开刷新";
+        case 3:
+            notice = "刷新中";
+        case 4:
+            notice = "刷新结束";
+        case 5:
+            notice = "上拉中";
+        case 6:
+            notice = "松开刷新";
+        case 7:
+            notice = "刷新中";
+        case 8:
+            notice = "刷新结束";
+        default:
+            break;
+        }
+        
+        stateLabel.text = notice
     }
     
 }
+
+class SunTableView:UITableView{}
 

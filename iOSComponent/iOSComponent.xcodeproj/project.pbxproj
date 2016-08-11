@@ -26,6 +26,7 @@
 		B641A1681D03DB810097B649 /* NSData+GZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641A1671D03DB810097B649 /* NSData+GZIP.swift */; };
 		B641A16A1D03DB9F0097B649 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B641A1691D03DB9F0097B649 /* libz.tbd */; };
 		B641A1771D04678D0097B649 /* TextCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641A1761D04678D0097B649 /* TextCompress.swift */; };
+		B6455D5E1D53087200931D2E /* SunActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6455D5D1D53087200931D2E /* SunActivityVC.swift */; };
 		B64BEE241CF92ED300482407 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE231CF92ED300482407 /* Transaction.swift */; };
 		B64BEE271CF93A9E00482407 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE261CF93A9E00482407 /* ChatVC.swift */; };
 		B64BEE291CF9431B00482407 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64BEE281CF9431B00482407 /* ColorExtension.swift */; };
@@ -166,6 +167,7 @@
 		B641A1671D03DB810097B649 /* NSData+GZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+GZIP.swift"; sourceTree = "<group>"; };
 		B641A1691D03DB9F0097B649 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B641A1761D04678D0097B649 /* TextCompress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCompress.swift; sourceTree = "<group>"; };
+		B6455D5D1D53087200931D2E /* SunActivityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunActivityVC.swift; sourceTree = "<group>"; };
 		B64BEE231CF92ED300482407 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		B64BEE261CF93A9E00482407 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		B64BEE281CF9431B00482407 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 		B618728D1CC1308D00878EDE /* control */ = {
 			isa = PBXGroup;
 			children = (
+				B6455D5C1D53082E00931D2E /* UIActivityViewController */,
 				B6B2C09C1D097C230012E7B6 /* UISearchController */,
 				B6F670FC1CF3F5D50023C78B /* UITableView */,
 				B664FD201CEF457900E88088 /* UIScrollView */,
@@ -418,6 +421,14 @@
 				B641A1671D03DB810097B649 /* NSData+GZIP.swift */,
 			);
 			path = "NSData+GZip";
+			sourceTree = "<group>";
+		};
+		B6455D5C1D53082E00931D2E /* UIActivityViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B6455D5D1D53087200931D2E /* SunActivityVC.swift */,
+			);
+			path = UIActivityViewController;
 			sourceTree = "<group>";
 		};
 		B64BEE251CF93A8D00482407 /* chat */ = {
@@ -994,6 +1005,7 @@
 				B65B7DC11CEC0D3100F1E072 /* PoiSearchDemoVC.swift in Sources */,
 				B641A1681D03DB810097B649 /* NSData+GZIP.swift in Sources */,
 				B6750F991CFBECE300BA28F9 /* PopView.swift in Sources */,
+				B6455D5E1D53087200931D2E /* SunActivityVC.swift in Sources */,
 				B6CFA6421CF5DFD50074412B /* AutoBoxingAndUnboxingUtil.swift in Sources */,
 				B6F671011CF3F7C20023C78B /* OptimizeTableViewVC.swift in Sources */,
 				B634BE141CCE5159008C26CB /* CoreTextViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -79,6 +79,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sjf-ra-9iz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="470" y="74"/>
+        </scene>
+        <!--Sun ActivityVC-->
+        <scene sceneID="8I7-HJ-aNf">
+            <objects>
+                <viewController storyboardIdentifier="SunActivityVCStoryboardId" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="XS6-b5-650" customClass="SunActivityVC" customModule="iOSComponent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vCV-vc-3kM"/>
+                        <viewControllerLayoutGuide type="bottom" id="2XX-gq-vmc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mwY-Pb-p3D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nE-Al-lf8">
+                                <rect key="frame" x="137" y="86" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="X0e-MG-0VN"/>
+                                    <constraint firstAttribute="width" constant="46" id="yT2-In-AXX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="share"/>
+                                <connections>
+                                    <action selector="shareAction:" destination="XS6-b5-650" eventType="touchUpInside" id="1bN-hL-zyR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8nE-Al-lf8" firstAttribute="top" secondItem="vCV-vc-3kM" secondAttribute="bottom" constant="66" id="ANi-l1-j38"/>
+                            <constraint firstItem="8nE-Al-lf8" firstAttribute="centerX" secondItem="mwY-Pb-p3D" secondAttribute="centerX" id="SF9-ZD-LMt"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4xk-L3-Oad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="476" y="606"/>
         </scene>
         <!--Title-->
         <scene sceneID="3q0-GK-BQN">

@@ -23,10 +23,12 @@ class ControlViewController: BaseGroupTableViewController {
                      [  CTDomain(sectionTitle: "UITableView"),
                         CTDomain(title: "优化－ UITableView", storyBoard: "control", storyBoardId: "optimizeTableViewVCStoryBoardId")],
                      [  CTDomain(sectionTitle: "UISearchController"),
-                        CTDomain(title: "iOS8以后－ UISearchController", storyBoard: "control", storyBoardId: "UseUISearchControllerStoryboardId")]]
+                        CTDomain(title: "iOS8以后－ UISearchController", storyBoard: "control", storyBoardId: "UseUISearchControllerStoryboardId")],
+                     [  CTDomain(sectionTitle: "UIActivityViewController"),
+                        CTDomain(title: "iOS8以后－ UIActivityViewController", storyBoard: "control", storyBoardId: "SunActivityVCStoryboardId")]]
         
 
-        //UseUISearchControllerStoryboardId
+        
         
     }
     
