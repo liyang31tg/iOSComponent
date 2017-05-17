@@ -40,12 +40,12 @@ class PopView: UIView {
         var view2ViewOffset:CGFloat   =  10 //子视图和弹出视图之前的距离
     }
     
-    private static var popViewWindow:BaseWindow?
-    private static var popViewProperty = PopViewProperty()
+    fileprivate static var popViewWindow:BaseWindow?
+    fileprivate static var popViewProperty = PopViewProperty()
     
     
-    private var contentImageView = UIImageView()
-    private var popViewFrame     = CGRectZero
+    fileprivate var contentImageView = UIImageView()
+    fileprivate var popViewFrame     = CGRect.zero
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,11 +54,11 @@ class PopView: UIView {
         self.addSubview(contentImageView)
         
         //addConstrant
-        let left = NSLayoutConstraint(item: contentImageView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0)
-        let right = NSLayoutConstraint(item: contentImageView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
+        let left = NSLayoutConstraint(item: contentImageView, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+        let right = NSLayoutConstraint(item: contentImageView, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.right, multiplier: 1, constant: 0)
         
-        let top = NSLayoutConstraint(item: contentImageView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0)
-        let bottom = NSLayoutConstraint(item: contentImageView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+        let top = NSLayoutConstraint(item: contentImageView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
+        let bottom = NSLayoutConstraint(item: contentImageView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
         
         self.addConstraints([left,right,top,bottom])
     }
@@ -78,7 +78,7 @@ class PopView: UIView {
      *
      *autoPosition 待扩展
      */
-    class func showInWindowWithSubFrame(subframe:CGRect,subBoundsDelegate:PopViewDelegate,contentView:UIView,autoPosition:PopViewPosition? = nil,popProperty:PopViewProperty = PopViewProperty()){
+    class func showInWindowWithSubFrame(_ subframe:CGRect,subBoundsDelegate:PopViewDelegate,contentView:UIView,autoPosition:PopViewPosition? = nil,popProperty:PopViewProperty = PopViewProperty()){
         
         self.popViewProperty    = popProperty//私有定制，覆盖通用设置
         
@@ -86,7 +86,7 @@ class PopView: UIView {
         let originalImage       = UIImage(named: popProperty.imageName)!
         //估算视图是该放在左上还是左下，除非固定死
         let result                      = getFrameByPosition(subframe, popViewWH: popViewWH, originalImage: originalImage, autoPosition: PopViewPosition.BottomLeft)
-        let popView                     = PopView(frame: CGRectZero)
+        let popView                     = PopView(frame: CGRect.zero)
         popView.popViewFrame            = result.0
         popView.contentImageView.image  = result.1
         
@@ -98,16 +98,16 @@ class PopView: UIView {
         self.popViewWindow?.rootViewController?.view.addGestureRecognizer(tap)
         self.popViewWindow!.rootViewController?.view.addSubview(popView)
         self.popViewWindow!.windowLevel           = UIWindowLevelAlert
-        self.popViewWindow!.backgroundColor       = UIColor.blackColor().colorWithAlphaComponent(0.1)
+        self.popViewWindow!.backgroundColor       = UIColor.black.withAlphaComponent(0.1)
         self.popViewWindow!.makeKeyAndVisible()
     
     }
     
     class func HiddlenPopView(){
         self.popViewWindow?.resignFirstResponder()
-        self.popViewWindow?.resignKeyWindow()
+        self.popViewWindow?.resignKey()
         self.popViewWindow?.windowLevel = UIWindowLevelNormal
-        ((UIApplication.sharedApplication().delegate) as! AppDelegate).window?.makeKeyAndVisible()
+        ((UIApplication.shared.delegate) as! AppDelegate).window?.makeKeyAndVisible()
         self.popViewWindow  = nil
     
     
@@ -118,7 +118,7 @@ class PopView: UIView {
      *
      */
     
-    class private func calulateFrame(){
+    class fileprivate func calulateFrame(){
     
     
     }
@@ -131,7 +131,7 @@ class PopView: UIView {
      ＊autoPosition 这个就不说了，枚举值很好的说明
      */
     
-    class private func getFrameByPosition(subFrame:CGRect,popViewWH:(width:CGFloat,height:CGFloat),originalImage:UIImage,autoPosition:PopViewPosition) -> (CGRect,UIImage) {
+    class fileprivate func getFrameByPosition(_ subFrame:CGRect,popViewWH:(width:CGFloat,height:CGFloat),originalImage:UIImage,autoPosition:PopViewPosition) -> (CGRect,UIImage) {
         let subFrameW_2         = subFrame.size.width / 2.0
 
         let imageOriginSize     = originalImage.size
@@ -155,7 +155,7 @@ class PopView: UIView {
                 break
             case .BottomLeft:
                 let originX = (subFrame.origin.x + subFrameW_2) - (popViewWH.width - imageOriginSizeW_2)
-                let newImage = originalImage.resizableImageWithCapInsets(UIEdgeInsetsMake(imageOriginSize.height - 2, 1, 1, imageOriginSize.width - 2), resizingMode: UIImageResizingMode.Stretch)
+                let newImage = originalImage.resizableImage(withCapInsets: UIEdgeInsetsMake(imageOriginSize.height - 2, 1, 1, imageOriginSize.width - 2), resizingMode: UIImageResizingMode.stretch)
                 return (CGRect(x: originX, y: subFrame.origin.y + subFrame.size.height + self.popViewProperty.view2ViewOffset, width: popViewWH.width, height: popViewWH.height) ,newImage)
             case .BottomRight:
                 break
@@ -164,17 +164,17 @@ class PopView: UIView {
             case .RightBottom:
                 break
         }
-        return (CGRectZero,UIImage())
+        return (CGRect.zero,UIImage())
     }
     
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         if let superView = self.superview {
-            let left    =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: superView, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: self.popViewFrame.origin.x)
-            let top     =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: superView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: self.popViewFrame.origin.y)
-            let width   =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant:  self.popViewFrame.size.width)
-            let height =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant:  self.popViewFrame.size.height)
+            let left    =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: superView, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: self.popViewFrame.origin.x)
+            let top     =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: superView, attribute: NSLayoutAttribute.top, multiplier: 1, constant: self.popViewFrame.origin.y)
+            let width   =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant:  self.popViewFrame.size.width)
+            let height =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant:  self.popViewFrame.size.height)
             superview?.addConstraints([top,left,width,height])
         }
     }
@@ -206,10 +206,10 @@ class PopContentView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         if let superView = self.superview {
-            let left    =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: superView, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0)
-            let right     =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: superView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
-            let bottom   =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: superView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant:  0)
-            let top =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: superView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant:7)
+            let left    =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: superView, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+            let right     =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: superView, attribute: NSLayoutAttribute.right, multiplier: 1, constant: 0)
+            let bottom   =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: superView, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant:  0)
+            let top =   NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: superView, attribute: NSLayoutAttribute.top, multiplier: 1, constant:7)
             superview?.addConstraints([left,right,bottom,top])
         }
     }

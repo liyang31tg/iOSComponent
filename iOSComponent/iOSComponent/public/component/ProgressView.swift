@@ -62,9 +62,9 @@ class ProgressView: UIView {
     
     
     
-    private var selectIndex:Int8                            = 0
+    fileprivate var selectIndex:Int8                            = 0
     //设置选中
-    func setSelectIndex1(selectIndex:Int8){
+    func setSelectIndex1(_ selectIndex:Int8){
         guard self.selectIndex != selectIndex else {return}
         self.selectIndex                                = selectIndex
         (self.layer as! ProgressViewLayer).selectIndex  = self.selectIndex
@@ -72,7 +72,7 @@ class ProgressView: UIView {
     }
     
     
-    override class func layerClass() -> AnyClass{
+    override class var layerClass : AnyClass{
         return ProgressViewLayer.self
     }
     
@@ -82,55 +82,55 @@ class ProgressView: UIView {
 
 class ProgressViewLayer: CALayer {
     var offsetX: CGFloat                            = 30            //距离2边的距离（默认两边相等）
-    var imageSize                                   = CGSizeZero    //显示图片的size
+    var imageSize                                   = CGSize.zero    //显示图片的size
     var top2image: CGFloat                          = 5             //头部距离图片顶部的距离
     var image2title: CGFloat                        = 2             //图片距离文本的距离
     var nodes:[ProgressNode]                        = []
     var selectIndex:Int8                            = 0
     
     override func display() {
-        self.contentsScale = UIScreen.mainScreen().scale
+        self.contentsScale = UIScreen.main.scale
         super.display()
     }
     
-    override func drawInContext(ctx: CGContext) {
-        super.drawInContext(ctx)
+    override func draw(in ctx: CGContext) {
+        super.draw(in: ctx)
         //坐标系转换
-        CGContextSetTextMatrix(ctx, CGAffineTransformIdentity)
-        CGContextTranslateCTM(ctx, 0, self.bounds.size.height)
-        CGContextScaleCTM(ctx, 1.0, -1.0)
+        ctx.textMatrix = CGAffineTransform.identity
+        ctx.translateBy(x: 0, y: self.bounds.size.height)
+        ctx.scaleBy(x: 1.0, y: -1.0)
         
         let nodeCount = CGFloat(self.nodes.count)
         
         let item2item = (ScreenWidth - 2*offsetX - nodeCount*imageSize.width) / (nodeCount - 1)
         
-        var prePoint  = CGPointZero //记录上一个终点
+        var prePoint  = CGPoint.zero //记录上一个终点
         
-        for (index,n) in nodes.enumerate(){
+        for (index,n) in nodes.enumerated(){
             let isSelect = self.selectIndex > Int8(index)
             
             let imageRect = CGRect(x: offsetX + (imageSize.width + item2item)*CGFloat(index), y: self.bounds.size.height - top2image - imageSize.height, width: imageSize.width, height: imageSize.width)
             
-            let currentPoint = CGPointMake(CGRectGetMidX(imageRect), CGRectGetMidY(imageRect))
+            let currentPoint = CGPoint(x: imageRect.midX, y: imageRect.midY)
         
             if index > 0 {//这个时候可以画线了
-                CGContextSaveGState(ctx)
+                ctx.saveGState()
                 
-                let strokePath = CGPathCreateMutable()
+                let strokePath = CGMutablePath()
                 
                 CGPathMoveToPoint(strokePath, nil, prePoint.x, prePoint.y)
                 
                 CGPathAddLineToPoint(strokePath, nil, currentPoint.x, currentPoint.y)
                 
-                CGContextSetStrokeColorWithColor(ctx, (isSelect ? n.titleSelectColor : n.titleNormalColor).CGColor)
+                ctx.setStrokeColor((isSelect ? n.titleSelectColor : n.titleNormalColor).cgColor)
                 
-                CGContextAddPath(ctx, strokePath)
+                ctx.addPath(strokePath)
                 
-                CGContextSetLineWidth(ctx, 2)
+                ctx.setLineWidth(2)
                 
-                CGContextStrokePath(ctx)
+                ctx.strokePath()
                 
-                CGContextRestoreGState(ctx)
+                ctx.restoreGState()
             }
             prePoint = currentPoint
         }
@@ -138,14 +138,14 @@ class ProgressViewLayer: CALayer {
         
         
         
-        for (index,n) in nodes.enumerate() {
+        for (index,n) in nodes.enumerated() {
             
             let isSelect = self.selectIndex > Int8(index)
             
             let imageRect = CGRect(x: offsetX + (imageSize.width + item2item)*CGFloat(index), y: self.bounds.size.height - top2image - imageSize.height, width: imageSize.width, height: imageSize.width)
             
             
-            CGContextDrawImage(ctx, imageRect, UIImage(named: isSelect ? n.selectImageName : n.normalImageName)?.CGImage)
+            ctx.draw(UIImage(named: isSelect ? n.selectImageName : n.normalImageName)?.cgImage, in: imageRect)
             
             
             let ntitle =  NSMutableAttributedString(string: n.title)
@@ -156,24 +156,24 @@ class ProgressViewLayer: CALayer {
             
             let titleSize       = ConvertUtil.getDisplayHeight(ntitle, width: ScreenWidth)
             
-            let titleTopCenter  = CGPointMake(CGRectGetMidX(imageRect), CGRectGetMinY(imageRect) - image2title - titleSize.height)
+            let titleTopCenter  = CGPoint(x: imageRect.midX, y: imageRect.minY - image2title - titleSize.height)
             
             let titleRect       = CGRect(x: titleTopCenter.x - (titleSize.width / 2), y: titleTopCenter.y, width: titleSize.width, height: titleSize.height)
            
             //创建绘制的区域
-            let path = CGPathCreateMutable()
+            let path = CGMutablePath()
             
             CGPathAddRect(path, nil, titleRect)
             
-            CGContextSaveGState(ctx)
+            ctx.saveGState()
             
-            CGContextSetFillColorWithColor(ctx, UIColor.whiteColor().CGColor)
-            CGContextAddPath(ctx, path)
+            ctx.setFillColor(UIColor.white.cgColor)
+            ctx.addPath(path)
             
-            CGContextFillPath(ctx)
+            ctx.fillPath()
             
             
-            CGContextRestoreGState(ctx)
+            ctx.restoreGState()
             
            
             
@@ -195,6 +195,6 @@ struct ProgressNode{
     var selectImageName     = ""
     var normalImageName     = ""
     var title               = ""
-    var titleSelectColor    = UIColor.clearColor()
-    var titleNormalColor    = UIColor.clearColor()
+    var titleSelectColor    = UIColor.clear
+    var titleNormalColor    = UIColor.clear
 }

@@ -9,10 +9,10 @@
 import Foundation
 class ConvertUtil: NSObject {
     
-   class func toString(s:Any?) -> String {
+   class func toString(_ s:Any?) -> String {
         if let str = s {
             if str is NSNumber {
-                return String(str)
+                return String(describing: str)
             }
             if str is String {
                 return str as! String
@@ -21,7 +21,7 @@ class ConvertUtil: NSObject {
         return ""
     }
     
-    class func toFloat(s:Any?) -> Float{
+    class func toFloat(_ s:Any?) -> Float{
         let tmp:Float = 0.0
         if let str = s {
             if str is NSNumber {
@@ -35,7 +35,7 @@ class ConvertUtil: NSObject {
     
     }
     
-    class func toInt(s:Any?) -> Int{
+    class func toInt(_ s:Any?) -> Int{
         
         if let str = s {
             if str is NSNumber {
@@ -52,13 +52,13 @@ class ConvertUtil: NSObject {
         return 0
     }
     
-    class func toJSONString(dic: NSDictionary) -> NSString{
-        guard NSJSONSerialization.isValidJSONObject(dic) else {
+    class func toJSONString(_ dic: NSDictionary) -> NSString{
+        guard JSONSerialization.isValidJSONObject(dic) else {
             return ""
         }
-        let data = try! NSJSONSerialization.dataWithJSONObject(dic, options: NSJSONWritingOptions.PrettyPrinted)
+        let data = try! JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.prettyPrinted)
         
-        let commitStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+        let commitStr = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
         var responseString:NSString = ""
         if let completeStr = commitStr{
             responseString = completeStr
@@ -67,17 +67,17 @@ class ConvertUtil: NSObject {
         return responseString
     }
     
-    class func toDicObject(data:NSData?) -> NSDictionary? {
+    class func toDicObject(_ data:Data?) -> NSDictionary? {
     
         if let d = data {
-            let commitStr =  NSString(data: d, encoding: NSUTF8StringEncoding)
+            let commitStr =  NSString(data: d, encoding: String.Encoding.utf8.rawValue)
             var responseString:NSString = ""
             if let completeStr = commitStr{
                 responseString = completeStr
                 responseString = CommonUtil.handdleJsonStr(responseString)
             }
-            let handleData:NSData = responseString.dataUsingEncoding(NSUTF8StringEncoding) ?? NSData()
-            let jj = try! NSJSONSerialization.JSONObjectWithData(handleData, options: NSJSONReadingOptions.MutableLeaves)
+            let handleData:Data = responseString.data(using: String.Encoding.utf8.rawValue) ?? Data()
+            let jj = try! JSONSerialization.jsonObject(with: handleData, options: JSONSerialization.ReadingOptions.mutableLeaves)
             return jj as? NSDictionary
         }
         return nil
@@ -88,14 +88,14 @@ class ConvertUtil: NSObject {
      根据属性字符串计算绘制所需要的高度
      思路就是 lineAscent＋lineDescent ＋lineLeading代表一行的高度，分别对每一行进行高度累加
      */
-   class func getDisplayHeight(attributeStr: NSAttributedString,width:CGFloat) -> CGSize{
+   class func getDisplayHeight(_ attributeStr: NSAttributedString,width:CGFloat) -> CGSize{
         
         let ctFrameSetter = CTFramesetterCreateWithAttributedString(attributeStr)
         
         //建议的宽高
-        let suggestSize   =  CTFramesetterSuggestFrameSizeWithConstraints(ctFrameSetter, CFRangeMake(0, attributeStr.length), nil, CGSize(width: width, height: CGFloat.max), nil)
+        let suggestSize   =  CTFramesetterSuggestFrameSizeWithConstraints(ctFrameSetter, CFRangeMake(0, attributeStr.length), nil, CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
         
-        let path =  CGPathCreateMutable()
+        let path =  CGMutablePath()
         
         CGPathAddRect(path, nil, CGRect(x: 0, y: 0, width: width, height: suggestSize.height*2))//2是假的，只是防止画布不够大，计算有误，下面才开始精确计算高度
         
@@ -105,7 +105,7 @@ class ConvertUtil: NSObject {
         
         let lines =  CTFrameGetLines(ctFrame) as Array
         
-        var lineOrigins = Array<CGPoint>(count: lines.count, repeatedValue: CGPointZero)//获取每一个行的坐标
+        var lineOrigins = Array<CGPoint>(repeating: CGPoint.zero, count: lines.count)//获取每一个行的坐标
         
         CTFrameGetLineOrigins(ctFrame, CFRangeMake(0, 0), &lineOrigins)
         var lineAscent:CGFloat      = 0
@@ -113,14 +113,14 @@ class ConvertUtil: NSObject {
         var lineLeading:CGFloat     = 0
         var lineTotalHeight:CGFloat = 0
         
-        for (_,line) in lines.enumerate() {
+        for (_,line) in lines.enumerated() {
             CTLineGetTypographicBounds(line as! CTLine, &lineAscent, &lineDescent, &lineLeading)
             let oneLineHeight = lineAscent+lineDescent + lineLeading + lineLeading//这里可以接上细节微调，来返回高度
             lineTotalHeight += oneLineHeight
         }
         //高度就这么计算好了
-        print("suggestSize:\(suggestSize),CGSizeMake(suggestSize.width, lineTotalHeight):\(CGSizeMake(suggestSize.width, lineTotalHeight))")
-        return CGSizeMake(suggestSize.width, lineTotalHeight + 3)
+        print("suggestSize:\(suggestSize),CGSizeMake(suggestSize.width, lineTotalHeight):\(CGSize(width: suggestSize.width, height: lineTotalHeight))")
+        return CGSize(width: suggestSize.width, height: lineTotalHeight + 3)
         
     }
     

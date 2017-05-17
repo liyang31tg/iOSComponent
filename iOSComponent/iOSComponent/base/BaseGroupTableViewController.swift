@@ -14,44 +14,44 @@ class BaseGroupTableViewController: BaseViewController {
 
 extension BaseGroupTableViewController :UITableViewDataSource,UITableViewDelegate {
     //MARK:TableViewDelegate
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray[section].count - 1//
     }
         
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("cttableviewCellidentifier")!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cttableviewCellidentifier")!
         cell.ctDomain = dataArray[indexPath.section][indexPath.row + 1]
         return cell
             
     }
         
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return dataArray[section][0].sectionTitle
     }
         
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
         
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.0000001
     }
         
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int{
+    func numberOfSections(in tableView: UITableView) -> Int{
         return dataArray.count
     }
         
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let ctDomain = dataArray[indexPath.section][indexPath.row + 1]
         if ctDomain.performIdentifier.isEmpty {
-            let st = UIStoryboard(name: ctDomain.storyBoard, bundle: NSBundle.mainBundle())
-            let vc = st.instantiateViewControllerWithIdentifier(ctDomain.storyBoardId)
+            let st = UIStoryboard(name: ctDomain.storyBoard, bundle: Bundle.main)
+            let vc = st.instantiateViewController(withIdentifier: ctDomain.storyBoardId)
             vc.title = ctDomain.title
             self.navigationController?.pushViewController(vc, animated: true)
 
         } else {
-            self.performSegueWithIdentifier(ctDomain.performIdentifier, sender: self)
+            self.performSegue(withIdentifier: ctDomain.performIdentifier, sender: self)
         }
     }
 }
@@ -64,7 +64,7 @@ extension UITableViewCell{
         }
         set{
             self.textLabel?.text = newValue.title
-            self.accessoryType   = UITableViewCellAccessoryType.DisclosureIndicator
+            self.accessoryType   = UITableViewCellAccessoryType.disclosureIndicator
         }
     
     }
@@ -73,9 +73,9 @@ extension UITableViewCell{
 struct CTDomain {
     
     enum DomainType {
-        case UsePerformIdentifier //线跳转
-        case UseStoryBoardId      //通过storyboard
-        case UseViewClass          //通过class
+        case usePerformIdentifier //线跳转
+        case useStoryBoardId      //通过storyboard
+        case useViewClass          //通过class
     }
     var sectionTitle        = ""
     var title               = ""
@@ -83,7 +83,7 @@ struct CTDomain {
     var storyBoard          = ""
     var storyBoardId        = ""
     var viewClass           = ""
-    var domainType          = DomainType.UsePerformIdentifier
+    var domainType          = DomainType.usePerformIdentifier
     init(){}
     init(sectionTitle: String){
         self.sectionTitle       = sectionTitle
@@ -91,20 +91,20 @@ struct CTDomain {
     init(title: String,performIdentifier: String){
         self.title              = title
         self.performIdentifier  = performIdentifier
-        self.domainType         = DomainType.UsePerformIdentifier
+        self.domainType         = DomainType.usePerformIdentifier
     }
     
     init(title: String,storyBoard: String,storyBoardId: String){
         self.title              = title
         self.storyBoard         = storyBoard
         self.storyBoardId       = storyBoardId
-        self.domainType         = DomainType.UseStoryBoardId
+        self.domainType         = DomainType.useStoryBoardId
     }
     
     init(title: String,viewClass:String){
         self.title      = title
         self.viewClass  = viewClass
-        self.domainType  = DomainType.UseViewClass
+        self.domainType  = DomainType.useViewClass
     }
     
 }

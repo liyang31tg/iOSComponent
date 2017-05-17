@@ -12,10 +12,10 @@ class CommonUtil: NSObject {
      *处理掉json字符串中不必要的字符
      *
      */
-    class func handdleJsonStr(handleStr:NSString,deleteStrs:[String] = ["\r\n","\n","\r","\\"," "]) -> NSString{
+    class func handdleJsonStr(_ handleStr:NSString,deleteStrs:[String] = ["\r\n","\n","\r","\\"," "]) -> NSString{
         var  responseString = handleStr
         for dStr in deleteStrs {
-            responseString = responseString.stringByReplacingOccurrencesOfString(dStr, withString: "")
+            responseString = responseString.replacingOccurrences(of: dStr, with: "") as NSString
         }
         return responseString
     }
@@ -24,14 +24,14 @@ class CommonUtil: NSObject {
      根据属性字符串计算绘制所需要的高度
      思路就是 lineAscent＋lineDescent ＋lineLeading代表一行的高度，分别对每一行进行高度累加
      */
-   class func caculateDisplayHeight(attributeStr: NSAttributedString,width:CGFloat) -> CGFloat{
+   class func caculateDisplayHeight(_ attributeStr: NSAttributedString,width:CGFloat) -> CGFloat{
         
         let ctFrameSetter = CTFramesetterCreateWithAttributedString(attributeStr)
         
         //建议的宽高
-        let suggestSize   =  CTFramesetterSuggestFrameSizeWithConstraints(ctFrameSetter, CFRangeMake(0, attributeStr.length), nil, CGSize(width: width, height: CGFloat.max), nil)
+        let suggestSize   =  CTFramesetterSuggestFrameSizeWithConstraints(ctFrameSetter, CFRangeMake(0, attributeStr.length), nil, CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
         
-        let path =  CGPathCreateMutable()
+        let path =  CGMutablePath()
         
         CGPathAddRect(path, nil, CGRect(x: 0, y: 0, width: width, height: suggestSize.height*2))//2是假的，只是防止画布不够大，计算有误，下面才开始精确计算高度
         
@@ -41,7 +41,7 @@ class CommonUtil: NSObject {
         
         let lines =  CTFrameGetLines(ctFrame) as Array
         
-        var lineOrigins = Array<CGPoint>(count: lines.count, repeatedValue: CGPointZero)//获取每一个行的坐标
+        var lineOrigins = Array<CGPoint>(repeating: CGPoint.zero, count: lines.count)//获取每一个行的坐标
         
         CTFrameGetLineOrigins(ctFrame, CFRangeMake(0, 0), &lineOrigins)
         var lineAscent:CGFloat      = 0
@@ -49,7 +49,7 @@ class CommonUtil: NSObject {
         var lineLeading:CGFloat     = 0
         var lineTotalHeight:CGFloat = 0
         
-        for (_,line) in lines.enumerate() {
+        for (_,line) in lines.enumerated() {
             CTLineGetTypographicBounds(line as! CTLine, &lineAscent, &lineDescent, &lineLeading)
             let oneLineHeight = lineAscent + lineDescent + lineLeading//这里可以接上细节微调，来返回高度
             lineTotalHeight += oneLineHeight
@@ -61,7 +61,7 @@ class CommonUtil: NSObject {
     /*
      *交换方法实现
      */
-    class func exchangeSelectorImplement(obser:AnyClass,originalSelector:Selector, swizzledSelector:Selector){
+    class func exchangeSelectorImplement(_ obser:AnyClass,originalSelector:Selector, swizzledSelector:Selector){
         let originalMethod = class_getInstanceMethod(obser, originalSelector)
         let swizzledMethod = class_getInstanceMethod(obser, swizzledSelector)
         

@@ -8,7 +8,7 @@
 
 import Foundation
 class Config: NSObject {
-    private  var xml:XMLIndexer!
+    fileprivate  var xml:XMLIndexer!
     var serverURL           = ""
     var imageURL            = ""
     var latitude:Double     = 0
@@ -21,8 +21,8 @@ class Config: NSObject {
     }
     
     func readXML(){
-        if let configPath = NSBundle.mainBundle().pathForResource("config", ofType: "xml"){
-            let configs = try! NSString(contentsOfFile: configPath, encoding: NSUTF8StringEncoding)
+        if let configPath = Bundle.main.path(forResource: "config", ofType: "xml"){
+            let configs = try! NSString(contentsOfFile: configPath, encoding: String.Encoding.utf8.rawValue)
             xml =  SWXMLHash.parse(configs as String)
             let root = xml["App"]
             let runTime = root.element?.attributes["runtime"]

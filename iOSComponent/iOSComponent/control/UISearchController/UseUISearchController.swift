@@ -16,7 +16,7 @@ class UseUISearchController: BaseViewController {
     let searchVC = {()-> UISearchController in
         
         let v = UIViewController()
-        v.view.backgroundColor = UIColor.whiteColor()
+        v.view.backgroundColor = UIColor.white
         let nav = UINavigationController(rootViewController: v)
         let tmp = UISearchController(searchResultsController: nav)
 //        tmp.dimsBackgroundDuringPresentation    = false
@@ -36,7 +36,7 @@ class UseUISearchController: BaseViewController {
 //设置为true可以保证sear跳转的时候会更好
         self.definesPresentationContext = true
 //        self.providesPresentationContextTransitionStyle =   true
-        contentTableView.tableFooterView = UIView(frame: CGRectZero)
+        contentTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.configerUISearchBar()
     }
     
@@ -48,9 +48,9 @@ class UseUISearchController: BaseViewController {
         self.contentTableView.tableHeaderView   = searchVC.searchBar
         // 弹窗搜索栏，是否显示半透明背景层，默认是Yes
         let btn = UIButton(frame: CGRect(x: 0, y: 64, width: ScreenWidth, height: ScreenHeight - 64))
-        btn.backgroundColor = UIColor.whiteColor()
+        btn.backgroundColor = UIColor.white
         
-        btn.addTarget(self, action: #selector(UseUISearchController.btnAction), forControlEvents: UIControlEvents.TouchUpInside)
+        btn.addTarget(self, action: #selector(UseUISearchController.btnAction), for: UIControlEvents.touchUpInside)
         searchVC.searchResultsController?.view.addSubview(btn)
         
         // 设置代理
@@ -63,14 +63,14 @@ class UseUISearchController: BaseViewController {
         
         // 去掉默认的黑色边框，hack方法，使它的颜色和背景色一致
         searchVC.searchBar.layer.borderWidth = 1;
-        searchVC.searchBar.layer.borderColor = UIColor(white: 0.95, alpha: 1).CGColor
+        searchVC.searchBar.layer.borderColor = UIColor(white: 0.95, alpha: 1).cgColor
 
     }
     
     func btnAction(){
         print("btnAction")
         let presentVC = BaseViewController()
-        presentVC.view.backgroundColor = UIColor.redColor()
+        presentVC.view.backgroundColor = UIColor.red
         presentVC.title = "presentVC"
 //        (self.searchVC.searchResultsController as! UINavigationController).pushViewController(presentVC, animated: true)
         self.navigationController?.pushViewController(presentVC, animated: true)
@@ -87,14 +87,14 @@ class UseUISearchController: BaseViewController {
 }
 
 extension UseUISearchController:UISearchControllerDelegate{
-    func presentSearchController(searchController: UISearchController) {
+    func presentSearchController(_ searchController: UISearchController) {
         print("searchController:\(searchController)")
         
     }
 }
 
 extension UseUISearchController:UISearchResultsUpdating{
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         print(searchController.searchBar.text)
         
     }
@@ -102,15 +102,15 @@ extension UseUISearchController:UISearchResultsUpdating{
 
 extension UseUISearchController:UITableViewDataSource,UITableViewDelegate{
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("self.searchVC.active:\(self.searchVC.active)")
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("self.searchVC.active:\(self.searchVC.isActive)")
         
         return self.dataArray.count
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cells", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cells", for: indexPath)
         cell.textLabel?.text    = self.dataArray[indexPath.row]
         return cell
     }
@@ -120,15 +120,15 @@ extension UseUISearchController:UITableViewDataSource,UITableViewDelegate{
     
 
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
     
   
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let presentVC = BaseViewController()
-        presentVC.view.backgroundColor = UIColor.redColor()
+        presentVC.view.backgroundColor = UIColor.red
         presentVC.title = "presentVC"
         
         self.navigationController?.pushViewController(presentVC, animated: true)

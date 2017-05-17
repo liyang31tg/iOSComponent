@@ -8,8 +8,8 @@
 
 import Foundation
 class DBCreateHandler{
-   private var type    : String
-   private var db      : Connection
+   fileprivate var type    : String
+   fileprivate var db      : Connection
     
     init(type:String,db:Connection){
         self.type   = type
@@ -29,7 +29,7 @@ class DBCreateHandler{
     
     }
     
-    private func createSettingsTable() {
+    fileprivate func createSettingsTable() {
         print("create settings table")
         var sql = "CREATE TABLE IF NOT EXISTS settings"
         sql += "(name TEXT UNIQUE PRIMARY KEY NOT NULL, "

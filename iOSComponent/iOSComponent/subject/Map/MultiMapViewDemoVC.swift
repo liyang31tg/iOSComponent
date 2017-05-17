@@ -35,7 +35,7 @@ class MultiMapViewDemoVC: BaseViewController,BMKMapViewDelegate,BMKLocationServi
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mapViewA.viewWillAppear()
         mapViewA.delegate = self
@@ -43,7 +43,7 @@ class MultiMapViewDemoVC: BaseViewController,BMKMapViewDelegate,BMKLocationServi
         mapViewB.delegate = self
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         mapViewA.viewWillDisappear()
         mapViewA.delegate = nil
@@ -52,12 +52,12 @@ class MultiMapViewDemoVC: BaseViewController,BMKMapViewDelegate,BMKLocationServi
     }
     
     //定位代理方法
-    func didUpdateUserHeading(userLocation: BMKUserLocation!) {
+    func didUpdateUserHeading(_ userLocation: BMKUserLocation!) {
        
         mapViewA.updateLocationData(userLocation)
     }
     
-    func didUpdateBMKUserLocation(userLocation: BMKUserLocation!) {
+    func didUpdate(_ userLocation: BMKUserLocation!) {
         mapViewA.updateLocationData(userLocation)
     }
 }

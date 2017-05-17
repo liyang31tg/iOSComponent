@@ -14,21 +14,21 @@ class TextCompressVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let originnalData               = hanziStr.dataUsingEncoding(NSUTF8StringEncoding)
-        let originNalLength             = (originnalData?.length)! / 1024
+        let originnalData               = hanziStr.data(using: String.Encoding.utf8)
+        let originNalLength             = (originnalData?.count)! / 1024
         
         print("原始数据长度:\(originNalLength)")
         
         self.originalLengthLabel.text   = "\(originNalLength) K"
         let compressData                = try! originnalData?.gzippedData()
-        let newLength                   = (compressData?.length)! / 1024
+        let newLength                   = (compressData?.count)! / 1024
         self.newLengthLabel.text        = "\(newLength) K"
         
         print("压缩后的数据长度:\(newLength)")
         
         let uncompressData              = try! compressData?.gunzippedData()
         
-        let tmpStr                      = String(data: uncompressData!, encoding: NSUTF8StringEncoding)
+        let tmpStr                      = String(data: uncompressData!, encoding: String.Encoding.utf8)
         
         print(tmpStr)
     }

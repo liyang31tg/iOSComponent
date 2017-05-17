@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 class GCDdayDreamViewController: BaseViewController{
-    let queue = dispatch_queue_create("com.boqiao919.chuanxing", nil)//串行队列
-    let cqueue = dispatch_queue_create("com.boqiao919.bingxing", DISPATCH_QUEUE_CONCURRENT)//迸发队列
+    let queue = DispatchQueue(label: "com.boqiao919.chuanxing", attributes: [])//串行队列
+    let cqueue = DispatchQueue(label: "com.boqiao919.bingxing", attributes: DispatchQueue.Attributes.concurrent)//迸发队列
     var a = 3000
-    let tt = dispatch_semaphore_create(1)
-    let queueGroup = dispatch_group_create()
+    let tt = DispatchSemaphore(value: 1)
+    let queueGroup = DispatchGroup()
     override func viewDidLoad() {
         super.viewDidLoad()
         //死锁
-      _ =  dispatch_time(DISPATCH_TIME_NOW, Int64(10 * NSEC_PER_SEC))
+      _ =  DispatchTime.now() + Double(Int64(10 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC)
 //        dispatch_async(cqueue) { () -> Void in
 //            
 //           print("current thread:\(NSThread.currentThread())")
@@ -36,13 +36,13 @@ class GCDdayDreamViewController: BaseViewController{
 //        
 //        print("1永远执行不到")
 
-        print("nsrunllog:\(NSRunLoop.currentRunLoop())")
+        print("nsrunllog:\(RunLoop.current)")
     }
     
     
     func test1(){
-        dispatch_async(self.cqueue) { () -> Void in
-            print("启动定时器:\(NSRunLoop.currentRunLoop())")
+        self.cqueue.async { () -> Void in
+            print("启动定时器:\(RunLoop.current)")
          
         }
        
@@ -54,7 +54,7 @@ class GCDdayDreamViewController: BaseViewController{
     }
     
     
-    @IBAction func doAction(sender: AnyObject) {
+    @IBAction func doAction(_ sender: AnyObject) {
         
         
           mythread(target: self, selector: #selector(GCDdayDreamViewController.doAction as (GCDdayDreamViewController) -> () -> ()), object: nil).start()
@@ -63,9 +63,9 @@ class GCDdayDreamViewController: BaseViewController{
     
     func doAction(){
         print("doAction")
-        let t =   NSTimer(timeInterval: 5, target: self, selector: #selector(GCDdayDreamViewController.timeAction), userInfo: nil, repeats: false)
-        NSRunLoop.currentRunLoop().addTimer(t, forMode: NSDefaultRunLoopMode)
-        NSRunLoop.currentRunLoop().run()
+        let t =   Timer(timeInterval: 5, target: self, selector: #selector(GCDdayDreamViewController.timeAction), userInfo: nil, repeats: false)
+        RunLoop.current.add(t, forMode: RunLoopMode.defaultRunLoopMode)
+        RunLoop.current.run()
     }
     
     
@@ -74,7 +74,7 @@ class GCDdayDreamViewController: BaseViewController{
     
 }
 
-class mythread:NSThread{
+class mythread:Thread{
 
 
     deinit{

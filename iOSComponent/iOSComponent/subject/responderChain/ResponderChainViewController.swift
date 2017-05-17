@@ -11,7 +11,7 @@ import UIKit
 class ResponderChainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
     }
 }
@@ -20,18 +20,18 @@ class ResponderChainViewController: BaseViewController {
 
 class UIViewA: UIView {
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touch begin A")
     }
     
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
             var tmpView:UIView?     = self
             let subviews = self.subviews
             let reverseView = subviews
             for subview in reverseView {
-               let tmpPoint = subview.convertPoint(point, fromView: self)
-                if subview.pointInside(tmpPoint, withEvent: event){
-                    let view = subview.hitTest(tmpPoint, withEvent: event)
+               let tmpPoint = subview.convert(point, from: self)
+                if subview.point(inside: tmpPoint, with: event){
+                    let view = subview.hitTest(tmpPoint, with: event)
                     if let sv = view {
                         tmpView     = sv
                         break
@@ -42,13 +42,13 @@ class UIViewA: UIView {
         
     }
     
-    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         
-        if self.alpha <= 0.01 || !self.userInteractionEnabled || self.hidden {
+        if self.alpha <= 0.01 || !self.isUserInteractionEnabled || self.isHidden {
         
             return false
         }
-        return CGRectContainsPoint(self.bounds, point)
+        return self.bounds.contains(point)
     }
     
 }
@@ -56,32 +56,32 @@ class UIViewA: UIView {
 
 class UIViewB: UIView {
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch           = touches.first
         
         if let t = touch {
             //当前坐标点
-            let point           =   t.locationInView(self)
+            let point           =   t.location(in: self)
             //上一个坐标点
-            let precisePoint    =   t.previousLocationInView(self)
+            let precisePoint    =   t.previousLocation(in: self)
             
             let offsetX = point.x - precisePoint.x
             let offsetY = point.y - precisePoint.y
             
-            self.transform = CGAffineTransformTranslate(self.transform, offsetX, offsetY)
+            self.transform = self.transform.translatedBy(x: offsetX, y: offsetY)
             
         }
         
     }
     
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         var tmpView:UIView?     = self
         let subviews = self.subviews
-        let reverseView = subviews.reverse()
+        let reverseView = subviews.reversed()
         for subview in reverseView {
-            let tmpPoint = subview.convertPoint(point, fromView: self)
-            if subview.pointInside(tmpPoint, withEvent: event){
-                let view = subview.hitTest(tmpPoint, withEvent: event)
+            let tmpPoint = subview.convert(point, from: self)
+            if subview.point(inside: tmpPoint, with: event){
+                let view = subview.hitTest(tmpPoint, with: event)
                 if let sv = view {
                     tmpView     = sv
                     break
@@ -92,13 +92,13 @@ class UIViewB: UIView {
         
     }
     
-    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         
-        if self.alpha <= 0.01 || !self.userInteractionEnabled || self.hidden {
+        if self.alpha <= 0.01 || !self.isUserInteractionEnabled || self.isHidden {
             
             return false
         }
-        return CGRectContainsPoint(self.bounds, point)
+        return self.bounds.contains(point)
     }
 
     
@@ -106,32 +106,32 @@ class UIViewB: UIView {
 
 class UIViewC: UIView {
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch           = touches.first
         
         if let t = touch {
             //当前坐标点
-            let point           =   t.locationInView(self)
+            let point           =   t.location(in: self)
             //上一个坐标点
-            let precisePoint    =   t.previousLocationInView(self)
+            let precisePoint    =   t.previousLocation(in: self)
             
             let offsetX = point.x - precisePoint.x
             let offsetY = point.y - precisePoint.y
             
-            self.transform = CGAffineTransformTranslate(self.transform, offsetX, offsetY)
+            self.transform = self.transform.translatedBy(x: offsetX, y: offsetY)
             
         }
         
     }
     
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         var tmpView:UIView?     = self
         let subviews = self.subviews
-        let reverseView = subviews.reverse()
+        let reverseView = subviews.reversed()
         for subview in reverseView {
-            let tmpPoint = subview.convertPoint(point, fromView: self)
-            if subview.pointInside(tmpPoint, withEvent: event){
-                let view = subview.hitTest(tmpPoint, withEvent: event)
+            let tmpPoint = subview.convert(point, from: self)
+            if subview.point(inside: tmpPoint, with: event){
+                let view = subview.hitTest(tmpPoint, with: event)
                 if let sv = view {
                     tmpView     = sv
                     break
@@ -142,13 +142,13 @@ class UIViewC: UIView {
         
     }
     
-    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         
-        if self.alpha <= 0.01 || !self.userInteractionEnabled || self.hidden {
+        if self.alpha <= 0.01 || !self.isUserInteractionEnabled || self.isHidden {
             
             return false
         }
-        return CGRectContainsPoint(self.bounds, point)
+        return self.bounds.contains(point)
     }
 
 
@@ -156,32 +156,32 @@ class UIViewC: UIView {
 
 
 class UIViewD: UIView {
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch           = touches.first
         
         if let t = touch {
             //当前坐标点
-            let point           =   t.locationInView(self)
+            let point           =   t.location(in: self)
             //上一个坐标点
-            let precisePoint    =   t.previousLocationInView(self)
+            let precisePoint    =   t.previousLocation(in: self)
             
             let offsetX = point.x - precisePoint.x
             let offsetY = point.y - precisePoint.y
             
-            self.transform = CGAffineTransformTranslate(self.transform, offsetX, offsetY)
+            self.transform = self.transform.translatedBy(x: offsetX, y: offsetY)
             
         }
         
     }
     
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         var tmpView:UIView?     = self
         let subviews = self.subviews
-        let reverseView = subviews.reverse()
+        let reverseView = subviews.reversed()
         for subview in reverseView {
-            let tmpPoint = subview.convertPoint(point, fromView: self)
-            if subview.pointInside(tmpPoint, withEvent: event){
-                let view = subview.hitTest(tmpPoint, withEvent: event)
+            let tmpPoint = subview.convert(point, from: self)
+            if subview.point(inside: tmpPoint, with: event){
+                let view = subview.hitTest(tmpPoint, with: event)
                 if let sv = view {
                     tmpView     = sv
                     break
@@ -192,18 +192,18 @@ class UIViewD: UIView {
         
     }
     
-    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         
-        if self.alpha <= 0.01 || !self.userInteractionEnabled || self.hidden {
+        if self.alpha <= 0.01 || !self.isUserInteractionEnabled || self.isHidden {
             
             return false
         }
-        return CGRectContainsPoint(self.bounds, point)
+        return self.bounds.contains(point)
     }
     
 
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touch begin D")
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 class URLUtil{
 
-    class func appendPath(preUrl:String,path:String) -> String{
+    class func appendPath(_ preUrl:String,path:String) -> String{
         if  preUrl.hasSuffix("/") {
             return preUrl + path
         }else{

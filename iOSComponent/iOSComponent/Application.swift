@@ -8,14 +8,15 @@
 
 import Foundation
 class Application: NSObject {
+    private static var __once: () = {
+            Static.s = Application()
+        }()
     class var shareInstance:Application{
         struct Static{
-            static var once:dispatch_once_t = 0
+            static var once:Int = 0
             static var s:Application!
         }
-        dispatch_once(&Static.once) {
-            Static.s = Application()
-        }
+        _ = Application.__once
         
         return Static.s
     }

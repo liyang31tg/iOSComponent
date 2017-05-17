@@ -18,11 +18,11 @@ class AnimatedAnnotationView: BMKAnnotationView {
     override init(annotation: BMKAnnotation!, reuseIdentifier: String!) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         
-        self.bounds = CGRectMake(0, 0, 32, 32)
-        self.backgroundColor = UIColor.clearColor()
+        self.bounds = CGRect(x: 0, y: 0, width: 32, height: 32)
+        self.backgroundColor = UIColor.clear
         
         annotationImageView = UIImageView(frame: bounds)
-        annotationImageView.contentMode = UIViewContentMode.Center
+        annotationImageView.contentMode = UIViewContentMode.center
         
         self.addSubview(annotationImageView)
     }
@@ -31,17 +31,17 @@ class AnimatedAnnotationView: BMKAnnotationView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setImages(images: [UIImage]) {
+    func setImages(_ images: [UIImage]) {
         annotationImages = images
         updateImageView()
     }
     
     func updateImageView() {
-        if annotationImageView.isAnimating() {
+        if annotationImageView.isAnimating {
             annotationImageView.stopAnimating()
         }
         annotationImageView.animationImages = annotationImages
-        annotationImageView.animationDuration = 0.5 * NSTimeInterval(self.annotationImages.count)
+        annotationImageView.animationDuration = 0.5 * TimeInterval(self.annotationImages.count)
         annotationImageView.animationRepeatCount = 0
         annotationImageView.startAnimating()
     }

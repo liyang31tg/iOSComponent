@@ -26,7 +26,7 @@ class SqliteDB{
         self.dbName         = dbName
         self.dbTpype        = dbType
         
-        let prePath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
+        let prePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
         
         let dbPath = URLUtil.appendPath(prePath, path: "\(dbName).db")
         print("dbPath:\(dbPath)")

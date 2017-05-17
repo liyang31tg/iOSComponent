@@ -14,12 +14,12 @@ class ImagePickerController: UIViewController {
         super.viewDidLoad()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ImagePickerController.dismiss)))
         
-        let a = PHAsset.fetchAssetsWithOptions(nil)
+        let a = PHAsset.fetchAssets(with: nil)
         print(a)
         
     
     }
     func dismiss(){
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }

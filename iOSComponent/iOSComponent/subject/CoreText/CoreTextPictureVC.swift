@@ -12,7 +12,7 @@ class CoreTextPicture: BaseViewController {
     
     lazy var subview: CoreTextPicView = {
         let tmpSubView = CoreTextPicView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight))
-        tmpSubView.backgroundColor = UIColor.whiteColor()
+        tmpSubView.backgroundColor = UIColor.white
         return tmpSubView
     }()
     override func viewDidLoad() {
@@ -22,12 +22,12 @@ class CoreTextPicture: BaseViewController {
         self.subview.center = self.view.center
         self.subview.layer.setNeedsDisplay()
     }
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -35,7 +35,7 @@ class CoreTextPicture: BaseViewController {
 
 
 class CoreTextPicView: UIView {
-    override class func layerClass() -> AnyClass{
+    override class var layerClass : AnyClass{
         return CoreTextPicLayer.self
     }
 }
@@ -47,9 +47,9 @@ class CoreTextPicLayer: CALayer {
         super.init()
         self.drawsAsynchronously = true
         
-        let time = dispatch_time(DISPATCH_TIME_NOW, 3 * Int64(NSEC_PER_SEC))
+        let time = DispatchTime.now() + Double(3 * Int64(NSEC_PER_SEC)) / Double(NSEC_PER_SEC)
         //模拟网络图片
-        dispatch_after(time, dispatch_get_main_queue()) {
+        DispatchQueue.main.asyncAfter(deadline: time) {
             self.pic = UIImage(named: "page2.jpg")
             self.setNeedsDisplay()
         }
@@ -58,29 +58,29 @@ class CoreTextPicLayer: CALayer {
         fatalError("init(coder:) has not been implemented")
     }
     override func display() {
-        self.contentsScale = UIScreen.mainScreen().scale
+        self.contentsScale = UIScreen.main.scale
         super.display()
     }
-    override func drawInContext(ctx: CGContext) {
-        super.drawInContext(ctx)
+    override func draw(in ctx: CGContext) {
+        super.draw(in: ctx)
         
         //坐标系转换
-        CGContextSetTextMatrix(ctx, CGAffineTransformIdentity)
-        CGContextTranslateCTM(ctx, 0, self.bounds.size.height)
-        CGContextScaleCTM(ctx, 1.0, -1.0)
+        ctx.textMatrix = CGAffineTransform.identity
+        ctx.translateBy(x: 0, y: self.bounds.size.height)
+        ctx.scaleBy(x: 1.0, y: -1.0)
         
         //创建绘制的区域
-        let path = CGPathCreateMutable()
+        let path = CGMutablePath()
         CGPathAddRect(path, nil, self.bounds)
         
         // 4.创建需要绘制的文字
         let attributed =  NSMutableAttributedString(string: "估后共和国开不开vbdkaph估后共和国开不开vbdkaph😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️这是我的第一个coreText demo，我是要给兵来自老白干I型那个饿哦个呢给个I类回滚igkhpwfh 评估后共和国开不开vbdkaphphohghg 的分工额好几个辽宁省更怕hi维护你不看hi好人佛【井柏然把饿哦个😢😊😊😢⬇️");
         
-        attributed.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(20), range: NSMakeRange(0, 5));
+        attributed.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 20), range: NSMakeRange(0, 5));
         
-        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(3, 10));
+        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(3, 10));
         
-        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.orangeColor(), range: NSMakeRange(0, 2));
+        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.orange, range: NSMakeRange(0, 2));
         
         //创建段落属性
         let paraStyle = NSMutableParagraphStyle()
@@ -112,7 +112,7 @@ class CoreTextPicLayer: CALayer {
         picAttribute.addAttribute((kCTRunDelegateAttributeName as String), value: ctRunDelegate!, range: NSMakeRange(0, 1))
         picAttribute.addAttribute("imageName", value: drawImageName, range: NSMakeRange(0, 1))
         
-        attributed.insertAttributedString(picAttribute, atIndex: 60)
+        attributed.insert(picAttribute, at: 60)
         //添加图片的逻辑end
         
        let ctFrameSetter = CTFramesetterCreateWithAttributedString(attributed)
@@ -122,7 +122,7 @@ class CoreTextPicLayer: CALayer {
         CTFrameDraw(ctFrame, ctx)
         
         let lines = CTFrameGetLines(ctFrame) as NSArray
-        var originsArray = Array<CGPoint>(count: lines.count, repeatedValue: CGPointZero)//用于存储每一行的坐标
+        var originsArray = Array<CGPoint>(repeating: CGPoint.zero, count: lines.count)//用于存储每一行的坐标
         
         CTFrameGetLineOrigins(ctFrame, CFRangeMake(0, 0), &originsArray)
     
@@ -136,7 +136,7 @@ class CoreTextPicLayer: CALayer {
             
            let runs = CTLineGetGlyphRuns(line as! CTLine) as NSArray
             
-            for (index,run) in runs.enumerate() {
+            for (index,run) in runs.enumerated() {
                 var runAscent:CGFloat      = 0
                 var runDescent:CGFloat     = 0
                 var runLeading:CGFloat     = 0
@@ -152,7 +152,7 @@ class CoreTextPicLayer: CALayer {
                 
                 let runAttributes = CTRunGetAttributes(run as! CTRun) as NSDictionary
                 
-                let imagename = runAttributes.objectForKey("imageName")
+                let imagename = runAttributes.object(forKey: "imageName")
                 
                 if let imageN = imagename {
                     let image:UIImage?
@@ -162,9 +162,9 @@ class CoreTextPicLayer: CALayer {
                         image = UIImage(named: imageN as! String)
                     }
                     let imagebouns = CGRect(x: runRect.origin.x, y: runRect.origin.y, width: runRect.size.width, height: runRect.size.height)
-                    CGContextDrawImage(ctx, imagebouns, image?.CGImage)
+                    ctx.draw((image?.cgImage)!, in: imagebouns)
                     
-                    let p = CGPathCreateMutable()
+                    let p = CGMutablePath()
                     CGPathAddRect(p, nil, imagebouns)
                     
                   let pp =  NSMutableAttributedString(string: "wolail")

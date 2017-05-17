@@ -12,7 +12,7 @@ class CoreTextCTLineDraw: BaseViewController {
     
     lazy var subview: CoreTextCTLineView = {
         let tmpSubView = CoreTextCTLineView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight))
-        tmpSubView.backgroundColor = UIColor.whiteColor()
+        tmpSubView.backgroundColor = UIColor.white
         return tmpSubView
     }()
     override func viewDidLoad() {
@@ -22,12 +22,12 @@ class CoreTextCTLineDraw: BaseViewController {
         self.subview.center = self.view.center
         self.subview.layer.setNeedsDisplay()
     }
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -35,7 +35,7 @@ class CoreTextCTLineDraw: BaseViewController {
 
 
 class CoreTextCTLineView: UIView {
-    override class func layerClass() -> AnyClass{
+    override class var layerClass : AnyClass{
         return CoreTextCTLineLayer.self
     }
 }
@@ -47,9 +47,9 @@ class CoreTextCTLineLayer: CALayer {
         super.init()
         self.drawsAsynchronously = true
         
-        let time = dispatch_time(DISPATCH_TIME_NOW, 3 * Int64(NSEC_PER_SEC))
+        let time = DispatchTime.now() + Double(3 * Int64(NSEC_PER_SEC)) / Double(NSEC_PER_SEC)
         //模拟网络图片
-        dispatch_after(time, dispatch_get_main_queue()) {
+        DispatchQueue.main.asyncAfter(deadline: time) {
             self.pic = UIImage(named: "page2.jpg")
             self.setNeedsDisplay()
         }
@@ -58,7 +58,7 @@ class CoreTextCTLineLayer: CALayer {
         fatalError("init(coder:) has not been implemented")
     }
     override func display() {
-        self.contentsScale = UIScreen.mainScreen().scale
+        self.contentsScale = UIScreen.main.scale
         super.display()
     }
     
@@ -66,14 +66,14 @@ class CoreTextCTLineLayer: CALayer {
      根据属性字符串计算绘制所需要的高度
      思路就是 lineAscent＋lineDescent ＋lineLeading代表一行的高度，分别对每一行进行高度累加
      */
-    func getDisplayHeight(attributeStr: NSAttributedString,width:CGFloat) -> CGFloat{
+    func getDisplayHeight(_ attributeStr: NSAttributedString,width:CGFloat) -> CGFloat{
     
      let ctFrameSetter = CTFramesetterCreateWithAttributedString(attributeStr)
         
      //建议的宽高
-     let suggestSize   =  CTFramesetterSuggestFrameSizeWithConstraints(ctFrameSetter, CFRangeMake(0, attributeStr.length), nil, CGSize(width: width, height: CGFloat.max), nil)
+     let suggestSize   =  CTFramesetterSuggestFrameSizeWithConstraints(ctFrameSetter, CFRangeMake(0, attributeStr.length), nil, CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
         
-    let path =  CGPathCreateMutable()
+    let path =  CGMutablePath()
         
     CGPathAddRect(path, nil, CGRect(x: 0, y: 0, width: width, height: suggestSize.height*2))//2是假的，只是防止画布不够大，计算有误，下面才开始精确计算高度
         
@@ -83,7 +83,7 @@ class CoreTextCTLineLayer: CALayer {
         
       let lines =  CTFrameGetLines(ctFrame) as Array
         
-      var lineOrigins = Array<CGPoint>(count: lines.count, repeatedValue: CGPointZero)//获取每一个行的坐标
+      var lineOrigins = Array<CGPoint>(repeating: CGPoint.zero, count: lines.count)//获取每一个行的坐标
         
       CTFrameGetLineOrigins(ctFrame, CFRangeMake(0, 0), &lineOrigins)
         var lineAscent:CGFloat      = 0
@@ -91,7 +91,7 @@ class CoreTextCTLineLayer: CALayer {
         var lineLeading:CGFloat     = 0
         var lineTotalHeight:CGFloat = 0
         
-        for (_,line) in lines.enumerate() {
+        for (_,line) in lines.enumerated() {
             CTLineGetTypographicBounds(line as! CTLine, &lineAscent, &lineDescent, &lineLeading)
             let oneLineHeight = lineAscent+lineDescent + lineLeading//这里可以接上细节微调，来返回高度
             lineTotalHeight += oneLineHeight
@@ -101,26 +101,26 @@ class CoreTextCTLineLayer: CALayer {
     
     }
     
-    override func drawInContext(ctx: CGContext) {
-        super.drawInContext(ctx)
+    override func draw(in ctx: CGContext) {
+        super.draw(in: ctx)
         
         //坐标系转换
-        CGContextSetTextMatrix(ctx, CGAffineTransformIdentity)
-        CGContextTranslateCTM(ctx, 0, self.bounds.size.height)
-        CGContextScaleCTM(ctx, 1.0, -1.0)
+        ctx.textMatrix = CGAffineTransform.identity
+        ctx.translateBy(x: 0, y: self.bounds.size.height)
+        ctx.scaleBy(x: 1.0, y: -1.0)
         
         //创建绘制的区域
-        let path = CGPathCreateMutable()
+        let path = CGMutablePath()
         CGPathAddRect(path, nil, self.bounds)
         
         // 4.创建需要绘制的文字
         let attributed =  NSMutableAttributedString(string: "估后共和国开不开vbdkaph估后共和国开不开vbdkaph😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️这是我的第一个coreText demo，我是要给兵来自老白干I型那个饿哦个呢给个I类回滚igkhpwfh 评估后共和国开不开vbdkaphphohghg 的分工额好几个辽宁省更怕hi维护你不看hi好人佛【井柏然把饿哦个😢😊😊😢⬇️");
         
-        attributed.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(20), range: NSMakeRange(0, 5));
+        attributed.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 20), range: NSMakeRange(0, 5));
         
-        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(3, 10));
+        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(3, 10));
         
-        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.orangeColor(), range: NSMakeRange(0, 2));
+        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.orange, range: NSMakeRange(0, 2));
         
         //创建段落属性
         let paraStyle = NSMutableParagraphStyle()
@@ -129,23 +129,23 @@ class CoreTextCTLineLayer: CALayer {
         //根据计算的高度画一个比边框 start
         let strockeHegith = self.getDisplayHeight(attributed, width: ScreenWidth)
         
-        CGContextSaveGState(ctx)
+        ctx.saveGState()
         
-        CGContextSetTextMatrix(ctx, CGAffineTransformIdentity)
-        CGContextTranslateCTM(ctx, 0, self.bounds.size.height)
-        CGContextScaleCTM(ctx, 1.0, -1.0)
+        ctx.textMatrix = CGAffineTransform.identity
+        ctx.translateBy(x: 0, y: self.bounds.size.height)
+        ctx.scaleBy(x: 1.0, y: -1.0)
         
-        let strokePath = CGPathCreateMutable()
+        let strokePath = CGMutablePath()
         
         CGPathAddRect(strokePath, nil, CGRect(x: 1, y: 1, width: ScreenWidth-2, height: strockeHegith))
         
-        CGContextAddPath(ctx, strokePath)
+        ctx.addPath(strokePath)
         
-        CGContextSetStrokeColorWithColor(ctx, UIColor.purpleColor().CGColor)
+        ctx.setStrokeColor(UIColor.purple.cgColor)
         
-        CGContextStrokePath(ctx)
+        ctx.strokePath()
         
-        CGContextRestoreGState(ctx)
+        ctx.restoreGState()
         //根据计算的高度画一个比边框 end
         
         let ctFrameSetter = CTFramesetterCreateWithAttributedString(attributed)
@@ -154,14 +154,14 @@ class CoreTextCTLineLayer: CALayer {
         
         
         let lines = CTFrameGetLines(ctFrame) as NSArray
-        var originsArray = Array<CGPoint>(count: lines.count, repeatedValue: CGPointZero)//用于存储每一行的坐标
+        var originsArray = Array<CGPoint>(repeating: CGPoint.zero, count: lines.count)//用于存储每一行的坐标
         
         CTFrameGetLineOrigins(ctFrame, CFRangeMake(0, 0), &originsArray)
         
         var frameY:CGFloat              = 0
         let kGlobalLineLeading:CGFloat  = 0
         
-        for (i,line) in lines.enumerate() {
+        for (i,line) in lines.enumerated() {
             var lineAscent:CGFloat      = 0
             var lineDescent:CGFloat     = 0
             var lineLeading:CGFloat     = 0
@@ -193,12 +193,12 @@ class CoreTextCTLineLayer: CALayer {
             let lCharacter = "……"
             if i == lines.count - 1 {
                 let lastLineRange           = CTLineGetStringRange(line as! CTLine)
-                let lastCharAttribute       =   attributed.attributesAtIndex(attributed.length - 1, effectiveRange: nil)
+                let lastCharAttribute       =   attributed.attributes(at: attributed.length - 1, effectiveRange: nil)
                 let lastAppentAttributeStr  = NSAttributedString(string: lCharacter, attributes: lastCharAttribute)
-                let foreAttributeStr        =  attributed.attributedSubstringFromRange(NSMakeRange(lastLineRange.location, lastLineRange.length - 2)) as! NSMutableAttributedString//这里减去2是因为后面有个结尾的符号，c语言里面的“/n”
-                let afterAttributeStr        =  attributed.attributedSubstringFromRange(NSMakeRange(lastLineRange.location + lastLineRange.length - 1, 1)) as! NSMutableAttributedString
+                let foreAttributeStr        =  attributed.attributedSubstring(from: NSMakeRange(lastLineRange.location, lastLineRange.length - 2)) as! NSMutableAttributedString//这里减去2是因为后面有个结尾的符号，c语言里面的“/n”
+                let afterAttributeStr        =  attributed.attributedSubstring(from: NSMakeRange(lastLineRange.location + lastLineRange.length - 1, 1)) as! NSMutableAttributedString
                 print("after:\(afterAttributeStr.string)测试")
-                foreAttributeStr.appendAttributedString(lastAppentAttributeStr)
+                foreAttributeStr.append(lastAppentAttributeStr)
                 let createLastline = CTLineCreateWithAttributedString(foreAttributeStr)
                 CTLineDraw(createLastline, ctx)
             

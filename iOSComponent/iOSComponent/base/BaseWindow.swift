@@ -11,7 +11,7 @@ class BaseWindow: UIWindow {
     init(){
         super.init(frame: ScreenBounds)
         let rootVC                  = UIViewController()
-        rootVC.view.backgroundColor = UIColor.clearColor()
+        rootVC.view.backgroundColor = UIColor.clear
         self.rootViewController     = rootVC
     
     }

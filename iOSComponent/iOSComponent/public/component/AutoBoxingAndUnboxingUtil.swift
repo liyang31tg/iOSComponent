@@ -15,13 +15,13 @@ class Box<T>:NSObject{
 }
 
 class AutoBoxingAndUnboxingUtil {
-    class func toBoxing<T>(v:T) -> Box<T>{
+    class func toBoxing<T>(_ v:T) -> Box<T>{
         let b   = Box<T>()
         b.value = v
         return b
     }
     
-    class func toUnboxing<T>(bv:Box<T>) -> T{
+    class func toUnboxing<T>(_ bv:Box<T>) -> T{
         return bv.value
     }
 }

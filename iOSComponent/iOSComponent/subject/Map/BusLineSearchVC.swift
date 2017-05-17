@@ -21,7 +21,7 @@ class BusLineSearchVC: BaseViewController {
 
         
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         contentMapView.viewWillAppear()
         contentMapView.delegate = self
@@ -29,7 +29,7 @@ class BusLineSearchVC: BaseViewController {
         busSearch.delegate      = self
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         contentMapView.viewWillDisappear()
         contentMapView.delegate = nil
@@ -37,7 +37,7 @@ class BusLineSearchVC: BaseViewController {
         busSearch.delegate      = nil
     }
     
-    @IBAction func searchAction(sender: UIButton) {
+    @IBAction func searchAction(_ sender: UIButton) {
         if sender.tag == 1{//上行
             searchPoi()
         }else{//下行
@@ -45,15 +45,15 @@ class BusLineSearchVC: BaseViewController {
         }
     }
     //poi查询
-    func searchPoi(isClockWise:Bool = true){
+    func searchPoi(_ isClockWise:Bool = true){
         self.isClockWise = isClockWise
        let option       = BMKCitySearchOption()
         option.city     = self.cityTextField.text
         option.keyword  = self.keyWordTextField.text
-        poiSearch.poiSearchInCity(option)
+        poiSearch.poiSearch(inCity: option)
     }
     
-    func bslSearch(busUid:String){
+    func bslSearch(_ busUid:String){
         let option          = BMKBusLineSearchOption()
         option.city         = self.cityTextField.text
         option.busLineUid   = busUid
@@ -64,17 +64,17 @@ class BusLineSearchVC: BaseViewController {
 }
 
 extension BusLineSearchVC:BMKMapViewDelegate{
-    func mapView(mapView: BMKMapView!, viewForOverlay overlay: BMKOverlay!) -> BMKOverlayView! {
+    func mapView(_ mapView: BMKMapView!, viewFor overlay: BMKOverlay!) -> BMKOverlayView! {
         if let  layline = overlay as? BMKPolyline {
             let polylineView = BMKPolylineView(polyline: layline)
-            polylineView.strokeColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.7)
-            polylineView.lineWidth = 3
+            polylineView?.strokeColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.7)
+            polylineView?.lineWidth = 3
             return polylineView
         }
         return nil
     }
     
-    func mapView(mapView: BMKMapView!, viewForAnnotation annotation: BMKAnnotation!) -> BMKAnnotationView! {
+    func mapView(_ mapView: BMKMapView!, viewFor annotation: BMKAnnotation!) -> BMKAnnotationView! {
         if annotation is RouteAnnotation {
             return getViewForRouteAnnotation(annotation as! RouteAnnotation)
         }
@@ -82,7 +82,7 @@ extension BusLineSearchVC:BMKMapViewDelegate{
         return nil
     }
     
-    func getViewForRouteAnnotation(routeAnnotation: RouteAnnotation!) -> BMKAnnotationView? {
+    func getViewForRouteAnnotation(_ routeAnnotation: RouteAnnotation!) -> BMKAnnotationView? {
         var view: BMKAnnotationView?
         
         var imageName: String?
@@ -103,16 +103,16 @@ extension BusLineSearchVC:BMKMapViewDelegate{
             return nil
         }
         let identifier = "\(imageName)_annotation"
-        view = contentMapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+        view = contentMapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if view == nil {
             view = BMKAnnotationView(annotation: routeAnnotation, reuseIdentifier: identifier)
-            view?.centerOffset = CGPointMake(0, -(view!.frame.size.height * 0.5))
+            view?.centerOffset = CGPoint(x: 0, y: -(view!.frame.size.height * 0.5))
             view?.canShowCallout = true
         }
         view?.annotation = routeAnnotation
-        let bundlePath = NSBundle.mainBundle().resourcePath?.stringByAppendingString("/mapapi.bundle/")
-        let bundle = NSBundle(path: bundlePath!)
-        if let imagePath = bundle?.resourcePath?.stringByAppendingString("/images/icon_\(imageName!).png") {
+        let bundlePath = (Bundle.main.resourcePath)! + "/mapapi.bundle/"
+        let bundle = Bundle(path: bundlePath)
+        if let imagePath = (bundle?.resourcePath)! + "/images/icon_\(imageName!).png" {
             let image = UIImage(contentsOfFile: imagePath)
             if image != nil {
                 view?.image = image
@@ -125,7 +125,7 @@ extension BusLineSearchVC:BMKMapViewDelegate{
 }
 
 extension BusLineSearchVC:BMKBusLineSearchDelegate{
-    func onGetBusDetailResult(searcher: BMKBusLineSearch!, result busLineResult: BMKBusLineResult!, errorCode error: BMKSearchErrorCode) {
+    func onGetBusDetailResult(_ searcher: BMKBusLineSearch!, result busLineResult: BMKBusLineResult!, errorCode error: BMKSearchErrorCode) {
         contentMapView.removeOverlays(contentMapView.overlays)
         contentMapView.removeAnnotations(contentMapView.annotations)
         if error == BMK_SEARCH_NO_ERROR {
@@ -138,7 +138,7 @@ extension BusLineSearchVC:BMKBusLineSearchDelegate{
                 contentMapView.addAnnotation(item)
             }
             
-            contentMapView.setCenterCoordinate((busLineResult.busStations[0] as! BMKBusStation).location, animated: false)
+            contentMapView.setCenter((busLineResult.busStations[0] as! BMKBusStation).location, animated: false)
             var tmpMapPoints:[BMKMapPoint]  = []
             let busSteps    = busLineResult.busSteps as! [BMKBusStep]
     
@@ -152,7 +152,7 @@ extension BusLineSearchVC:BMKBusLineSearchDelegate{
             }
             
            let polyLine = BMKPolyline(points: &tmpMapPoints, count: UInt(tmpMapPoints.count))
-            contentMapView.addOverlay(polyLine)
+            contentMapView.add(polyLine)
         
         }
     }
@@ -161,7 +161,7 @@ extension BusLineSearchVC:BMKBusLineSearchDelegate{
 
 extension BusLineSearchVC:BMKPoiSearchDelegate{
     
-    func onGetPoiResult(searcher: BMKPoiSearch!, result poiResult: BMKPoiResult!, errorCode: BMKSearchErrorCode) {
+    func onGetPoiResult(_ searcher: BMKPoiSearch!, result poiResult: BMKPoiResult!, errorCode: BMKSearchErrorCode) {
       let infolist =   poiResult.poiInfoList as! [BMKPoiInfo]
         var busUid:[String]     = []
         for poiInfo in infolist {
@@ -173,7 +173,7 @@ extension BusLineSearchVC:BMKPoiSearchDelegate{
         if busUid.count > 0 {
         //公交路线查询
             if self.isClockWise {
-              busUid =  busUid.reverse()
+              busUid =  busUid.reversed()
             }
             self.bslSearch(busUid[0])
         }

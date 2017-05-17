@@ -15,9 +15,9 @@ class PancakePicVC: BaseViewController {
     @IBOutlet weak var progressView: ProgressView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        pannacakeView.dataArray = [ PanCakeDomain(color: UIColor.redColor(), value: 53),
-                                    PanCakeDomain(color: UIColor.brownColor(), value: 23),
-                                    PanCakeDomain(color: UIColor.purpleColor(), value: 23)]
+        pannacakeView.dataArray = [ PanCakeDomain(color: UIColor.red, value: 53),
+                                    PanCakeDomain(color: UIColor.brown, value: 23),
+                                    PanCakeDomain(color: UIColor.purple, value: 23)]
         
         
         
@@ -29,11 +29,11 @@ class PancakePicVC: BaseViewController {
         singleSelectbtnView.delegate = self
         
         
-        let node1 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "yyyy", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
-        let node2 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "ttttt", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
-        let node3 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "上门维修", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
-        let node4 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "付款", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
-        let node5 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "评价", titleSelectColor: UIColor.blueColor(), titleNormalColor:  UIColor.grayColor())
+        let node1 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "yyyy", titleSelectColor: UIColor.blue, titleNormalColor:  UIColor.gray)
+        let node2 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "ttttt", titleSelectColor: UIColor.blue, titleNormalColor:  UIColor.gray)
+        let node3 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "上门维修", titleSelectColor: UIColor.blue, titleNormalColor:  UIColor.gray)
+        let node4 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "付款", titleSelectColor: UIColor.blue, titleNormalColor:  UIColor.gray)
+        let node5 =  ProgressNode(selectImageName: "tabbar_mainframeHL", normalImageName: "tabbar_discoverHL", title: "评价", titleSelectColor: UIColor.blue, titleNormalColor:  UIColor.gray)
         
         progressView.nodes = [node1,node2,node3,node4,node5]
         
@@ -43,12 +43,12 @@ class PancakePicVC: BaseViewController {
     
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
     }
 }
 extension PancakePicVC:SingleSelectBtnDelegate{
-    func singleSelectBtnView(btnView: SingleSelectBtnView, clickIndex: Int) {
+    func singleSelectBtnView(_ btnView: SingleSelectBtnView, clickIndex: Int) {
         print("clickIndex:\(clickIndex)")
     }
 

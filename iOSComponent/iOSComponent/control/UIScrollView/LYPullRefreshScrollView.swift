@@ -18,7 +18,7 @@ class LYPullRefreshScrollView: BaseViewController {
         self.contentScrollView.contentSize = ScreenSize
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("contentInset:\(self.contentScrollView.contentInset)")
 //        self.contentScrollView.contentInset
@@ -31,19 +31,19 @@ class LYPullRefreshScrollView: BaseViewController {
 extension LYPullRefreshScrollView:UIScrollViewDelegate{
     
     
-    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         
         print(scrollView.contentOffset.y)
         if (scrollView.contentOffset.y < -60) {
             
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.contentScrollView.contentInset = UIEdgeInsetsMake(60.0, 0.0, 0.0, 0.0)
                 }, completion: { (isFinish:Bool) in
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
+                    DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async(execute: {
                         sleep(3)
-                        dispatch_async(dispatch_get_main_queue(), {
-                            UIView.animateWithDuration(0.3, animations: {
-                                self.contentScrollView.contentInset = UIEdgeInsetsZero
+                        DispatchQueue.main.async(execute: {
+                            UIView.animate(withDuration: 0.3, animations: {
+                                self.contentScrollView.contentInset = UIEdgeInsets.zero
                                 }, completion: nil)
                         })
                     })
@@ -52,7 +52,7 @@ extension LYPullRefreshScrollView:UIScrollViewDelegate{
         }
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
     }
 

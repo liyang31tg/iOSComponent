@@ -14,12 +14,12 @@ class SunlableViewController: BaseViewController {
     let fps = SunFPSLabel(frame: CGRect(x: 0, y: 64, width: 60, height: 44))
     
     lazy var contentTableView: UITableView = { ()-> UITableView in
-        var tmpTableView        = UITableView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight), style: UITableViewStyle.Plain)
+        var tmpTableView        = UITableView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight), style: UITableViewStyle.plain)
         tmpTableView.delegate   = self
         tmpTableView.dataSource = self
         tmpTableView.tableFooterView = UIView()
         tmpTableView.rowHeight       = 60
-        tmpTableView.registerClass(AsynTextCell.self, forCellReuseIdentifier: cellIdentifier)
+        tmpTableView.register(AsynTextCell.self, forCellReuseIdentifier: cellIdentifier)
         return tmpTableView
     
     }()
@@ -27,7 +27,7 @@ class SunlableViewController: BaseViewController {
     lazy var dataArray:[NSMutableAttributedString] = {() -> [NSMutableAttributedString] in
         var tempArray: [NSMutableAttributedString] = []
         for i in 0...300 {
-            let s: NSString = "\(i)Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫"
+            let s: NSString = "\(i)Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫 Async Display Test ✺◟(∗❛ัᴗ❛ั∗)◞✺ ✺◟(∗❛ัᴗ❛ั∗)◞✺ 😀😖😐😣😡🚖🚌🚋🎊💖💗💛💙🏨🏦🏫" as NSString
             
             var as1 = NSMutableAttributedString(string: s as String)
             as1.beginEditing()
@@ -38,7 +38,7 @@ class SunlableViewController: BaseViewController {
             style.minimumLineHeight = 12
             
             
-            as1.addAttributes([NSFontAttributeName: UIFont.systemFontOfSize(10),NSStrokeWidthAttributeName : 1,NSStrokeColorAttributeName: UIColor.redColor(),NSParagraphStyleAttributeName: style], range: NSRange(location: 0, length: s.length))
+            as1.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 10),NSStrokeWidthAttributeName : 1,NSStrokeColorAttributeName: UIColor.red,NSParagraphStyleAttributeName: style], range: NSRange(location: 0, length: s.length))
             
             as1.endEditing()
             
@@ -63,23 +63,23 @@ class SunlableViewController: BaseViewController {
 
 extension SunlableViewController:UITableViewDelegate,UITableViewDataSource{
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AsynTextCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! AsynTextCell
 //        sleep(1)
         cell.isAsyn = true
         cell.contentS = self.dataArray[indexPath.row]
         return cell
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        sleep(1)
     }
     
-    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
     }
 }
@@ -91,21 +91,21 @@ class AsynTextCell: UITableViewCell {
     let normalLabel = {()-> UILabel in
         let tmpLabel = UILabel(frame:CGRect(x: 0, y: 0, width: ScreenWidth, height: 60) )
         tmpLabel.numberOfLines = 0
-        tmpLabel.font = UIFont.systemFontOfSize(10)
+        tmpLabel.font = UIFont.systemFont(ofSize: 10)
         
         return tmpLabel
     }()
     let asynLabel = {()-> SunLabel in
     
         let tmplabel = SunLabel(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 60))
-        tmplabel.backgroundColor = UIColor.whiteColor()
+        tmplabel.backgroundColor = UIColor.white
         return tmplabel
     }()
     
     var isAsyn          =   false {
         didSet{
-            normalLabel.hidden  = isAsyn
-            asynLabel.hidden    = !isAsyn
+            normalLabel.isHidden  = isAsyn
+            asynLabel.isHidden    = !isAsyn
         }
     
     }

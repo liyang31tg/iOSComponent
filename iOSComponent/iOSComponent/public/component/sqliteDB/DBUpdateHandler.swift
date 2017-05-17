@@ -9,9 +9,9 @@
 import Foundation
 class DBUpdateHandler {
 
-    private var type        : String
-    private var db          : Connection
-    private var oldVersion  : Int
+    fileprivate var type        : String
+    fileprivate var db          : Connection
+    fileprivate var oldVersion  : Int
     
     init(type:String,db:Connection,oldVersion:Int){
         self.type       = type
@@ -36,7 +36,7 @@ class DBUpdateHandler {
         
     }
     
-    private func updateV1ToV2() {
+    fileprivate func updateV1ToV2() {
         print("create settings table")
         var sql = "CREATE TABLE IF NOT EXISTS settings"
         sql += "(name TEXT UNIQUE PRIMARY KEY NOT NULL, "

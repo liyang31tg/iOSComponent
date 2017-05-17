@@ -15,32 +15,32 @@ class BaseViewController: UIViewController {
         if self.navigationController?.viewControllers.first == self {
             self.navigationItem.leftBarButtonItem = nil
         } else {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "fts_search_backicon_ios7"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BaseViewController.backAction))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "fts_search_backicon_ios7"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseViewController.backAction))
         }
         
     }
     
     func backAction(){
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
     //MARK 解决假卡死
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if self.navigationController?.viewControllers.first == self {
-            self.navigationController?.interactivePopGestureRecognizer?.enabled = false
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         }else{
-            self.navigationController?.interactivePopGestureRecognizer?.enabled = true
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         }
     }
     //MARK:StoryBoardz之间的跳转
-    func getUIStoryboard(storyboardName: String) -> UIStoryboard {
-        return UIStoryboard(name: storyboardName, bundle: NSBundle.mainBundle())
+    func getUIStoryboard(_ storyboardName: String) -> UIStoryboard {
+        return UIStoryboard(name: storyboardName, bundle: Bundle.main)
     }
-    func getUIViewController(storyboard: UIStoryboard, controllerIdentifier: String) -> UIViewController {
-        return storyboard.instantiateViewControllerWithIdentifier(controllerIdentifier)
+    func getUIViewController(_ storyboard: UIStoryboard, controllerIdentifier: String) -> UIViewController {
+        return storyboard.instantiateViewController(withIdentifier: controllerIdentifier)
     }
     
-    func storyboardNavPushToController(storyboardName: String, controllerIdentifier: String,settingBlockPushVC:((UIViewController?)->())?) -> UIViewController {
+    func storyboardNavPushToController(_ storyboardName: String, controllerIdentifier: String,settingBlockPushVC:((UIViewController?)->())?) -> UIViewController {
         let storyboard = self.getUIStoryboard(storyboardName)
         let pushController = self.getUIViewController(storyboard, controllerIdentifier: controllerIdentifier)
         settingBlockPushVC?(pushController)

@@ -15,15 +15,15 @@ class PanCakeView: UIView {
             self.reloadData()
         }
     }
-    private   var startAngleDataArray:[Double]                = []
-    private   var endAngleDataArray:[Double]                  = []
-    private   var percentDataArray:[Double]                   = []
-    private   var radius:CGFloat                              = 0
-    private   var layerCenter:CGPoint                         = CGPointZero
-    private   var subLayer:[CAShapeLayer]                     = []
-    private   var descriptionLable:[UILabel]                  = []
+    fileprivate   var startAngleDataArray:[Double]                = []
+    fileprivate   var endAngleDataArray:[Double]                  = []
+    fileprivate   var percentDataArray:[Double]                   = []
+    fileprivate   var radius:CGFloat                              = 0
+    fileprivate   var layerCenter:CGPoint                         = CGPoint.zero
+    fileprivate   var subLayer:[CAShapeLayer]                     = []
+    fileprivate   var descriptionLable:[UILabel]                  = []
 
-    func setDataAarray(dataArray:[PanCakeDomain]){
+    func setDataAarray(_ dataArray:[PanCakeDomain]){
         
         self.dataArray = dataArray
         self.reloadData()
@@ -33,9 +33,9 @@ class PanCakeView: UIView {
         self.createSubLayers()
         self.createDescriptionLable()
     }
-    private func setUp(){
-        self.radius         = min(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) / 2
-        self.layerCenter    = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds)/2)
+    fileprivate func setUp(){
+        self.radius         = min(self.bounds.width, self.bounds.height) / 2
+        self.layerCenter    = CGPoint(x: self.bounds.width / 2, y: self.bounds.height/2)
         self.startAngleDataArray.removeAll()
         self.endAngleDataArray.removeAll()
         self.percentDataArray.removeAll()
@@ -56,9 +56,9 @@ class PanCakeView: UIView {
     }
     
     
-    private func createSubLayers(){
+    fileprivate func createSubLayers(){
         self.subLayer.removeAll()
-        for (index,_) in self.dataArray.enumerate(){
+        for (index,_) in self.dataArray.enumerated(){
             let s = self.subLayerWithIndex(index)
             self.layer.addSublayer(s)
             self.subLayer.append(s)
@@ -68,31 +68,31 @@ class PanCakeView: UIView {
     
     }
     
-    private func subLayerWithIndex(index:Int) -> CAShapeLayer{
+    fileprivate func subLayerWithIndex(_ index:Int) -> CAShapeLayer{
         let startAngle  = self.startAngleDataArray[index]
         let endAngle    = self.endAngleDataArray[index]
         let m           = self.dataArray[index]
         let s           = CAShapeLayer()
         s.frame         = self.bounds
         s.lineWidth     = 0
-        s.strokeColor   = UIColor.clearColor().CGColor
-        s.fillColor     = m.color.CGColor
+        s.strokeColor   = UIColor.clear.cgColor
+        s.fillColor     = m.color.cgColor
         let path        = UIBezierPath()
         
-        path.moveToPoint(self.layerCenter)
+        path.move(to: self.layerCenter)
         
-        path.addArcWithCenter(self.layerCenter, radius: self.radius, startAngle: CGFloat(startAngle), endAngle: CGFloat(endAngle), clockwise: true)
+        path.addArc(withCenter: self.layerCenter, radius: self.radius, startAngle: CGFloat(startAngle), endAngle: CGFloat(endAngle), clockwise: true)
         
-        path.addLineToPoint(self.layerCenter)
+        path.addLine(to: self.layerCenter)
         
-        s.path          = path.CGPath
+        s.path          = path.cgPath
         
         return s
     }
     
-    private func createDescriptionLable(){
+    fileprivate func createDescriptionLable(){
         self.descriptionLable.removeAll()
-        for (index,_) in self.dataArray.enumerate() {
+        for (index,_) in self.dataArray.enumerated() {
             let label =  self.descriptionLableWithIndex(index)
             self.addSubview(label)
             self.descriptionLable.append(label)
@@ -102,24 +102,24 @@ class PanCakeView: UIView {
     }
     
     
-   private func descriptionLableWithIndex(index:Int) -> UILabel{
+   fileprivate func descriptionLableWithIndex(_ index:Int) -> UILabel{
         let startAngle  = self.startAngleDataArray[index]
         let endAngle    = self.endAngleDataArray[index]
         let centerAngle = (startAngle + endAngle) / 2
         let centerX     = Double(self.radius) + cos(centerAngle) * Double(self.radius) / 2
         let centerY     = Double(self.radius) + sin(centerAngle) * Double(self.radius) / 2
-        let lable = UILabel(frame: CGRectZero)
+        let lable = UILabel(frame: CGRect.zero)
         lable.text = String(format: "%.2f%%", self.percentDataArray[index])
-        lable.font  = UIFont.systemFontOfSize(12)
-        lable.textAlignment = NSTextAlignment.Center
+        lable.font  = UIFont.systemFont(ofSize: 12)
+        lable.textAlignment = NSTextAlignment.center
         lable.sizeToFit()
-        lable.center = CGPointMake(CGFloat(centerX), CGFloat(centerY))
+        lable.center = CGPoint(x: CGFloat(centerX), y: CGFloat(centerY))
         return lable
     }
     
 }
 
 struct PanCakeDomain {
-    var color                   = UIColor.clearColor()
+    var color                   = UIColor.clear
     var value                   = 0.0
 }

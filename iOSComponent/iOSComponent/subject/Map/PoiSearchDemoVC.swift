@@ -35,17 +35,17 @@ class PoiSearchDemoVC: BaseViewController {
         searchInCity()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         contentMapView.viewWillAppear()
         contentMapView.delegate = self
     }
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         contentMapView.viewWillDisappear()
         contentMapView.delegate = nil
     }
-    @IBAction func segementAction(sender: UISegmentedControl) {
+    @IBAction func segementAction(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
             case 0://城市搜索
@@ -69,7 +69,7 @@ class PoiSearchDemoVC: BaseViewController {
         option.keyword      = "公交站"
         option.pageIndex    = 0
         option.pageCapacity = 10
-        poiSearch.poiSearchInCity(option)
+        poiSearch.poiSearch(inCity: option)
     
     }
     
@@ -83,7 +83,7 @@ class PoiSearchDemoVC: BaseViewController {
         
         poiSearch.poiSearchInbounds(option)
         
-        contentMapView.addOverlay(bound)
+        contentMapView.add(bound)
     
     }
     
@@ -97,13 +97,13 @@ class PoiSearchDemoVC: BaseViewController {
             
             option.keyword = "美食"
             
-            poiSearch.poiSearchNearBy(option)
+            poiSearch.poiSearchNear(by: option)
             
             contentMapView.zoomLevel = 17
         }
     }
     
-    func searchDetail(uid:String = "a11c840af07354a3246e98ab"){
+    func searchDetail(_ uid:String = "a11c840af07354a3246e98ab"){
         let detailSearch = BMKPoiDetailSearchOption()
         detailSearch.poiUid = uid
         poiSearch.poiDetailSearch(detailSearch)
@@ -115,17 +115,17 @@ class PoiSearchDemoVC: BaseViewController {
 extension PoiSearchDemoVC: BMKMapViewDelegate{
     
     
-    func mapView(mapView: BMKMapView!, onClickedMapPoi mapPoi: BMKMapPoi!) {
+    func mapView(_ mapView: BMKMapView!, onClickedMapPoi mapPoi: BMKMapPoi!) {
         print("当前坐标:\(mapPoi.pt)")
     }
-    func mapView(mapView: BMKMapView!, onClickedMapBlank coordinate: CLLocationCoordinate2D) {
+    func mapView(_ mapView: BMKMapView!, onClickedMapBlank coordinate: CLLocationCoordinate2D) {
         print("当前坐标:\(coordinate)")
     }
     
     
-    func mapView(mapView: BMKMapView!, viewForAnnotation annotation: BMKAnnotation!) -> BMKAnnotationView! {
+    func mapView(_ mapView: BMKMapView!, viewFor annotation: BMKAnnotation!) -> BMKAnnotationView! {
         let annotationViewIndentifier = "annotationViewIndentifier"
-        var bmkPAView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationViewIndentifier) as? BMKPinAnnotationView
+        var bmkPAView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationViewIndentifier) as? BMKPinAnnotationView
         if bmkPAView == nil {
            bmkPAView  =  BMKPinAnnotationView(annotation: annotation, reuseIdentifier: annotationViewIndentifier)
         }
@@ -134,7 +134,7 @@ extension PoiSearchDemoVC: BMKMapViewDelegate{
     }
     
     //返回覆盖物的view
-    func mapView(mapView: BMKMapView!, viewForOverlay overlay: BMKOverlay!) -> BMKOverlayView! {
+    func mapView(_ mapView: BMKMapView!, viewFor overlay: BMKOverlay!) -> BMKOverlayView! {
         if overlay is BMKGroundOverlay {
             let groundView = BMKGroundOverlayView(groundOverlay: overlay as! BMKGroundOverlay)
             return groundView
@@ -142,18 +142,18 @@ extension PoiSearchDemoVC: BMKMapViewDelegate{
         return nil
     }
     
-    func mapView(mapView: BMKMapView!, didSelectAnnotationView view: BMKAnnotationView!) {
+    func mapView(_ mapView: BMKMapView!, didSelect view: BMKAnnotationView!) {
         
         let a = view.annotation as! CustomUidBMKPointAnnotation
         self.searchDetail(a.uid)
         print("didSelectAnnotationView:\(a.uid),epoitype:\(a.epoitype)")
     }
     
-    func mapView(mapView: BMKMapView!, didDeselectAnnotationView view: BMKAnnotationView!) {
+    func mapView(_ mapView: BMKMapView!, didDeselect view: BMKAnnotationView!) {
         print("didDeselectAnnotationView")
     }
     
-    func mapView(mapView: BMKMapView!, annotationViewForBubble view: BMKAnnotationView!) {
+    func mapView(_ mapView: BMKMapView!, annotationViewForBubble view: BMKAnnotationView!) {
         print("annotationViewForBubble")
         
         
@@ -164,7 +164,7 @@ extension PoiSearchDemoVC: BMKMapViewDelegate{
 extension PoiSearchDemoVC: BMKPoiSearchDelegate{
  
 
-    func onGetPoiResult(searcher: BMKPoiSearch!, result poiResult: BMKPoiResult!, errorCode: BMKSearchErrorCode) {
+    func onGetPoiResult(_ searcher: BMKPoiSearch!, result poiResult: BMKPoiResult!, errorCode: BMKSearchErrorCode) {
         contentMapView.removeAnnotations(contentMapView.annotations)//每次检索都先清楚屏幕上个所有的标注
         var anotations: [BMKPointAnnotation] = []
         if errorCode == BMK_SEARCH_NO_ERROR{
@@ -183,7 +183,7 @@ extension PoiSearchDemoVC: BMKPoiSearchDelegate{
         
     }
     
-    func onGetPoiDetailResult(searcher: BMKPoiSearch!, result poiDetailResult: BMKPoiDetailResult!, errorCode: BMKSearchErrorCode) {
+    func onGetPoiDetailResult(_ searcher: BMKPoiSearch!, result poiDetailResult: BMKPoiDetailResult!, errorCode: BMKSearchErrorCode) {
         if errorCode == BMK_SEARCH_NO_ERROR {
             print(poiDetailResult.address)
         }
@@ -194,12 +194,12 @@ extension PoiSearchDemoVC: BMKPoiSearchDelegate{
 extension PoiSearchDemoVC: BMKLocationServiceDelegate {
     
     //定位代理方法
-    func didUpdateUserHeading(userLocation: BMKUserLocation!) {
+    func didUpdateUserHeading(_ userLocation: BMKUserLocation!) {
         contentMapView.updateLocationData(userLocation)
         self.currentUserLocation = userLocation
     }
     
-    func didUpdateBMKUserLocation(userLocation: BMKUserLocation!) {
+    func didUpdate(_ userLocation: BMKUserLocation!) {
         contentMapView.updateLocationData(userLocation)
         self.currentUserLocation = userLocation
     }

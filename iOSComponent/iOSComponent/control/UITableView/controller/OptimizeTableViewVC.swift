@@ -16,15 +16,15 @@ class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
         
         let headerView =  UIView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 80))
         
-        headerView.backgroundColor = UIColor.brownColor()
+        headerView.backgroundColor = UIColor.brown
         
         contentTableView.tableHeaderView = headerView
 
-        self.contentTableView.refreshType = RefreshType.PullBoth
+        self.contentTableView.refreshType = RefreshType.pullBoth
         
         self.contentTableView.refreshDelegate = self
         
-        self.contentTableView.currentRefreshDataState = RefreshDataType.PullDownRefreshing
+        self.contentTableView.currentRefreshDataState = RefreshDataType.pullDownRefreshing
         
 
         var part1: [OptimizeTableViewCellDomainDelegate]        = []
@@ -46,25 +46,25 @@ class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
         
         
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
             sleep(3)
-            dispatch_async(dispatch_get_main_queue(), {
-                self.contentTableView.currentRefreshDataState = RefreshDataType.PullUpRefreshed
+            DispatchQueue.main.async(execute: {
+                self.contentTableView.currentRefreshDataState = RefreshDataType.pullUpRefreshed
             })
         }
     }
     
     func refreshData() {
         print("refreshData")
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
             sleep(3)
-            dispatch_async(dispatch_get_main_queue(), {
-                self.contentTableView.currentRefreshDataState = RefreshDataType.PullDownRefreshed
+            DispatchQueue.main.async(execute: {
+                self.contentTableView.currentRefreshDataState = RefreshDataType.pullDownRefreshed
             })
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print(self.contentTableView.contentSize.height)
 //        self.contentTableView.addRefreshFooterView()
@@ -96,7 +96,7 @@ class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
 //        print("observeValueForKeyPath")
 //    }
     
-    @IBAction func rightBtnAction(sender: AnyObject) {
+    @IBAction func rightBtnAction(_ sender: AnyObject) {
         let a = self.dataArray[0].count
         for i in 0...10 {
             
@@ -123,52 +123,52 @@ class OptimizeTableViewVC: BaseViewController,RefreshProtocol {
 //MARK:TableViewDelegate
 extension OptimizeTableViewVC:UITableViewDataSource,UITableViewDelegate{
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataArray[section].count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellDomain = self.dataArray[indexPath.section][indexPath.row]
-        return tableView.dequeueReusableCellWithIdentifier(cellDomain.cellIdentifier, forIndexPath: indexPath)
+        return tableView.dequeueReusableCell(withIdentifier: cellDomain.cellIdentifier, for: indexPath)
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         var c = cell as! OptimizeTableViewCellDelegate
         c.cellDomain = self.dataArray[indexPath.section][indexPath.row]
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return self.dataArray.count
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        return self.dataArray[indexPath.section][indexPath.row].caculateCellHeight()
     }
     
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.dataArray[indexPath.section][indexPath.row].cellHeight ?? 50
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 
 //为了能取消，放弃GCD
 class OptimizeTableView: UITableView {
-    let caculateQueue = NSOperationQueue()
+    let caculateQueue = OperationQueue()
     /*datas 这个数据源必须是二维数组,操作的数据源
      *
      *foreCaculate 预先需要先发送几个异步请求再刷新（这个参数的作用本来是用来控制异步资源（意思就是根据不同的页面，估算（不用准确，线程安全的）出一个界面会显示几个cell，先用全部CPU优先计算这几个cell的高）的（暂时还没想到好的思路））
      *
      ＊asynIndexPaths 对哪些indexPath进行异步计算（默认为空，就全部计算(只有没有才计算)）这个参数到底能是否能提高多少性能，暂时不清楚（没有时间测算）
      */
-    func reloadData(datas:[[OptimizeTableViewCellDomainDelegate]],foreCaculate:Int = 0,asynIndexPaths:[NSIndexPath]? = nil) {
+    func reloadData(_ datas:[[OptimizeTableViewCellDomainDelegate]],foreCaculate:Int = 0,asynIndexPaths:[IndexPath]? = nil) {
       
         caculateQueue.cancelAllOperations()
         weak var weakSelf = self
         
-        let operation =   NSBlockOperation {
+        let operation =   BlockOperation {
             var allCount            = 0 // 总的需要计算cell的height的个数
             for dataRow in datas{
                 allCount += dataRow.count
@@ -176,25 +176,25 @@ class OptimizeTableView: UITableView {
             var currentCalculate    = 0 //当前发送计算请求到队列里的个数
             
             if let aIndexPaths = asynIndexPaths {
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.reloadData()
                 })
                 for indexPth in aIndexPaths {
-                    let operation =  NSBlockOperation(block: {
+                    let operation =  BlockOperation(block: {
                         datas[indexPth.section][indexPth.row].caculateCellHeight()
                     })
                     weakSelf?.caculateQueue.addOperation(operation)
                 }
                 
             }else{
-                for (i,dataRow) in datas.enumerate() {
-                    for (j,_) in dataRow.enumerate() {
+                for (i,dataRow) in datas.enumerated() {
+                    for (j,_) in dataRow.enumerated() {
                         if currentCalculate == foreCaculate{
-                            dispatch_async(dispatch_get_main_queue(), {
+                            DispatchQueue.main.async(execute: {
                                 self.reloadData()
                             })
                         }
-                        let operation =  NSBlockOperation(block: {
+                        let operation =  BlockOperation(block: {
                             datas[i][j].caculateCellHeight()
                         })
                         weakSelf?.caculateQueue.addOperation(operation)
@@ -228,7 +228,7 @@ protocol OptimizeTableViewCellDelegate {
 
 //MARK:注意保重线程安全
 class OptimizeTableViewCellDomain : OptimizeTableViewCellDomainDelegate{
-    private let a       = dispatch_semaphore_create(1)
+    fileprivate let a       = DispatchSemaphore(value: 1)
     var index           = ""
     var title           = ""
     var image           = ""
@@ -236,12 +236,12 @@ class OptimizeTableViewCellDomain : OptimizeTableViewCellDomainDelegate{
     var cellIdentifier = ""
     var cellHeight: CGFloat?
     func caculateCellHeight() -> CGFloat {
-        dispatch_semaphore_wait(a, DISPATCH_TIME_FOREVER)
+        a.wait(timeout: DispatchTime.distantFuture)
         if self.cellHeight == nil {
             let attributeStr = NSAttributedString(string: self.title)
             self.cellHeight = CommonUtil.caculateDisplayHeight(attributeStr, width: ScreenWidth)
         }
-        dispatch_semaphore_signal(a)
+        a.signal()
         return self.cellHeight!
     }
     
@@ -276,8 +276,8 @@ class OptimizeTableViewCell: UITableViewCell,OptimizeTableViewCellDelegate {
             }else{
                 self.contentLabel.text = domain.title
             }
-            self.coreTextView.hidden = !self.isAsynShow
-            self.contentLabel.hidden = self.isAsynShow
+            self.coreTextView.isHidden = !self.isAsynShow
+            self.contentLabel.isHidden = self.isAsynShow
             
         }
     }

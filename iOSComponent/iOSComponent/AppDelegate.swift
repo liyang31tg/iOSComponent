@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
     
 
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let FPSLabel = SunFPSLabel(frame: CGRect(x: 0, y: 64, width: 100, height: 44))
         self.window!.addSubview(FPSLabel)
-        self.window?.backgroundColor = UIColor.whiteColor()
+        self.window?.backgroundColor = UIColor.white
 
         
         
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
     
     
     //MARK: - BMKGeneralDelegate
-    func onGetNetworkState(iError: Int32) {
+    func onGetNetworkState(_ iError: Int32) {
         if (0 == iError) {
             NSLog("联网成功");
         }
@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
         }
     }
     
-    func onGetPermissionState(iError: Int32) {
+    func onGetPermissionState(_ iError: Int32) {
         if (0 == iError) {
             NSLog("授权成功");
         }

@@ -22,7 +22,7 @@ class LinkedImplementsViewController: UIViewController {
         super.viewDidLoad()
     }
   
-    @IBAction func addDoAction(sender: AnyObject) {
+    @IBAction func addDoAction(_ sender: AnyObject) {
         
         tmpCache.put(contentText, anyO: contentText)
         var tmpNode = tmpCache.firstNode
@@ -33,12 +33,12 @@ class LinkedImplementsViewController: UIViewController {
         
     }
     
-    @IBAction func resetAction(sender: AnyObject) {
+    @IBAction func resetAction(_ sender: AnyObject) {
         
     }
     
     
-    @IBAction func queryAction(sender: AnyObject) {
+    @IBAction func queryAction(_ sender: AnyObject) {
         tmpCache.get(contentText)
         var tmpNode = tmpCache.firstNode
         while tmpNode != nil {
@@ -48,7 +48,7 @@ class LinkedImplementsViewController: UIViewController {
     }
     
     
-    @IBAction func removeAction(sender: AnyObject) {
+    @IBAction func removeAction(_ sender: AnyObject) {
         tmpCache.remove(contentText)
         var tmpNode = tmpCache.firstNode
         while tmpNode != nil {
@@ -76,23 +76,23 @@ class LURCache {
     }
     
     
-    private var cacheSize                           = 0
-    lazy private  var nodes :[String: CacheNode]     = [:]
-    private var currentSize                         = 0
-    private var firstNode: CacheNode?
-    private var lastNode: CacheNode?
+    fileprivate var cacheSize                           = 0
+    lazy fileprivate  var nodes :[String: CacheNode]     = [:]
+    fileprivate var currentSize                         = 0
+    fileprivate var firstNode: CacheNode?
+    fileprivate var lastNode: CacheNode?
     
     init(cacheSize :Int){
         self.cacheSize = cacheSize
     }
     
-    func get(key : String) -> Any? {
+    func get(_ key : String) -> Any? {
         let tmpNode = nodes[key]
         move2Head(tmpNode)
         return tmpNode?.data
     }
     
-    func put(key: String , anyO: Any){
+    func put(_ key: String , anyO: Any){
         var tmpNode = nodes[key]
         if nil == tmpNode {
             if currentSize >= cacheSize {
@@ -111,7 +111,7 @@ class LURCache {
     }
     
     
-    func remove(key : String) -> CacheNode?{
+    func remove(_ key : String) -> CacheNode?{
         let tmpNode = nodes[key]
         if let node = tmpNode {
             if node.prev != nil {
@@ -141,7 +141,7 @@ class LURCache {
     }
     
     
-    private func removeLast(){
+    fileprivate func removeLast(){
         if let lastn = lastNode {
             nodes[lastn.key] = nil//从缓存中删除
             currentSize -= 1
@@ -155,7 +155,7 @@ class LURCache {
     }
     
     
-    private func move2Head(node: CacheNode?){
+    fileprivate func move2Head(_ node: CacheNode?){
         if let n = node {
             if node === firstNode{
                 return

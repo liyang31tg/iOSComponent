@@ -15,9 +15,9 @@ class PhotoKitVC: BaseViewController {
         
     }
     
-    @IBAction func openPhotoAction(sender: AnyObject) {
+    @IBAction func openPhotoAction(_ sender: AnyObject) {
         let imagePickerVC = ImagePickerController()
-        imagePickerVC.view.backgroundColor = UIColor.redColor()
-        self.presentViewController(imagePickerVC, animated: true, completion: nil)
+        imagePickerVC.view.backgroundColor = UIColor.red
+        self.present(imagePickerVC, animated: true, completion: nil)
     }
 }

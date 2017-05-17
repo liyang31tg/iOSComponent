@@ -22,9 +22,7 @@
 // THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-
-//@import Foundation;
+@import Foundation;
 
 #ifndef COCOAPODS
 #import "sqlite3.h"

@@ -19,19 +19,19 @@ class MapViewBaseDemoVC: BaseViewController,BMKMapViewDelegate {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mapView.viewWillAppear()
         mapView.delegate = self
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         mapView.viewWillDisappear()
         mapView.delegate = nil
     }
     
-    @IBAction func segementAction(sender: AnyObject) {
+    @IBAction func segementAction(_ sender: AnyObject) {
         let a = sender as! UISegmentedControl
         switch a.tag {
         case 0:
@@ -41,9 +41,9 @@ class MapViewBaseDemoVC: BaseViewController,BMKMapViewDelegate {
             case 1:
                 mapView.mapType = UInt(BMKMapTypeSatellite) //卫星地图
             case 2:
-                mapView.trafficEnabled  = true              //开启实时交通图
+                mapView.isTrafficEnabled  = true              //开启实时交通图
             case 3:
-                mapView.trafficEnabled  = false             //关闭实时交通图
+                mapView.isTrafficEnabled  = false             //关闭实时交通图
                 
             default:
                 break
@@ -51,9 +51,9 @@ class MapViewBaseDemoVC: BaseViewController,BMKMapViewDelegate {
         case 1:
             switch a.selectedSegmentIndex {
             case 0:
-                mapView.baiduHeatMapEnabled = true          //开启百度热力图
+                mapView.isBaiduHeatMapEnabled = true          //开启百度热力图
             case 1:
-                mapView.baiduHeatMapEnabled = false         //关闭百度热力图
+                mapView.isBaiduHeatMapEnabled = false         //关闭百度热力图
             default:
                 break
             }

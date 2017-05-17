@@ -27,22 +27,22 @@ class RouteSearchDemoVC: BaseViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         contentMapView.viewWillAppear()
         contentMapView.delegate = self
         routeSearch.delegate    = self
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         contentMapView.viewWillDisappear()
         contentMapView.delegate = nil
         routeSearch.delegate    = nil
     }
     
-    @IBAction func segementControl(sender: UISegmentedControl) {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+    @IBAction func segementControl(_ sender: UISegmentedControl) {
+        UIApplication.shared.keyWindow?.endEditing(true)
         switch sender.selectedSegmentIndex {
             case 0://公交
                 self.searchTransitRoute()
@@ -116,7 +116,7 @@ class RouteSearchDemoVC: BaseViewController {
 
 extension RouteSearchDemoVC : BMKRouteSearchDelegate{
     //公交路线查找（回调）
-    func onGetTransitRouteResult(searcher: BMKRouteSearch!, result: BMKTransitRouteResult!, errorCode error: BMKSearchErrorCode) {
+    func onGetTransitRouteResult(_ searcher: BMKRouteSearch!, result: BMKTransitRouteResult!, errorCode error: BMKSearchErrorCode) {
         print("公交路线查找")
         contentMapView.removeAnnotations(contentMapView.annotations)
         contentMapView.removeOverlays(contentMapView.overlays)
@@ -132,7 +132,7 @@ extension RouteSearchDemoVC : BMKRouteSearchDelegate{
                     item.title      = "起点"
                     item.type       = RouteAnnotation.RouteType.starting.rawValue
                     contentMapView.addAnnotation(item)
-                    contentMapView.setCenterCoordinate(item.coordinate, animated: false)
+                    contentMapView.setCenter(item.coordinate, animated: false)
                 } else if i == sizes-1 {//终点
                     let item = RouteAnnotation()
                     item.coordinate = plan.terminal.location
@@ -159,19 +159,19 @@ extension RouteSearchDemoVC : BMKRouteSearchDelegate{
             }
             
            let polyline = BMKPolyline(points: &tmpPoints, count: UInt(tmpPoints.count))
-            contentMapView.addOverlay(polyline)
+            contentMapView.add(polyline)
         }
     }
     
     //驾乘路线（回调）
-    func onGetDrivingRouteResult(searcher: BMKRouteSearch!, result: BMKDrivingRouteResult!, errorCode error: BMKSearchErrorCode) {
+    func onGetDrivingRouteResult(_ searcher: BMKRouteSearch!, result: BMKDrivingRouteResult!, errorCode error: BMKSearchErrorCode) {
         contentMapView.removeOverlays(contentMapView.overlays)
         contentMapView.removeAnnotations(contentMapView.annotations)
         if error == BMK_SEARCH_NO_ERROR {
             let plan = result.routes[0] as! BMKDrivingRouteLine
             let stepsCount = plan.steps.count
             var tmpPoints:[BMKMapPoint]      = []
-            for (index,step) in plan.steps.enumerate() {
+            for (index,step) in plan.steps.enumerated() {
                 let driveStep = step as! BMKDrivingStep
                 if index == 0 {//起点
                     let item = RouteAnnotation()
@@ -179,7 +179,7 @@ extension RouteSearchDemoVC : BMKRouteSearchDelegate{
                     item.title = "起点"
                     item.type = RouteAnnotation.RouteType.starting.rawValue
                     contentMapView.addAnnotation(item)
-                    contentMapView.setCenterCoordinate(item.coordinate, animated: false)
+                    contentMapView.setCenter(item.coordinate, animated: false)
                 }else if index == stepsCount - 1{//终点
                     let item = RouteAnnotation()
                     item.coordinate = plan.terminal.location
@@ -214,12 +214,12 @@ extension RouteSearchDemoVC : BMKRouteSearchDelegate{
                 
             }
             let polyLine = BMKPolyline(points: &tmpPoints, count: UInt(tmpPoints.count))
-            contentMapView.addOverlay(polyLine)
+            contentMapView.add(polyLine)
         }
     }
     
     //步行（回调）
-    func onGetWalkingRouteResult(searcher: BMKRouteSearch!, result: BMKWalkingRouteResult!, errorCode error: BMKSearchErrorCode) {
+    func onGetWalkingRouteResult(_ searcher: BMKRouteSearch!, result: BMKWalkingRouteResult!, errorCode error: BMKSearchErrorCode) {
         print("步行路线查找")
         contentMapView.removeOverlays(contentMapView.overlays)
         contentMapView.removeAnnotations(contentMapView.annotations)
@@ -228,14 +228,14 @@ extension RouteSearchDemoVC : BMKRouteSearchDelegate{
             let plan = result.routes[0] as! BMKWalkingRouteLine
             let stepCounts = plan.steps.count
             var tmpPoint:[BMKMapPoint] = []
-            for (index,step) in plan.steps.enumerate() {
+            for (index,step) in plan.steps.enumerated() {
                 let warkStep = step as! BMKWalkingStep
                 if index == 0{
                     let item = RouteAnnotation()
                     item.coordinate = plan.starting.location
                     item.title      = "起点"
                     item.type       = RouteAnnotation.RouteType.starting.rawValue
-                    contentMapView.setCenterCoordinate(item.coordinate, animated: false)
+                    contentMapView.setCenter(item.coordinate, animated: false)
                     contentMapView.addAnnotation(item)
                 }else if index == stepCounts - 1 {
                     let item = RouteAnnotation()
@@ -259,7 +259,7 @@ extension RouteSearchDemoVC : BMKRouteSearchDelegate{
                 }
                 
                 let poly =  BMKPolyline(points: &tmpPoint, count: UInt(tmpPoint.count))
-                contentMapView.addOverlay(poly)
+                contentMapView.add(poly)
                 
                 
             }
@@ -269,7 +269,7 @@ extension RouteSearchDemoVC : BMKRouteSearchDelegate{
         
     }
     
-    func onGetRidingRouteResult(searcher: BMKRouteSearch!, result: BMKRidingRouteResult!, errorCode error: BMKSearchErrorCode) {
+    func onGetRidingRouteResult(_ searcher: BMKRouteSearch!, result: BMKRidingRouteResult!, errorCode error: BMKSearchErrorCode) {
         
         contentMapView.removeOverlays(contentMapView.overlays)
         contentMapView.removeAnnotations(contentMapView.annotations)
@@ -278,14 +278,14 @@ extension RouteSearchDemoVC : BMKRouteSearchDelegate{
             let plan = result.routes[0] as! BMKRidingRouteLine
             let stepCounts = plan.steps.count
             var tmpPoint:[BMKMapPoint] = []
-            for (index,step) in plan.steps.enumerate() {
+            for (index,step) in plan.steps.enumerated() {
                 let rideStep = step as! BMKRidingStep
                 if index == 0{
                     let item = RouteAnnotation()
                     item.coordinate = plan.starting.location
                     item.title      = "起点"
                     item.type       = RouteAnnotation.RouteType.starting.rawValue
-                    contentMapView.setCenterCoordinate(item.coordinate, animated: false)
+                    contentMapView.setCenter(item.coordinate, animated: false)
                     contentMapView.addAnnotation(item)
                 }else if index == stepCounts - 1 {
                     let item = RouteAnnotation()
@@ -309,7 +309,7 @@ extension RouteSearchDemoVC : BMKRouteSearchDelegate{
                 }
                 
                 let poly =  BMKPolyline(points: &tmpPoint, count: UInt(tmpPoint.count))
-                contentMapView.addOverlay(poly)
+                contentMapView.add(poly)
                 
                 
             }
@@ -323,17 +323,17 @@ extension RouteSearchDemoVC : BMKRouteSearchDelegate{
 extension RouteSearchDemoVC: BMKMapViewDelegate{
     
     
-    func mapView(mapView: BMKMapView!, viewForOverlay overlay: BMKOverlay!) -> BMKOverlayView! {
+    func mapView(_ mapView: BMKMapView!, viewFor overlay: BMKOverlay!) -> BMKOverlayView! {
         if let  layline = overlay as? BMKPolyline {
            let polylineView = BMKPolylineView(polyline: layline)
-            polylineView.strokeColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.7)
-            polylineView.lineWidth = 3
+            polylineView?.strokeColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.7)
+            polylineView?.lineWidth = 3
             return polylineView
         }
         return nil
     }
     
-    func mapView(mapView: BMKMapView!, viewForAnnotation annotation: BMKAnnotation!) -> BMKAnnotationView! {
+    func mapView(_ mapView: BMKMapView!, viewFor annotation: BMKAnnotation!) -> BMKAnnotationView! {
         if annotation is RouteAnnotation {
             return getViewForRouteAnnotation(annotation as! RouteAnnotation)
         }
@@ -341,7 +341,7 @@ extension RouteSearchDemoVC: BMKMapViewDelegate{
         return nil
     }
     
-    func getViewForRouteAnnotation(routeAnnotation: RouteAnnotation!) -> BMKAnnotationView? {
+    func getViewForRouteAnnotation(_ routeAnnotation: RouteAnnotation!) -> BMKAnnotationView? {
         var view: BMKAnnotationView?
         
         var imageName: String?
@@ -362,16 +362,16 @@ extension RouteSearchDemoVC: BMKMapViewDelegate{
             return nil
         }
         let identifier = "\(imageName)_annotation"
-        view = contentMapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+        view = contentMapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if view == nil {
             view = BMKAnnotationView(annotation: routeAnnotation, reuseIdentifier: identifier)
-            view?.centerOffset = CGPointMake(0, -(view!.frame.size.height * 0.5))
+            view?.centerOffset = CGPoint(x: 0, y: -(view!.frame.size.height * 0.5))
             view?.canShowCallout = true
         }
         view?.annotation = routeAnnotation
-        let bundlePath = NSBundle.mainBundle().resourcePath?.stringByAppendingString("/mapapi.bundle/")
-        let bundle = NSBundle(path: bundlePath!)
-        if let imagePath = bundle?.resourcePath?.stringByAppendingString("/images/icon_\(imageName!).png") {
+        let bundlePath = (Bundle.main.resourcePath)! + "/mapapi.bundle/"
+        let bundle = Bundle(path: bundlePath)
+        if let imagePath = (bundle?.resourcePath)! + "/images/icon_\(imageName!).png" {
             let image = UIImage(contentsOfFile: imagePath)
             if image != nil {
                 view?.image = image

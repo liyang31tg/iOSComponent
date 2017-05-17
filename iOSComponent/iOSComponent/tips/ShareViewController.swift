@@ -13,7 +13,7 @@ class ShareViewController: BaseViewController {
         super.viewDidLoad()
         
     }
-    @IBAction func shareAction(sender: AnyObject) {
+    @IBAction func shareAction(_ sender: AnyObject) {
         print("shareAction")
         let shareV = ShareView()
         shareV.presentWithContainerView(self.navigationController?.view)

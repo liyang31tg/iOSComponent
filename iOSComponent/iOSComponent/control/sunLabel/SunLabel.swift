@@ -19,7 +19,7 @@ class SunLabel: UIView {
         }
     }
     
-    override class func layerClass() -> AnyClass{
+    override class var layerClass : AnyClass{
     
         return SunAsynsLayer.self
     }
@@ -51,18 +51,18 @@ class SunAsynsLayer: CALayer {
     }
     
     override func display() {
-        let scale = UIScreen.mainScreen().scale
+        let scale = UIScreen.main.scale
         self.contentsScale = scale
         super.display()
     }
     
     
-    override func drawInContext(ctx: CGContext) {
+    override func draw(in ctx: CGContext) {
         
-        super.drawInContext(ctx)
+        super.draw(in: ctx)
         
 //        CGContextScaleCTM(ctx, scale, scale)
-        CGContextSetTextMatrix(ctx, CGAffineTransformIdentity);
+        ctx.textMatrix = CGAffineTransform.identity;
         
         // 这两种转换坐标的方式效果一样
         // 2.1
@@ -70,7 +70,7 @@ class SunAsynsLayer: CALayer {
         // CGContextScaleCTM(contextRef, 1.0, -1.0);
         
         // 2.2
-        CGContextConcatCTM(ctx, CGAffineTransformMake(1, 0, 0, -1, 0, self.bounds.size.height));
+        ctx.concatenate(CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: self.bounds.size.height));
         
         
 
@@ -80,18 +80,18 @@ class SunAsynsLayer: CALayer {
     
     
         // 3.创建绘制区域，可以对path进行个性化裁剪以改变显示区域
-        let path = CGPathCreateMutable();
+        let path = CGMutablePath();
         CGPathAddRect(path, nil, self.bounds);
         // CGPathAddEllipseInRect(path, NULL, self.bounds);
         
         // 4.创建需要绘制的文字
       let attributed =  NSMutableAttributedString(string: "估后共和国开不开vbdkaph估后共和国开不开vbdkaph😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️😢😊😊😢⬇️这是我的第一个coreText demo，我是要给兵来自老白干I型那个饿哦个呢给个I类回滚igkhpwfh 评估后共和国开不开vbdkaphphohghg 的分工额好几个辽宁省更怕hi维护你不看hi好人佛【井柏然把饿哦个😢😊😊😢⬇️");
       
-        attributed.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(20), range: NSMakeRange(0, 5));
+        attributed.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 20), range: NSMakeRange(0, 5));
         
-        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(3, 10));
+        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(3, 10));
 
-        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.orangeColor(), range: NSMakeRange(0, 2));
+        attributed.addAttribute(NSForegroundColorAttributeName, value: UIColor.orange, range: NSMakeRange(0, 2));
 
        
         

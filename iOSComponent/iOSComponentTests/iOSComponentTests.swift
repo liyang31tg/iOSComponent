@@ -23,7 +23,7 @@ class iOSComponentTests: XCTestCase {
     
     func testExample() {
         var account = 3000
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { () -> Void in
             if account > 2000{
                 sleep(2)
                 account -= 2000
@@ -31,7 +31,7 @@ class iOSComponentTests: XCTestCase {
             print("aaaa:\(account)")
         }
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { () -> Void in
             if account > 2000{
                 sleep(2)
                 account -= 2000
@@ -42,14 +42,14 @@ class iOSComponentTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
     
     func tt(){
         var account = 3000
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { () -> Void in
             if account > 2000{
                 sleep(2)
                 account -= 2000
@@ -57,7 +57,7 @@ class iOSComponentTests: XCTestCase {
             print("aaaa:\(account)")
         }
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { () -> Void in
             if account > 2000{
                 sleep(2)
                 account -= 2000
@@ -69,7 +69,7 @@ class iOSComponentTests: XCTestCase {
     
     func test1(){
         var account = 3000
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { () -> Void in
             if account > 2000{
                 sleep(2)
                 account -= 2000
@@ -77,7 +77,7 @@ class iOSComponentTests: XCTestCase {
             print("aaaa:\(account)")
         }
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { () -> Void in
             if account > 2000{
                 sleep(2)
                 account -= 2000

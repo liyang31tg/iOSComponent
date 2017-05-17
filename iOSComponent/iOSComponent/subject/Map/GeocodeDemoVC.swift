@@ -21,21 +21,21 @@ class GeocodeDemoVC: BaseViewController {
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         contentMapView.viewWillAppear()
         contentMapView.delegate = self
         mapCodeSearch.delegate  = self
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         contentMapView.viewWillDisappear()
         contentMapView.delegate = nil
         mapCodeSearch.delegate  = nil
         
     }
-    @IBAction func segementControl(sender: UISegmentedControl) {
+    @IBAction func segementControl(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
             case 0://地理编码
                 let option = BMKGeoCodeSearchOption()
@@ -57,27 +57,27 @@ extension GeocodeDemoVC: BMKMapViewDelegate{}
 
 extension GeocodeDemoVC: BMKGeoCodeSearchDelegate{
 
-    func onGetGeoCodeResult(searcher: BMKGeoCodeSearch!, result: BMKGeoCodeResult!, errorCode error: BMKSearchErrorCode) {
+    func onGetGeoCodeResult(_ searcher: BMKGeoCodeSearch!, result: BMKGeoCodeResult!, errorCode error: BMKSearchErrorCode) {
         self.tmpCoord = result.location
-        let alertVC =   UIAlertController(title: result.address, message: "latitude:\(result.location.latitude),longitude:\(result.location.longitude)", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertVC =   UIAlertController(title: result.address, message: "latitude:\(result.location.latitude),longitude:\(result.location.longitude)", preferredStyle: UIAlertControllerStyle.alert)
         
-        let cancelAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel) { (UIAlertAction) in
-        alertVC.dismissViewControllerAnimated(true, completion: nil)
+        let cancelAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.cancel) { (UIAlertAction) in
+        alertVC.dismiss(animated: true, completion: nil)
         }
         alertVC.addAction(cancelAction)
-        self.presentViewController(alertVC, animated: true, completion: nil)
+        self.present(alertVC, animated: true, completion: nil)
         
         print(result.location)
         print(result.address)
     }
     
-    func onGetReverseGeoCodeResult(searcher: BMKGeoCodeSearch!, result: BMKReverseGeoCodeResult!, errorCode error: BMKSearchErrorCode) {
-        let alertVC =   UIAlertController(title: nil, message: result.d, preferredStyle: UIAlertControllerStyle.Alert)
-        let cancelAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.Cancel) { (UIAlertAction) in
-            alertVC.dismissViewControllerAnimated(true, completion: nil)
+    func onGetReverseGeoCodeResult(_ searcher: BMKGeoCodeSearch!, result: BMKReverseGeoCodeResult!, errorCode error: BMKSearchErrorCode) {
+        let alertVC =   UIAlertController(title: nil, message: result.d, preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.cancel) { (UIAlertAction) in
+            alertVC.dismiss(animated: true, completion: nil)
         }
         alertVC.addAction(cancelAction)
-        self.presentViewController(alertVC, animated: true, completion: nil)
+        self.present(alertVC, animated: true, completion: nil)
     }
 }
 

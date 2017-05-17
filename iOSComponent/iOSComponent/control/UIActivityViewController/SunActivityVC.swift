@@ -10,7 +10,7 @@ import Foundation
 class SunActivityVC: BaseViewController {
     
     
-    @IBAction func shareAction(sender: UIButton) {
+    @IBAction func shareAction(_ sender: UIButton) {
         let items = [UIImage(named:"page4")!,UIImage(named: "page3")!]
         
         
@@ -19,48 +19,48 @@ class SunActivityVC: BaseViewController {
         
      
         
-        activity.excludedActivityTypes = [UIActivityTypeMail,UIActivityTypePostToWeibo,UIActivityTypeAirDrop,UIActivityTypeAirDrop,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll]
+        activity.excludedActivityTypes = [UIActivityType.mail,UIActivityType.postToWeibo,UIActivityType.airDrop,UIActivityType.airDrop,UIActivityType.print,UIActivityType.copyToPasteboard,UIActivityType.assignToContact,UIActivityType.saveToCameraRoll]
         
         
-        self.presentViewController(activity, animated: true, completion: nil)
+        self.present(activity, animated: true, completion: nil)
     }
     
     
 }
 
 class WeChatActivity: UIActivity {
-    override func activityType() -> String? {
+    override var activityType : String? {
         return "com.fox.shareWechat"
     }
     
-    override func activityTitle() -> String? {
+    override var activityTitle : String? {
         return "微信"
     }
     
-    override func activityImage() -> UIImage? {
+    override var activityImage : UIImage? {
         
         return UIImage(named: "3_5_2_3_weixin")
     }
     
-    override class func activityCategory() -> UIActivityCategory{
+    override class var activityCategory : UIActivityCategory{
     
-        return .Action
+        return .action
     }
     
-    override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
+    override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
         return true
     }
     
 
     
-    override func performActivity() {
+    override func perform() {
         
         print("performActivity")
         self.activityDidFinish(true)
         
     }
     
-    override func prepareWithActivityItems(activityItems: [AnyObject]) {
+    override func prepare(withActivityItems activityItems: [Any]) {
         print(activityItems)
     }
     

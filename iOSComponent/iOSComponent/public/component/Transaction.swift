@@ -10,26 +10,26 @@ import Foundation
 
 private struct TransactionSetUp {
     static var transactionset:Set<Transaction>              = []
-    static var onceTocken:dispatch_once_t                   = 0
+    static var onceTocken:Int                   = 0
     static var observer:CFRunLoopObserver?
     static let runloop                                      = CFRunLoopGetMain()
-    static let dispath_one_thread                           = dispatch_semaphore_create(1)
+    static let dispath_one_thread                           = DispatchSemaphore(value: 1)
     static func setUp(){
-        dispatch_semaphore_wait(dispath_one_thread, DISPATCH_TIME_FOREVER)
+        dispath_one_thread.wait(timeout: DispatchTime.distantFuture)
             if self.observer == nil{
-                self.observer =  CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault,CFRunLoopActivity.BeforeWaiting.rawValue | CFRunLoopActivity.Exit.rawValue , true, 0xFFFFFF) { (b:CFRunLoopObserver!, a:CFRunLoopActivity) in
+                self.observer =  CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault,CFRunLoopActivity.beforeWaiting.rawValue | CFRunLoopActivity.exit.rawValue , true, 0xFFFFFF) { (b:CFRunLoopObserver!, a:CFRunLoopActivity) in
                     let tmpActionSet    = self.transactionset
                     self.transactionset = []
                     for action in tmpActionSet{
-                        action.target.performSelector(action.selector)
+                        action.target.perform(action.selector)
                     }
-                    CFRunLoopRemoveObserver(self.runloop, self.observer, kCFRunLoopCommonModes)
+                    CFRunLoopRemoveObserver(self.runloop, self.observer, CFRunLoopMode.commonModes)
                     self.observer    = nil
                     
                 }
-                CFRunLoopAddObserver(self.runloop, self.observer, kCFRunLoopCommonModes)
+                CFRunLoopAddObserver(self.runloop, self.observer, CFRunLoopMode.commonModes)
             }
-        dispatch_semaphore_signal(dispath_one_thread)
+        dispath_one_thread.signal()
     }
 }
 

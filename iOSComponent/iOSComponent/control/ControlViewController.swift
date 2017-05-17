@@ -15,7 +15,7 @@ class ControlViewController: BaseGroupTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.contentTableView.refreshType = RefreshType.PullBoth
+        self.contentTableView.refreshType = RefreshType.pullBoth
         dataArray = [[  CTDomain(sectionTitle: "UILabel"),
                         CTDomain(title: "SUNKit", storyBoard: "control", storyBoardId: "uiLabelExtenssionIdentifer")],
                      [  CTDomain(sectionTitle: "UIScrollView"),
@@ -32,7 +32,7 @@ class ControlViewController: BaseGroupTableViewController {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print(self.contentTableView.contentInset)
     }

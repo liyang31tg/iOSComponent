@@ -21,15 +21,15 @@ class CornerRadiusViewController: BaseViewController {
     @IBOutlet weak var contentTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.swichBtn.on = false
+        self.swichBtn.isOn = false
         
         self.title = "cornerRadius 正确的姿势"
     }
     
     
-    @IBAction func swichtAcrion(sender: AnyObject) {
+    @IBAction func swichtAcrion(_ sender: AnyObject) {
         
-        self.isNormal = (sender as! UISwitch).on
+        self.isNormal = (sender as! UISwitch).isOn
         
     }
     
@@ -37,23 +37,23 @@ class CornerRadiusViewController: BaseViewController {
 
 extension CornerRadiusViewController:UITableViewDelegate,UITableViewDataSource {
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 600
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         print("heightForRowAtIndexPath:\(indexPath.row)")
         return 44
     }
     
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = isNormal ? "CornerCellNormolIdentifier" : "CornerCellidentifier"
         if isNormal {
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CornerCellNormol
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CornerCellNormol
             cell.N1.text = "A1"
             cell.N2.text = "A2"
             cell.N3.text = "A3"
@@ -63,7 +63,7 @@ extension CornerRadiusViewController:UITableViewDelegate,UITableViewDataSource {
 
             return cell
         }else{
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CornerCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CornerCell
             cell.C1.text = "A1"
             cell.C2.text = "A2"
             cell.C3.text = "A3"
@@ -79,8 +79,8 @@ extension CornerRadiusViewController:UITableViewDelegate,UITableViewDataSource {
 //    }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
@@ -122,7 +122,7 @@ class CornerCell: UITableViewCell {
             
             m.scornerRadius = 8
             
-            m.sborderColor  = UIColor.redColor()
+            m.sborderColor  = UIColor.red
             
             
         
@@ -132,7 +132,7 @@ class CornerCell: UITableViewCell {
         
         b6.scornerRadius = 13
         
-        b6.sborderColor  = UIColor.redColor()
+        b6.sborderColor  = UIColor.red
         
         b6.setNeedsDisplay()
         
@@ -153,7 +153,7 @@ class CornerCell: UITableViewCell {
 
 class testlabel: UILabel {
     
-    override class func layerClass()-> AnyClass{
+    override class var layerClass: AnyClass{
         
         return CornerRadiusLayer.self
     }
@@ -178,13 +178,13 @@ class CornerCellNormol: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         for m in [N1,N2,N3,N4,N5] {
-            m.layer.borderWidth  = 0.5
+            m?.layer.borderWidth  = 0.5
             
-            m.layer.cornerRadius = 8
+            m?.layer.cornerRadius = 8
             
-            m.layer.borderColor  = UIColor.redColor().CGColor
+            m?.layer.borderColor  = UIColor.red.cgColor
             
-            m.layer.masksToBounds   = true
+            m?.layer.masksToBounds   = true
             
         }
     }
@@ -196,7 +196,7 @@ class CornerCellNormol: UITableViewCell {
 
 class CornerImageView: UIImageView {
     
-    override class func layerClass()-> AnyClass{
+    override class var layerClass: AnyClass{
         
         return CornerRadiusLayer.self
     }
@@ -204,7 +204,7 @@ class CornerImageView: UIImageView {
 }
 
 class CornerButton: UIButton {
-    override class func layerClass()-> AnyClass{
+    override class var layerClass: AnyClass{
         
         return CornerRadiusLayer.self
     }

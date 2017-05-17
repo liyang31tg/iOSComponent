@@ -13,7 +13,7 @@ class SunFPSLabel: UILabel {
     
     var ca: CADisplayLink!
     var count                           = 0
-    let rM                              = NSRunLoop.mainRunLoop()
+    let rM                              = RunLoop.main
     
     var lastTime:CFTimeInterval         = 0
     override init(frame: CGRect) {
@@ -32,17 +32,17 @@ class SunFPSLabel: UILabel {
     }
     
     func setup(){
-        self.textColor = UIColor.blackColor()
+        self.textColor = UIColor.black
         ca = CADisplayLink(target: self, selector: #selector(SunFPSLabel.heart(_:)))
-        ca.addToRunLoop(rM, forMode: NSRunLoopCommonModes)
+        ca.add(to: rM, forMode: RunLoopMode.commonModes)
     }
     
     deinit{
         ca.invalidate()
-        ca.removeFromRunLoop(rM, forMode: NSRunLoopCommonModes)
+        ca.remove(from: rM, forMode: RunLoopMode.commonModes)
     }
     
-    func heart(calink: CADisplayLink){
+    func heart(_ calink: CADisplayLink){
         guard (lastTime != 0) else {
             lastTime = calink.timestamp
             return

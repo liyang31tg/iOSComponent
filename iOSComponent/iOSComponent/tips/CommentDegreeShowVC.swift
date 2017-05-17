@@ -17,7 +17,7 @@ class CommentDegreeShowVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         commentDegreeViewA.degree       = 4
-        commentDegreeViewA.tap.enabled  = false
+        commentDegreeViewA.tap.isEnabled  = false
         
         commentDegreeViewB.degree       = 5
     }

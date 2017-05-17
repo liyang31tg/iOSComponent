@@ -20,21 +20,21 @@ class DistrictSearchDemoVC: BaseViewController {
         
     }
     
-    @IBAction func searchAction(sender: AnyObject) {
+    @IBAction func searchAction(_ sender: AnyObject) {
         let option = BMKDistrictSearchOption()
         option.city     = self.cityTextField.text
         option.district = self.districtTextField.text
         districtSearch.districtSearch(option)
         
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         contentMapView.viewWillAppear()
         contentMapView.delegate = self
         districtSearch.delegate = self
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         contentMapView.viewWillDisappear()
         contentMapView.delegate = nil
@@ -43,13 +43,13 @@ class DistrictSearchDemoVC: BaseViewController {
 }
 
 extension DistrictSearchDemoVC: BMKDistrictSearchDelegate{
-    func onGetDistrictResult(searcher: BMKDistrictSearch!, result: BMKDistrictResult!, errorCode error: BMKSearchErrorCode) {
+    func onGetDistrictResult(_ searcher: BMKDistrictSearch!, result: BMKDistrictResult!, errorCode error: BMKSearchErrorCode) {
         if error == BMK_SEARCH_NO_ERROR {
-            contentMapView.setCenterCoordinate(result.center, animated: true)
+            contentMapView.setCenter(result.center, animated: true)
             for path in result.paths {
                 let polygon = transferPathStringToPolygon(path as! String)
                 if (polygon != nil) {
-                    contentMapView.addOverlay(polygon) // 添加overlay
+                    contentMapView.add(polygon) // 添加overlay
                 }
             }
         }
@@ -57,18 +57,18 @@ extension DistrictSearchDemoVC: BMKDistrictSearchDelegate{
     }
     
     //根据path string 生成 BMKPolygon
-    func transferPathStringToPolygon(path: String) -> BMKPolygon? {
-        let pts = path.componentsSeparatedByString(";")
+    func transferPathStringToPolygon(_ path: String) -> BMKPolygon? {
+        let pts = path.components(separatedBy: ";")
         if  pts.count < 1 {
             return nil
         }
         
-        var points = Array(count: pts.count, repeatedValue: BMKMapPoint(x: 0, y: 0))
+        var points = Array(repeating: BMKMapPoint(x: 0, y: 0), count: pts.count)
         var index = 0
         for ptStr in pts {
-            let range = ptStr.rangeOfString(",")
-            let xStr = ptStr.substringToIndex((range?.startIndex)!)
-            let yStr = ptStr.substringFromIndex((range?.endIndex)!)
+            let range = ptStr.range(of: ",")
+            let xStr = ptStr.substring(to: (range?.lowerBound)!)
+            let yStr = ptStr.substring(from: (range?.upperBound)!)
             if xStr.characters.count > 0 && yStr.characters.count > 0  {
                 points[index] = BMKMapPointMake(Double(xStr)!, Double(yStr)!)
                 index += 1
@@ -86,13 +86,13 @@ extension DistrictSearchDemoVC: BMKDistrictSearchDelegate{
 
 extension DistrictSearchDemoVC: BMKMapViewDelegate{
     
-    func mapView(mapView: BMKMapView!, viewForOverlay overlay: BMKOverlay!) -> BMKOverlayView! {
+    func mapView(_ mapView: BMKMapView!, viewFor overlay: BMKOverlay!) -> BMKOverlayView! {
         if (overlay as? BMKPolygon) != nil {
             let polygonView = BMKPolygonView(overlay: overlay)
-            polygonView.strokeColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.6)
-            polygonView.fillColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.4)
-            polygonView.lineWidth = 1
-            polygonView.lineDash = true
+            polygonView?.strokeColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.6)
+            polygonView?.fillColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.4)
+            polygonView?.lineWidth = 1
+            polygonView?.lineDash = true
             return polygonView
         }
         return nil

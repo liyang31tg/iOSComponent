@@ -15,45 +15,45 @@ class BasePlainTableViewController: BaseViewController {
 
 extension BasePlainTableViewController :UITableViewDataSource,UITableViewDelegate {
     //MARK:TableViewDelegate
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("cttableviewCellidentifier")!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cttableviewCellidentifier")!
         cell.ctDomain = dataArray[indexPath.row]
         return cell
         
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nil
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.000001
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.0000001
     }
     
    
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let ctDomain = dataArray[indexPath.row]
         switch ctDomain.domainType {
-        case CTDomain.DomainType.UsePerformIdentifier:
-            self.performSegueWithIdentifier(ctDomain.performIdentifier, sender: self)
+        case CTDomain.DomainType.usePerformIdentifier:
+            self.performSegue(withIdentifier: ctDomain.performIdentifier, sender: self)
 
-        case CTDomain.DomainType.UseStoryBoardId:
-            let st = UIStoryboard(name: ctDomain.storyBoard, bundle: NSBundle.mainBundle())
-            let vc = st.instantiateViewControllerWithIdentifier(ctDomain.storyBoardId)
+        case CTDomain.DomainType.useStoryBoardId:
+            let st = UIStoryboard(name: ctDomain.storyBoard, bundle: Bundle.main)
+            let vc = st.instantiateViewController(withIdentifier: ctDomain.storyBoardId)
             vc.title = ctDomain.title
             self.navigationController?.pushViewController(vc, animated: true)
             
-        case CTDomain.DomainType.UseViewClass:
+        case CTDomain.DomainType.useViewClass:
             let viewclass = ctDomain.viewClass
             let vc = (NSClassFromString(viewclass) as! UIViewController.Type).init()
             self.navigationController?.pushViewController(vc, animated: true)

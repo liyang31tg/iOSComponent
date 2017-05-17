@@ -11,12 +11,12 @@ import UIKit
 class CommentDegreeShowView: UIView {
     var degree      = 0{
         didSet{
-            self.layer.contents = UIImage(named: "EvaluationStar\(self.degree)")?.CGImage
+            self.layer.contents = UIImage(named: "EvaluationStar\(self.degree)")?.cgImage
         }
     }
     var allCount    = 5//更新这个，记得更新subFrames
     var tap:UITapGestureRecognizer!
-    lazy private var subFrames: [CGRect] = {
+    lazy fileprivate var subFrames: [CGRect] = {
         var tmpArray:[CGRect] = []
         let tmpWidth = self.frame.size.width / 5
         let tmpHeight = self.frame.size.height
@@ -33,10 +33,10 @@ class CommentDegreeShowView: UIView {
         
     }
     
-    func caculateInRect(currenttap:UITapGestureRecognizer){
-       let touchPoint =   currenttap.locationInView(self)
-        for (index,rect) in subFrames.enumerate(){
-            if CGRectContainsPoint(rect, touchPoint) {
+    func caculateInRect(_ currenttap:UITapGestureRecognizer){
+       let touchPoint =   currenttap.location(in: self)
+        for (index,rect) in subFrames.enumerated(){
+            if rect.contains(touchPoint) {
                degree = index + 1
                 break;
             }

@@ -17,12 +17,12 @@ class SuggestionSearchDemoVC: BaseViewController {
         super.viewDidLoad()
         self.title = "在线建议查询"
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         suggestSearch.delegate = self
     }
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         suggestSearch.delegate = nil
@@ -31,8 +31,8 @@ class SuggestionSearchDemoVC: BaseViewController {
 
 extension SuggestionSearchDemoVC:UISearchBarDelegate{
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        UIApplication.sharedApplication().keyWindow?.endEditing(true)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        UIApplication.shared.keyWindow?.endEditing(true)
         let suggestOption = BMKSuggestionSearchOption()
         suggestOption.cityname = "成都"
         suggestOption.keyword = searchBar.text
@@ -43,7 +43,7 @@ extension SuggestionSearchDemoVC:UISearchBarDelegate{
 
 extension SuggestionSearchDemoVC:BMKSuggestionSearchDelegate{
 
-    func onGetSuggestionResult(searcher: BMKSuggestionSearch!, result: BMKSuggestionResult!, errorCode error: BMKSearchErrorCode) {
+    func onGetSuggestionResult(_ searcher: BMKSuggestionSearch!, result: BMKSuggestionResult!, errorCode error: BMKSearchErrorCode) {
         self.sectionHeadString.removeAll()
         self.dataArray.removeAll()
         if result.keyList.count > 0{
@@ -80,27 +80,27 @@ extension SuggestionSearchDemoVC:BMKSuggestionSearchDelegate{
 
 extension SuggestionSearchDemoVC:UITableViewDelegate,UITableViewDataSource{
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataArray[section].count
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return self.dataArray.count
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sectionHeadString[section]
     }
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.0000001
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
         cell.textLabel?.text = self.dataArray[indexPath.section][indexPath.row]
         return cell
     }
